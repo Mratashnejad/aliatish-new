@@ -1,0 +1,178 @@
+{
+  "navigation": {
+    "home": "Home",
+    "packages": "Packages",
+    "services": "Services",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "page": {
+    "homePage": {
+      "heroSection": {
+        "title": "Elevate Your Digital Presence",
+        "subtitle": "Discover unparalleled elegance in every detail. From sleek websites to cutting-edge applications, let’s craft an extraordinary digital experience tailored just for you.",
+        "cta": {
+          "text": "Connect with Me",
+          "href": "#contact"
+        }
+      },
+      "sections": [
+        {
+          "name": "Projects",
+          "component": "ProjectsTab",
+          "fallback": "Loading..."
+        },
+        {
+          "name": "Resume",
+          "component": "ResumeTab",
+          "fallback": "Loading..."
+        },
+        {
+          "name": "Pricing",
+          "component": "PricingTab",
+          "fallback": "Loading..."
+        },
+        {
+          "name": "Contact",
+          "component": "ContactForm",
+          "fallback": "Loading..."
+        }
+      ],
+      "styles": {
+        "container": "relative min-h-screen flex flex-col items-center bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200"
+      }
+    },
+    "about": {
+      "id": "about",
+      "title": "About Us",
+      "sections": [
+        {
+          "title": "Our Story",
+          "content": "We are a passionate team dedicated to creating stunning web experiences. Our journey began with a simple idea: to deliver exceptional digital solutions that empower businesses and inspire creativity. With years of experience and a commitment to excellence, we transform ideas into impactful realities."
+        },
+        {
+          "title": "Our Mission",
+          "content": "Our mission is to provide top-notch web design and development services that exceed client expectations. We strive to stay ahead of industry trends, utilizing the latest technologies and best practices to ensure your project stands out and achieves its goals."
+        },
+        {
+          "title": "Our Values",
+          "content": [
+            "Innovation: We embrace creativity and strive to push boundaries.",
+            "Integrity: We value transparency and honesty in all our interactions.",
+            "Customer Satisfaction: Your success is our success. We prioritize your needs and work to exceed your expectations."
+          ]
+        }
+      ]
+    },
+    "termsOfServicePage": {
+      "id": "terms-of-service",
+      "title": "Terms of Service",
+      "sections": [
+        {
+          "title": "Introduction",
+          "content": "Welcome to [Your Company Name]. By using our services, you agree to the following terms and conditions. Please read them carefully."
+        },
+        {
+          "title": "1. Acceptance of Terms",
+          "content": "By accessing or using our services, you agree to be bound by these terms. If you do not agree, please do not use our services."
+        },
+        {
+          "title": "2. Changes to Terms",
+          "content": "We reserve the right to modify these terms at any time. Changes will be effective when posted. Your continued use of our services constitutes your acceptance of the revised terms."
+        },
+        {
+          "title": "3. User Responsibilities",
+          "content": "You agree to use our services only for lawful purposes and in accordance with these terms. You are responsible for maintaining the confidentiality of your account information."
+        },
+        {
+          "title": "4. Limitation of Liability",
+          "content": "We are not liable for any indirect, incidental, or consequential damages arising from your use of our services. Our liability is limited to the maximum extent permitted by law."
+        },
+        {
+          "title": "5. Governing Law",
+          "content": "These terms are governed by the laws of [Your Jurisdiction]. Any disputes arising from these terms will be resolved in the courts of [Your Jurisdiction]."
+        }
+      ]
+    },
+    "packagesPage": {
+      "id": "packages",
+      "title": "Our Packages",
+      "packages": [
+        {
+          "name": "Starter Package",
+          "description": "Ideal for individuals or small projects with essential features and support.",
+          "price": "$299",
+          "features": [
+            "5 Pages Included",
+            "Basic SEO Setup",
+            "1 Month Support"
+          ],
+          "cta": {
+            "text": "Get Started",
+            "href": "#contact",
+            "backgroundColor": "bg-indigo-600",
+            "hoverColor": "hover:bg-indigo-700"
+          },
+          "styles": {
+            "container": "bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105",
+            "title": "text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100",
+            "price": "text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100",
+            "featureIcon": "text-indigo-500 mr-2"
+          }
+        },
+        {
+          "name": "Professional Package",
+          "description": "For growing businesses that need additional features and extended support.",
+          "price": "$599",
+          "features": [
+            "10 Pages Included",
+            "Advanced SEO Setup",
+            "3 Months Support",
+            "Blog Integration"
+          ],
+          "cta": {
+            "text": "Choose Plan",
+            "href": "#contact",
+            "backgroundColor": "bg-purple-600",
+            "hoverColor": "hover:bg-purple-700"
+          },
+          "styles": {
+            "container": "bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105",
+            "title": "text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100",
+            "price": "text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100",
+            "featureIcon": "text-purple-500 mr-2"
+          }
+        },
+        {
+          "name": "Premium Package",
+          "description": "The ultimate package for comprehensive solutions and top-tier support.",
+          "price": "$999",
+          "features": [
+            "Unlimited Pages",
+            "Premium SEO Setup",
+            "6 Months Support",
+            "E-commerce Integration",
+            "Custom Features"
+          ],
+          "cta": {
+            "text": "Contact Us",
+            "href": "#contact",
+            "backgroundColor": "bg-pink-600",
+            "hoverColor": "hover:bg-pink-700"
+          },
+          "styles": {
+            "container": "bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105",
+            "title": "text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100",
+            "price": "text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100",
+            "featureIcon": "text-pink-500 mr-2"
+          }
+        }
+      ],
+      "styles": {
+        "container": "w-full min-h-screen py-16 px-6 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 dark:from-indigo-900 dark:via-purple-800 dark:to-pink-700",
+        "header": "text-5xl font-bold text-white mb-12",
+        "grid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+      }
+    }
+  }
+}

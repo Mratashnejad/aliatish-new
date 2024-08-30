@@ -12,23 +12,27 @@ export default function PackagesPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {/* Package 1 */}
                     <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                        <h3 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Starter Package</h3>
+                        <h3 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Starter </h3>
                         <p className="text-gray-700 dark:text-gray-300 mb-6">
-                            Ideal for individuals or small projects with essential features and support.
+                            Ideal for individuals or Personal or Blog projects with essential features and support.
                         </p>
-                        <p className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">$299</p>
+                        <p className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">$99</p>
                         <ul className="list-disc list-inside mb-6">
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-indigo-500 mr-2" />
-                                5 Pages Included
+                                Personal , Portfolio , Blog
                             </li>
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-indigo-500 mr-2" />
-                                Basic SEO Setup
+                                3 - 5 Pages Included
                             </li>
                             <li className="flex items-center">
                                 <FaCheckCircle className="text-indigo-500 mr-2" />
                                 1 Month Support
+                            </li>
+                            <li className="flex items-center">
+                                <FaCheckCircle className="text-indigo-500 mr-2" />
+                                Basic SEO Setup
                             </li>
                         </ul>
                         <a
@@ -40,7 +44,7 @@ export default function PackagesPage() {
                     </div>
                     {/* Package 2 */}
                     <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                        <h3 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Professional Package</h3>
+                        <h3 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Professional </h3>
                         <p className="text-gray-700 dark:text-gray-300 mb-6">
                             For growing businesses that need additional features and extended support.
                         </p>
@@ -48,11 +52,11 @@ export default function PackagesPage() {
                         <ul className="list-disc list-inside mb-6">
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-purple-500 mr-2" />
-                                10 Pages Included
+                                Shop , E-Commerece 
                             </li>
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-purple-500 mr-2" />
-                                Advanced SEO Setup
+                                10 Pages Included
                             </li>
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-purple-500 mr-2" />
@@ -60,19 +64,19 @@ export default function PackagesPage() {
                             </li>
                             <li className="flex items-center">
                                 <FaCheckCircle className="text-purple-500 mr-2" />
-                                Blog Integration
+                                Advance SEO setup
                             </li>
                         </ul>
                         <a
                             href="#contact"
                             className="bg-purple-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-purple-700 transition"
                         >
-                            Choose Plan
+                            Contact us
                         </a>
                     </div>
                     {/* Package 3 */}
                     <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105">
-                        <h3 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Premium Package</h3>
+                        <h3 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100">Premium</h3>
                         <p className="text-gray-700 dark:text-gray-300 mb-6">
                             The ultimate package for comprehensive solutions and top-tier support.
                         </p>
@@ -80,11 +84,11 @@ export default function PackagesPage() {
                         <ul className="list-disc list-inside mb-6">
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-pink-500 mr-2" />
-                                Unlimited Pages
+                                Web Application Integration
                             </li>
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-pink-500 mr-2" />
-                                Premium SEO Setup
+                                 Unlimited Pages
                             </li>
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-pink-500 mr-2" />
@@ -92,7 +96,7 @@ export default function PackagesPage() {
                             </li>
                             <li className="flex items-center mb-2">
                                 <FaCheckCircle className="text-pink-500 mr-2" />
-                                E-commerce Integration
+                                Premium SEO Setup
                             </li>
                             <li className="flex items-center">
                                 <FaCheckCircle className="text-pink-500 mr-2" />

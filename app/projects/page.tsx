@@ -18,10 +18,9 @@ export default function ProjectsTab() {
                             height={40}
                             className="w-full h-48 object-cover rounded-lg mb-6"
                         />
-                        <h3 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Project Name 1</h3>
+                        <h3 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">Gtnelu</h3>
                         <p className="text-gray-700 dark:text-gray-300 mb-6">
-                            Detailed description of the project including technologies used, challenges faced, and solutions implemented.
-                        </p>
+                        Connect with daily job opportunities and earn money effortlessly through simple tasks. Our platform offers a user-friendly experience, secure payments, and a wide range of job categories, making it easy for anyone to start earning.                        </p>
                         <a
                             href="/projects"
                             className="text-blue-600 dark:text-blue-400 hover:underline text-lg font-medium"

@@ -12,7 +12,7 @@ export default function Term() {
                 </h2>
                 <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
                     <p className="text-gray-700 dark:text-gray-300 mb-6">
-                        Welcome to [Your Company Name]. By using our services, you agree to the following terms and conditions. Please read them carefully.
+                        Welcome to Aliatish Web Development Company. By using our services, you agree to the following terms and conditions. Please read them carefully.
                     </p>
                     <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                         1. Acceptance of Terms
@@ -44,7 +44,6 @@ export default function Term() {
                     <p className="text-gray-700 dark:text-gray-300 mb-6">
                         These terms are governed by the laws of [Your Jurisdiction]. Any disputes arising from these terms will be resolved in the courts of [Your Jurisdiction].
                     </p>
-                    {/* Add more sections as needed */}
                 </div>
             </div>
         </section>

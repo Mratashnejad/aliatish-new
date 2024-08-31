@@ -1,9 +1,9 @@
-'use client'
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { PathButton } from '@/components/Path-button';
 
 export default function Home() {
-    const router = useRouter();
+    const t = useTranslations ('HeroSection')
     return (
         <div className="relative min-h-screen flex flex-col items-center bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
 
@@ -11,17 +11,18 @@ export default function Home() {
             <section className="relative flex flex-col items-center justify-center h-screen py-28    px-6 z-10 w-full bg-gradient-to-r from-pink-700 via-black-500 to-red-400 dark:from-gray-900 dark:via-gray-800 dark:to-gray-660">
                 <div className="relative z-10 text-center mt-16 px-6">
                     <h1 className="text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-                        <span className="block">Launch Your Personal Website Today</span>
-                        <span className="block">    </span>
+                        <span className="block">{t('title')}</span>
+                        <span className="block"></span>
                     </h1>
                     <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-                    Unleash the power of innovation and style. From sleek, modern websites to advanced applications, let&aposs create an extraordinary digital experience that&aposs uniquely yours.                    </p>
-                    <button
-                        onClick={()=> router.push('/order')}
+                        {t('description')}
+                    </p>
+                    <PathButton
                         className="bg-blue-600 text-white px-8 py-4 rounded-lg text-xl font-semibold hover:bg-blue-700 transition"
+                        path='/order'
                     >
-                        Get Started
-                    </button>
+                        {t('cta')}
+                    </PathButton>
                 </div>
             </section>
         </div>

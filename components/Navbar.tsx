@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation';
 import LocalSwitcher from './localswitcher';
 import { useTranslations } from 'next-intl';
 import NavbarButtonToggle from './NavbarButtonToggle';
+import { OrderButton } from './order-button';
+import { PathButton } from './Path-button';
 
 export default function Navbar() {
     const t = useTranslations('Navigation');
@@ -28,51 +30,51 @@ export default function Navbar() {
                         </div>
                         <div className="hidden md:flex ">
                             <div className="flex items-center gap-2">
-                                <div
+                                <PathButton
                                     className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    // onClick={() => router.push('/')}
+                                    path='/'
                                 >
                                     {t('home')}
-                                </div>
-                                <div
+                                </PathButton>
+                                <PathButton
                                     className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    // onClick={() => router.push('/packages')}
+                                    path='/packages'
                                 >
                                     {t('packages')}
-                                </div>
-                                <div
+                                </PathButton>
+                                <PathButton
                                     className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    // onClick={() => router.push('/services')}
+                                    path='/services'
                                 >
                                     {t('services')}
-                                </div>
-                                <div
+                                </PathButton>
+                                <PathButton
                                     className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    // onClick={() => router.push('/projects')}
+                                    path='/projects'
                                 >
                                     {t('projects')}
-                                </div>
-                                <div
+                                </PathButton>
+                                <PathButton
                                     className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    // onClick={() => router.push('/blog')}
+                                    path='/blog'
                                 >
                                     {t('blog')}
-                                </div>
-                                <div
+                                </PathButton>
+                                <PathButton
                                     className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    // onClick={() => router.push('/about')}
+                                    path='/about'
                                 >
                                     {t('about')}
-                                </div>
+                                </PathButton>
                             </div>
                         </div>
                         <div className="flex items-center gap-2">
-                            <div
+                            <PathButton
                                 className="inline-flex items-center justify-center rounded-xl bg-green-600 px-3 py-1 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer"
-                                // onClick={() => router.push('/order')}
+                                path='/order'
                             >
                                 {t('submitOrder')}
-                            </div>
+                            </PathButton>
                             <div
                                 className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-1 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer"
                             >

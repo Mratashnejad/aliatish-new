@@ -9,7 +9,7 @@ export default function ThemeSwitch() {
     const { setTheme, resolvedTheme } = useTheme();
     useEffect(() => setMounted(true), []);
 
-    if (!mounted) return <p>loading..</p>;
+    if (!mounted) return (<FiSun/>);
 
     if (resolvedTheme === 'dark') {
         return <FiSun onClick={() => setTheme('light')} />;

@@ -1,7 +1,7 @@
 'use client';
 import { useState  } from 'react';
 import { useRouter } from 'next/navigation';
-import { addOrder  } from '@/../lib/order/setOrder';
+import { addOrder  } from '@/lib/order/setOrder';
 
 const OrderPage : React.FC = ()=> {
         const router = useRouter();

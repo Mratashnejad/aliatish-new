@@ -1,10 +1,9 @@
 // app/layout.tsx
-import '@/styles/globals.css'; // Ensure global styles are imported
-import FooterBar from '@/components/footer'; // Update the path if necessary
+import '@/styles/globals.css';
+import FooterBar from '@/components/footer'; 
 import { Providers } from './providers';
 import Navbar from '@/components/Navbar';
-import { SessionProvider } from 'next-auth/react'; // Ensure this import is correct
-import { IntlProvider } from 'next-intl';
+import { SessionProvider } from 'next-auth/react'; 
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -22,8 +21,8 @@ export default function RootLayout({
         <title>Personal Web</title>
       </head>
       <body>
-        <SessionProvider>
-          <Providers>
+        <SessionProvider> 
+           <Providers>
    
               <Navbar />
               <main>{children}</main>

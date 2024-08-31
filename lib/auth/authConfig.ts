@@ -15,9 +15,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     maxAge: 30 * 24 * 60 * 60, // 30 days in seconds (this value is also the default)
   },
   pages: {
-    signIn: "../auth/sign-in",
-    verifyRequest: "../auth/auth-success",
-    error: "../auth/auth-error",
+    signIn: "/auth/sign-in/",
+    verifyRequest: "/auth/auth-success",
+    error: "/auth/auth-error",
+  
   },
   providers: [
     Google({

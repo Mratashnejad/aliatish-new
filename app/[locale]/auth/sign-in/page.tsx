@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation"
 import { SignInPage } from "./signin";
-import { checkIsAuthenticated } from "@/../lib/auth/checkIsAuthenticated";
+import { checkIsAuthenticated } from "@/lib/auth/checkIsAuthenticated";
 
 const SignIn: React.FC = async()=>{
 

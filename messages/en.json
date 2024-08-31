@@ -18,5 +18,37 @@
     "copyright": "© 2024 Ali Atish. All Rights Reserved.",
     "helpCenter": "Help Center",
     "termsOfService": "Terms of Service"
-  }
+  },
+    "ServicesPage": {
+      "title": "Our Services",
+      "services": [
+        {
+          "title": "Web Design",
+          "description": "Crafting visually stunning and user-friendly websites tailored to your brand and audience.",
+          "features": [
+            "Custom Layouts",
+            "Responsive Design",
+            "SEO Optimization"
+          ]
+        },
+        {
+          "title": "App Development",
+          "description": "Developing robust and scalable applications that enhance user experience and engagement.",
+          "features": [
+            "Cross-Platform Solutions",
+            "API Integration",
+            "User-Centric Design"
+          ]
+        },
+        {
+          "title": "Digital Marketing",
+          "description": "Leveraging modern marketing techniques to boost your online presence and drive conversions.",
+          "features": [
+            "Social Media Management",
+            "Content Creation",
+            "PPC Advertising"
+          ]
+        }
+      ]
+    }
 }

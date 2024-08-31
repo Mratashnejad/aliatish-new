@@ -2,6 +2,7 @@
 import { useState  } from 'react';
 import { useRouter } from 'next/navigation';
 import { addOrder  } from '@/lib/order/setOrder';
+import { useLocale } from 'next-intl';
 
 const OrderPage : React.FC = ()=> {
         const router = useRouter();
@@ -41,7 +42,7 @@ const OrderPage : React.FC = ()=> {
                     formData.append('contact_method', contact_method);
                     await addOrder(formData);
                     alert('data added succesfuly');
-                    router.push('/order/success');
+                    router.push(`/${locale}/order/success`);
                     
                 }catch(error){
                     console.error('faild to add data ' , error);

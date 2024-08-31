@@ -1,178 +1,22 @@
 {
-  "navigation": {
+  "Navigation": {
     "home": "خانه",
     "packages": "بسته‌ها",
     "services": "خدمات",
+    "projects": "پروژه‌ها",
     "blog": "وبلاگ",
-    "about": "درباره ما"
+    "about": "درباره ما",
+    "submitOrder": "ارسال سفارش",
+    "signIn": "ورود"
   },
-  "page": {
-    "homePage": {
-      "heroSection": {
-        "title": "حضور دیجیتال خود را ارتقاء دهید",
-        "subtitle": "در هر جزئیات زیبایی بی‌نظیر را کشف کنید. از وب‌سایت‌های شیک گرفته تا برنامه‌های پیشرفته، بیایید تجربه دیجیتال فوق‌العاده‌ای طراحی کنیم که به طور خاص برای شما سفارشی شده است.",
-        "cta": {
-          "text": "با من تماس بگیرید",
-          "href": "#contact"
-        }
-      },
-      "sections": [
-        {
-          "name": "پروژه‌ها",
-          "component": "ProjectsTab",
-          "fallback": "در حال بارگذاری..."
-        },
-        {
-          "name": "رزومه",
-          "component": "ResumeTab",
-          "fallback": "در حال بارگذاری..."
-        },
-        {
-          "name": "قیمت‌گذاری",
-          "component": "PricingTab",
-          "fallback": "در حال بارگذاری..."
-        },
-        {
-          "name": "تماس",
-          "component": "ContactForm",
-          "fallback": "در حال بارگذاری..."
-        }
-      ],
-      "styles": {
-        "container": "relative min-h-screen flex flex-col items-center bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200"
-      }
-    },
-    "about": {
-      "id": "about",
-      "title": "درباره ما",
-      "sections": [
-        {
-          "title": "داستان ما",
-          "content": "ما تیمی پرشور هستیم که به ایجاد تجربه‌های وب خیره‌کننده اختصاص یافته‌ایم. سفر ما با یک ایده ساده آغاز شد: ارائه راه‌حل‌های دیجیتال استثنایی که به کسب‌وکارها قدرت می‌دهد و خلاقیت را الهام می‌بخشد. با سال‌ها تجربه و تعهد به برتری، ما ایده‌ها را به واقعیت‌های تاثیرگذار تبدیل می‌کنیم."
-        },
-        {
-          "title": "ماموریت ما",
-          "content": "ماموریت ما ارائه خدمات طراحی و توسعه وب با کیفیت عالی است که فراتر از انتظارات مشتریان باشد. ما تلاش می‌کنیم که از روندهای صنعت جلوتر باشیم و از جدیدترین تکنولوژی‌ها و بهترین شیوه‌ها استفاده کنیم تا پروژه شما برجسته شود و به اهدافش برسد."
-        },
-        {
-          "title": "ارزش‌های ما",
-          "content": [
-            "نوآوری: ما خلاقیت را در آغوش می‌کشیم و سعی می‌کنیم مرزها را جابجا کنیم.",
-            "صداقت: ما به شفافیت و صداقت در تمام تعاملاتمان ارزش می‌دهیم.",
-            "رضایت مشتری: موفقیت شما موفقیت ماست. ما نیازهای شما را در اولویت قرار می‌دهیم و تلاش می‌کنیم که انتظارات شما را فراتر از آن برآورده کنیم."
-          ]
-        }
-      ]
-    },
-    "termsOfServicePage": {
-      "id": "terms-of-service",
-      "title": "شرایط خدمات",
-      "sections": [
-        {
-          "title": "مقدمه",
-          "content": "به [نام شرکت شما] خوش آمدید. با استفاده از خدمات ما، شما با شرایط و ضوابط زیر موافقت می‌کنید. لطفاً آنها را با دقت بخوانید."
-        },
-        {
-          "title": "1. پذیرش شرایط",
-          "content": "با دسترسی یا استفاده از خدمات ما، شما موافقت می‌کنید که به این شرایط متعهد شوید. اگر با آنها موافق نیستید، لطفاً از خدمات ما استفاده نکنید."
-        },
-        {
-          "title": "2. تغییرات در شرایط",
-          "content": "ما حق تغییر این شرایط را در هر زمانی محفوظ می‌دانیم. تغییرات زمانی مؤثر خواهند بود که منتشر شوند. ادامه استفاده شما از خدمات ما به معنای پذیرش شرایط تغییر یافته است."
-        },
-        {
-          "title": "3. مسئولیت‌های کاربر",
-          "content": "شما موافقت می‌کنید که از خدمات ما تنها برای مقاصد قانونی و طبق این شرایط استفاده کنید. شما مسئول حفظ محرمانگی اطلاعات حساب خود هستید."
-        },
-        {
-          "title": "4. محدودیت مسئولیت",
-          "content": "ما مسئولیتی در قبال هر گونه خسارات غیرمستقیم، تصادفی یا پی‌آمدی که ناشی از استفاده شما از خدمات ما باشد نداریم. مسئولیت ما به حداکثر حد مجاز قانون محدود است."
-        },
-        {
-          "title": "5. قانون حاکم",
-          "content": "این شرایط تحت قوانین [حوزه قضائی شما] تنظیم شده است. هرگونه اختلافی که ناشی از این شرایط باشد در دادگاه‌های [حوزه قضائی شما] حل و فصل خواهد شد."
-        }
-      ]
-    },
-    "packagesPage": {
-      "id": "packages",
-      "title": "بسته‌های ما",
-      "packages": [
-        {
-          "name": "بسته ابتدایی",
-          "description": "مناسب برای افراد یا پروژه‌های کوچک با ویژگی‌ها و پشتیبانی اساسی.",
-          "price": "$299",
-          "features": [
-            "5 صفحه شامل",
-            "تنظیم SEO پایه",
-            "پشتیبانی 1 ماهه"
-          ],
-          "cta": {
-            "text": "شروع کنید",
-            "href": "#contact",
-            "backgroundColor": "bg-indigo-600",
-            "hoverColor": "hover:bg-indigo-700"
-          },
-          "styles": {
-            "container": "bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105",
-            "title": "text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100",
-            "price": "text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100",
-            "featureIcon": "text-indigo-500 mr-2"
-          }
-        },
-        {
-          "name": "بسته حرفه‌ای",
-          "description": "برای کسب‌وکارهای در حال رشد که نیاز به ویژگی‌های اضافی و پشتیبانی طولانی‌تر دارند.",
-          "price": "$599",
-          "features": [
-            "10 صفحه شامل",
-            "تنظیم SEO پیشرفته",
-            "پشتیبانی 3 ماهه",
-            "ادغام وبلاگ"
-          ],
-          "cta": {
-            "text": "انتخاب طرح",
-            "href": "#contact",
-            "backgroundColor": "bg-purple-600",
-            "hoverColor": "hover:bg-purple-700"
-          },
-          "styles": {
-            "container": "bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105",
-            "title": "text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100",
-            "price": "text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100",
-            "featureIcon": "text-purple-500 mr-2"
-          }
-        },
-        {
-          "name": "بسته پریمیوم",
-          "description": "بسته نهایی برای راه‌حل‌های جامع و پشتیبانی برتر.",
-          "price": "$999",
-          "features": [
-            "صفحات نامحدود",
-            "تنظیم SEO پریمیوم",
-            "پشتیبانی 6 ماهه",
-            "ادغام تجارت الکترونیک",
-            "ویژگی‌های سفارشی"
-          ],
-          "cta": {
-            "text": "تماس با ما",
-            "href": "#contact",
-            "backgroundColor": "bg-pink-600",
-            "hoverColor": "hover:bg-pink-700"
-          },
-          "styles": {
-            "container": "bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105",
-            "title": "text-3xl font-semibold mb-4 text-gray-900 dark:text-gray-100",
-            "price": "text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100",
-            "featureIcon": "text-pink-500 mr-2"
-          }
-        }
-      ],
-      "styles": {
-        "container": "w-full min-h-screen py-16 px-6 bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 dark:from-indigo-900 dark:via-purple-800 dark:to-pink-700",
-        "header": "text-5xl font-bold text-white mb-12",
-        "grid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
-      }
-    }
+  "HeroSection": {
+    "title": "وب‌سایت شخصی خود را امروز راه‌اندازی کنید",
+    "description": "قدرت نوآوری و سبک را آزاد کنید. از وب‌سایت‌های مدرن و شیک تا برنامه‌های پیشرفته، بیایید تجربه دیجیتال فوق‌العاده‌ای بسازیم که به‌طور منحصر به فرد شماست.",
+    "cta": "شروع کنید"
+  },
+  "Footer": {
+    "copyright": "© 2024 علی آتش. کلیه حقوق محفوظ است.",
+    "helpCenter": "مرکز کمک",
+    "termsOfService": "شرایط خدمات"
   }
 }

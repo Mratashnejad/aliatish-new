@@ -3,20 +3,27 @@
 import { auth } from '@/lib/auth/authConfig';
 import { pool } from '@/lib/postgres';
 
-
-export const getUserRole = async()=>{
+export const getUserRole = async (): Promise<string | undefined> => {
     const session = await auth();
-    if(session){
-        const uuid = session.user.id;
+    
+    // Check if session and session.user.id exist
+    if (session && session.user?.id) {
+        const uuid: string = session.user.id;
+
         // Sanitize input
         const uuidRegExp: RegExp =
-        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
-    if (typeof uuid !== "string" || !uuidRegExp.test(uuid)) {
-        throw new Error("Invalid UUID");
+            /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
+        if (!uuidRegExp.test(uuid)) {
+            throw new Error("Invalid UUID");
+        }
 
+        // Query the database for the user's role
+        const { rows } = await pool.query("SELECT role FROM users WHERE id = $1", [uuid]);
+
+        // If a role is found, return it; otherwise, return undefined
+        return rows[0]?.role ?? undefined;
     }
 
-    const { rows } = await pool.query("SELECT role FROM users WHERE id =$1", [uuid]);
-    return rows[0].role;
-    }
-}   
+    // If no session or user id, return undefined
+    return undefined;
+};

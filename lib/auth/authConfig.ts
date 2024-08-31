@@ -15,9 +15,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     maxAge: 30 * 24 * 60 * 60, // 30 days in seconds (this value is also the default)
   },
   pages: {
-    signIn: "/auth/sign-in",
-    verifyRequest: "/auth/auth-success",
-    error: "/auth/auth-error",
+    signIn: "../auth/sign-in",
+    verifyRequest: "../auth/auth-success",
+    error: "../auth/auth-error",
   },
   providers: [
     Google({
@@ -28,7 +28,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     Nodemailer({
       server: {
           host: process.env.EMAIL_SERVER_HOST,
-          port: parseInt(process.env.ENAIL_SERVER_PORT, 10),
+          port: parseInt(process.env.EMAIL_SERVER_PORT || '587', 10),
           auth:{
             user : process.env.EMAIL_SERVER_USER,
             pass : process.env.EMAIL_SERVER_PASSWORD,
@@ -42,7 +42,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if(trigger === "update" && session?.name !== token.name){
         token.name = session.name;
         try{
-          await setName(token.name);
+          await setName(token.name || 'default name');
         }catch(error){
           console.error('Faild to set user name:', error)
         }

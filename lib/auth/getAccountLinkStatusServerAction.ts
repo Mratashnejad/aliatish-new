@@ -1,30 +1,34 @@
-'use server'
+'use server';
 // Import necessary modules
-import {auth} from '@/lib/auth/authConfig'; // Import authentication function from configuration
-import {pool} from '@/lib/postgres'; // Import PostgreSQL connection pool
+import { auth } from '@/lib/auth/authConfig'; // Import authentication function from configuration
+import { pool } from '@/lib/postgres'; // Import PostgreSQL connection pool
 
 /**
  * Function to check if the user has a Google account linked.
  * @returns {Promise<boolean>} - Returns true if the user has a Google account linked, otherwise false.
  * @throws {Error} - Throws an error if unauthorized or if the UUID is invalid.
  */
-
 export const getAccountLinkStatus = async () => {
     // Get the current session
     const session = await auth();
     
-    // Check if the session exists
-    if (!session) {
-        throw new Error('Unauthorized'); // Throw error if no session is found
+    // Check if the session and session.user exist
+    if (!session || !session.user) {
+        throw new Error('Unauthorized or User is undefined'); // Throw error if no session or session.user is found
     }
 
-    // Extract UUID from session user
+    // Check if session.user.id is undefined and handle it
+    if (!session.user?.id) {
+        throw new Error('User ID is undefined');
+    }
+
+    // Since we've ensured session.user.id is defined, we can safely assign it
     const uuid: string = session.user.id;
 
+
     // Sanitize and validate UUID input
-    const uuidRegExp: RegExp =
-    /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/; // Regular expression for UUID validation
-    if (typeof uuid !== "string" || !uuidRegExp.test(uuid)) {
+    const uuidRegExp: RegExp = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/; // Regular expression for UUID validation
+    if (!uuidRegExp.test(uuid)) {
         throw new Error('Invalid UUID'); // Throw error if UUID is invalid
     }
 
@@ -47,4 +51,4 @@ export const getAccountLinkStatus = async () => {
     
     // Return true if a Google account is linked
     return true;
-}
+};

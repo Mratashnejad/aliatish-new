@@ -2,12 +2,10 @@ import React from 'react';
 import ThemeSwitch from './ThemeSwitch';
 // import { SignInButton } from '@/components/sign-in-button';
 import Logo from '/public/images/Logo-Aliatish.svg';
-import { useRouter } from 'next/navigation';
 // import { SignOutButton } from '@/components/sign-out-button';
 import LocalSwitcher from './localswitcher';
 import { useTranslations } from 'next-intl';
 import NavbarButtonToggle from './NavbarButtonToggle';
-import { OrderButton } from './order-button';
 import { PathButton } from './Path-button';
 
 export default function Navbar() {

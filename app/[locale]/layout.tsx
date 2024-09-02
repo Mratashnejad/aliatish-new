@@ -4,6 +4,7 @@ import FooterBar from '@/components/footer';
 import { Providers } from './providers';
 import Navbar from '@/components/Navbar';
 import { SessionProvider } from 'next-auth/react'; 
+import GoogleOneTap from '@/components/GoogleOneTap';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body>
         <SessionProvider> 
            <Providers>
-   
+              <GoogleOneTap locale = {locale}/>
               <Navbar />
               <main>{children}</main>
               <FooterBar />

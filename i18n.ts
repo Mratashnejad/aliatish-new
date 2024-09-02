@@ -6,7 +6,15 @@ const locales = ['en', 'ir', 'hy'];
 
 export default getRequestConfig(async ({locale}) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale as any)) {
+    return{
+      redirect:{
+        destination:'/404',
+        permanent: false,
+
+      }
+    }
+  }
  
   return {
     messages: (await import(`./messages/${locale}.json`)).default

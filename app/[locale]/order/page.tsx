@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl';
 
 const OrderPage : React.FC = ()=> {
         const router = useRouter();
+        const locale = useLocale();
 /////////////////////////////////////////////////////////////////////////
         const [isLoading, setIsLoading] = useState<boolean>(true);
         const [name ,setName] = useState<string>('');

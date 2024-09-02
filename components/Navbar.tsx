@@ -1,8 +1,6 @@
 import React from 'react';
 import ThemeSwitch from './ThemeSwitch';
-// import { SignInButton } from '@/components/sign-in-button';
 import Logo from '/public/images/Logo-Aliatish.svg';
-// import { SignOutButton } from '@/components/sign-out-button';
 import LocalSwitcher from './localswitcher';
 import { useTranslations } from 'next-intl';
 import NavbarButtonToggle from './NavbarButtonToggle';

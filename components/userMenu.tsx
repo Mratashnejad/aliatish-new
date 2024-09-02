@@ -5,8 +5,9 @@ import { SignInButton } from '@/components/sign-in-button';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SignOutButton } from './sign-out-button';
-import { FaHome, FaTachometerAlt, FaBell, FaTasks, FaRegCreditCard, FaSignOutAlt ,FaDollarSign} from 'react-icons/fa';
+import { FaHome, FaTachometerAlt, FaBell, FaTasks, FaRegCreditCard, FaSignOutAlt, FaDollarSign } from 'react-icons/fa';
 import { PathButton } from './Path-button';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const UserMenu = () => {
     const router = useRouter();
@@ -42,53 +43,62 @@ export const UserMenu = () => {
             {isAuthenticated ? (
                 <div>
                     <RxAvatar
-                        className="w-6 h-6 text-gray-700"
+                        className="w-5 h-5 text-gray-700 dark:text-gray-300 cursor-pointer hover:scale-105 transition-transform"
                         onClick={handleMenuBar}
                     />
-                    {menuVisible && (
-                        <div className="absolute w-full right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-10">
-                            
-                            <PathButton
-                                className="flex w-full items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
-                                path='/dashboard'
+                    
+                        {menuVisible && (
+                            <div
+                                className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-10"
                             >
-                                <FaTachometerAlt className="w-5 h-5 mr-2" />
-                                <span>Dashboard</span>
-                            </PathButton>
-                            <PathButton
-                                className="flex w-full items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
-                                path='/notifications'
-                            >
-                                <FaBell className="w-5 h-5 mr-2" />
-                                <span>Notifications</span>
-                            </PathButton>
-                            <PathButton
-                                className="flex w-full items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
-                                path='/orders'
-                            >
-                                <FaDollarSign className="w-5 h-5 mr-2" />
-                                <span>Orders</span>
-                            </PathButton>
-                            <PathButton
-                                className="flex  w-full items-center p-2 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
-                              path='/peyments'
-                              >
-
-                                <FaRegCreditCard className="w-5 h-5 mr-2" />
-                                <span>Peyments</span>
-                            </PathButton>
-                            <div className="border-t border-gray-200 dark:border-gray-700">
-                                <SignOutButton className="w-full py-2 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 transition duration-200 flex items-center justify-center">
+                                <PathButton
+                                    className="flex w-full items-center p-3 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors"
+                                    path='/dashboard'
+                                    onClick={() => handleMenuItemClick('/dashboard')}
+                                >
+                                    <FaTachometerAlt className="w-5 h-5 mr-2" />
+                                    <span>Dashboard</span>
+                                </PathButton>
+                                <PathButton
+                                    className="flex w-full items-center p-3 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors"
+                                    path='/notifications'
+                                    onClick={() => handleMenuItemClick('/notifications')}
+                                >
+                                    <FaBell className="w-5 h-5 mr-2" />
+                                    <span>Notifications</span>
+                                </PathButton>
+                                <PathButton
+                                    className="flex w-full items-center p-3 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors"
+                                    path='/orders'
+                                    onClick={() => handleMenuItemClick('/orders')}
+                                >
+                                    <FaDollarSign className="w-5 h-5 mr-2" />
+                                    <span>Orders</span>
+                                </PathButton>
+                                <PathButton
+                                    className="flex w-full items-center p-3 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors"
+                                    path='/payments'
+                                    onClick={() => handleMenuItemClick('/payments')}
+                                >
+                                    <FaRegCreditCard className="w-5 h-5 mr-2" />
+                                    <span>Payments</span>
+                                </PathButton>
+                                <div className="border-t border-gray-200 dark:border-gray-700 mt-2">
+                                    <SignOutButton className="w-full py-3 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex
+                                items-center justify-center"
+                                    onClick={() => handleMenuItemClick('/sign-out')}
+                                >
                                     <FaSignOutAlt className="w-5 h-5 mr-2" />
                                     <span>Sign Out</span>
                                 </SignOutButton>
                             </div>
                         </div>
                     )}
-                </div>
-            ) : (
-                <SignInButton className="py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200" />
-            )}
-        </div>
-    );
-};
+                
+            </div>
+        ) : (
+            <SignInButton className="py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200" />
+        )}
+    </div>
+);
+}

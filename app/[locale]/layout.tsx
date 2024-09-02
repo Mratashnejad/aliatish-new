@@ -1,4 +1,3 @@
-// app/layout.tsx
 import '@/styles/globals.css';
 import FooterBar from '@/components/footer'; 
 import { Providers } from './providers';
@@ -11,12 +10,16 @@ interface RootLayoutProps {
   params: {
     locale: string;
   };
+  showNavbar: boolean;
 }
 export default function RootLayout({
   children,
   params: { locale },
+  showNavbar,
+
 }: Readonly<RootLayoutProps>) {
   return (  
+  
     <html lang={locale} suppressHydrationWarning>
       <head>
         <title>Personal Web</title>
@@ -25,10 +28,10 @@ export default function RootLayout({
         <SessionProvider> 
            <Providers>
               <GoogleOneTap locale = {locale}/>
-              <Navbar />
+              <Navbar/>
+              {/* {showNavbar && <Navbar />} */}
               <main>{children}</main>
               <FooterBar />
-            
           </Providers>
         </SessionProvider>
       </body>

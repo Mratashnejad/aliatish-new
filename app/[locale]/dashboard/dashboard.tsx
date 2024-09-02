@@ -1,22 +1,29 @@
 'use client';
 import { useState, Suspense } from 'react';
-import { Sidebar } from '@/components/dashboardTabs/sidebarDashboard';
 import OrdersTab from '@/components/dashboardTabs/orderTab';
-import { SettingTab } from '@/components/dashboardTabs/settingTab';
+import PaymentTemplate from '@/components/dashboardTabs/paymentTemplate';
 import BonusTab from '@/components/dashboardTabs/bonusTab';
-import PaymentTab from '@/components/dashboardTabs/paymentTab';
+import { SettingTab } from '@/components/dashboardTabs/settingTab';
+import { Sidebar } from '@/components/dashboardTabs/sidebarDashboard';
 import { FaUserCircle } from 'react-icons/fa';
 import { FiMenu } from 'react-icons/fi';
-import PaymentTemplate from '@/components/dashboardTabs/paymentTemplate';
+import { DashboardMenu } from '@/components/dashboardTabs/dashboardMenu';
+import { useRouter } from 'next/navigation';
 
 export const DashboardPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState(
     () => localStorage.getItem('dashboardActiveTab') || 'orders'
   );
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
     localStorage.setItem('dashboardActiveTab', tab);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(prev => !prev);
   };
 
   return (
@@ -33,11 +40,19 @@ export const DashboardPage: React.FC = () => {
         {/* Top Navigation Bar */}
         <div className="flex justify-between items-center bg-white dark:bg-gray-800 shadow p-4">
           <div className="flex items-center space-x-4">
-            <FiMenu className="w-6 h-6 text-gray-500 dark:text-gray-300 cursor-pointer" />
+            <div>
+              <FiMenu className="w-6 h-6 text-gray-500 dark:text-gray-300 cursor-pointer" />
+            </div>
             <h1 className="text-lg font-semibold">Dashboard</h1>
           </div>
-          <div className="flex items-center space-x-4">
-            <FaUserCircle className="w-8 h-8 text-gray-500 dark:text-gray-300 cursor-pointer" />
+          <div className="relative flex items-center space-x-4">
+            <FaUserCircle
+              className="w-8 h-8 text-gray-500 dark:text-gray-300 cursor-pointer"
+              onClick={toggleMenu}
+            />
+            {isMenuOpen && (
+              <DashboardMenu />
+            )}
           </div>
         </div>
 
@@ -56,8 +71,7 @@ export const DashboardPage: React.FC = () => {
             )}
             {activeTab === 'payments' && (
               <Suspense fallback={<div>Loading...</div>}>
-                {/* <PaymentTab /> */}
-                <PaymentTemplate/>
+                <PaymentTemplate />
               </Suspense>
             )}
             {activeTab === 'bonus' && (

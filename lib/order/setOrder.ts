@@ -1,7 +1,6 @@
 'use server';
-
 import { pool } from '@/lib/postgres';
-
+import { checkIsAuthenticated } from '../auth/checkIsAuthenticated';
 interface OrderData {
     name?: string;
     email?: string;
@@ -19,6 +18,10 @@ interface OrderData {
  * @throws {Error} - Throws an error if the addition fails.
  */
 export const addOrder = async (formData: FormData): Promise<number> => {
+const isAuthenticated = checkIsAuthenticated();
+// if(!isAuthenticated){
+    
+// }
     const data: OrderData = {
         name: formData.get('name')?.toString(),
         email: formData.get('email')?.toString(),

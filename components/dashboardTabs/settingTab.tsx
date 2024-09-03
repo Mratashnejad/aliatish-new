@@ -1,42 +1,42 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { getAccountLinkStatus } from '@/lib/auth/getAccountLinkStatusServerAction';
 import { getUserName } from '@/lib/auth/getUserNameServerAction';
+import { getUserRole } from '@/lib/auth/getUserRoleServerAction';
 import { handleGoogleSignIn } from '@/lib/auth/googleSignInServerAction';
 import { unlinkGoogleAccount } from '@/lib/auth/unLinkGoogleAccountServerAction';
-import { useEffect, useState, Suspense, lazy } from 'react';
-import { useSession } from 'next-auth/react';
-import { getUserRole } from '@/lib/auth/getUserRoleServerAction';
 import { useLocale } from 'next-intl';
 
-export async function SettingTab() {
+const SettingTab: React.FC = () => {
     const [isAccountLinked, setIsAccountLinked] = useState(false);
     const [username, setUsername] = useState('');
     const [role, setRole] = useState('');
-    const locale = useLocale(); // Get the current locale
+    const locale = useLocale();
     const { update } = useSession();
 
     useEffect(() => {
         const userInfo = async () => {
             const name = await getUserName();
-            if (name) {
-                setUsername(name);
-            }
-            const role = await getUserRole();
-            if (role) {
-                setRole(role);
-            }
+            if (name) setUsername(name);
+
+            const userRole = await getUserRole();
+            if (userRole) setRole(userRole);
         };
+
         const accountLinkStatus = async () => {
             try {
                 const status = await getAccountLinkStatus();
                 setIsAccountLinked(status);
             } catch (error) {
-                console.log('Failed to get account link status:', error);
+                console.error('Failed to get account link status:', error);
             }
         };
-        userInfo();
-        accountLinkStatus(); // Fetch status on component mount
-    }, []);
 
+        userInfo();
+        accountLinkStatus();
+    }, []);
 
     return (
         <div className="space-y-6">
@@ -63,22 +63,20 @@ export async function SettingTab() {
                     onClick={
                         isAccountLinked
                             ? async () => {
-                                  await unlinkGoogleAccount().then(() => {
-                                      setIsAccountLinked(false);
-                                  });
+                                  await unlinkGoogleAccount();
+                                  setIsAccountLinked(false);
                               }
                             : async () => {
-                                  await handleGoogleSignIn(locale).then(() => {
-                                      setIsAccountLinked(true);
-                                  });
+                                  await handleGoogleSignIn(locale);
+                                  setIsAccountLinked(true);
                               }
                     }
                 >
-                    {isAccountLinked
-                        ? 'Disconnect Google Account'
-                        : 'Connect Google Account'}
+                    {isAccountLinked ? 'Disconnect Google Account' : 'Connect Google Account'}
                 </button>
             </div>
         </div>
     );
-}
+};
+
+export default SettingTab;

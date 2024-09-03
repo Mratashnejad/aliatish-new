@@ -1,21 +1,28 @@
 'use client';
-import { useState, Suspense } from 'react';
-import OrdersTab from '@/components/dashboardTabs/orderTab';
-import PaymentTemplate from '@/components/dashboardTabs/paymentTemplate';
-import BonusTab from '@/components/dashboardTabs/bonusTab';
-import { SettingTab } from '@/components/dashboardTabs/settingTab';
+
+import { useState, useEffect, Suspense , lazy } from 'react';
+//////Tabs/////////////////////////////////////////////////
+const OrdersTab = lazy(() => import('@/components/dashboardTabs/orderTab'));
+const PaymentTemplate = lazy(()=> import ('@/components/dashboardTabs/paymentTemplate'))
+const BonusTab = lazy(()=> import('@/components/dashboardTabs/bonusTab'))
+const  SettingTab  = lazy(()=> import('@/components/dashboardTabs/settingTab'))
+//////Tabs/////////////////////////////////////////////////
+
 import { Sidebar } from '@/components/dashboardTabs/sidebarDashboard';
 import { FaUserCircle } from 'react-icons/fa';
 import { FiMenu } from 'react-icons/fi';
 import { DashboardMenu } from '@/components/dashboardTabs/dashboardMenu';
-import { useRouter } from 'next/navigation';
 
 export const DashboardPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(
-    () => localStorage.getItem('dashboardActiveTab') || 'orders'
-  );
+  const [activeTab, setActiveTab] = useState('orders');
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const router = useRouter();
+
+  useEffect(() => {
+    const savedTab = localStorage.getItem('dashboardActiveTab');
+    if (savedTab) {
+      setActiveTab(savedTab);
+    }
+  }, []);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
@@ -23,7 +30,7 @@ export const DashboardPage: React.FC = () => {
   };
 
   const toggleMenu = () => {
-    setIsMenuOpen(prev => !prev);
+    setIsMenuOpen((prev) => !prev);
   };
 
   return (
@@ -50,9 +57,7 @@ export const DashboardPage: React.FC = () => {
               className="w-8 h-8 text-gray-500 dark:text-gray-300 cursor-pointer"
               onClick={toggleMenu}
             />
-            {isMenuOpen && (
-              <DashboardMenu />
-            )}
+            {isMenuOpen && <DashboardMenu />}
           </div>
         </div>
 

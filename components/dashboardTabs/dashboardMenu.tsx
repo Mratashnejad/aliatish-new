@@ -14,10 +14,10 @@ export const DashboardMenu: React.FC = ( ) => {
         >
           <PathButton
             className="flex w-full items-center p-3 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors"
-            path='/dashboard'
+            path='/'
           >
             <FaTachometerAlt className="w-5 h-5 mr-2" />
-            <span>Dashboard</span>
+            <span>Home</span>
           </PathButton>
           <PathButton
             className="flex w-full items-center p-3 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors"

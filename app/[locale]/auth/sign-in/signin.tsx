@@ -1,19 +1,18 @@
 'use client';
-
 import { FcGoogle } from 'react-icons/fc';
 import { useState, useTransition } from 'react';
-import { useLocale } from 'next-intl'; // Import the useLocale hook
+import { useLocale } from 'next-intl'; 
 import { handleGoogleSignIn } from '@/lib/auth/googleSignInServerAction';
 import { handleEmailSignIn } from '@/lib/auth/emailSignInServerActions';
 
 export const SignInPage: React.FC = () => {
     const [isPending, startTransition] = useTransition();
     const [formData, setFormData] = useState({ email: '' as string });
-    const locale = useLocale(); // Get the current locale
+    const locale = useLocale(); 
 
     const handleGoogleSignInWithLocale = async () => {
         try {
-            await handleGoogleSignIn(locale); // Pass the locale to the sign-in handler
+            await handleGoogleSignIn(locale);
         } catch (error) {
             console.error(error);
         }
@@ -66,7 +65,7 @@ export const SignInPage: React.FC = () => {
                     <div className="flex justify-center">
                         <button
                             className="flex items-center bg-gray-200 py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-200"
-                            onClick={handleGoogleSignInWithLocale} // Use the modified handler
+                            onClick={handleGoogleSignInWithLocale} 
                         >
                             <FcGoogle className="text-2xl mr-2" />
                             Sign in with Google

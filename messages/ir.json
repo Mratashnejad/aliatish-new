@@ -5,7 +5,6 @@
     "services": "خدمات",
     "projects": "پروژه‌ها",
     "blog": "وبلاگ",
-    "about": "درباره ما",
     "submitOrder": "ارسال سفارش",
     "signIn": "ورود"
   },
@@ -17,7 +16,9 @@
   "Footer": {
     "copyright": "© 2024 Ali Atish . کلیه حقوق محفوظ است.",
     "helpCenter" : "تیم پشتیبانی",
-    "termsOfService": "شرایط خدمات"
+    "termsOfService": "شرایط خدمات",
+    "about": "درباره ما"
+
   },
     "ServicesPage": {
       "title": "خدمات ما",

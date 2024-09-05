@@ -5,7 +5,6 @@ import { Providers } from './ThemeProvider';
 import Navbar from '@/components/Navbar';
 import { SessionProvider } from 'next-auth/react'; 
 import GoogleOneTap from '@/components/GoogleOneTap';
-
 interface RootLayoutProps {
   children: React.ReactNode;
   params: {
@@ -23,9 +22,7 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
   return (  
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <title>Personal Web</title>
-      </head>
+
       <body>
         <SessionProvider> 
           <Providers>

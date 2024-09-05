@@ -5,7 +5,6 @@
     "services": "Ծառայություններ",
     "projects": "Ծրագրեր",
     "blog": "Բլոգ",
-    "about": "Մեր մասին",
     "submitOrder": "Ստեղծել պատվեր",
     "signIn": "Մուտք գործել"
   },
@@ -17,7 +16,9 @@
   "Footer": {
     "copyright": "© 2024 Ali Atish: Բոլոր իրավունքները պաշտպանված են:",
     "helpCenter": "Օգնության կենտրոն",
-    "termsOfService": "Պահանջների կանոններ"
+    "termsOfService": "Պահանջների կանոններ",
+    "about": "Մեր մասին"
+
   },
     "ServicesPage": {
       "title": "Մեր Ծառայությունները",

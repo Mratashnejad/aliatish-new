@@ -1,7 +1,5 @@
-'use client';
-import { RxAvatar } from 'react-icons/rx';
 import { SignOutButton } from '@/components/sign-out-button';
-import { FaHome, FaTachometerAlt, FaBell, FaTasks, FaRegCreditCard, FaSignOutAlt, FaDollarSign } from 'react-icons/fa';
+import {FaTachometerAlt, FaBell, FaRegCreditCard, FaSignOutAlt, FaDollarSign } from 'react-icons/fa';
 import { PathButton } from '@/components/Path-button';
 
 

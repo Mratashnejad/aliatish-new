@@ -1,24 +1,18 @@
 'use client';
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid'; // Import uuid for generating unique codes
 
-const orders = [
-    { id: 1, item: 'Product A', status: 'Shipped' },
-    { id: 2, item: 'Product B', status: 'Pending' },
-    { id: 3, item: 'Product C', status: 'Delivered' },
-];
 
-const generateReferralCode = () => {
-    return uuidv4(); // Generate a unique code
-};
+// const generateReferralCode = () => {
+//     return uuidv4();
+// };
 
 const BonusTab: React.FC = () => {
     const [referralCode, setReferralCode] = useState<string | null>(null);
 
-    const handleGenerateCode = () => {
-        const code = generateReferralCode();
-        setReferralCode(code);
-    };
+    // const handleGenerateCode = () => {
+    //     const code = generateReferralCode();
+    //     setReferralCode(code);
+    // };
 
     return (
         <div className="p-6 bg-gray-100 dark:bg-gray-900 min-h-screen">
@@ -28,7 +22,7 @@ const BonusTab: React.FC = () => {
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
                 <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Get Your Referral Code</h2>
                 <button
-                    onClick={handleGenerateCode}
+                    // onClick={handleGenerateCode}
                     className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
                 >
                     Generate Referral Code

@@ -5,7 +5,7 @@
     "services": "Services",
     "projects": "Projects",
     "blog": "Blog",
-    "about": "About",
+   
     "submitOrder": "Submit Order",
     "signIn": "Sign In"
   },
@@ -17,7 +17,8 @@
   "Footer": {
     "copyright": "© 2024 Ali Atish. All Rights Reserved.",
     "helpCenter": "Help Center",
-    "termsOfService": "Terms of Service"
+    "termsOfService": "Terms of Service",
+    "about": "About"
   },
     "ServicesPage": {
       "title": "Our Services",

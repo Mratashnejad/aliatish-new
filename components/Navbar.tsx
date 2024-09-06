@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import ThemeSwitch from './ThemeSwitch';
+import ThemeSwitch from '@/components/ThemeSwitch';
 import Logo from '/public/images/Logo-Aliatish.svg';
-import LocalSwitcher from './localswitcher';
+import LocalSwitcher from '@/components/localswitcher';
 import { useTranslations } from 'next-intl';
 import NavbarButtonToggle from './NavbarButtonToggle';
 import { PathButton } from './Path-button';
@@ -10,68 +10,75 @@ import Link from 'next/link';
 
 export default function Navbar() {
     const t = useTranslations('Navigation');
+    // const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <>
-            <header className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-1 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
-                <div className="px-3">
-                    <div className="flex items-center justify-between">
-                        {/* Left Side */}
-                        <div className="flex shrink-0">
-                            <Link href="/">
-                                <Image
-                                    src={Logo}
-                                    alt="Ali Atish Logo"
-                                    width={30}
-                                    height={30}
-                                />
-                            </Link>
+        <header className="fixed top-0 z-30 w-full bg-white dark:bg-gray-900 ">
+            <div className="container flex items-center justify-between px-6 py-4 mx-auto">
+                {/* Logo */}
+                <div className="flex items-center">
+                    <Link href="/">
+                        <div className="text-3xl font-bold text-gray-800 uppercase dark:text-white">
+                            <Image src={Logo} alt="Aliatish Logo" width={50} height={50} />
                         </div>
-
-                        {/* Centered Items */}
-                        <div className="hidden md:flex flex-grow justify-center">
-                            <div className="flex items-center gap-2">
-                                <PathButton
-                                    className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    path="/packages"
-                                >
-                                    {t('packages')}
-                                </PathButton>
-                                <PathButton
-                                    className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    path="/services"
-                                >
-                                    {t('services')}
-                                </PathButton>
-                                <PathButton
-                                    className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                                    path="/projects"
-                                >
-                                    {t('projects')}
-                                </PathButton>
-                            </div>
-                        </div>
-
-                        {/* Right Side */}
-                        <div className="flex items-center gap-2">
-                            <PathButton
-                                className="inline-flex items-center justify-center rounded-xl bg-green-600 px-3 py-1 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer"
-                                path="/order"
-                            >
-                                {t('submitOrder')}
-                            </PathButton>
-                            <div className="inline-flex items-center justify-center rounded-xl px-1 py-1 text-sm font-semibold text-white shadow-sm transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-pointer">
-                                <NavbarButtonToggle />
-                            </div>
-                            <ThemeSwitch />
-                            <LocalSwitcher />
-                        </div>
-                    </div>
+                    </Link>
                 </div>
-            </header>
+                
+                {/* Desktop Menu */}
+                <nav className="hidden lg:flex items-center space-x-6 text-lg text-gray-800 uppercase dark:text-white">
+                    <Link href="/" className="hover:text-indigo-500">
+                        Home
+                    </Link>
+                    <PathButton path="/packages" className="hover:text-indigo-500">
+                        {t('packages')}
+                    </PathButton>
+                    <PathButton path="/services" className="hover:text-indigo-500">
+                        {t('services')}
+                    </PathButton>
+                    <PathButton path="/projects" className="hover:text-indigo-500">
+                        {t('projects')}
+                    </PathButton>
+                    <PathButton path="/blog" className="hover:text-indigo-500">
+                        {t('blog')}
+                    </PathButton>
+                    <NavbarButtonToggle />
+                    <ThemeSwitch />
+                    <LocalSwitcher />
+                </nav>
 
-            {/* Placeholder for mobile navbar or other elements */}
-            <div className="md:hidden">Navbar</div>
-        </>
+                {/* Mobile Menu Button */}
+                <button className="lg:hidden">
+                    <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white transition-all"></span>
+                    <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white transition-all"></span>
+                    <span className="w-6 h-1 bg-gray-800 dark:bg-white transition-all"></span>
+                </button>
+            </div>
+
+            {/* Mobile Menu
+            {isOpen && (
+                <div className="lg:hidden bg-white dark:bg-gray-900">
+                    <nav className="flex flex-col items-center space-y-4 py-4 text-lg text-gray-800 uppercase dark:text-white">
+                        <Link href="/" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
+                            Home
+                        </Link>
+                        <PathButton path="/packages" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
+                            {t('packages')}
+                        </PathButton>
+                        <PathButton path="/services" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
+                            {t('services')}
+                        </PathButton>
+                        <PathButton path="/projects" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
+                            {t('projects')}
+                        </PathButton>
+                        <PathButton path="/blog" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
+                            {t('blog')}
+                        </PathButton>
+                        <NavbarButtonToggle />
+                        <ThemeSwitch />
+                        <LocalSwitcher />
+                    </nav>
+                </div>
+            )} */}
+        </header>
     );
 }

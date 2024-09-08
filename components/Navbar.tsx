@@ -12,7 +12,7 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center space-x-2">
                     <IoFlameSharp className="text-5xl text-orange-700 dark:text-yellow-500" />
                     <span className="text-4xl font-extrabold font-spaceMono">
-                        <a>Ali Atish</a>
+                        Ali Atish
                     </span>
                 </Link>
 

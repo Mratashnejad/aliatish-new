@@ -1,36 +1,36 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { PathButton } from './Path-button';
+import Link from 'next/link';
+import { PiCopyrightLight } from "react-icons/pi";
 
 const FooterBar = () => {
     const t = useTranslations('Footer');
     return (
-        <footer className="fixed inset-x-0 bottom-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-2 shadow backdrop-blur-lg md:rounded-t-3xl lg:max-w-screen-lg">
-            <div className="px-4">
-                <div className="flex items-center justify-between">
-                    <div className="text-sm text-gray-600">
-                        {t('copyright')}
+        <footer className="w-full bg-white dark:bg-zinc-950 border-t border-stone-400 font-spaceMono">
+            <div className="flex items-center justify-between px-20 py-2 mx-auto">
+                <Link href="/" className=" items-center space-x-2">
+                    <div className="flex items-center text-lg font-extrabold font-spaceMono">
+                         <PiCopyrightLight className="text-2xl text-orange-700 dark:text-yellow-500"/>
+                         2023 aliatish
                     </div>
-                    <div className="flex space-x-4">
-                        <PathButton
-                            className="rounded-lg px-3 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                            path="/helpCenter"
-                        >
-                            {t('helpCenter')}
-                        </PathButton>
-                        <PathButton
-                            className="rounded-lg px-3 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                            path="/terms"
-                        >
-                            {t('termsOfService')}
-                        </PathButton>
-                        <PathButton
-                            className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
-                            path="/about"
-                        >
-                            {t('about')}
-                        </PathButton>
-                    </div>
+                </Link>
+
+                {/* Footer Menu */}
+                <div className="flex space-x-4 text-sm text-zinc-300 dark:text-zinc-100">
+                    <PathButton
+                        path="/helpCenter"
+                        className="hover:text-yellow-900 dark:text-yellow-600"
+                    >
+                        <a>// {t('helpCenter')}</a>
+                    </PathButton>
+                    <PathButton
+                        path="/terms"
+                        className="hover:text-yellow-900 dark:text-yellow-600"
+                    >
+                        <a>// {t('termsOfService')}</a>
+                    </PathButton>
+                  
                 </div>
             </div>
         </footer>

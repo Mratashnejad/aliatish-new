@@ -1,15 +1,14 @@
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
 import { useTranslations } from 'next-intl';
+
 export default function ServicesPage() {
-    const t = useTranslations('ServicesPage')
+    const t = useTranslations('ServicesPage');
+    
     return (
-        <section
-            id="services"
-            className="w-full min-h-screen py-28 px-6 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 dark:from-teal-800 dark:via-blue-900 dark:to-purple-700"
-        >
-            <div className="container mx-auto text-center">
-                <h2 className="text-5xl font-bold text-white mb-12">{t('title')}</h2>
+        <section className="font-spaceMono min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-zinc-950 text-gray-800 dark:text-gray-200">
+            <div className="text-center px-6 py-12">
+                <h2 className="text-5xl font-bold mb-8 text-gray-900 dark:text-gray-100">{t('title')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {/* Service 1 */}
                     <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md transition-transform transform hover:scale-105">
@@ -74,6 +73,12 @@ export default function ServicesPage() {
                             </li>
                         </ul>
                     </div>
+                </div>
+                <div className="mt-12">
+                    <button className="flex items-center bg-orange-600 text-white py-2 px-6 rounded hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        Get in Touch 
+                        {/* <GrLinkNext className="ml-2"/> */}
+                    </button>
                 </div>
             </div>
         </section>

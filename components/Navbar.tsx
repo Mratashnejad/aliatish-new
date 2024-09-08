@@ -1,84 +1,46 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
+import React from 'react';
+import { IoFlameSharp } from 'react-icons/io5'; // Import the icon
 import ThemeSwitch from '@/components/ThemeSwitch';
-import Logo from '/public/images/Logo-Aliatish.svg';
-import LocalSwitcher from '@/components/localswitcher';
-import { useTranslations } from 'next-intl';
-import NavbarButtonToggle from './NavbarButtonToggle';
 import { PathButton } from './Path-button';
 import Link from 'next/link';
 
 export default function Navbar() {
-    const t = useTranslations('Navigation');
-    // const [isOpen, setIsOpen] = useState(false);
-
     return (
-        <header className="fixed top-0 z-30 w-full bg-white dark:bg-gray-900 ">
-            <div className="container flex items-center justify-between px-6 py-4 mx-auto">
-                {/* Logo */}
-                <div className="flex items-center">
-                    <Link href="/">
-                        <div className="text-3xl font-bold text-gray-800 uppercase dark:text-white">
-                            <Image src={Logo} alt="Aliatish Logo" width={50} height={50} />
-                        </div>
-                    </Link>
-                </div>
-                
+        <header className="w-full bg-white dark:bg-zinc-950 border-b border-stone-400 font-spaceMono">
+            <div className="flex items-center justify-between px-20 py-2 mx-auto">
+                {/* Logo with text */}
+                <Link href="/" className="flex items-center space-x-2">
+                    <IoFlameSharp className="text-5xl text-orange-700 dark:text-yellow-500" />
+                    <span className="text-4xl font-extrabold font-spaceMono">
+                        <a>Ali Atish</a>
+                    </span>
+                </Link>
+
                 {/* Desktop Menu */}
-                <nav className="hidden lg:flex items-center space-x-6 text-lg text-gray-800 uppercase dark:text-white">
-                    <Link href="/" className="hover:text-indigo-500">
-                        Home
-                    </Link>
-                    <PathButton path="/packages" className="hover:text-indigo-500">
-                        {t('packages')}
+                <nav className="lg:flex items-center space-x-8 text-lg text-orange-700 uppercase dark:text-yellow-500">
+                    <PathButton
+                        path="/services"
+                        className="hover:text-yellow-900 dark:text-yellow-600"
+                    >
+                        <a>// services</a>
                     </PathButton>
-                    <PathButton path="/services" className="hover:text-indigo-500">
-                        {t('services')}
+
+                    <PathButton
+                        path="/blog"
+                        className="hover:text-yellow-900 dark:text-yellow-600"
+                    >
+                       <a>// blog</a>
                     </PathButton>
-                    <PathButton path="/projects" className="hover:text-indigo-500">
-                        {t('projects')}
+                    <PathButton
+                        path="/about"
+                        className="hover:text-yellow-900 dark:text-yellow-600"
+                    >
+                        <a>// about</a>
                     </PathButton>
-                    <PathButton path="/blog" className="hover:text-indigo-500">
-                        {t('blog')}
-                    </PathButton>
-                    <NavbarButtonToggle />
+
                     <ThemeSwitch />
-                    <LocalSwitcher />
                 </nav>
-
-                {/* Mobile Menu Button */}
-                <button className="lg:hidden">
-                    <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white transition-all"></span>
-                    <span className="w-6 h-1 mb-1 bg-gray-800 dark:bg-white transition-all"></span>
-                    <span className="w-6 h-1 bg-gray-800 dark:bg-white transition-all"></span>
-                </button>
             </div>
-
-            {/* Mobile Menu
-            {isOpen && (
-                <div className="lg:hidden bg-white dark:bg-gray-900">
-                    <nav className="flex flex-col items-center space-y-4 py-4 text-lg text-gray-800 uppercase dark:text-white">
-                        <Link href="/" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
-                            Home
-                        </Link>
-                        <PathButton path="/packages" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
-                            {t('packages')}
-                        </PathButton>
-                        <PathButton path="/services" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
-                            {t('services')}
-                        </PathButton>
-                        <PathButton path="/projects" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
-                            {t('projects')}
-                        </PathButton>
-                        <PathButton path="/blog" className="hover:text-indigo-500" onClick={() => setIsOpen(false)}>
-                            {t('blog')}
-                        </PathButton>
-                        <NavbarButtonToggle />
-                        <ThemeSwitch />
-                        <LocalSwitcher />
-                    </nav>
-                </div>
-            )} */}
         </header>
     );
 }

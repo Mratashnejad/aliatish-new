@@ -14,10 +14,15 @@ darkMode:'class',
     },
 
     fontFamily: {
+      inconsolata: ['Inconsolata', 'monospace'],
+      spaceMono: ['Space Mono', 'monospace'],
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
     extend: {
+      fontFamily: {
+        monocraft: ['Monocraft', 'sans-serif'], // Custom font family
+      },
       spacing: {
         '128': '32rem',
         '144': '36rem',

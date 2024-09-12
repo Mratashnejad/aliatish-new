@@ -1,15 +1,16 @@
 import React from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 
 export default function BlogPage() {
     return (
-        <section className="font-spaceMono min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-zinc-950 text-gray-800 dark:text-gray-200">
-            <div className="text-center px-6 py-12">
-                <h2 className="text-5xl font-bold mb-12 text-gray-900 dark:text-gray-100">
-                    Blogs are
+        <section className="min-h-screen bg-gray-100 dark:bg-zinc-950 flex flex-col items-center justify-center text-gray-800 dark:text-gray-200">
+            <div className="max-w-6xl mx-auto px-6 py-12">
+                <h2 className="text-5xl font-bold mb-12 text-center text-gray-900 dark:text-gray-100">
+                    Latest Blog Posts
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                     {/* Blog Post 1 */}
-                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                             Understanding Web Design Trends
                         </h3>
@@ -24,7 +25,7 @@ export default function BlogPage() {
                         </a>
                     </div>
                     {/* Blog Post 2 */}
-                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                             Effective SEO Strategies for 2024
                         </h3>
@@ -39,7 +40,7 @@ export default function BlogPage() {
                         </a>
                     </div>
                     {/* Blog Post 3 */}
-                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                             Maximizing User Engagement
                         </h3>
@@ -54,10 +55,10 @@ export default function BlogPage() {
                         </a>
                     </div>
                 </div>
-                <div className="mt-12">
-                    <button className="flex items-center bg-orange-600 text-white py-2 px-6 rounded hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500">
-                        Explore More 
-                        {/* <GrLinkNext className="ml-2" /> */}
+                <div className="mt-12 text-center">
+                    <button className="flex items-center justify-center bg-orange-600 text-white py-3 px-8 rounded-lg shadow-lg hover:bg-orange-700 transition-colors duration-300">
+                        Explore More
+                        <FaArrowRight className="ml-3" />
                     </button>
                 </div>
             </div>

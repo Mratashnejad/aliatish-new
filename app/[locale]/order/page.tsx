@@ -1,165 +1,122 @@
 'use client';
-import { useState  } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { addOrder  } from '@/lib/order/setOrder';
+import { addOrder } from '@/lib/order/setOrder';
 import { useLocale } from 'next-intl';
 
-const OrderPage : React.FC = ()=> {
-        const router = useRouter();
-        const locale = useLocale();
-/////////////////////////////////////////////////////////////////////////
-        const [isLoading, setIsLoading] = useState<boolean>(true);
-        const [name ,setName] = useState<string>('');
-        const [email ,setEmail] = useState<string>('');
-        const [phone_Number ,setPhone_Number] = useState<string>('');
-        const [features ,setFeatures] = useState<string[]>([]);
-        const [mode ,setMode] = useState<string>('');
-        const [message ,setMessage] = useState<string>('');
-        const [contact_method ,setContact_method] = useState<string>('');
+const OrderPage: React.FC = () => {
+    const router = useRouter();
+    const locale = useLocale();
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [phoneNumber, setPhoneNumber] = useState<string>('');
+    const [features, setFeatures] = useState<string[]>([]);
+    const [mode, setMode] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
+    const [contactMethod, setContactMethod] = useState<string>('');
 
-        const handleFeatureChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-            const feature = event.target.value;
-            setFeatures(prevFeatures =>
-                prevFeatures.includes(feature)
-                    ? prevFeatures.filter(f => f !== feature)
-                    : [...prevFeatures, feature]
-            );
-        };
+    const handleFeatureChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const feature = event.target.value;
+        setFeatures(prevFeatures =>
+            prevFeatures.includes(feature)
+                ? prevFeatures.filter(f => f !== feature)
+                : [...prevFeatures, feature]
+        );
+    };
 
-        const handleModeChange = (event:React.ChangeEvent<HTMLSelectElement>)=>{
-            setMode(event.target.value);
+    const handleSubmit = async () => {
+        try {
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone_Number', phoneNumber);
+            formData.append('features', JSON.stringify(features));
+            formData.append('mode', mode);
+            formData.append('message', message);
+            formData.append('contact_method', contactMethod);
 
+            await addOrder(formData);
+            alert('Order submitted successfully!');
+            router.push(`/${locale}/order/success`);
+        } catch (error) {
+            console.error('Failed to submit order', error);
+            alert('Failed to submit order');
         }
-
-        const handleSubmit = async () => {
-                try{
-                    const formData = new FormData();
-                    formData.append('name', name);
-                    formData.append('email', email); 
-                    formData.append('phone_Number', phone_Number);
-                    formData.append('features', JSON.stringify(features));
-                    formData.append('mode', mode);
-                    formData.append('message', message);
-                    formData.append('contact_method', contact_method);
-                    await addOrder(formData);
-                    alert('data added succesfuly');
-                    router.push(`/${locale}/order/success`);
-                    
-                }catch(error){
-                    console.error('faild to add data ' , error);
-                    alert('faild to add data ');
-
-                }
-            }
+    };
 
     return (
-        <section
-            id="Request"
-            className="w-full min-h-screen bg-gray-50 dark:bg-gray-900 py-28 px-6 relative z-10 bg-cover bg-center"
-        >
-            <div className="container mx-auto">
-                <h2 className="text-5xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
-                    Submit Your Website Options Now
+        <section className="min-h-screen bg-gray-100 dark:bg-zinc-950 flex items-center justify-center py-4 px-2">
+            <div className="w-full max-w-4xl bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg border border-gray-300 dark:border-gray-600">
+                <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 dark:text-gray-100 mb-8 md:mb-12">
+                    Submit Your Order
                 </h2>
 
-                {/* User Information Section */}
-                <div
-                    className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl max-w-4xl mx-auto border border-gray-300 dark:border-gray-600 mb-16"
-                >
-                    <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-8 border-b border-gray-300 dark:border-gray-600 pb-4">
+                {/* User Information */}
+                <div className="mb-6 md:mb-8">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4 md:mb-6">
                         User Information
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div>
-                            <label
-                                className="block text-gray-700 dark:text-gray-300 mb-2"
-                                htmlFor="name"
-                            >
+                            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="name">
                                 Name
                             </label>
                             <input
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
+                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
                                 type="text"
                                 id="name"
                                 name="name"
                                 value={name}
-                                onChange={(event) => setName(event.target.value)}
+                                onChange={(e) => setName(e.target.value)}
                                 required
                             />
                         </div>
                         <div>
-                            <label
-                                className="block text-gray-700 dark:text-gray-300 mb-2"
-                                htmlFor="phone_Number"
-                            >
+                            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="phoneNumber">
                                 Phone Number
                             </label>
                             <input
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
+                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
                                 type="text"
-                                id="phone_Number"
-                                name="phone_Number"
-                                value={phone_Number}
-                                onChange={(event) => setPhone_Number(event.target.value)}
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                value={phoneNumber}
+                                onChange={(e) => setPhoneNumber(e.target.value)}
                                 required
                             />
                         </div>
                     </div>
-                    <div className="mb-6">
-                        <label
-                            className="block text-gray-700 dark:text-gray-300 mb-2"
-                            htmlFor="email"
-                        >
+                    <div className="mt-4 md:mt-6">
+                        <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="email">
                             Email
                         </label>
                         <input
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
+                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
                             type="email"
                             id="email"
                             name="email"
                             value={email}
-                            onChange={(event) => setEmail(event.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </div>
-              
-                    <div className="mb-6">
-                        <label
-                            className="block text-gray-700 dark:text-gray-300 mb-2"
-                            htmlFor="preferredContactMethod"
-                        >
-                            Preferred Contact Method
-                        </label>
-                        <select
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
-                            id="preferredContactMethod"
-                            name="preferredContactMethod"
-                            value={contact_method}
-                            onChange={(event) => setContact_method(event.target.value)}
-                        >
-                            <option value="Email">Email</option>
-                            <option value="Phone">WhatsApp</option>
-                            <option value="Mail">Viber</option>
-                        </select>
-                    </div>
+                </div>
 
-                    <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-8 border-b border-gray-300 dark:border-gray-600 pb-4">
-                        Website Features
+                {/* Website Options */}
+                <div className="mb-6 md:mb-8">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4 md:mb-6">
+                        Website Options
                     </h3>
-                    <div className="mb-6">
-                        <label
-                            className="block text-gray-700 dark:text-gray-300 mb-2"
-                            htmlFor="mode"
-                        >
-                            Mode:
+                    <div className="mb-4 md:mb-6">
+                        <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="mode">
+                            Mode
                         </label>
                         <select
-                              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
-                              id="mode"
-                              name="mode"
-                              value={mode}
-                              onChange={handleModeChange}
-
+                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
+                            id="mode"
+                            name="mode"
+                            value={mode}
+                            onChange={(e) => setMode(e.target.value)}
                         >
                             <option value="Personal">Personal</option>
                             <option value="Blog">Blog</option>
@@ -167,19 +124,14 @@ const OrderPage : React.FC = ()=> {
                         </select>
                     </div>
 
-                    <div className="mb-6">
-                        <label
-                            className="block text-gray-700 dark:text-gray-300 mb-2"
-                        >
-                            Select Pages That You Will Need:
+                    <div className="mb-4 md:mb-6">
+                        <label className="block text-gray-700 dark:text-gray-300 mb-2">
+                            Select Pages You Need
                         </label>
-                        <div className="flex flex-wrap">
+                        <div className="flex flex-wrap gap-4">
                             {['HomePage', 'About', 'Profile', 'Support', 'Contact', 'Blog', 'Admin', 'Dashboard'].map(
                                 (feature) => (
-                                    <label
-                                        key={feature}
-                                        className="flex items-center mr-4 mb-2"
-                                    >
+                                    <label key={feature} className="flex items-center mb-2">
                                         <input
                                             className="form-checkbox text-blue-500 dark:text-blue-400 mr-2"
                                             type="checkbox"
@@ -187,49 +139,45 @@ const OrderPage : React.FC = ()=> {
                                             value={feature}
                                             checked={features.includes(feature)}
                                             onChange={handleFeatureChange}
-
                                         />
-                                        <span className="text-gray-700 dark:text-gray-300">
-                                            {feature}
-                                        </span>
+                                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                                     </label>
                                 )
                             )}
                         </div>
                     </div>
+                </div>
 
-                    <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-8 border-b border-gray-300 dark:border-gray-600 pb-4">
+                {/* Message Section */}
+                <div className="mb-6 md:mb-8">
+                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4 md:mb-6">
                         Description
                     </h3>
-                    <div className="mb-6">
-                        <label
-                            className="block text-gray-700 dark:text-gray-300 mb-2"
-                            htmlFor="message"
-                        >
-                            Message
-                        </label>
-                        <textarea
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
-                            id="message"
-                            name="message"
-                            value={message}
-                            onChange={(event) => setMessage(event.target.value)}
-                            required
-                        ></textarea>
-                    </div>
+                    <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="message">
+                        Message
+                    </label>
+                    <textarea
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
+                        id="message"
+                        name="message"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        required
+                    />
+                </div>
 
-                    <div className="flex justify-end">
-                        <button
-                            className="bg-blue-600 text-white px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition transform hover:scale-105"
-                            type="button"
-                            onClick={handleSubmit}
-                        >
-                            Submit Order
-                        </button>
-                    </div>
+                {/* Submit Button */}
+                <div className="flex justify-center">
+                    <button
+                        className="bg-blue-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-transform hover:scale-105"
+                        onClick={handleSubmit}
+                    >
+                        Submit Order
+                    </button>
                 </div>
             </div>
         </section>
     );
-}
+};
+
 export default OrderPage;

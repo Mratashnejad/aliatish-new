@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaGithub, FaStackOverflow, FaKaggle } from 'react-icons/fa';
 import { HiDownload } from 'react-icons/hi';
 import FAQPage from '@/components/faq';
 
@@ -15,35 +14,7 @@ export default function AboutPage() {
                 <h2 className="text-5xl font-bold mb-12 text-gray-900 dark:text-gray-100">About Us</h2>
         
                 {/* Social Media Links */}
-                <div className="mb-12">
-                    <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Connect with Us</h3>
-                    <div className="flex justify-center space-x-6">
-                        <a
-                            href="https://github.com/yourusername"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300"
-                        >
-                            <FaGithub size={32} />
-                        </a>
-                        <a
-                            href="https://stackoverflow.com/users/youruserid"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300"
-                        >
-                            <FaStackOverflow size={32} />
-                        </a>
-                        <a
-                            href="https://kaggle.com/yourusername"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300"
-                        >
-                            <FaKaggle size={32} />
-                        </a>
-                    </div>
-                </div>
+                
 
                 {/* About Content */}
                 <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">

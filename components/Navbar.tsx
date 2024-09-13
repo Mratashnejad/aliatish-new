@@ -1,10 +1,10 @@
 'use client'
 import React, { useState } from 'react';
-import { IoFlameSharp } from 'react-icons/io5'; // Import the icon
+import { IoFlameSharp } from 'react-icons/io5'; 
 import ThemeSwitch from '@/components/ThemeSwitch';
 import { PathButton } from './Path-button';
 import Link from 'next/link';
-import { IoMenu, IoClose } from 'react-icons/io5'; // Import hamburger menu icons
+import { IoMenu, IoClose } from 'react-icons/io5'; 
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,12 +31,11 @@ export default function Navbar() {
                 </button>
 
                 {/* Desktop Menu */}
-                <nav className={`lg:flex items-center space-x-8 text-lg text-orange-700 uppercase dark:text-yellow-500 ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
+                <nav className={`hidden lg:flex items-center space-x-8 text-lg text-orange-700 uppercase dark:text-yellow-500`}>
                     <PathButton
                         path="/services"
                         className="hover:text-yellow-900 dark:text-yellow-600"
                     >
-                        {/* Remove <a> tags, as button will handle the link */}
                         // services
                     </PathButton>
 
@@ -44,7 +43,6 @@ export default function Navbar() {
                         path="/blog"
                         className="hover:text-yellow-900 dark:text-yellow-600"
                     >
-                        {/* Remove <a> tags, as button will handle the link */}
                         // blog
                     </PathButton>
                     
@@ -52,7 +50,6 @@ export default function Navbar() {
                         path="/about"
                         className="hover:text-yellow-900 dark:text-yellow-600"
                     >
-                        {/* Remove <a> tags, as button will handle the link */}
                         // about
                     </PathButton>
 
@@ -68,7 +65,6 @@ export default function Navbar() {
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
-                        {/* Remove <a> tags, as button will handle the link */}
                         // services
                     </PathButton>
 
@@ -77,7 +73,6 @@ export default function Navbar() {
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
-                        {/* Remove <a> tags, as button will handle the link */}
                         // blog
                     </PathButton>
 
@@ -86,7 +81,6 @@ export default function Navbar() {
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
-                        {/* Remove <a> tags, as button will handle the link */}
                         // about
                     </PathButton>
 

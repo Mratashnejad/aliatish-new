@@ -1867,7 +1867,7 @@ export default function AboutPage() {
             <section>
                 {/* Reference Section */}
                 <div className="py-2">
-                    <div className="max-w-6xl mx-auto px-2">
+                    <div className=" grid   max-w-6xl mx-auto px-2">
                         <h2 className="text-3xl font-bold text-center mb-6">
                             References
                         </h2>

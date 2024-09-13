@@ -1,4 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
+import { FaMedal } from 'react-icons/fa';
+import { FaFlag } from 'react-icons/fa';
+import { GrFlag } from 'react-icons/gr';
 import { HiDownload } from 'react-icons/hi';
 import { FaCodeBranch } from 'react-icons/fa6';
 import { SiPython, SiJavascript } from 'react-icons/si';
@@ -22,7 +26,7 @@ import {
     FaNetworkWired,
     FaProjectDiagram,
 } from 'react-icons/fa';
-import { SiTensorflow } from 'react-icons/si';
+import { SiTensorflow, SiPandas } from 'react-icons/si';
 
 import { DiPython } from 'react-icons/di';
 import { SiKeras, SiPytorch, SiScikitlearn } from 'react-icons/si';
@@ -58,7 +62,7 @@ export default function AboutPage() {
             </section>
 
             {/* Skills Section */}
-            <section id="skills" className="py-16 bg-gray-100 text-gray-800">
+            <section id="skills" className=" bg-zinc-50 text-gray-800">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Skills & Expertise
@@ -73,13 +77,99 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 Development
                             </h3>
-                            <p>JavaScript, TypeScript, Python</p>
                             <p>
-                                Node.js, Next.js, Redux, React.js, Express.js,
-                                Django
+                                <Link
+                                    href="https://www.javascript.com"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    JavaScript ,
+                                </Link>
+                                <Link
+                                    href="https://www.typescriptlang.org/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    TypeScript ,
+                                </Link>
+                                <Link
+                                    href="https://www.python.org/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    Python
+                                </Link>
+                            </p>
+                            <p>
+                                <Link
+                                    href="https://nodejs.org/en/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    Node.js ,
+                                </Link>
+
+                                <Link
+                                    href="https://nextjs.org/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    Next.js ,
+                                </Link>
+
+                                <Link
+                                    href="https://redux.js.org/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    Redux ,
+                                </Link>
+
+                                <Link
+                                    href="https://reactjs.org/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    React.js ,
+                                </Link>
+
+                                <Link
+                                    href="https://expressjs.com/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    Express.js ,
+                                </Link>
+
+                                <Link
+                                    href="https://www.djangoproject.com/"
+                                    passHref
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:cursor-pointer hover:text-blue-500"
+                                >
+                                    Django
+                                </Link>
                             </p>
                         </div>
-                        {/* Cloud Services */}
+
+                        {/* CLoud Itmes */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
                             <FaCloud
                                 size={48}
@@ -88,10 +178,53 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 Cloud Services
                             </h3>
-                            <p>
-                                Google Cloud, Firebase, Vercel, Digital Ocean,
-                                AWS
-                            </p>
+                            <Link
+                                href="https://aws.amazon.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                AWS ,
+                            </Link>
+
+                            <Link
+                                href="https://cloud.google.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Google Cloud ,
+                            </Link>
+
+                            <Link
+                                href="https://firebase.google.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Firebase ,
+                            </Link>
+                            <Link
+                                href="https://vercel.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Vercel ,
+                            </Link>
+                            <Link
+                                href="https://www.digitalocean.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Digital Ocean
+                            </Link>
                         </div>
                         {/* AI & Machine Learning */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -102,10 +235,34 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 AI & Machine Learning
                             </h3>
-                            <p>
-                                Image Processing, Machine Learning, AI
-                                Integration
-                            </p>
+                            <Link
+                                href="https://en.wikipedia.org/wiki/Digital_image_processing"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Image Processing ,
+                            </Link>
+
+                            <Link
+                                href="https://en.wikipedia.org/wiki/Machine_learning"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Machine Learning ,
+                            </Link>
+                            <Link
+                                href="https://en.wikipedia.org/wiki/Artificial_intelligence"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                AI Integration
+                            </Link>
                         </div>
                         {/* Database Technologies */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -116,7 +273,45 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 Database Technologies
                             </h3>
-                            <p>MongoDB, SQL, Prisma</p>
+                            <Link
+                                href="https://www.postgresql.org/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Postgres ,
+                            </Link>
+
+                            <Link
+                                href="https://www.mongodb.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                MongoDB ,
+                            </Link>
+
+                            <Link
+                                href="https://www.microsoft.com/en-us/sql-server"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                SQL Server ,
+                            </Link>
+
+                            <Link
+                                href="https://www.prisma.io/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Prisma
+                            </Link>
                         </div>
                         {/* Version Control & Collaboration */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -127,7 +322,34 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 Version Control & Collaboration
                             </h3>
-                            <p>Git & GitHub, Jira</p>
+                            <Link
+                                href="https://git-scm.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Git ,
+                            </Link>
+                            <Link
+                                href="https://github.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                GitHub ,
+                            </Link>
+
+                            <Link
+                                href="https://www.atlassian.com/software/jira"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Jira
+                            </Link>
                         </div>
                         {/* CI/CD */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -138,7 +360,35 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 CI/CD
                             </h3>
-                            <p>Docker, Kubernetes, Jenkins</p>
+                            <Link
+                                href="https://www.docker.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Docker ,
+                            </Link>
+
+                            <Link
+                                href="https://kubernetes.io/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Kubernetes ,
+                            </Link>
+
+                            <Link
+                                href="https://www.jenkins.io/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Jenkins
+                            </Link>
                         </div>
                         {/* UI/UX */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -149,10 +399,115 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 UI/UX
                             </h3>
-                            <p>
-                                Shadcn, NextUI, Heroicons, Radix-UI, Flagpedia,
-                                Sonner, Bootstrap, BootstrapCSS, TailwindCSS
-                            </p>
+                            <Link
+                                href="https://tailwindcss.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                TailwindCSS ,
+                            </Link>
+
+                            <Link
+                                href="https://ui.shadcn.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Shadcn ,
+                            </Link>
+
+                            <Link
+                                href="https://nextui.org/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                NextUI ,
+                            </Link>
+
+                            <Link
+                                href="https://heroicons.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Heroicons ,
+                            </Link>
+
+                            <Link
+                                href="https://www.radix-ui.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Radix-UI ,
+                            </Link>
+
+                            <Link
+                                href="https://flagpedia.net/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Flagpedia ,
+                            </Link>
+
+                            <Link
+                                href="https://ant.design/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Ant Design ,
+                            </Link>
+
+                            <Link
+                                href="https://sonner.emilkowal.ski/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Sonner ,
+                            </Link>
+
+                            <Link
+                                href="https://getbootstrap.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Bootstrap ,
+                            </Link>
+
+                            <Link
+                                href="https://react-icons.github.io/react-icons/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                React Icons ,
+                            </Link>
+
+                            <Link
+                                href="https://floatui.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                FloatUI ,
+                            </Link>
                         </div>
                         {/* API Development */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -163,8 +518,51 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 API Development
                             </h3>
-                            <p>API, Django Rest Framework (DRF), REST API</p>
-                            <p>Postman, Thunder Client</p>
+                            <Link
+                                href="https://en.wikipedia.org/wiki/API"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                API ,
+                            </Link>
+                            <Link
+                                href="https://www.django-rest-framework.org/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Django Rest Framework (DRF) ,
+                            </Link>
+                            <Link
+                                href="https://restfulapi.net/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                REST API ,
+                            </Link>
+                            <Link
+                                href="https://www.postman.com/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Postman ,
+                            </Link>
+
+                            <Link
+                                href="https://www.thunderclient.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                Thunder Client
+                            </Link>
                         </div>
                         {/* Authentication & Authorization */}
                         <div className="p-6 bg-white shadow-lg rounded-lg text-center">
@@ -175,284 +573,449 @@ export default function AboutPage() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 Authentication & Authorization
                             </h3>
-                            <p>OAuth, OTP, JWT</p>
+                            <Link
+                                href="https://next-auth.js.org/configuration/providers/oauth"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                OAuth ,
+                            </Link>
+
+                            <Link
+                                href="https://en.wikipedia.org/wiki/One-time_password"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                OTP ,
+                            </Link>
+                            <Link
+                                href="https://jwt.io/"
+                                passHref
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:cursor-pointer hover:text-blue-500"
+                            >
+                                JWT
+                            </Link>
                         </div>
                     </div>
                     {/* Learning */}
                     <section
                         id="learning"
-                        className="py-16 bg-gray-200 text-gray-800"
+                        className="py-16 bg-zinc-50 text-gray-800"
                     >
                         <div className="max-w-6xl mx-auto px-6">
                             <h3 className="text-3xl font-bold text-center mb-8">
                                 Currently Learning
                             </h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {/* Learning Item */}
-                                <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                                    <FaCode
-                                        size={48}
-                                        className="mx-auto text-blue-600 mb-4"
-                                    />
-                                    <h4 className="text-xl font-semibold mb-2">
-                                        GraphQL
-                                    </h4>
-                                    <p className="text-gray-600">
-                                        A query language for APIs that allows
-                                        for more efficient and flexible data
-                                        retrieval.
-                                    </p>
-                                </div>
-                                {/* Learning Item */}
-                                <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                                    <FaDatabase
-                                        size={48}
-                                        className="mx-auto text-red-600 mb-4"
-                                    />
-                                    <h4 className="text-xl font-semibold mb-2">
-                                        Redis
-                                    </h4>
-                                    <p className="text-gray-600">
-                                        An in-memory data structure store used
-                                        as a database, cache, and message
-                                        broker.
-                                    </p>
-                                </div>
-                                {/* Learning Item */}
-                                <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                                    <GiRabbit
-                                        size={48}
-                                        className="mx-auto text-purple-600 mb-4"
-                                    />
-                                    <h4 className="text-xl font-semibold mb-2">
-                                        RabbitMQ
-                                    </h4>
-                                    <p className="text-gray-600">
-                                        A robust messaging broker that supports
-                                        multiple messaging protocols.
-                                    </p>
-                                </div>
-                                {/* Learning Item */}
-                                <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                                    <FaServer
-                                        size={48}
-                                        className="mx-auto text-green-600 mb-4"
-                                    />
-                                    <h4 className="text-xl font-semibold mb-2">
-                                        Microservices
-                                    </h4>
-                                    <p className="text-gray-600">
-                                        An architectural style that structures
-                                        an application as a collection of
-                                        loosely coupled services.
-                                    </p>
-                                </div>
-                                {/* Learning Item */}
-                                <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                                    <FaCode
-                                        size={48}
-                                        className="mx-auto text-yellow-600 mb-4"
-                                    />
-                                    <h4 className="text-xl font-semibold mb-2">
-                                        Nest.js
-                                    </h4>
-                                    <p className="text-gray-600">
-                                        A progressive Node.js framework for
-                                        building efficient and scalable
-                                        server-side applications.
-                                    </p>
-                                </div>
+                                <Link
+                                    href={'https://graphql.org/'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
+                                        <FaCode
+                                            size={48}
+                                            className="mx-auto text-blue-600 mb-4"
+                                        />
+                                        <h4 className="text-xl font-semibold mb-2">
+                                            GraphQL
+                                        </h4>
+                                        <p className="text-gray-600">
+                                            A query language for APIs that
+                                            allows for more efficient and
+                                            flexible data retrieval.
+                                        </p>
+                                    </div>
+                                </Link>
+                                <Link
+                                    href={'https://redis.io/'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
+                                        <FaDatabase
+                                            size={48}
+                                            className="mx-auto text-red-600 mb-4"
+                                        />
+                                        <h4 className="text-xl font-semibold mb-2">
+                                            Redis
+                                        </h4>
+                                        <p className="text-gray-600">
+                                            An in-memory data structure store
+                                            used as a database, cache, and
+                                            message broker.
+                                        </p>
+                                    </div>
+                                </Link>
+                                <Link
+                                    href={'https://www.rabbitmq.com/'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
+                                        <GiRabbit
+                                            size={48}
+                                            className="mx-auto text-purple-600 mb-4"
+                                        />
+                                        <h4 className="text-xl font-semibold mb-2">
+                                            RabbitMQ
+                                        </h4>
+                                        <p className="text-gray-600">
+                                            A robust messaging broker that
+                                            supports multiple messaging
+                                            protocols.
+                                        </p>
+                                    </div>
+                                </Link>
+                                <Link
+                                    href={
+                                        'https://docs.nestjs.com/microservices/basics'
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
+                                        <FaServer
+                                            size={48}
+                                            className="mx-auto text-green-600 mb-4"
+                                        />
+                                        <h4 className="text-xl font-semibold mb-2">
+                                            Microservices
+                                        </h4>
+                                        <p className="text-gray-600">
+                                            An architectural style that
+                                            structures an application as a
+                                            collection of loosely coupled
+                                            services.
+                                        </p>
+                                    </div>
+                                </Link>
+                                <Link
+                                    href={'https://nestjs.com/'}
+                                    target="_blank"
+                                    rel="noopner noreferrer"
+                                >
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
+                                        <FaCode
+                                            size={48}
+                                            className="mx-auto text-yellow-600 mb-4"
+                                        />
+                                        <h4 className="text-xl font-semibold mb-2">
+                                            Nest.js
+                                        </h4>
+                                        <p className="text-gray-600">
+                                            A progressive Node.js framework for
+                                            building efficient and scalable
+                                            server-side applications.
+                                        </p>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </section>
                 </div>
             </section>
             {/* AI and Machine Learning */}
-            <section id="ai-ml" className="py-16 bg-gray-100 text-gray-800">
+            <section id="ai-ml" className="py-1 bg-zinc-50 text-gray-800">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         AI and Machine Learning
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <FaBrain
-                                size={48}
-                                className="mx-auto text-blue-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                Neural Networks
-                            </h3>
-                            <p className="text-gray-600">
-                                Convolutional Neural Networks (CNNs) for image
-                                processing and deep learning.
-                            </p>
-                        </div>
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <DiPython
-                                size={48}
-                                className="mx-auto text-yellow-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                Regression Models
-                            </h3>
-                            <p className="text-gray-600">
-                                Linear Regression, Logistic Regression for
-                                predictive analysis.
-                            </p>
-                        </div>
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <FaProjectDiagram
-                                size={48}
-                                className="mx-auto text-green-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                Decision Trees & Forests
-                            </h3>
-                            <p className="text-gray-600">
-                                Decision Trees, Random Forests for
-                                classification and regression tasks.
-                            </p>
-                        </div>
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <SiTensorflow
-                                size={48}
-                                className="mx-auto text-red-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                TensorFlow
-                            </h3>
-                            <p className="text-gray-600">
-                                An open-source platform for machine learning and
-                                neural network training.
-                            </p>
-                        </div>
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <SiKeras
-                                size={48}
-                                className="mx-auto text-purple-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                Keras
-                            </h3>
-                            <p className="text-gray-600">
-                                A high-level neural networks API, written in
-                                Python and capable of running on top of
-                                TensorFlow.
-                            </p>
-                        </div>
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <SiPytorch
-                                size={48}
-                                className="mx-auto text-orange-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                PyTorch
-                            </h3>
-                            <p className="text-gray-600">
-                                An open-source machine learning library based on
-                                the Torch library for deep learning.
-                            </p>
-                        </div>
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <SiScikitlearn
-                                size={48}
-                                className="mx-auto text-teal-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                Scikit-learn
-                            </h3>
-                            <p className="text-gray-600">
-                                A machine learning library in Python that
-                                provides simple and efficient tools for data
-                                mining and data analysis.
-                            </p>
-                        </div>
-                        {/* AI & ML Item */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                            <MdShowChart
-                                size={48}
-                                className="mx-auto text-indigo-600 mb-4"
-                            />
-                            <h3 className="text-2xl font-semibold mb-4">
-                                Matplotlib
-                            </h3>
-                            <p className="text-gray-600">
-                                A plotting library for the Python programming
-                                language and its numerical mathematics extension
-                                NumPy.
-                            </p>
-                        </div>
+                        {/* AI & ML */}
+                        <Link
+                            href="https://en.wikipedia.org/wiki/Neural_network_(machine_learning)"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <FaBrain
+                                    size={48}
+                                    className="mx-auto text-blue-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Neural Networks
+                                </h3>
+                                <p className="text-gray-600">
+                                    Convolutional Neural Networks (CNNs) for
+                                    image processing and deep learning.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://en.wikipedia.org/wiki/Regression_analysis/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <DiPython
+                                    size={48}
+                                    className="mx-auto text-yellow-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Regression Models
+                                </h3>
+                                <p className="text-gray-600">
+                                    Linear Regression, Logistic Regression for
+                                    predictive analysis.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://developers.google.com/machine-learning/decision-forests/intro-to-decision-forests-real"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <FaProjectDiagram
+                                    size={48}
+                                    className="mx-auto text-green-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Decision Trees & Forests
+                                </h3>
+                                <p className="text-gray-600">
+                                    Decision Trees, Random Forests for
+                                    classification and regression tasks.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://www.tensorflow.org/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <SiTensorflow
+                                    size={48}
+                                    className="mx-auto text-red-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    TensorFlow
+                                </h3>
+                                <p className="text-gray-600">
+                                    An open-source platform for machine learning
+                                    and neural network training.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://keras.io/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <SiKeras
+                                    size={48}
+                                    className="mx-auto text-purple-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Keras
+                                </h3>
+                                <p className="text-gray-600">
+                                    A high-level neural networks API, written in
+                                    Python and capable of running on top of
+                                    TensorFlow.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://pytorch.org/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <SiPytorch
+                                    size={48}
+                                    className="mx-auto text-orange-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    PyTorch
+                                </h3>
+                                <p className="text-gray-600">
+                                    An open-source machine learning library
+                                    based on the Torch library for deep
+                                    learning.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://scikit-learn.org/stable/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <SiScikitlearn
+                                    size={48}
+                                    className="mx-auto text-teal-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Scikit-learn
+                                </h3>
+                                <p className="text-gray-600">
+                                    A machine learning library in Python that
+                                    provides simple and efficient tools for data
+                                    mining and data analysis.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://pandas.pydata.org/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <SiPandas
+                                    size={48}
+                                    className="mx-auto text-teal-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Pandas
+                                </h3>
+                                <p className="text-gray-600">
+                                    A powerful Python library for data
+                                    manipulation and analysis, offering data
+                                    structures and functions designed to work
+                                    seamlessly with structured data.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://matplotlib.org/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                                <MdShowChart
+                                    size={48}
+                                    className="mx-auto text-indigo-600 mb-4"
+                                />
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Matplotlib
+                                </h3>
+                                <p className="text-gray-600">
+                                    A plotting library for the Python
+                                    programming language and its numerical
+                                    mathematics extension NumPy.
+                                </p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </section>
 
             {/* Algorithms and Additional Concepts Section */}
+
             <section
                 id="algorithms"
-                className="py-16 bg-gray-100 text-gray-800"
+                className="py-16 bg-zinc-50 text-gray-800"
             >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Algorithms and Additional Concepts
                     </h2>
-                    <div className="bg-white shadow-lg rounded-lg p-6">
-                        <ul className="list-disc pl-6 space-y-4">
-                            <li className="text-gray-600 flex items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {' '}
+                        <Link
+                            href="https://www.geeksforgeeks.org/sorting-algorithms/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
                                 <FaCogs
-                                    className="mr-2 text-blue-500"
-                                    size={24}
+                                    size={48}
+                                    className="mx-auto text-indigo-600 mb-4"
                                 />
-                                Sorting Algorithms
-                            </li>
-                            <li className="text-gray-600 flex items-center">
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Sorting Algorithms
+                                </h3>
+                                <p className="text-gray-600">
+                                    A set of algorithms designed to arrange
+                                    elements in a list or array in a specific
+                                    order, such as ascending or descending.
+                                    Common sorting algorithms include Bubble
+                                    Sort, Merge Sort, and Quick Sort.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://www.geeksforgeeks.org/introduction-to-divide-and-conquer-algorithm/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
                                 <FaCogs
-                                    className="mr-2 text-blue-500"
-                                    size={24}
+                                    size={48}
+                                    className="mx-auto text-indigo-600 mb-4"
                                 />
-                                Divide and Conquer
-                            </li>
-                            <li className="text-gray-600 flex items-center">
-                                <SiJavascript
-                                    className="mr-2 text-yellow-500"
-                                    size={24}
-                                />
-                                Asynchronous Programming
-                            </li>
-                            <li className="text-gray-600 flex items-center">
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Divide and Conquer
+                                </h3>
+                                <p className="text-gray-600">
+                                    A problem-solving strategy that involves
+                                    breaking a complex problem into smaller,
+                                    more manageable sub-problems, solving each
+                                    sub-problem individually, and then combining
+                                    their solutions to solve the original
+                                    problem. This approach is commonly used in
+                                    algorithms like Merge Sort and Quick Sort.
+                                </p>
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://matplotlib.org/"
+                            passHref
+                            target="_blank"
+                            rel="noopner noreferrer"
+                        >
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
                                 <FaCogs
-                                    className="mr-2 text-blue-500"
-                                    size={24}
+                                    size={48}
+                                    className="mx-auto text-indigo-600 mb-4"
                                 />
-                                Graphical Algorithms
-                            </li>
-                            <li className="text-gray-600 flex items-center">
-                                <SiPython
-                                    className="mr-2 text-blue-500"
-                                    size={24}
-                                />
-                                Decision Trees
-                            </li>
-                        </ul>
+                                <h3 className="text-2xl font-semibold mb-4">
+                                    Graphical Algorithms
+                                </h3>
+                                <p className="text-gray-600">
+                                    Algorithms used to generate, manipulate, and
+                                    analyze graphical content. These include
+                                    techniques for rendering shapes, lines, and
+                                    images, as well as algorithms for tasks like
+                                    collision detection, pathfinding, and image
+                                    processing.
+                                </p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </section>
 
             {/* Experience Section */}
-            <section id="experience" className="py-16 bg-white text-gray-800">
+            <section id="ai-ml" className="py-16 bg-zinc-50 text-gray-800">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Work Experience
                     </h2>
                     <div className="space-y-8">
                         {/* Experience Entries */}
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Internet Assessor - Telus International
                             </h3>
@@ -475,17 +1038,17 @@ export default function AboutPage() {
                             </p>
                             {/* Company Website Link */}
                             <p className="mt-4">
-                                <a
+                                <Link
                                     href="https://telusinternational.com"
                                     className="text-blue-600 hover:underline"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     Telus International Website
-                                </a>
+                                </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Specialist - Soft Construct
                             </h3>
@@ -506,17 +1069,17 @@ export default function AboutPage() {
                             </p>
                             {/* Company Website Link */}
                             <p className="mt-4">
-                                <a
+                                <Link
                                     href="https://softconstruct.com"
                                     className="text-blue-600 hover:underline"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     Soft Construct Website
-                                </a>
+                                </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Implementation Specialist - Hikvision
                             </h3>
@@ -537,17 +1100,17 @@ export default function AboutPage() {
                             </p>
                             {/* Company Website Link */}
                             <p className="mt-4">
-                                <a
+                                <Link
                                     href="https://hikvision.com"
                                     className="text-blue-600 hover:underline"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     Hikvision Website
-                                </a>
+                                </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Manager - Mersad.co
                             </h3>
@@ -579,17 +1142,17 @@ export default function AboutPage() {
                             </p>
                             {/* Company Website Link */}
                             <p className="mt-4">
-                                <a
+                                <Link
                                     href="https://mersad.co"
                                     className="text-blue-600 hover:underline"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     Mersad.co Website
-                                </a>
+                                </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Manager - Hanemid Dairy Factory
                             </h3>
@@ -618,18 +1181,11 @@ export default function AboutPage() {
                                 businesses.
                             </p>
                             {/* Company Website Link */}
-                            <p className="mt-4">
-                                <a
-                                    href="https://hanemid.com"
-                                    className="text-blue-600 hover:underline"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Hanemid Dairy Factory Website
-                                </a>
+                            <p className="text-red-600">
+                                Hanemid Dairy Factory Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Specialist - Islamic Republic of Iran Army
                             </h3>
@@ -657,7 +1213,7 @@ export default function AboutPage() {
                                 References available upon request.
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Software Engineer - ParsOnline Group
                             </h3>
@@ -681,17 +1237,17 @@ export default function AboutPage() {
                             </p>
                             {/* Company Website Link */}
                             <p className="mt-4">
-                                <a
-                                    href="https://parsonline.com"
+                                <Link
+                                    href="https://www.tabasheer.net/"
                                     className="text-blue-600 hover:underline"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     ParsOnline Group Website
-                                </a>
+                                </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Manager - Hightech Apple Store
                             </h3>
@@ -715,18 +1271,11 @@ export default function AboutPage() {
                                 productivity and efficiency for the company.
                             </p>
                             {/* Company Website Link */}
-                            <p className="mt-4">
-                                <a
-                                    href="https://hightechapplestore.com"
-                                    className="text-blue-600 hover:underline"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Hightech Apple Store Website
-                                </a>
+                            <p className="text-red-600">
+                                Hightech Apple Store Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Co-Founder & CEO - Fani Informatic Institute
                             </h3>
@@ -768,18 +1317,11 @@ export default function AboutPage() {
                                 implementing successful business practices.
                             </p>
                             {/* Company Website Link */}
-                            <p className="mt-4">
-                                <a
-                                    href="https://faniinstitute.com"
-                                    className="text-blue-600 hover:underline"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Fani Informatic Institute Website
-                                </a>
+                            <p className="text-red-600">
+                                Fani Informatic Institute Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Apple Product Support - Hightech Apple Store
                             </h3>
@@ -800,18 +1342,11 @@ export default function AboutPage() {
                                 users.
                             </p>
                             {/* Company Website Link */}
-                            <p className="mt-4">
-                                <a
-                                    href="https://hightechapplestore.com"
-                                    className="text-blue-600 hover:underline"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Hightech Apple Store Website
-                                </a>
+                            <p className="text-red-600">
+                                Hightech Apple Store Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-gray-100 shadow-lg rounded-lg">
+                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Computer Installation and Troubleshooting
                                 Specialist - Holoo Software
@@ -838,14 +1373,14 @@ export default function AboutPage() {
                             </p>
                             {/* Company Website Link */}
                             <p className="mt-4">
-                                <a
-                                    href="https://holoosoftware.com"
+                                <Link
+                                    href="https://holoo.co.ir/"
                                     className="text-blue-600 hover:underline"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     Holoo Software Website
-                                </a>
+                                </Link>
                             </p>
                         </div>
                     </div>
@@ -858,34 +1393,25 @@ export default function AboutPage() {
                             </h2>
                             <div className="flex flex-wrap justify-center space-x-4">
                                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #node.js
+                                    #Node.js
                                 </span>
                                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #react
+                                    #Next.js
                                 </span>
                                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #csharp
+                                    #TypeScript
                                 </span>
                                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #python
+                                    #Python
                                 </span>
                                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #java
+                                    #HTML
                                 </span>
                                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #html
+                                    #Tailwindcss
                                 </span>
                                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #css
-                                </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #sql
-                                </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #mongodb
-                                </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                                    #linux
+                                    #Postgress
                                 </span>
                             </div>
                         </div>
@@ -893,25 +1419,53 @@ export default function AboutPage() {
                     {/* Education and Training Section */}
                     <section
                         id="education"
-                        className="py-16 bg-gray-100 text-gray-800"
+                        className="py-16 bg-zinc-50 text-gray-800"
                     >
                         <div className="max-w-6xl mx-auto px-6">
                             <h2 className="text-4xl font-bold text-center mb-12">
                                 Education and Training
                             </h2>
-                            <div className="bg-white shadow-lg rounded-lg p-6">
+                            <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
+                                {' '}
                                 <h3 className="text-2xl font-semibold mb-2">
                                     Bachelor's Degree in Computer Software and
                                     Technology
                                 </h3>
-                                <p className="text-gray-600 mb-2">
-                                    Azad University (IAU)
-                                </p>
+                                <Link
+                                    href={'https://kerman.iau.ir/computer/fa'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <p className="text-blue-600 mb-2">
+                                        Azad University (IAU)
+                                    </p>
+                                </Link>
                                 <p className="text-gray-600 mb-2">
                                     City: Kerman | Country: Iran
                                 </p>
                                 <p className="text-gray-600">
-                                    Duration: 01/06/2010 – 01/06/2014
+                                    Duration: 01/06/2012 – 01/06/2014
+                                </p>
+                            </div>
+                            <div className="bg-white shadow-lg rounded-lg p-6">
+                                <h3 className="text-2xl font-semibold mb-2">
+                                    Associate to Bachelor Degree in Computer
+                                    Software and Technology
+                                </h3>
+                                <Link
+                                    href={'https://kerman.nus.ac.ir/'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <p className="text-blue-600 mb-2">
+                                        Shahid Chamran Kerman
+                                    </p>
+                                </Link>
+                                <p className="text-gray-600 mb-2">
+                                    City: Kerman | Country: Iran
+                                </p>
+                                <p className="text-gray-600">
+                                    Duration: 01/06/2010 – 01/06/2012
                                 </p>
                             </div>
                         </div>
@@ -920,44 +1474,48 @@ export default function AboutPage() {
                     {/* Languages Section */}
                     <section
                         id="languages"
-                        className="py-16 bg-gray-100 text-gray-800"
+                        className="py-16 bg-zinc-50 text-gray-800"
                     >
                         <div className="max-w-6xl mx-auto px-6">
-                            <h2 className="text-4xl font-bold text-center mb-12">
+                            <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
                                 Languages
                             </h2>
-                            <div className="bg-white shadow-lg rounded-lg p-6">
-                                <ul className="list-disc pl-6">
-                                    <li className="text-gray-600 mb-2">
-                                        <strong>English:</strong> Advanced
-                                    </li>
-                                    <li className="text-gray-600 mb-2">
-                                        <strong>Armenian:</strong> Fluent
-                                    </li>
-                                    <li className="text-gray-600">
-                                        <strong>Persian/Farsi:</strong> Native
-                                    </li>
-                                </ul>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {/* Language Card 1 */}
+                                <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
+                                    <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                                        English
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-300">
+                                        <strong>Proficiency:</strong> Advanced
+                                    </p>
+                                </div>
+                                {/* Language Card 2 */}
+                                <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
+                                    <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                                        Armenian
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-300">
+                                        <strong>Proficiency:</strong> Fluent
+                                    </p>
+                                </div>
+                                {/* Language Card 3 */}
+                                <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
+                                    <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                                        Persian/Farsi
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-300">
+                                        <strong>Proficiency:</strong> Native
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </section>
-                    {/* Reference Section */}
-                    <div className="py-16">
-                        <div className="max-w-6xl mx-auto px-6">
-                            <h2 className="text-3xl font-bold text-center mb-6">
-                                References
-                            </h2>
-                            <p className="text-center text-gray-600">
-                                References are available upon request. Please
-                                contact me for more information.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </section>
 
             {/* Projects Section */}
-            <section id="projects" className="py-16 bg-gray-100 text-gray-800">
+            <section id="projects" className="py-16 bg-zinc-50 text-gray-800">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Highlighted Projects
@@ -1246,54 +1804,79 @@ export default function AboutPage() {
                 </div>
             </section>
             {/* Honours and Awards Section */}
-            <section id="honours" className="py-16 bg-gray-100 text-gray-800">
+            <section id="honours" className="py-16 bg-zinc-50 text-gray-800">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Honours and Awards
                     </h2>
                     <div className="space-y-8">
                         {/* Award Entries */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
-                            <h3 className="text-2xl font-semibold mb-2">
-                                Gold Medalist, First World Karate Championship
-                            </h3>
-                            <p className="text-gray-600 mb-4">
-                                Issued by Iranian Karate National Team
-                            </p>
-                            <p className="text-gray-600">
-                                I won the gold medal in the Bam Earthquake
-                                Memorial World Karate Championship, held in
-                                Kerman province, Iran, representing the Iranian
-                                Karate National Team. This was my second major
-                                championship win and a proud moment in my
-                                athletic career.
-                            </p>
+                        <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+                            <div className="flex-shrink-0">
+                                <FaMedal className="text-4xl text-yellow-500" />
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-semibold mb-2">
+                                    Gold Medalist, First World Karate
+                                    Championship
+                                </h3>
+                                <p className="text-gray-600 mb-4 flex items-center">
+                                    <FaFlag className="mr-2 text-gray-500" />
+                                    Issued by Iranian Karate National Team
+                                </p>
+                                <p className="text-gray-600">
+                                    I won the gold medal in the Bam Earthquake
+                                    Memorial World Karate Championship, held in
+                                    Kerman province, Iran, representing the
+                                    Iranian Karate National Team. This was my
+                                    second major championship win and a proud
+                                    moment in my athletic career.
+                                </p>
+                            </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
-                            <h3 className="text-2xl font-semibold mb-2">
-                                Silver Medalist, International Karate
-                                Championship in London
-                            </h3>
-                            <p className="text-gray-600 mb-4">
-                                Issued by Abdu Shaher, 7th Dan Supported by EKGB
-                            </p>
-                            <p className="text-gray-600">
-                                I won the silver medal in the Kata Tournament at
-                                the 13th Junior English International Karate
-                                Open, held on January 12th and 13th, 2002, at
-                                the Seymour Leisure Center in London, England.
-                                Competing against participants from 48 countries
-                                made this achievement a highly challenging and
-                                rewarding experience in my athletic career.
-                            </p>
+                        <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+                            <div className="flex-shrink-0">
+                                <FaMedal className="text-4xl text-gray-400" />
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-semibold mb-2">
+                                    Silver Medalist, International Karate
+                                    Championship in London
+                                </h3>
+                                <p className="text-gray-600 mb-4 flex items-center">
+                                    <GrFlag className="mr-2 text-gray-500" />
+                                    Issued by Abdu Shaher, 7th Dan Supported by
+                                    EKGB
+                                </p>
+                                <p className="text-gray-600">
+                                    I won the silver medal in the Kata
+                                    Tournament at the 13th Junior English
+                                    International Karate Open, held on January
+                                    12th and 13th, 2002, at the Seymour Leisure
+                                    Center in London, England. Competing against
+                                    participants from 48 countries made this
+                                    achievement a highly challenging and
+                                    rewarding experience in my athletic career.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-16 bg-white">
-                <FAQPage />
+            <section>
+                {/* Reference Section */}
+                <div className="py-2">
+                    <div className="max-w-6xl mx-auto px-2">
+                        <h2 className="text-3xl font-bold text-center mb-6">
+                            References
+                        </h2>
+                        <p className="text-center text-gray-600">
+                            References are available upon request. Please
+                            contact me for more information.
+                        </p>
+                    </div>
+                </div>
             </section>
         </>
     );

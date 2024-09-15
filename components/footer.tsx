@@ -8,9 +8,9 @@ import SocialMediLinks from './SocialMediLinks';
 const FooterBar = () => {
     const t = useTranslations('Footer');
     return (
-        <footer className="bg-white dark:bg-zinc-950 border-t border-stone-400 font-spaceMono">
+        <footer className="bg-white dark:bg-zinc-950 border-t  font-spaceMono">
             {/* Secondary Footer with Social Media Links */}
-            <div className="bg-zinc-100 dark:bg-zinc-900 py-4">
+            <div className=" dark:bg-zinc-900 py-4">
                 <div className="flex justify-center text-zinc-600 dark:text-zinc-100">
                     <SocialMediLinks />
                 </div>

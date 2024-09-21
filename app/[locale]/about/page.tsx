@@ -4,8 +4,6 @@ import { FaMedal } from 'react-icons/fa';
 import { FaFlag } from 'react-icons/fa';
 import { GrFlag } from 'react-icons/gr';
 import { HiDownload } from 'react-icons/hi';
-import { FaCodeBranch } from 'react-icons/fa6';
-import { SiPython, SiJavascript } from 'react-icons/si';
 import {
     FaCode,
     FaCogs,
@@ -13,26 +11,15 @@ import {
     FaDatabase,
     FaGitAlt,
     FaUserShield,
-    FaMicrochip,
     FaServer,
 } from 'react-icons/fa';
 import { MdBuild } from 'react-icons/md';
-import { FaUniversity, FaLanguage } from 'react-icons/fa';
-
 import { GiTechnoHeart, GiRabbit } from 'react-icons/gi';
-import {
-    FaBrain,
-    FaChartLine,
-    FaNetworkWired,
-    FaProjectDiagram,
-} from 'react-icons/fa';
+import { FaBrain, FaProjectDiagram } from 'react-icons/fa';
 import { SiTensorflow, SiPandas } from 'react-icons/si';
-
 import { DiPython } from 'react-icons/di';
 import { SiKeras, SiPytorch, SiScikitlearn } from 'react-icons/si';
 import { MdShowChart } from 'react-icons/md';
-
-import FAQPage from '@/components/faq';
 
 export default function AboutPage() {
     return (
@@ -40,7 +27,7 @@ export default function AboutPage() {
             {/* Hero Section */}
             <section
                 id="about"
-                className="min-h-screen bg-gradient-to-b from-blue-500 to-indigo-600 flex flex-col items-center justify-center text-white"
+                className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex flex-col items-center justify-center text-white dark:from-gray-900 dark:to-black"
             >
                 <div className="text-center px-6 py-12">
                     <h1 className="text-6xl font-extrabold mb-4">
@@ -62,14 +49,14 @@ export default function AboutPage() {
             </section>
 
             {/* Skills Section */}
-            <section id="skills" className=" bg-zinc-50 text-gray-800">
+            <section id="skills" className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Skills & Expertise
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* Development */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <FaCode
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -170,7 +157,7 @@ export default function AboutPage() {
                         </div>
 
                         {/* CLoud Itmes */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <FaCloud
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -227,7 +214,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                         {/* AI & Machine Learning */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <GiTechnoHeart
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -265,7 +252,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                         {/* Database Technologies */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <FaDatabase
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -314,7 +301,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                         {/* Version Control & Collaboration */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <FaGitAlt
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -352,7 +339,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                         {/* CI/CD */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <MdBuild
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -391,7 +378,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                         {/* UI/UX */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <FaUserShield
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -510,7 +497,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                         {/* API Development */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <FaCode
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -565,7 +552,7 @@ export default function AboutPage() {
                             </Link>
                         </div>
                         {/* Authentication & Authorization */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                             <FaUserShield
                                 size={48}
                                 className="mx-auto text-blue-600 mb-4"
@@ -618,15 +605,15 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
-                                        <FaCode
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                        <FaCode
                                             size={48}
                                             className="mx-auto text-blue-600 mb-4"
                                         />
                                         <h4 className="text-xl font-semibold mb-2">
                                             GraphQL
                                         </h4>
-                                        <p className="text-gray-600">
+                                        <p className="text-gray-600 dark:text-white">
                                             A query language for APIs that
                                             allows for more efficient and
                                             flexible data retrieval.
@@ -638,8 +625,8 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
-                                        <FaDatabase
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                        <FaDatabase
                                             size={48}
                                             className="mx-auto text-red-600 mb-4"
                                         />
@@ -701,8 +688,8 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopner noreferrer"
                                 >
-                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
-                                        <FaCode
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                        <FaCode
                                             size={48}
                                             className="mx-auto text-yellow-600 mb-4"
                                         />
@@ -722,7 +709,7 @@ export default function AboutPage() {
                 </div>
             </section>
             {/* AI and Machine Learning */}
-            <section id="ai-ml" className="py-1 bg-zinc-50 text-gray-800">
+            <section id="ai-ml" className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         AI and Machine Learning
@@ -735,15 +722,15 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
-                                <FaBrain
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                        <FaBrain
                                     size={48}
                                     className="mx-auto text-blue-600 mb-4"
                                 />
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Neural Networks
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     Convolutional Neural Networks (CNNs) for
                                     image processing and deep learning.
                                 </p>
@@ -921,10 +908,7 @@ export default function AboutPage() {
 
             {/* Algorithms and Additional Concepts Section */}
 
-            <section
-                id="algorithms"
-                className="py-16 bg-zinc-50 text-gray-800"
-            >
+            <section id="ai-ml" className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white">
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Algorithms and Additional Concepts

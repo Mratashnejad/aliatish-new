@@ -19,7 +19,7 @@ export default function WebApplicationsPage() {
     return (
         <>
             {/* Web Application Development Section */}
-            <section className=" dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200 py-16">
+            <section className=" dark:from-black dark:bg-black text-gray-800 dark:text-gray-200 py-16">
                 <div className="container mx-auto px-6 lg:px-12">
                     <div className="dark:bg-gray-900rounded-lg p-12 flex flex-col lg:flex-row lg:items-start">
                         <div className="lg:w-2/3">
@@ -90,16 +90,6 @@ export default function WebApplicationsPage() {
                                 </div>
                             </div>
 
-                            {/* Graphics and Animations */}
-                            <div className="hidden lg:block absolute right-0 top-0 transform -translate-y-16">
-                                {/* Lottie or Static Illustration */}
-                                <img
-                                    src="/path/to/your/illustration.png"
-                                    alt="Web Development Illustration"
-                                    className="w-full max-w-sm opacity-75"
-                                />
-                            </div>
-
                             {/* Benefits Section */}
                             <div className="mt-12">
                                 <h4 className="text-4xl font-semibold text-gray-900 dark:text-white mb-6">
@@ -139,19 +129,13 @@ export default function WebApplicationsPage() {
                                 </ul>
                             </div>
 
-                            {/* Call to Action Button */}
-                            <div className="mt-16 flex justify-end">
-                                <OrderButton className="inline-flex items-center bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 px-12 rounded-full shadow-lg hover:scale-105 transform transition-all duration-300">
-                                    Get in Touch{' '}
-                                    <FaArrowRight className="ml-3" />
-                                </OrderButton>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </section>
             {/* Pricing Section */}
-            <section className="bg-white dark:bg-gray-900 py-16">
+            <section className="bg-white dark:bg-black py-16">
                 <div className="container mx-auto px-6 lg:px-12">
                     <h3 className="text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
                         Pricing Plans
@@ -228,6 +212,13 @@ export default function WebApplicationsPage() {
                                 Choose Premium
                             </OrderButton>
                         </div>
+                        {/* Call to Action Button
+                        <div className="mt-16 flex justify-end">
+                                <OrderButton className="inline-flex items-center bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 px-12 rounded-full shadow-lg hover:scale-105 transform transition-all duration-300">
+                                    Get in Touch{' '}
+                                    <FaArrowRight className="ml-3" />
+                                </OrderButton>
+                            </div> */}
                     </div>
                 </div>
             </section>

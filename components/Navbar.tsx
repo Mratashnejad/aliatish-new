@@ -50,7 +50,7 @@ export default function Navbar() {
                         path="/about"
                         className="hover:text-yellow-900 dark:text-yellow-600"
                     >
-                        // about
+                        // who am i?
                     </PathButton>
 
                     <ThemeSwitch />

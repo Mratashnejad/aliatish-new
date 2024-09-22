@@ -49,7 +49,10 @@ export default function AboutPage() {
             </section>
 
             {/* Skills Section */}
-            <section id="skills" className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white">
+            <section
+                id="skills"
+                className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white"
+            >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Skills & Expertise
@@ -593,7 +596,7 @@ export default function AboutPage() {
                     {/* Learning */}
                     <section
                         id="learning"
-                        className="py-16 bg-zinc-50 text-gray-800"
+                        className="py-16 bg-zinc-50 text-gray-800 dark:bg-black text-white"
                     >
                         <div className="max-w-6xl mx-auto px-6">
                             <h3 className="text-3xl font-bold text-center mb-8">
@@ -605,8 +608,8 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
-                        <FaCode
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                                        <FaCode
                                             size={48}
                                             className="mx-auto text-blue-600 mb-4"
                                         />
@@ -625,15 +628,15 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
-                        <FaDatabase
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                                        <FaDatabase
                                             size={48}
                                             className="mx-auto text-red-600 mb-4"
                                         />
                                         <h4 className="text-xl font-semibold mb-2">
                                             Redis
                                         </h4>
-                                        <p className="text-gray-600">
+                                        <p className="text-gray-600 dark:text-white">
                                             An in-memory data structure store
                                             used as a database, cache, and
                                             message broker.
@@ -645,7 +648,7 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                         <GiRabbit
                                             size={48}
                                             className="mx-auto text-purple-600 mb-4"
@@ -653,7 +656,7 @@ export default function AboutPage() {
                                         <h4 className="text-xl font-semibold mb-2">
                                             RabbitMQ
                                         </h4>
-                                        <p className="text-gray-600">
+                                        <p className="text-gray-600 dark:text-white">
                                             A robust messaging broker that
                                             supports multiple messaging
                                             protocols.
@@ -667,7 +670,7 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center hover:cursor-pointer">
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                         <FaServer
                                             size={48}
                                             className="mx-auto text-green-600 mb-4"
@@ -675,7 +678,7 @@ export default function AboutPage() {
                                         <h4 className="text-xl font-semibold mb-2">
                                             Microservices
                                         </h4>
-                                        <p className="text-gray-600">
+                                        <p className="text-gray-600 dark:text-white">
                                             An architectural style that
                                             structures an application as a
                                             collection of loosely coupled
@@ -688,15 +691,15 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopner noreferrer"
                                 >
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
-                        <FaCode
+                                    <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                                        <FaCode
                                             size={48}
                                             className="mx-auto text-yellow-600 mb-4"
                                         />
                                         <h4 className="text-xl font-semibold mb-2">
                                             Nest.js
                                         </h4>
-                                        <p className="text-gray-600">
+                                        <p className="text-gray-600 dark:text-white">
                                             A progressive Node.js framework for
                                             building efficient and scalable
                                             server-side applications.
@@ -709,7 +712,10 @@ export default function AboutPage() {
                 </div>
             </section>
             {/* AI and Machine Learning */}
-            <section id="ai-ml" className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white">
+            <section
+                id="ai-ml"
+                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black text-white"
+            >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         AI and Machine Learning
@@ -722,8 +728,8 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
-                        <FaBrain
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
+                                <FaBrain
                                     size={48}
                                     className="mx-auto text-blue-600 mb-4"
                                 />
@@ -742,7 +748,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <DiPython
                                     size={48}
                                     className="mx-auto text-yellow-600 mb-4"
@@ -750,7 +756,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Regression Models
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     Linear Regression, Logistic Regression for
                                     predictive analysis.
                                 </p>
@@ -762,7 +768,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <FaProjectDiagram
                                     size={48}
                                     className="mx-auto text-green-600 mb-4"
@@ -770,7 +776,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Decision Trees & Forests
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     Decision Trees, Random Forests for
                                     classification and regression tasks.
                                 </p>
@@ -782,7 +788,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <SiTensorflow
                                     size={48}
                                     className="mx-auto text-red-600 mb-4"
@@ -790,7 +796,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     TensorFlow
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     An open-source platform for machine learning
                                     and neural network training.
                                 </p>
@@ -802,7 +808,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <SiKeras
                                     size={48}
                                     className="mx-auto text-purple-600 mb-4"
@@ -810,7 +816,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Keras
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     A high-level neural networks API, written in
                                     Python and capable of running on top of
                                     TensorFlow.
@@ -823,7 +829,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <SiPytorch
                                     size={48}
                                     className="mx-auto text-orange-600 mb-4"
@@ -831,7 +837,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     PyTorch
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     An open-source machine learning library
                                     based on the Torch library for deep
                                     learning.
@@ -844,7 +850,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <SiScikitlearn
                                     size={48}
                                     className="mx-auto text-teal-600 mb-4"
@@ -852,7 +858,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Scikit-learn
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     A machine learning library in Python that
                                     provides simple and efficient tools for data
                                     mining and data analysis.
@@ -865,7 +871,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <SiPandas
                                     size={48}
                                     className="mx-auto text-teal-600 mb-4"
@@ -873,7 +879,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Pandas
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     A powerful Python library for data
                                     manipulation and analysis, offering data
                                     structures and functions designed to work
@@ -887,7 +893,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <MdShowChart
                                     size={48}
                                     className="mx-auto text-indigo-600 mb-4"
@@ -895,7 +901,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Matplotlib
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     A plotting library for the Python
                                     programming language and its numerical
                                     mathematics extension NumPy.
@@ -908,7 +914,10 @@ export default function AboutPage() {
 
             {/* Algorithms and Additional Concepts Section */}
 
-            <section id="ai-ml" className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white">
+            <section
+                id="ai-ml"
+                className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white"
+            >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Algorithms and Additional Concepts
@@ -921,7 +930,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <FaCogs
                                     size={48}
                                     className="mx-auto text-indigo-600 mb-4"
@@ -944,7 +953,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <FaCogs
                                     size={48}
                                     className="mx-auto text-indigo-600 mb-4"
@@ -969,7 +978,7 @@ export default function AboutPage() {
                             target="_blank"
                             rel="noopner noreferrer"
                         >
-                            <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white ">
                                 <FaCogs
                                     size={48}
                                     className="mx-auto text-indigo-600 mb-4"
@@ -992,14 +1001,17 @@ export default function AboutPage() {
             </section>
 
             {/* Experience Section */}
-            <section id="ai-ml" className="py-16 bg-zinc-50 text-gray-800">
+            <section
+                id="ai-ml"
+                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
+            >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Work Experience
                     </h2>
                     <div className="space-y-8">
                         {/* Experience Entries */}
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Internet Assessor - Telus International
                             </h3>
@@ -1032,7 +1044,7 @@ export default function AboutPage() {
                                 </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Specialist - Soft Construct
                             </h3>
@@ -1063,7 +1075,7 @@ export default function AboutPage() {
                                 </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Implementation Specialist - Hikvision
                             </h3>
@@ -1094,7 +1106,7 @@ export default function AboutPage() {
                                 </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Manager - Mersad.co
                             </h3>
@@ -1136,7 +1148,7 @@ export default function AboutPage() {
                                 </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Manager - Hanemid Dairy Factory
                             </h3>
@@ -1169,7 +1181,7 @@ export default function AboutPage() {
                                 Hanemid Dairy Factory Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Specialist - Islamic Republic of Iran Army
                             </h3>
@@ -1197,7 +1209,7 @@ export default function AboutPage() {
                                 References available upon request.
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Software Engineer - ParsOnline Group
                             </h3>
@@ -1231,7 +1243,7 @@ export default function AboutPage() {
                                 </Link>
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 IT Manager - Hightech Apple Store
                             </h3>
@@ -1259,7 +1271,7 @@ export default function AboutPage() {
                                 Hightech Apple Store Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Co-Founder & CEO - Fani Informatic Institute
                             </h3>
@@ -1305,7 +1317,7 @@ export default function AboutPage() {
                                 Fani Informatic Institute Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Apple Product Support - Hightech Apple Store
                             </h3>
@@ -1330,7 +1342,7 @@ export default function AboutPage() {
                                 Hightech Apple Store Website has expired.
                             </p>
                         </div>
-                        <div className="p-6 bg-zinc-50 shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 dark:text-white ">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Computer Installation and Troubleshooting
                                 Specialist - Holoo Software
@@ -1369,8 +1381,8 @@ export default function AboutPage() {
                         </div>
                     </div>
 
-                    {/* Skills Section */}
-                    <div className="py-16 bg-gray-200">
+                    {/* Skills Section
+                    <div className="py-16 bg-gray-200 dark:bg-black text-white">
                         <div className="max-w-6xl mx-auto px-6">
                             <h2 className="text-3xl font-bold text-center mb-6">
                                 Skills
@@ -1399,18 +1411,19 @@ export default function AboutPage() {
                                 </span>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     {/* Education and Training Section */}
                     <section
-                        id="education"
-                        className="py-16 bg-zinc-50 text-gray-800"
+                        id="ai-ml"
+                        className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
                     >
                         <div className="max-w-6xl mx-auto px-6">
                             <h2 className="text-4xl font-bold text-center mb-12">
                                 Education and Training
                             </h2>
-                            <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
-                                {' '}
+
+                            {/* Bachelor's Degree */}
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900">
                                 <h3 className="text-2xl font-semibold mb-2">
                                     Bachelor's Degree in Computer Software and
                                     Technology
@@ -1420,18 +1433,20 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <p className="text-blue-600 mb-2">
+                                    <p className="text-blue-600 dark:text-blue-400 mb-2">
                                         Azad University (IAU)
                                     </p>
                                 </Link>
-                                <p className="text-gray-600 mb-2">
+                                <p className="text-gray-600 dark:text-gray-400 mb-2">
                                     City: Kerman | Country: Iran
                                 </p>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-gray-400">
                                     Duration: 01/06/2012 – 01/06/2014
                                 </p>
                             </div>
-                            <div className="bg-white shadow-lg rounded-lg p-6">
+
+                            {/* Associate to Bachelor's Degree */}
+                            <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900 mt-6">
                                 <h3 className="text-2xl font-semibold mb-2">
                                     Associate to Bachelor Degree in Computer
                                     Software and Technology
@@ -1441,14 +1456,14 @@ export default function AboutPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <p className="text-blue-600 mb-2">
+                                    <p className="text-blue-600 dark:text-blue-400 mb-2">
                                         Shahid Chamran Kerman
                                     </p>
                                 </Link>
-                                <p className="text-gray-600 mb-2">
+                                <p className="text-gray-600 dark:text-gray-400 mb-2">
                                     City: Kerman | Country: Iran
                                 </p>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-gray-400">
                                     Duration: 01/06/2010 – 01/06/2012
                                 </p>
                             </div>
@@ -1458,7 +1473,7 @@ export default function AboutPage() {
                     {/* Languages Section */}
                     <section
                         id="languages"
-                        className="py-16 bg-zinc-50 text-gray-800"
+                        className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
                     >
                         <div className="max-w-6xl mx-auto px-6">
                             <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
@@ -1466,7 +1481,7 @@ export default function AboutPage() {
                             </h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {/* Language Card 1 */}
-                                <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
+                                <div className="bg-white dark:bg-gray-900 shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
                                     <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                                         English
                                     </h3>
@@ -1475,7 +1490,7 @@ export default function AboutPage() {
                                     </p>
                                 </div>
                                 {/* Language Card 2 */}
-                                <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
+                                <div className="bg-white dark:bg-gray-900 shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
                                     <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                                         Armenian
                                     </h3>
@@ -1484,7 +1499,7 @@ export default function AboutPage() {
                                     </p>
                                 </div>
                                 {/* Language Card 3 */}
-                                <div className="bg-white shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
+                                <div className="bg-white dark:bg-gray-900 shadow-lg rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-transform transform hover:scale-105">
                                     <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                                         Persian/Farsi
                                     </h3>
@@ -1499,14 +1514,18 @@ export default function AboutPage() {
             </section>
 
             {/* Projects Section */}
-            <section id="projects" className="py-16 bg-zinc-50 text-gray-800">
+            <section
+                id="projects"
+                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
+            >
+                {' '}
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
                         Highlighted Projects
                     </h2>
                     <div className="space-y-8">
                         {/* Project Entries */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 <a
                                     href="https://www.gtnelu.am"
@@ -1517,7 +1536,7 @@ export default function AboutPage() {
                                     Gtnelu.am
                                 </a>
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 "Gtnelu" is a comprehensive platform designed to
                                 seamlessly connect users in Armenia with top
                                 experts tailored to their specific needs. Our
@@ -1525,7 +1544,7 @@ export default function AboutPage() {
                                 the best professionals for any job efficiently
                                 and locally.
                             </p>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 This large-scale initiative serves as a catalyst
                                 for economic growth by providing job
                                 opportunities and fostering a vibrant
@@ -1535,18 +1554,18 @@ export default function AboutPage() {
                                 confidence.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #react
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #node.js
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #mongodb
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 <a
                                     href="https://flexshift.example.com"
@@ -1557,7 +1576,7 @@ export default function AboutPage() {
                                     FlexShift
                                 </a>
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 "FlexShift" is a cutting-edge web application
                                 powered by MongoDB, Next.js, Firebase, Google
                                 Cloud, AWS, GitHub, JavaScript, TypeScript, and
@@ -1566,7 +1585,7 @@ export default function AboutPage() {
                                 vacant days as extra shifts and suggesting
                                 items.
                             </p>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 Users can effortlessly indicate their
                                 availability for extra shifts, and our machine
                                 learning algorithms intelligently recommend
@@ -1574,18 +1593,18 @@ export default function AboutPage() {
                                 qualifications.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #nextjs
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #mongodb
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #firebase
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 <a
                                     href="https://filmogeram.ir"
@@ -1596,7 +1615,7 @@ export default function AboutPage() {
                                     Filmogeram.ir eCommerce Website
                                 </a>
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 "Filmogeram Video Shop" is a dynamic WordPress
                                 website designed to revolutionize the way video
                                 content is sold online. Our platform provides a
@@ -1605,15 +1624,15 @@ export default function AboutPage() {
                                 range of videos.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #wordpress
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #php
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 <a
                                     href="https://www.tabasheer.net"
@@ -1624,7 +1643,7 @@ export default function AboutPage() {
                                     Tabasheer Engineering Co
                                 </a>
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 "Tabasheer Engineering Co" is a pioneering
                                 project developed using C# technology, aimed at
                                 providing users with seamless access to their
@@ -1633,15 +1652,15 @@ export default function AboutPage() {
                                 comprehensive platform for managing services.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #csharp
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #aspnet
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 <a
                                     href="https://mersad.co"
@@ -1652,7 +1671,7 @@ export default function AboutPage() {
                                     Mersad.co eCommerce Website
                                 </a>
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 "Mersad.co" is a dynamic eCommerce website built
                                 on the WordPress platform, offering a wide range
                                 of products including CCTV systems, servers,
@@ -1661,15 +1680,15 @@ export default function AboutPage() {
                                 experience.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #wordpress
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #woocommerce
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 <a
                                     href="https://coffe-sefareshi.example.com"
@@ -1680,19 +1699,19 @@ export default function AboutPage() {
                                     Coffee Sefareshi eCommerce Website
                                 </a>
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 "Coffee Sefareshi" is an innovative eCommerce
                                 website built on WordPress, dedicated to
                                 delivering freshly brewed coffee directly to
                                 customers' doorsteps.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #wordpress
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 <a
                                     href="https://hanemid.example.com"
@@ -1703,48 +1722,48 @@ export default function AboutPage() {
                                     Hanemid Factory Website
                                 </a>
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 "Hanemid Factory" proudly presents its online
                                 dairy sales website, offering a diverse
                                 selection of premium dairy products directly
                                 from our factory.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #wordpress
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Image Classification AI Model for Happy and Sad
                                 Faces
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 This project demonstrates machine learning
                                 techniques in image classification, specifically
                                 identifying whether a person is happy or sad
                                 based on their facial expressions.
                             </p>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 This technology could be used in monitoring
                                 mental health, analyzing customer satisfaction,
                                 or developing educational tools.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #python
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #tensorflow
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Soil Moisture Using ESP8266
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 This project involves monitoring soil moisture
                                 levels using the NodeMCU (ESP8266)
                                 microcontroller and a moisture sensor, designed
@@ -1752,20 +1771,20 @@ export default function AboutPage() {
                                 plant health.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #c++
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #esp8266
                                 </span>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg">
+                        <div className="p-6 bg-white shadow-lg rounded-lg dark:bg-gray-900">
                             <h3 className="text-2xl font-semibold mb-2">
                                 Get Instagram User Information with Python and
                                 AI
                             </h3>
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 dark:text-gray-300 mb-4">
                                 This project retrieves Instagram user data using
                                 Python and AI techniques. It leverages web
                                 scraping libraries like BeautifulSoup and
@@ -1773,13 +1792,13 @@ export default function AboutPage() {
                                 insights from Instagram profiles.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #python
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #beautifulsoup
                                 </span>
-                                <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
+                                <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
                                     #ai
                                 </span>
                             </div>
@@ -1788,27 +1807,30 @@ export default function AboutPage() {
                 </div>
             </section>
             {/* Honours and Awards Section */}
-            <section id="honours" className="py-16 bg-zinc-50 text-gray-800">
+            <section
+                id="honours"
+                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
+            >
                 <div className="max-w-6xl mx-auto px-6">
-                    <h2 className="text-4xl font-bold text-center mb-12">
+                    <h2 className="text-4xl font-bold text-center mb-12 dark:text-gray-100">
                         Honours and Awards
                     </h2>
                     <div className="space-y-8">
                         {/* Award Entries */}
-                        <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+                        <div className="p-6 bg-white dark:bg-gray-900 shadow-lg rounded-lg flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
                             <div className="flex-shrink-0">
                                 <FaMedal className="text-4xl text-yellow-500" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-semibold mb-2">
+                                <h3 className="text-2xl font-semibold mb-2 dark:text-gray-100">
                                     Gold Medalist, First World Karate
                                     Championship
                                 </h3>
-                                <p className="text-gray-600 mb-4 flex items-center">
-                                    <FaFlag className="mr-2 text-gray-500" />
+                                <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
+                                    <FaFlag className="mr-2 text-gray-500 dark:text-gray-400" />
                                     Issued by Iranian Karate National Team
                                 </p>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-gray-300">
                                     I won the gold medal in the Bam Earthquake
                                     Memorial World Karate Championship, held in
                                     Kerman province, Iran, representing the
@@ -1818,21 +1840,22 @@ export default function AboutPage() {
                                 </p>
                             </div>
                         </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+
+                        <div className="p-6 bg-white dark:bg-gray-900 shadow-lg rounded-lg flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
                             <div className="flex-shrink-0">
                                 <FaMedal className="text-4xl text-gray-400" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-semibold mb-2">
+                                <h3 className="text-2xl font-semibold mb-2 dark:text-gray-100">
                                     Silver Medalist, International Karate
                                     Championship in London
                                 </h3>
-                                <p className="text-gray-600 mb-4 flex items-center">
-                                    <GrFlag className="mr-2 text-gray-500" />
+                                <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
+                                    <GrFlag className="mr-2 text-gray-500 dark:text-gray-400" />
                                     Issued by Abdu Shaher, 7th Dan Supported by
                                     EKGB
                                 </p>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-gray-300">
                                     I won the silver medal in the Kata
                                     Tournament at the 13th Junior English
                                     International Karate Open, held on January
@@ -1851,11 +1874,11 @@ export default function AboutPage() {
             <section>
                 {/* Reference Section */}
                 <div className="py-2">
-                    <div className=" grid   max-w-6xl mx-auto px-2">
-                        <h2 className="text-3xl font-bold text-center mb-6">
+                    <div className="grid max-w-6xl mx-auto px-2">
+                        <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-gray-100">
                             References
                         </h2>
-                        <p className="text-center text-gray-600">
+                        <p className="text-center text-gray-600 dark:text-gray-300">
                             References are available upon request. Please
                             contact me for more information.
                         </p>

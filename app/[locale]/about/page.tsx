@@ -27,7 +27,7 @@ export default function AboutPage() {
             {/* Hero Section */}
             <section
                 id="about"
-                className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex flex-col items-center justify-center text-white dark:from-gray-900 dark:to-black"
+                className="min-h-screen bg-gradient-to-b bg-zinc-50 dark:from-gray-900 dark:to-black flex flex-col items-center justify-center text-gray-900 dark:text-white"
             >
                 <div className="text-center px-6 py-12">
                     <h1 className="text-6xl font-extrabold mb-4">
@@ -40,7 +40,7 @@ export default function AboutPage() {
                     <a
                         href="/documents/CV.pdf"
                         download
-                        className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition-transform transform hover:scale-105"
+                        className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
                     >
                         <HiDownload className="mr-2" size={20} />
                         Download Resume
@@ -51,7 +51,7 @@ export default function AboutPage() {
             {/* Skills Section */}
             <section
                 id="skills"
-                className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white"
+                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
             >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
@@ -596,8 +596,8 @@ export default function AboutPage() {
                     {/* Learning */}
                     <section
                         id="learning"
-                        className="py-16 bg-zinc-50 text-gray-800 dark:bg-black text-white"
-                    >
+                        className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
+                        >
                         <div className="max-w-6xl mx-auto px-6">
                             <h3 className="text-3xl font-bold text-center mb-8">
                                 Currently Learning
@@ -714,7 +714,7 @@ export default function AboutPage() {
             {/* AI and Machine Learning */}
             <section
                 id="ai-ml"
-                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black text-white"
+                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
             >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
@@ -916,7 +916,7 @@ export default function AboutPage() {
 
             <section
                 id="ai-ml"
-                className="bg-zinc-50 dark:bg-black text-gray-900 dark:text-white"
+                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
             >
                 <div className="max-w-6xl mx-auto px-6">
                     <h2 className="text-4xl font-bold text-center mb-12">
@@ -938,7 +938,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Sorting Algorithms
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     A set of algorithms designed to arrange
                                     elements in a list or array in a specific
                                     order, such as ascending or descending.
@@ -961,7 +961,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Divide and Conquer
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     A problem-solving strategy that involves
                                     breaking a complex problem into smaller,
                                     more manageable sub-problems, solving each
@@ -986,7 +986,7 @@ export default function AboutPage() {
                                 <h3 className="text-2xl font-semibold mb-4">
                                     Graphical Algorithms
                                 </h3>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 dark:text-white">
                                     Algorithms used to generate, manipulate, and
                                     analyze graphical content. These include
                                     techniques for rendering shapes, lines, and
@@ -1002,7 +1002,7 @@ export default function AboutPage() {
 
             {/* Experience Section */}
             <section
-                id="ai-ml"
+                id="work-experiance"
                 className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
             >
                 <div className="max-w-6xl mx-auto px-6">

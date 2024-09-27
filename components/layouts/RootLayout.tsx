@@ -6,7 +6,7 @@ import { Providers } from './ThemeProvider';
 import Navbar from '@/components/Navbar';
 import { SessionProvider } from 'next-auth/react'; 
 import GoogleOneTap from '@/components/GoogleOneTap';
-
+import Link from 'next/link';
 interface RootLayoutProps {
   children: React.ReactNode;
   params: {
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <Head>
-        <link
+        <Link
           href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet"
         />

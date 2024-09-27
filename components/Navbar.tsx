@@ -36,21 +36,21 @@ export default function Navbar() {
                         path="/services"
                         className="hover:text-yellow-900 dark:text-yellow-600"
                     >
-                        // services
+                        {"// services"}
                     </PathButton>
 
                     <PathButton
                         path="/blog"
                         className="hover:text-yellow-900 dark:text-yellow-600"
                     >
-                        // blog
+                       {" // blog"}
                     </PathButton>
                     
                     <PathButton
                         path="/about"
                         className="hover:text-yellow-900 dark:text-yellow-600"
                     >
-                        // who am i?
+                        {"// who am i?"}
                     </PathButton>
 
                     <ThemeSwitch />
@@ -65,7 +65,7 @@ export default function Navbar() {
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
-                        // services
+                        {"// services"}
                     </PathButton>
 
                     <PathButton
@@ -73,7 +73,7 @@ export default function Navbar() {
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
-                        // blog
+                        {"// blog"}
                     </PathButton>
 
                     <PathButton
@@ -81,7 +81,7 @@ export default function Navbar() {
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
-                        // about
+                        {"// about"}
                     </PathButton>
 
                     <ThemeSwitch />

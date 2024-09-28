@@ -41,7 +41,7 @@ export default function WebApplicationsPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
-                className=" dark:from-black dark:bg-black text-gray-800 dark:text-gray-200 py-16"
+                className=" dark:bg-black text-gray-800 dark:text-gray-200 py-1"
             >
                 <div className="container mx-auto px-6 lg:px-12">
                     <motion.div 
@@ -66,7 +66,7 @@ export default function WebApplicationsPage() {
                             </motion.p>
 
                             {/* Tech Stack Highlight Section */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 <motion.div variants={itemVariants}>
                                     <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
                                         <FaReact className="text-blue-600 mr-3" /> Built with Next.js

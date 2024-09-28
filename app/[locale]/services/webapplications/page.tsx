@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 import {
     FaArrowRight,
     FaDatabase,
@@ -15,31 +16,60 @@ import {
 } from 'react-icons/si';
 import { OrderButton } from '@/components/order-button';
 
+const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            staggerChildren: 0.3,
+            duration: 0.5,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+};
+
 export default function WebApplicationsPage() {
     return (
         <>
             {/* Web Application Development Section */}
-            <section className=" dark:from-black dark:bg-black text-gray-800 dark:text-gray-200 py-16">
+            <motion.section 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                className=" dark:from-black dark:bg-black text-gray-800 dark:text-gray-200 py-16"
+            >
                 <div className="container mx-auto px-6 lg:px-12">
-                    <div className="dark:bg-gray-900rounded-lg p-12 flex flex-col lg:flex-row lg:items-start">
-                        <div className="lg:w-2/3">
-                            <h3 className="text-5xl font-bold mb-8 text-gray-900 dark:text-white">
+                    <motion.div 
+                        className="dark:bg-gray-900 rounded-lg p-12 flex flex-col lg:flex-row lg:items-start"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.div className="lg:w-2/3" variants={itemVariants}>
+                            <motion.h3 className="text-5xl font-bold mb-8 text-gray-900 dark:text-white">
                                 Web Application Development
-                            </h3>
-                            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                            </motion.h3>
+                            <motion.p 
+                                className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"
+                                variants={itemVariants}
+                            >
                                 Web applications are the backbone of modern
                                 digital experiences, providing fast, reliable,
                                 and scalable solutions. I create robust,
                                 high-performance web applications tailored to
                                 meet your business's unique needs.
-                            </p>
+                            </motion.p>
 
                             {/* Tech Stack Highlight Section */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                                <div>
+                                <motion.div variants={itemVariants}>
                                     <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <FaReact className="text-blue-600 mr-3" />{' '}
-                                        Built with Next.js
+                                        <FaReact className="text-blue-600 mr-3" /> Built with Next.js
                                     </h4>
                                     <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
                                         Seamlessly integrating server-side
@@ -49,11 +79,10 @@ export default function WebApplicationsPage() {
                                         that enhance user experience and
                                         visibility.
                                     </p>
-                                </div>
-                                <div>
+                                </motion.div>
+                                <motion.div variants={itemVariants}>
                                     <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <SiPostgresql className="text-blue-500 mr-3" />{' '}
-                                        PostgreSQL: Robust & Scalable
+                                        <SiPostgresql className="text-blue-500 mr-3" /> PostgreSQL: Robust & Scalable
                                     </h4>
                                     <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
                                         PostgreSQL ensures data integrity,
@@ -62,11 +91,10 @@ export default function WebApplicationsPage() {
                                         that handle complex queries and
                                         large-scale transactions.
                                     </p>
-                                </div>
-                                <div>
+                                </motion.div>
+                                <motion.div variants={itemVariants}>
                                     <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <SiTailwindcss className="text-teal-500 mr-3" />{' '}
-                                        Tailwind CSS for Modern Design
+                                        <SiTailwindcss className="text-teal-500 mr-3" /> Tailwind CSS for Modern Design
                                     </h4>
                                     <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
                                         With Tailwind CSS, I build sleek,
@@ -75,11 +103,10 @@ export default function WebApplicationsPage() {
                                         delivering visually stunning,
                                         user-friendly experiences.
                                     </p>
-                                </div>
-                                <div>
+                                </motion.div>
+                                <motion.div variants={itemVariants}>
                                     <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <SiRedis className="text-red-600 mr-3" />{' '}
-                                        Redis: Blazing Fast Caching
+                                        <SiRedis className="text-red-600 mr-3" /> Redis: Blazing Fast Caching
                                     </h4>
                                     <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
                                         Redis boosts performance by caching
@@ -87,62 +114,55 @@ export default function WebApplicationsPage() {
                                         times and improving the overall response
                                         time of the web application.
                                     </p>
-                                </div>
+                                </motion.div>
                             </div>
 
                             {/* Benefits Section */}
-                            <div className="mt-12">
+                            <motion.div className="mt-12" variants={itemVariants}>
                                 <h4 className="text-4xl font-semibold text-gray-900 dark:text-white mb-6">
                                     Why Choose My Web Application Services
                                 </h4>
                                 <ul className="list-disc pl-6 text-lg text-gray-700 dark:text-gray-300 space-y-4">
                                     <li className="flex items-start">
-                                        <FaMobileAlt className="text-green-600 mr-3" />{' '}
-                                        High-performance, scalable applications
-                                        optimized for speed.
+                                        <FaMobileAlt className="text-green-600 mr-3" /> High-performance, scalable applications optimized for speed.
                                     </li>
                                     <li className="flex items-start">
-                                        <FaServer className="text-yellow-600 mr-3" />{' '}
-                                        SEO-friendly development to improve
-                                        online visibility.
+                                        <FaServer className="text-yellow-600 mr-3" /> SEO-friendly development to improve online visibility.
                                     </li>
                                     <li className="flex items-start">
-                                        <FaMobileAlt className="text-teal-500 mr-3" />{' '}
-                                        Modern, responsive design tailored for
-                                        all devices.
+                                        <FaMobileAlt className="text-teal-500 mr-3" /> Modern, responsive design tailored for all devices.
                                     </li>
                                     <li className="flex items-start">
-                                        <SiGraphql className="text-pink-500 mr-3" />{' '}
-                                        Efficient data fetching with GraphQL for
-                                        faster performance.
+                                        <SiGraphql className="text-pink-500 mr-3" /> Efficient data fetching with GraphQL for faster performance.
                                     </li>
                                     <li className="flex items-start">
-                                        <FaDatabase className="text-red-600 mr-3" />{' '}
-                                        Incorporating Redis for enhanced caching
-                                        and performance.
+                                        <FaDatabase className="text-red-600 mr-3" /> Incorporating Redis for enhanced caching and performance.
                                     </li>
                                     <li className="flex items-start">
-                                        <FaArrowRight className="text-blue-600 mr-3" />{' '}
-                                        Secure authentication and authorization
-                                        solutions.
+                                        <FaArrowRight className="text-blue-600 mr-3" /> Secure authentication and authorization solutions.
                                     </li>
                                 </ul>
-                            </div>
-
-                            
-                        </div>
-                    </div>
+                            </motion.div>
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
+
             {/* Pricing Section */}
-            <section className="bg-white dark:bg-black py-16">
+            <motion.section 
+                className="bg-white dark:bg-black py-16"
+                initial="hidden"
+                whileInView="visible"
+                variants={containerVariants}
+                viewport={{ once: true }}
+            >
                 <div className="container mx-auto px-6 lg:px-12">
-                    <h3 className="text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+                    <motion.h3 className="text-5xl font-bold text-center mb-12 text-gray-900 dark:text-white">
                         Pricing Plans
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    </motion.h3>
+                    <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {/* Basic Plan */}
-                        <div className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-8">
+                        <motion.div className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-8" variants={itemVariants}>
                             <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
                                 Basic
                             </h4>
@@ -163,10 +183,10 @@ export default function WebApplicationsPage() {
                             <OrderButton className="bg-blue-600 text-white py-3 px-8 rounded-lg w-full hover:bg-blue-700 transition-all">
                                 Choose Basic
                             </OrderButton>
-                        </div>
+                        </motion.div>
 
                         {/* Pro Plan */}
-                        <div className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-8 transform scale-105">
+                        <motion.div className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-8 transform scale-105" variants={itemVariants}>
                             <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
                                 Pro
                             </h4>
@@ -187,10 +207,10 @@ export default function WebApplicationsPage() {
                             <OrderButton className="bg-teal-500 text-white py-3 px-8 rounded-lg w-full hover:bg-teal-600 transition-all">
                                 Choose Pro
                             </OrderButton>
-                        </div>
+                        </motion.div>
 
                         {/* Premium Plan */}
-                        <div className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-8">
+                        <motion.div className="bg-gray-100 dark:bg-gray-800 shadow-lg rounded-lg p-8" variants={itemVariants}>
                             <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
                                 Premium
                             </h4>
@@ -211,17 +231,10 @@ export default function WebApplicationsPage() {
                             <OrderButton className="bg-purple-600 text-white py-3 px-8 rounded-lg w-full hover:bg-purple-700 transition-all">
                                 Choose Premium
                             </OrderButton>
-                        </div>
-                        {/* Call to Action Button
-                        <div className="mt-16 flex justify-end">
-                                <OrderButton className="inline-flex items-center bg-gradient-to-r from-blue-600 to-teal-500 text-white py-3 px-12 rounded-full shadow-lg hover:scale-105 transform transition-all duration-300">
-                                    Get in Touch{' '}
-                                    <FaArrowRight className="ml-3" />
-                                </OrderButton>
-                            </div> */}
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
         </>
     );
 }

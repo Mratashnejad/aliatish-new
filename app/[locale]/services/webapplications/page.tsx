@@ -72,87 +72,116 @@ export default function WebApplicationsPage() {
                                 size or industry.
                             </motion.p>
                             {/* Packages Benefit Section */}
-                            <div className="gap-2 py-16 px-8">
-                                <motion.div variants={itemVariants}>
-                                    <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <FaBriefcase
-                                            className="text-blue-600 mr-3"
-                                            size={70}
-                                        />{' '}
-                                        Basic Package: Simple, Effective,
-                                        Affordable
-                                    </h4>
-                                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                                        The Basic package is perfect for
-                                        personal portfolios or small business
-                                        websites. You get up to 5 pages,
-                                        responsive design, and basic SEO
-                                        optimization. It's a cost-effective way
-                                        to get a professional online presence
-                                        without the heavy cost.
-                                    </p>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-16 px-8">
+                                {/* Basic Package */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex items-center"
+                                >
+                                    <FaBriefcase
+                                        className="text-blue-600 mr-8"
+                                        size={70}
+                                    />
+                                    <div>
+                                        <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
+                                            Basic Package: Simple, Effective,
+                                            Affordable
+                                        </h4>
+                                        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                                            The Basic package is perfect for
+                                            personal portfolios or small
+                                            business websites. You get up to 5
+                                            pages, responsive design, and basic
+                                            SEO optimization. It's a
+                                            cost-effective way to get a
+                                            professional online presence without
+                                            the heavy cost.
+                                        </p>
+                                    </div>
                                 </motion.div>
 
-                                <motion.div variants={itemVariants}>
-                                    <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <FaRocket
-                                            className="text-yellow-500 mr-3"
-                                            size={70}
-                                        />{' '}
-                                        Pro Package: Boost Your Business Online
-                                    </h4>
-                                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                                        With the Pro package, you get up to 10
-                                        pages, advanced SEO, CMS integration,
-                                        and custom animations. This package is
-                                        ideal for growing businesses that need
-                                        more advanced features and customization
-                                        to stand out from the competition.
-                                    </p>
+                                {/* Pro Package */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex items-center"
+                                >
+                                    <FaRocket
+                                        className="text-yellow-500 mr-8"
+                                        size={70}
+                                    />
+                                    <div>
+                                        <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
+                                            Pro Package: Boost Your Business
+                                            Online
+                                        </h4>
+                                        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                                            With the Pro package, you get up to
+                                            10 pages, advanced SEO, CMS
+                                            integration, and custom animations.
+                                            This package is ideal for growing
+                                            businesses that need more advanced
+                                            features and customization to stand
+                                            out from the competition.
+                                        </p>
+                                    </div>
                                 </motion.div>
 
-                                <motion.div variants={itemVariants}>
-                                    <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <FaCrown
-                                            className="text-purple-600 mr-3"
-                                            size={70}
-                                        />{' '}
-                                        Premium Package: Tailored, Scalable,
-                                        High-Performance
-                                    </h4>
-                                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                                        The Premium package offers unlimited
-                                        pages, full customization, advanced
-                                        animations, API integration, and
-                                        priority support. It’s designed for
-                                        businesses that need a high-performance
-                                        web application with enterprise-level
-                                        features and scalability.
-                                    </p>
+                                {/* Premium Package */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex items-center"
+                                >
+                                    <FaCrown
+                                        className="text-purple-600 mr-8"
+                                        size={70}
+                                    />
+                                    <div>
+                                        <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
+                                            Premium Package: Tailored, Scalable,
+                                            High-Performance
+                                        </h4>
+                                        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                                            The Premium package offers unlimited
+                                            pages, full customization, advanced
+                                            animations, API integration, and
+                                            priority support. It’s designed for
+                                            businesses that need a
+                                            high-performance web application
+                                            with enterprise-level features and
+                                            scalability.
+                                        </p>
+                                    </div>
                                 </motion.div>
 
-                                <motion.div variants={itemVariants}>
-                                    <h4 className="flex items-center text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                                        <FaShoppingCart
-                                            className="text-orange-600 mr-3"
-                                            size={70}
-                                        />{' '}
-                                        Online Shop Package: Launch Your
-                                        E-Commerce Store
-                                    </h4>
-                                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                                        The Online Shop package provides
-                                        everything you need to launch a
-                                        functional and modern e-commerce
-                                        website. This package includes shop,
-                                        product, and admin management pages,
-                                        integrated payment gateways, and user
-                                        authentication. Ideal for entrepreneurs
-                                        looking to get started in the online
-                                        retail space.
-                                    </p>
+                                {/* Online Shop Package */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex items-center"
+                                >
+                                    <FaShoppingCart
+                                        className="text-orange-600 mr-8"
+                                        size={100}
+                                    />
+                                    <div>
+                                        <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
+                                            Online Shop Package: Launch Your
+                                            E-Commerce Store
+                                        </h4>
+                                        <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                                            The Online Shop package provides
+                                            everything you need to launch a
+                                            functional and modern e-commerce
+                                            website. This package includes shop,
+                                            product, and admin management pages,
+                                            integrated payment gateways, and
+                                            user authentication. Ideal for
+                                            entrepreneurs looking to get started
+                                            in the online retail space.
+                                        </p>
+                                    </div>
                                 </motion.div>
                             </div>
+
                             {/* Companies Using Our Technologies Section */}
                             <motion.div className="py-12">
                                 <h4 className="text-3xl font-semibold mb-8 text-center text-gray-900 dark:text-white">
@@ -160,37 +189,51 @@ export default function WebApplicationsPage() {
                                 </h4>
                                 <div className="flex justify-center space-x-8">
                                     <Image
-                                        src="/images/logos/Meta-logo.svg" width={300} height={1500}
+                                        src="/images/logos/Meta-logo.svg"
+                                        width={300}
+                                        height={1500}
                                         alt="Company 1"
                                         className="h-12"
                                     />
                                     <Image
-                                        src="/images/logos/Discord-Logo.svg" width={200} height={200}
+                                        src="/images/logos/Discord-Logo.svg"
+                                        width={200}
+                                        height={200}
                                         alt="Company 2"
                                         className="h-12"
                                     />
                                     <Image
-                                        src="/images/logos/Airbnb-Logo.svg" width={200} height={200}
+                                        src="/images/logos/Airbnb-Logo.svg"
+                                        width={200}
+                                        height={200}
                                         alt="Company 3"
                                         className="h-12"
                                     />
                                     <Image
-                                        src="/images/logos/Reddit-logo.svg" width={200} height={200}
+                                        src="/images/logos/Reddit-logo.svg"
+                                        width={200}
+                                        height={200}
                                         alt="Company 4"
                                         className="h-12"
                                     />
                                     <Image
-                                        src="/images/logos/Spotify-logo.svg" width={200} height={200}
+                                        src="/images/logos/Spotify-logo.svg"
+                                        width={200}
+                                        height={200}
                                         alt="Company 5"
                                         className="h-12"
                                     />
                                     <Image
-                                        src="/images/logos/Netflix-logo.svg" width={200} height={200}
+                                        src="/images/logos/Netflix-logo.svg"
+                                        width={200}
+                                        height={200}
                                         alt="Company 6"
                                         className="h-12"
                                     />
                                     <Image
-                                        src="/images/logos/instagram-logo.svg" width={200} height={200}
+                                        src="/images/logos/instagram-logo.svg"
+                                        width={200}
+                                        height={200}
                                         alt="Company 7"
                                         className="h-12"
                                     />
@@ -526,24 +569,31 @@ export default function WebApplicationsPage() {
             </motion.section>
             {/* Important Notes Section */}
             <motion.div
-                className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-lg mt-12"
+                className="bg-blue-50 dark:bg-gray-800 p-16 rounded-lg mt-12 border-l-4 border-blue-400"
                 variants={itemVariants}
             >
-                <h4 className="text-3xl font-semibold mb-4 text-gray-900 dark:text-white">
-                    Important Notes
-                </h4>
-                <ul className="list-disc pl-6 text-lg text-gray-700 dark:text-gray-300 space-y-3">
-                    <li>
+                <div className="flex items-center mb-4">
+                    <i className="fas fa-quote-left text-blue-400 text-4xl mr-3"></i>
+                    <h4 className="text-3xl font-semibold text-gray-900 dark:text-white">
+                        Important Notes
+                    </h4>
+                </div>
+                <ul className="list-none pl-6 text-lg text-gray-700 dark:text-gray-300 space-y-3">
+                    <li className="relative before:content-['•'] before:absolute before:left-0 before:text-blue-400 before:text-xl before:top-1/2 before:transform before:-translate-y-1/2 pl-6">
                         All websites are fully responsive, optimized for both
                         desktop and mobile devices.
                     </li>
-                    <li>
+                    <li className="relative before:content-['•'] before:absolute before:left-0 before:text-blue-400 before:text-xl before:top-1/2 before:transform before:-translate-y-1/2 pl-6">
                         SEO, UI/UX Design, and OTP (One-Time Password)
                         Integration are not included.
                     </li>
-                    <li>Hosting and domain costs are not included.</li>
-                    <li>Mention if any customization options are available.</li>
-                    <li>
+                    <li className="relative before:content-['•'] before:absolute before:left-0 before:text-blue-400 before:text-xl before:top-1/2 before:transform before:-translate-y-1/2 pl-6">
+                        Hosting and domain costs are not included.
+                    </li>
+                    <li className="relative before:content-['•'] before:absolute before:left-0 before:text-blue-400 before:text-xl before:top-1/2 before:transform before:-translate-y-1/2 pl-6">
+                        Mention if any customization options are available.
+                    </li>
+                    <li className="relative before:content-['•'] before:absolute before:left-0 before:text-blue-400 before:text-xl before:top-1/2 before:transform before:-translate-y-1/2 pl-6">
                         Ongoing website maintenance and updates are available at
                         an additional cost.
                     </li>

@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { addOrder } from '@/lib/order/setOrder';
 import { useLocale } from 'next-intl';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OrderPage: React.FC = () => {
     const router = useRouter();
@@ -13,18 +15,23 @@ const OrderPage: React.FC = () => {
     const [features, setFeatures] = useState<string[]>([]);
     const [mode, setMode] = useState<string>('');
     const [message, setMessage] = useState<string>('');
-    const [contactMethod, setContactMethod] = useState<string>('');
-
-    const handleFeatureChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFeatureChange = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         const feature = event.target.value;
-        setFeatures(prevFeatures =>
+        setFeatures((prevFeatures) =>
             prevFeatures.includes(feature)
-                ? prevFeatures.filter(f => f !== feature)
+                ? prevFeatures.filter((f) => f !== feature)
                 : [...prevFeatures, feature]
         );
     };
-
+    
     const handleSubmit = async () => {
+        if (!name || !email || !phoneNumber || !message) {
+            toast.error('Please fill in all required fields.');
+            return;
+        }
+    
         try {
             const formData = new FormData();
             formData.append('name', name);
@@ -33,151 +40,158 @@ const OrderPage: React.FC = () => {
             formData.append('features', JSON.stringify(features));
             formData.append('mode', mode);
             formData.append('message', message);
-            formData.append('contact_method', contactMethod);
-
+    
             await addOrder(formData);
-            alert('Order submitted successfully!');
+            toast.success('Order submitted successfully!');
             router.push(`/${locale}/order/success`);
         } catch (error) {
             console.error('Failed to submit order', error);
-            alert('Failed to submit order');
+            toast.error('Failed to submit order');
         }
     };
-
+    
     return (
-        <section className="min-h-screen bg-gray-100 dark:bg-zinc-950 flex items-center justify-center py-4 px-2">
-            <div className="w-full max-w-4xl bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg border border-gray-300 dark:border-gray-600">
-                <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 dark:text-gray-100 mb-8 md:mb-12">
-                    Submit Your Order
+        <section className="flex items-center justify-center py-4 px-2">
+            <div className="w-full max-w-4xl bg-white rounded-lg p-8 shadow-lg">
+                <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
+                    Order Form
                 </h2>
-
-                {/* User Information */}
-                <div className="mb-6 md:mb-8">
-                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4 md:mb-6">
-                        User Information
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                        <div>
-                            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="name">
-                                Name
-                            </label>
+    
+                <div className="space-y-6">
+                    {/* User Information */}
+                    <div>
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                            User Information
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <input
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
+                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
                                 type="text"
-                                id="name"
-                                name="name"
+                                placeholder="Name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 required
                             />
-                        </div>
-                        <div>
-                            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="phoneNumber">
-                                Phone Number
-                            </label>
                             <input
-                                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
-                                type="text"
-                                id="phoneNumber"
-                                name="phoneNumber"
+                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                                type="tel"
+                                placeholder="Phone Number"
                                 value={phoneNumber}
                                 onChange={(e) => setPhoneNumber(e.target.value)}
                                 required
                             />
+                            <input
+                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                                type="email"
+                                placeholder="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
                         </div>
                     </div>
-                    <div className="mt-4 md:mt-6">
-                        <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="email">
-                            Email
-                        </label>
-                        <input
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                </div>
-
-                {/* Website Options */}
-                <div className="mb-6 md:mb-8">
-                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4 md:mb-6">
-                        Website Options
-                    </h3>
-                    <div className="mb-4 md:mb-6">
-                        <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="mode">
-                            Mode
-                        </label>
-                        <select
-                            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
-                            id="mode"
-                            name="mode"
-                            value={mode}
-                            onChange={(e) => setMode(e.target.value)}
-                        >
-                            <option value="Personal">Personal</option>
-                            <option value="Blog">Blog</option>
-                            <option value="Portfolio">Portfolio</option>
-                        </select>
-                    </div>
-
-                    <div className="mb-4 md:mb-6">
-                        <label className="block text-gray-700 dark:text-gray-300 mb-2">
-                            Select Pages You Need
-                        </label>
-                        <div className="flex flex-wrap gap-4">
-                            {['HomePage', 'About', 'Profile', 'Support', 'Contact', 'Blog', 'Admin', 'Dashboard'].map(
-                                (feature) => (
-                                    <label key={feature} className="flex items-center mb-2">
+    
+                    {/* Website Options */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+                                Choose Your Package
+                            </h3>
+                            {features.length > 0 && (
+                                <div className="mb-4">
+                                    <h4 className="text-xl font-semibold text-gray-800">
+                                        Selected Features:
+                                    </h4>
+                                    <ul className="list-disc list-inside text-gray-700">
+                                        {features.map((feature) => (
+                                            <li key={feature}>{feature}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                            <select
+                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                                value={mode}
+                                onChange={(e) => setMode(e.target.value)}
+                                required
+                            >
+                                <option value="" disabled>
+                                    Select a package
+                                </option>
+                                <option value="Personal">Personal</option>
+                                <option value="Online Shop">Online Shop</option>
+                                <option value="Web Application">
+                                    Web Application
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                                Select Features
+                            </h3>
+                            <div className="flex flex-wrap gap-4">
+                                {[
+                                    'HomePage',
+                                    'About',
+                                    'FAQ',
+                                    'Terms of Service',
+                                    'AdminPanel',
+                                ].map((feature) => (
+                                    <label
+                                        key={feature}
+                                        className="flex items-center"
+                                    >
                                         <input
-                                            className="form-checkbox text-blue-500 dark:text-blue-400 mr-2"
+                                            className="form-checkbox text-blue-600 mr-2"
                                             type="checkbox"
-                                            name="features"
                                             value={feature}
                                             checked={features.includes(feature)}
                                             onChange={handleFeatureChange}
                                         />
-                                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                                        <span className="text-gray-700">
+                                            {feature}
+                                        </span>
                                     </label>
-                                )
-                            )}
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                {/* Message Section */}
-                <div className="mb-6 md:mb-8">
-                    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-4 md:mb-6">
-                        Description
-                    </h3>
-                    <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="message">
-                        Message
-                    </label>
-                    <textarea
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition"
-                        id="message"
-                        name="message"
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        required
-                    />
-                </div>
-
-                {/* Submit Button */}
-                <div className="flex justify-center">
-                    <button
-                        className="bg-blue-600 text-white px-6 py-2 md:px-8 md:py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-transform hover:scale-105"
-                        onClick={handleSubmit}
-                    >
-                        Submit Order
-                    </button>
+    
+                    {/* Message Section */}
+                    <div>
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                            Additional Details
+                        </h3>
+                        <textarea
+                            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            placeholder="Describe your requirements..."
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            rows={4}
+                            required
+                        />
+                    </div>
+                    {/* Submit Button */}
+                    <div className="flex justify-end">
+                        <button
+                            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
+                            onClick={handleSubmit}
+                        >
+                            Submit Order
+                        </button>
+                    </div>
                 </div>
             </div>
+            <ToastContainer />
         </section>
     );
-};
+}
 
 export default OrderPage;
+
+
+
+
+
+
+ 

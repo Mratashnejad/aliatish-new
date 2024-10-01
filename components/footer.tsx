@@ -33,13 +33,13 @@ const FooterBar = () => {
                                 path="/helpCenter"
                                 className="hover:text-yellow-900 dark:hover:text-yellow-600"
                             >
-                                <span>// {t('helpCenter')}</span>
+                                <span>{"//"} {t('helpCenter')}</span>
                             </PathButton>
                             <PathButton
                                 path="/terms"
                                 className="hover:text-yellow-900 dark:hover:text-yellow-600"
                             >
-                                <span>// {t('termsOfService')}</span>
+                                <span>{"//"} {t('termsOfService')}</span>
                             </PathButton>
                         </div>
                     </div>

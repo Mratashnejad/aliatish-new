@@ -1,8 +1,8 @@
 'use client'
 import { useRef, useState, useEffect } from "react";
 
-const FaqsCard = (props) => {
-    const answerElRef = useRef(null);
+const FaqsCard = (props:any) => {
+    const answerElRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     const [answerHeight, setAnswerHeight] = useState('0px');
     const { faqsList, idx } = props;

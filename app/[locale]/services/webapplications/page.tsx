@@ -68,7 +68,7 @@ export default function WebApplicationsPage() {
                                 digital experiences, providing fast, reliable,
                                 and scalable solutions. I create robust,
                                 high-performance web applications tailored to
-                                meet your business's unique needs, no matter the
+                                meet your business`&apos;`s unique needs, no matter the
                                 size or industry.
                             </motion.p>
                             {/* Packages Benefit Section */}
@@ -92,7 +92,7 @@ export default function WebApplicationsPage() {
                                             personal portfolios or small
                                             business websites. You get up to 5
                                             pages, responsive design, and basic
-                                            SEO optimization. It's a
+                                            SEO optimization. It`&apos;`s a
                                             cost-effective way to get a
                                             professional online presence without
                                             the heavy cost.

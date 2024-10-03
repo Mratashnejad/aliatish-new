@@ -6,7 +6,7 @@ import { FaCcMastercard } from 'react-icons/fa';
 export default function PaymentTemplate() {
     const [selectedCard, setSelectedCard] = useState('');
 
-    const handleCardSelection = (cardNumber) => {
+    const handleCardSelection = (cardNumber:string) => {
         setSelectedCard(cardNumber);
     };
 

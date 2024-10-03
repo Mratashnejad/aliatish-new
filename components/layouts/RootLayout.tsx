@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <SessionProvider>
           <Providers>
-            <GoogleOneTap locale={locale} />
+            <GoogleOneTap />
             {showNavbar && <Navbar />}
             <main className="flex-grow">
               {children}

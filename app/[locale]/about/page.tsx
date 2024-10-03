@@ -1091,7 +1091,7 @@ export default function AboutPage() {
                                 systems and have a strong understanding of
                                 networking areas using cat5/cat6 cables. With my
                                 skills and expertise, I ensure the highest level
-                                of security and surveillance for my clients'
+                                of security and surveillance for my clients
                                 premises.
                             </p>
                             {/* Company Website Link */}
@@ -1303,7 +1303,7 @@ export default function AboutPage() {
                                 optimize productivity for both teachers and
                                 students. This approach ensured that all tasks
                                 and projects were completed efficiently, further
-                                contributing to the institute's success.
+                                contributing to the institute`&apos;`s success.
                                 <br />
                                 <br />
                                 Overall, my experience as a CEO and IT Manager
@@ -1425,7 +1425,7 @@ export default function AboutPage() {
                             {/* Bachelor's Degree */}
                             <div className="p-6 bg-white shadow-lg rounded-lg text-left dark:bg-gray-900">
                                 <h3 className="text-2xl font-semibold mb-2">
-                                    Bachelor's Degree in Computer Software and
+                                    Bachelor`&apos;`s Degree in Computer Software and
                                     Technology
                                 </h3>
                                 <Link
@@ -1537,7 +1537,7 @@ export default function AboutPage() {
                                 </a>
                             </h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                "Gtnelu" is a comprehensive platform designed to
+                            `&quot;`Gtnelu`&quot;` is a comprehensive platform designed to
                                 seamlessly connect users in Armenia with top
                                 experts tailored to their specific needs. Our
                                 mission is to streamline the process of finding
@@ -1548,7 +1548,7 @@ export default function AboutPage() {
                                 This large-scale initiative serves as a catalyst
                                 for economic growth by providing job
                                 opportunities and fostering a vibrant
-                                marketplace in Armenia. With "Gtnelu,"
+                                marketplace in Armenia. With `&quot;`Gtnelu`&quot;`
                                 individuals can easily access employment
                                 opportunities and accomplish tasks with
                                 confidence.
@@ -1577,7 +1577,7 @@ export default function AboutPage() {
                                 </a>
                             </h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                "FlexShift" is a cutting-edge web application
+                            `&quot;`FlexShift`&quot;` is a cutting-edge web application
                                 powered by MongoDB, Next.js, Firebase, Google
                                 Cloud, AWS, GitHub, JavaScript, TypeScript, and
                                 machine learning algorithms. Our platform is
@@ -1616,7 +1616,7 @@ export default function AboutPage() {
                                 </a>
                             </h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                "Filmogeram Video Shop" is a dynamic WordPress
+                            `&quot;`Filmogeram Video Shop`&quot;` is a dynamic WordPress
                                 website designed to revolutionize the way video
                                 content is sold online. Our platform provides a
                                 seamless and user-friendly experience for
@@ -1644,7 +1644,7 @@ export default function AboutPage() {
                                 </a>
                             </h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                "Tabasheer Engineering Co" is a pioneering
+                            `&quot;`Tabasheer Engineering Co`&quot;` is a pioneering
                                 project developed using C# technology, aimed at
                                 providing users with seamless access to their
                                 traffic plans, internet services, and technical
@@ -1672,7 +1672,7 @@ export default function AboutPage() {
                                 </a>
                             </h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                "Mersad.co" is a dynamic eCommerce website built
+                            `&quot;`Mersad.co`&quot;` is a dynamic eCommerce website built
                                 on the WordPress platform, offering a wide range
                                 of products including CCTV systems, servers,
                                 switches, cables, and more. The website provides
@@ -1700,10 +1700,11 @@ export default function AboutPage() {
                                 </a>
                             </h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                "Coffee Sefareshi" is an innovative eCommerce
+                            `&quot;`Coffee Sefareshi`&quot;` is an innovative eCommerce
                                 website built on WordPress, dedicated to
                                 delivering freshly brewed coffee directly to
-                                customers' doorsteps.
+                                    Bachelor`&apos;`s Degree in Computer Software and
+                                customers doorsteps.
                             </p>
                             <div className="flex flex-wrap gap-2 mt-4">
                                 <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
@@ -1723,7 +1724,7 @@ export default function AboutPage() {
                                 </a>
                             </h3>
                             <p className="text-gray-600 dark:text-gray-300 mb-4">
-                                "Hanemid Factory" proudly presents its online
+                            `&ldquo;`Hanemid Factory`&ldquo;` proudly presents its online
                                 dairy sales website, offering a diverse
                                 selection of premium dairy products directly
                                 from our factory.

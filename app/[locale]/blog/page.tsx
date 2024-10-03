@@ -30,7 +30,7 @@ export default function BlogPage() {
                             Effective SEO Strategies for 2024
                         </h3>
                         <p className="text-gray-700 dark:text-gray-300 mb-6">
-                            Discover the most effective SEO techniques to improve your website's ranking and visibility in search engines.
+                            Discover the most effective SEO techniques to improve your website`&apos;`s ranking and visibility in search engines.
                         </p>
                         <a
                             href="#"

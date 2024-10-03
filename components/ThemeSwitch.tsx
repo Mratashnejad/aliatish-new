@@ -8,13 +8,13 @@ export default function ThemeSwitch() {
     const { setTheme, resolvedTheme } = useTheme();
     useEffect(() => setMounted(true), []);
 
-    if (!mounted) return (<FiSun/>);
+    if (!mounted) return (<FiSun className='size-5 hover:text-yellow-400'/>);
 
     if (resolvedTheme === 'dark') {
-        return <FiSun className='size-6 hover:text-yellow-400' onClick={() => setTheme('light')} />;
+        return <FiSun className='size-5 hover:text-yellow-400' onClick={() => setTheme('light')} />;
     }
 
     if (resolvedTheme === 'light') {
-        return <FiMoon className='size-6 hover:text-yellow-900' onClick={() => setTheme('dark')} />;
+        return <FiMoon className='size-5 hover:text-yellow-900' onClick={() => setTheme('dark')} />;
     }
 }

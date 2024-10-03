@@ -34,9 +34,9 @@ export const UserMenu = () => {
         setMenuVisible(false);
     };
 
-    if (loading) {
-        return <div>Loading ...</div>;
-    }
+    // if (loading) {
+    //     return <div className='text-gray-900 dark:text-gray-400 text-sm'></div>;
+    // }
 
     return (
         <div className="relative">
@@ -94,7 +94,7 @@ export const UserMenu = () => {
                 
             </div>
         ) : (
-            <SignInButton className="py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200" />
+            <SignInButton className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"> {"// login"}</SignInButton>
         )}
     </div>
 );

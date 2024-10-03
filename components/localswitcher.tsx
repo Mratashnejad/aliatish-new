@@ -39,9 +39,9 @@ export default function LocaleSwitcher() {
         disabled={isPending}
         className="bg-transparent text-black"
     >
-        <option value="en" className="bg-transparent">🇺🇸</option>
-        <option value="ir" className="bg-transparent">🇮🇷</option>
-        <option value="hy" className="bg-transparent">🇦🇲</option>
+        <option value="en" className="bg-transparent size-5">🇺🇸</option>
+        <option value="ir" className="bg-transparent size-5">🇮🇷</option>
+        <option value="hy" className="bg-transparent size-5">🇦🇲</option>
     </select>
     
     );

@@ -52,20 +52,20 @@ const OrderPage: React.FC = () => {
     
     return (
         <section className="flex items-center justify-center py-4 px-2">
-            <div className="w-full max-w-4xl bg-white rounded-lg p-8 shadow-lg">
-                <h2 className="text-4xl font-bold text-center text-gray-800 mb-6">
+            <div className="w-full max-w-4xl bg-white rounded-lg p-8 shadow-lg dark:bg-black ">
+                <h2 className="text-4xl font-bold text-center text-gray-800 mb-6 dark:text-white">
                     Order Form
                 </h2>
     
                 <div className="space-y-6">
                     {/* User Information */}
                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-4 dark:text-white">
                             User Information
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <input
-                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 placeholder:dark:text-gray-300"
                                 type="text"
                                 placeholder="Name"
                                 value={name}
@@ -73,7 +73,7 @@ const OrderPage: React.FC = () => {
                                 required
                             />
                             <input
-                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 placeholder:dark:text-gray-300"
                                 type="tel"
                                 placeholder="Phone Number"
                                 value={phoneNumber}
@@ -81,7 +81,7 @@ const OrderPage: React.FC = () => {
                                 required
                             />
                             <input
-                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 placeholder:dark:text-gray-300"
                                 type="email"
                                 placeholder="Email"
                                 value={email}
@@ -94,15 +94,15 @@ const OrderPage: React.FC = () => {
                     {/* Website Options */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+                            <h3 className="text-2xl font-semibold text-gray-800 mb-2 dark:text-white ">
                                 Choose Your Package
                             </h3>
                             {features.length > 0 && (
                                 <div className="mb-4">
-                                    <h4 className="text-xl font-semibold text-gray-800">
+                                    <h4 className="text-xl font-semibold text-gray-800 dark:text-white">
                                         Selected Features:
                                     </h4>
-                                    <ul className="list-disc list-inside text-gray-700">
+                                    <ul className="list-disc list-inside text-gray-700 dark:text-white">
                                         {features.map((feature) => (
                                             <li key={feature}>{feature}</li>
                                         ))}
@@ -126,10 +126,10 @@ const OrderPage: React.FC = () => {
                             </select>
                         </div>
                         <div>
-                            <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                            <h3 className="text-2xl font-semibold text-gray-800 mb-4 dark:text-white">
                                 Select Features
                             </h3>
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex flex-wrap gap-4 ">
                                 {[
                                     'HomePage',
                                     'About',
@@ -142,13 +142,13 @@ const OrderPage: React.FC = () => {
                                         className="flex items-center"
                                     >
                                         <input
-                                            className="form-checkbox text-blue-600 mr-2"
+                                            className="form-checkbox text-blue-600 mr-2 dark:text-white"
                                             type="checkbox"
                                             value={feature}
                                             checked={features.includes(feature)}
                                             onChange={handleFeatureChange}
                                         />
-                                        <span className="text-gray-700">
+                                        <span className="text-gray-700 dark:text-white">
                                             {feature}
                                         </span>
                                     </label>
@@ -159,11 +159,11 @@ const OrderPage: React.FC = () => {
     
                     {/* Message Section */}
                     <div>
-                        <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-4 dark:text-white">
                             Additional Details
                         </h3>
                         <textarea
-                            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 placeholder:dark:text-gray-300"
                             placeholder="Describe your requirements..."
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
@@ -174,7 +174,7 @@ const OrderPage: React.FC = () => {
                     {/* Submit Button */}
                     <div className="flex justify-end">
                         <button
-                            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
+                            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition duration-200 dark:bg-blue-800"
                             onClick={handleSubmit}
                         >
                             Submit Order

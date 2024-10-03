@@ -1,19 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-
-const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 import fire from '@/public/animations/fire.json'; 
 
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+
 const FireAnimation: React.FC = () => {
-    const [animationData, setAnimationData] = useState<any>(null);
+    const lottieRef = useRef<any>(null);  // Reference to the Lottie animation instance
+
+    const handleComplete = () => {
+        // Loop only the segment from frame 120 to 180 after the first complete run
+        if (lottieRef.current) {
+            lottieRef.current.playSegments([90, 180], true);  // Loop from 120 to 180
+        }
+    };
 
     useEffect(() => {
-        setAnimationData(fire);
+        // On initial render, play from 0 to 180
+        if (lottieRef.current) {
+            lottieRef.current.playSegments([0, 180], false);  // Play the full animation once
+        }
     }, []);
 
-    if (!animationData) return null;
-
-    return <Lottie animationData={animationData} loop={true} />;
+    return (
+        <Lottie 
+            lottieRef={lottieRef}
+            animationData={fire}
+            loop={false}  // Do not loop the full animation initially
+            onComplete={handleComplete}  // Trigger when the animation completes
+        />
+    );
 };
 
 export default FireAnimation;

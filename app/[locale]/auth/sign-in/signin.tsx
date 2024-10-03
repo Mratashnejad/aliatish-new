@@ -30,9 +30,9 @@ export const SignInPage: React.FC = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-                <h2 className="text-2xl font-semibold mb-6 text-center">
+        <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-black">
+            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md dark:bg-gray-900">
+                <h2 className="text-2xl font-semibold mb-6 text-center text-black dark:text-white">
                     Sign In
                 </h2>
                 <div className="space-y-6">
@@ -52,19 +52,19 @@ export const SignInPage: React.FC = () => {
                         />
                         <button
                             type="submit"
-                            className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
+                            className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200 dark:bg-blue-800 dark:hover:bg-blue-700"
                         >
                             Sign In with email
                         </button>
                     </form>
                     <div className="flex items-center justify-center">
                         <div className="flex-1 border-t border-gray-300"></div>
-                        <span className="mx-4 text-gray-500">or</span>
+                        <span className="mx-4 text-gray-800 dark:text-gray-200">or</span>
                         <div className="flex-1 border-t border-gray-300"></div>
                     </div>
                     <div className="flex justify-center">
                         <button
-                            className="flex items-center bg-gray-200 py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-200"
+                            className="flex items-cente py-2 px-4 rounded-lg hover:bg-gray-300 transition duration-200 bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600"
                             onClick={handleGoogleSignInWithLocale} 
                         >
                             <FcGoogle className="text-2xl mr-2" />

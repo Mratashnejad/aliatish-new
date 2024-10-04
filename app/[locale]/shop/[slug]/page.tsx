@@ -21,7 +21,6 @@ export default function ProductBySlug() {
   const router = useRouter();
   const { slug } = useParams();
   const [productDetails, setProductDetails] = useState<Product | null>(null);
-  const [userDetails, setUserDetails] = useState<any>(null); // Adjust the type as needed
 
   useEffect(() => {
     const fetchProductBySlug = async () => {
@@ -50,39 +49,55 @@ export default function ProductBySlug() {
   const formattedCreatedAt = new Date(createdat).toLocaleDateString();
 
   return (
-    <div className='container mx-auto p-6 bg-white rounded-lg shadow-lg'>
-      <div className='flex flex-col md:flex-row md:space-x-6'>
-        {/* Product Image */}
-        {/* <div className='flex-shrink-0 mb-6 md:mb-0'>
-          {image_url && (
-            <Image
-              src={image_url}
-              alt={name}
-              className='w-full h-64 object-cover rounded-lg'
-              width={400}
-              height={400}
-            />
-          )}
-        </div> */}
+    <section className="min-h-screen bg-gray-100 dark:bg-zinc-950 flex flex-col justify-center text-gray-800 dark:text-gray-200">
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-gray-100">
+          {name}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Product Image */}
+          {/* <div className="flex justify-center items-center">
+            {image_url && (
+              <Image
+                src={image_url}
+                alt={name}
+                className='w-full h-80 object-cover rounded-lg shadow-md'
+                width={500}
+                height={500}
+              />
+            )}
+          </div> */}
 
-        {/* Product Details */}
-        <div className='flex-1'>
-          <h1 className='text-2xl font-bold text-gray-900'>{name}</h1>
-          <div className='flex items-center justify-between mt-2'>
-            <span className='text-lg font-semibold text-gray-800'>{price} AMD</span>
-            <span className='text-sm text-gray-500'>{formattedCreatedAt}</span>
-          </div>
-          <p className='mt-4 text-gray-700'>
-            <strong>Description:</strong> {description}
-          </p>
-          {address && (
-            <div className='mt-4'>
-              <h2 className='font-semibold text-gray-800'>Address:</h2>
-              <p className='text-gray-700'>{address}</p>
+          {/* Product Details */}
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+            <div className="flex items-center justify-between mb-4">
+            <span className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                {name} AMD
+              </span>
+              <span className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+                {price} AMD
+              </span>
+              <span className="text-sm text-gray-500">*****</span>
             </div>
-          )}
+            <p className="text-gray-700 dark:text-gray-300 mb-6">
+              <strong>Description:</strong> {description}
+            </p>
+            {address && (
+              <div>
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                  Address:
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300">{address}</p>
+              </div>
+            )}
+            <div className="mt-6 text-center">
+              <button className="bg-blue-600 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

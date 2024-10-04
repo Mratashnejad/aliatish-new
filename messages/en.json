@@ -5,7 +5,6 @@
     "services": "Services",
     "projects": "Projects",
     "blog": "Blog",
-   
     "submitOrder": "Submit Order",
     "signIn": "Sign In"
   },
@@ -20,36 +19,49 @@
     "termsOfService": "Terms of Service",
     "about": "About"
   },
-    "ServicesPage": {
-      "title": "Our Services",
-      "services": [
-        {
-          "title": "Web Design",
-          "description": "Crafting visually stunning and user-friendly websites tailored to your brand and audience.",
-          "features": [
-            "Custom Layouts",
-            "Responsive Design",
-            "SEO Optimization"
-          ]
-        },
-        {
-          "title": "App Development",
-          "description": "Developing robust and scalable applications that enhance user experience and engagement.",
-          "features": [
-            "Cross-Platform Solutions",
-            "API Integration",
-            "User-Centric Design"
-          ]
-        },
-        {
-          "title": "Digital Marketing",
-          "description": "Leveraging modern marketing techniques to boost your online presence and drive conversions.",
-          "features": [
-            "Social Media Management",
-            "Content Creation",
-            "PPC Advertising"
-          ]
-        }
-      ]
+  "ServicesPage": {
+    "title": "Our Services",
+    "saasWebApplication": {
+      "title": "SaaS Web Application",
+      "description": "Software as a Service (SaaS) is a business model whereby the user pays a subscription to access cloud-based services or an application. I create fast and reliable web apps using Next.js, with databases like PostgreSQL and MongoDB.",
+      "features": {
+        "feature1": "Next.js",
+        "feature2": "PostgreSQL",
+        "feature3": "MongoDB"
+      }
+    },
+    "uiuxDesign": {
+      "title": "UI/UX Design",
+      "description": "I focus on creating intuitive, user-centered designs that prioritize user experience. I use tools like Figma to prototype and iterate designs, ensuring a consistent and optimized experience.",
+      "features": {
+        "feature1": "Figma Prototyping",
+        "feature2": "User-Centered Design",
+        "feature3": "Responsive Design"
+      }
+    },
+    "seoOptimization": {
+      "title": "SEO Optimization",
+      "description": "I implement SEO best practices to enhance visibility and drive organic traffic. This includes optimizing page load times, structured content, and SEO-friendly configurations in Next.js.",
+      "features": {
+        "feature1": "SEO Best Practices",
+        "feature2": "Next.js Optimization",
+        "feature3": "Fast Load Times"
+      }
     }
+  },
+  "OtherServices": {
+    "title": "Other Services",
+    "usNewsExcelFiles": {
+      "title": "US NEWS Excel Files",
+      "description": "We provide all the USA university data by US News ranks, updated every year."
+    },
+    "usaLotteryForm": {
+      "title": "USA Lottery Form",
+      "description": "We provide the fastest and most accurate lottery form submission services."
+    },
+    "paymentFacilitation": {
+      "title": "Payment Facilitation",
+      "description": "Assist in making payments with MasterCard for educational platforms."
+    }
+  }
 }

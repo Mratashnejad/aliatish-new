@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { PathButton } from './Path-button';
+import { PathButton } from '@/components/Path-button';
 import Link from 'next/link';
 import { PiCopyrightLight } from 'react-icons/pi';
-import SocialMediLinks from './SocialMediLinks';
+import SocialMediLinks from '@/components/SocialMediLinks';
 
 const FooterBar = () => {
     const t = useTranslations('Footer');

@@ -18,8 +18,8 @@ interface Product {
 }
 
 export default function ProductBySlug() {
+  const { slug } = useParams() as { slug: string };
   const router = useRouter();
-  const { slug } = useParams();
   const [productDetails, setProductDetails] = useState<Product | null>(null);
 
   useEffect(() => {

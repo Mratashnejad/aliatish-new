@@ -32,11 +32,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             from: process.env.EMAIL_FROM,
         }),
     ],
-    // pages: {
-    //     signIn: ({ locale }) => `/${locale}/auth/sign-in/`,
-    //     verifyRequest: ({ locale }) => `/${locale}/auth/auth-success`,
-    //     error: ({ locale }) => `/${locale}/auth/auth-error`,
-    // },
+    pages: {
+        signIn:'/auth/sign-in/',
+        verifyRequest: '/auth/auth-success',
+        error:'/auth/auth-error',
+    },
     callbacks: {
         async jwt({ token, user, session, trigger }) {
             if (trigger === 'update' && session?.name !== token.name) {

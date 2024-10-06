@@ -2,7 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/aliatish/app/
-    # Copy built files to cPanel
-    - /bin/cp -r .next/* $DEPLOYPATH # Copy the .next directory
-    - /bin/cp page.tsx $DEPLOYPATH
+    - /bin/cp * $DEPLOYPATH
 

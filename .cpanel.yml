@@ -1,6 +1,9 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/example/public_html/
+    - export DEPLOYPATH=/home/aliatish/public_html/
+    # Copy built files to cPanel
+    - /bin/cp -r .next/* $DEPLOYPATH # Copy the .next directory
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp -r out/* $DEPLOYPATH # If you are also using static exports

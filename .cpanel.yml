@@ -2,6 +2,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/aliatish/app/
-    # Copy built files to cPanel
-    - /bin/cp -r .next/* $DEPLOYPATH # Copy the .next directory
-    - /bin/cp page.tsx $DEPLOYPATH
+    - /bin/rm -rf $DEPLOYPATH/*  # Optional: clean up old files
+    - /bin/cp -r . $DEPLOYPATH
+    - cd $DEPLOYPATH
+    - pnpm install  # Install dependencies using pnpm
+    - pnpm start  # Start the application

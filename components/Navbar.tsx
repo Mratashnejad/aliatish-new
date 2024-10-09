@@ -7,9 +7,11 @@ import { PathButton } from './Path-button';
 import Link from 'next/link';
 import { IoMenu, IoClose } from 'react-icons/io5';
 import LocaleSwitcher from './localswitcher';
+import { useLocale } from 'next-intl';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const locale = useLocale();
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -36,25 +38,25 @@ export default function Navbar() {
                 <nav
                     className={`hidden lg:flex items-center space-x-4 text-lg text-orange-700 uppercase dark:text-yellow-500`}
                 >
-                    <PathButton
-                        path="/services"
+                    <Link
+                        href={`/${locale}/services`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {'// services'}
-                    </PathButton>
-                    <PathButton
-                        path="/shop"
+                    </Link>
+                    <Link
+                        href={`/${locale}/shop`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {' // shop'}
-                    </PathButton>
+                    </Link>
 
-                    <PathButton
-                        path="/blog"
+                    <Link
+                        href={`/${locale}/blog`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {' // blog'}
-                    </PathButton>
+                    </Link>
                     <div className='gap-2'>
                     <UserMenu  />
                     </div>
@@ -70,50 +72,50 @@ export default function Navbar() {
                 className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-16 left-0 w-full bg-white dark:bg-zinc-950 border-t border-stone-400`}
             >
                 <nav className="flex flex-col items-center space-y-4 py-4">
-                    <PathButton
-                        path="/services"
+                    <Link
+                        href={`/${locale}/services`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'services'}
-                    </PathButton>
-                    <PathButton
-                        path="/shop"
+                    </Link>
+                    <Link
+                        href={`/${locale}/shop`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'shop'}
-                    </PathButton>
+                    </Link>
 
-                    <PathButton
-                        path="/blog"
+                    <Link
+                        href={`/${locale}/blog`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'blog'}
-                    </PathButton>
+                    </Link>
 
-                    <PathButton
-                        path="/about"
+                    <Link
+                        href={`/${locale}/about`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'about'}
-                    </PathButton>
-                    <PathButton
-                        path="/faq"
+                    </Link>
+                    <Link
+                        href={`/${locale}/faq`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'FAQ'}
-                    </PathButton>
-                    <PathButton
-                        path="/term"
+                    </Link>
+                    <Link
+                        href={`/${locale}/term`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'terms of service'}
-                    </PathButton>
+                    </Link>
 
                     <ThemeSwitch />
                 </nav>

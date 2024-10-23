@@ -5,13 +5,12 @@ import { SignInButton } from '@/components/sign-in-button';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SignOutButton } from './sign-out-button';
-import { FaHome, FaTachometerAlt, FaBell, FaTasks, FaRegCreditCard, FaSignOutAlt, FaDollarSign } from 'react-icons/fa';
+import {  FaTachometerAlt, FaBell,  FaRegCreditCard, FaSignOutAlt, FaDollarSign } from 'react-icons/fa';
 import { PathButton } from './Path-button';
-import { motion, AnimatePresence } from 'framer-motion';
+
 
 export const UserMenu = () => {
     const router = useRouter();
-
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true);
     const [menuVisible, setMenuVisible] = useState(false);
@@ -33,10 +32,6 @@ export const UserMenu = () => {
         router.push(path);
         setMenuVisible(false);
     };
-
-    // if (loading) {
-    //     return <div className='text-gray-900 dark:text-gray-400 text-sm'></div>;
-    // }
 
     return (
         <div className="relative">

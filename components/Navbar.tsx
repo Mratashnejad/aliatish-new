@@ -1,20 +1,16 @@
 'use client';
 import React, { useState } from 'react';
-import { IoFlameSharp } from 'react-icons/io5';
+import Link from 'next/link';
+import LocaleSwitcher from '@/components/localswitcher';
 import ThemeSwitch from '@/components/ThemeSwitch';
 import { UserMenu } from '@/components/userMenu';
-import { PathButton } from './Path-button';
-import Link from 'next/link';
-import { IoMenu, IoClose } from 'react-icons/io5';
-import LocaleSwitcher from './localswitcher';
 import { useLocale } from 'next-intl';
+import { IoFlameSharp, IoMenu, IoClose } from 'react-icons/io5';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const locale = useLocale();
-
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
+    const locale = useLocale();
     return (
         <header className="w-full bg-white dark:bg-zinc-950 border-b border-stone-400 font-spaceMono">
             <div className="flex items-center justify-between px-4 sm:px-6 md:px-8 lg:px-20 py-2 mx-auto">
@@ -44,22 +40,26 @@ export default function Navbar() {
                     >
                         {'// services'}
                     </Link>
-                    <Link
+                    {/* <Link
                         href={`/${locale}/shop`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {' // shop'}
-                    </Link>
-
+                    </Link> */}
+                    {/* 
                     <Link
                         href={`/${locale}/blog`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {' // blog'}
+                    </Link> */}
+                    <Link
+                        href={`/${locale}/about`}
+                        className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
+                    >
+                        {' // Who Am I?'}
                     </Link>
-                    <div className='gap-2'>
-                    <UserMenu  />
-                    </div>
+                    <div className="gap-2">{/* <UserMenu  /> */}</div>
                     <div className="flex items-center ml-auto gap-2">
                         <ThemeSwitch />
                         <LocaleSwitcher />
@@ -69,7 +69,9 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <div
-                className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'} absolute top-16 left-0 w-full bg-white dark:bg-zinc-950 border-t border-stone-400`}
+                className={`lg:hidden ${
+                    isMenuOpen ? 'block' : 'hidden'
+                } absolute top-16 left-0 w-full bg-white dark:bg-zinc-950 border-t border-stone-400`}
             >
                 <nav className="flex flex-col items-center space-y-4 py-4">
                     <Link
@@ -79,21 +81,21 @@ export default function Navbar() {
                     >
                         {'services'}
                     </Link>
-                    <Link
+                    {/* <Link
                         href={`/${locale}/shop`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'shop'}
-                    </Link>
+                    </Link> */}
 
-                    <Link
+                    {/* <Link
                         href={`/${locale}/blog`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'blog'}
-                    </Link>
+                    </Link> */}
 
                     <Link
                         href={`/${locale}/about`}
@@ -102,21 +104,6 @@ export default function Navbar() {
                     >
                         {'about'}
                     </Link>
-                    <Link
-                        href={`/${locale}/faq`}
-                        className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
-                        onClick={toggleMenu} // Handle closing the menu
-                    >
-                        {'FAQ'}
-                    </Link>
-                    <Link
-                        href={`/${locale}/term`}
-                        className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
-                        onClick={toggleMenu} // Handle closing the menu
-                    >
-                        {'terms of service'}
-                    </Link>
-
                     <ThemeSwitch />
                 </nav>
             </div>

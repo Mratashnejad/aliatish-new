@@ -1,5 +1,5 @@
 
-import RootLayout from '@/components/layouts/RootLayout';  // Adjust the path as needed
+import RootLayout from '@/components/layouts/RootLayout'; 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   
   return (

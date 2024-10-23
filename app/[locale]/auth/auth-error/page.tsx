@@ -1,3 +1,4 @@
+'use client'
 import { RxExclamationTriangle } from "react-icons/rx";
 import Link from 'next/link';
 

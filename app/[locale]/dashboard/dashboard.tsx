@@ -1,5 +1,4 @@
 'use client';
-
 import { useState, useEffect, Suspense , lazy } from 'react';
 //////Tabs/////////////////////////////////////////////////
 const OrdersTab = lazy(() => import('@/components/dashboardTabs/orderTab'));

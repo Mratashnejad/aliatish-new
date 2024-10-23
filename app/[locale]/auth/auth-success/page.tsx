@@ -1,3 +1,4 @@
+'use client'
 import { RxCheckCircled } from "react-icons/rx";
 import Link from 'next/link';
 

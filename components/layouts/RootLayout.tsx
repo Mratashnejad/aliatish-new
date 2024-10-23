@@ -1,13 +1,12 @@
-// components/RootLayout.tsx
-import Head from 'next/head'; // Import next/head
-import '@/styles/globals.css';
+import Head from 'next/head';
 import FooterBar from '@/components/footer';
 import { Providers } from './ThemeProvider';
 import Navbar from '@/components/Navbar';
-import { SessionProvider } from 'next-auth/react';
-import GoogleOneTap from '@/components/GoogleOneTap';
+// import { SessionProvider } from 'next-auth/react';
+// import GoogleOneTap from '@/components/GoogleOneTap';
 import Link from 'next/link';
 import { NextIntlClientProvider } from 'next-intl';
+
 interface RootLayoutProps {
     children: React.ReactNode;
     params: {
@@ -32,16 +31,16 @@ export default function RootLayout({
                 />
             </Head>
             <body className="flex flex-col min-h-screen">
-                <SessionProvider>
+                {/* <SessionProvider> */}
                     <Providers>
-                        <GoogleOneTap />
+                        {/* <GoogleOneTap /> */}
                         <NextIntlClientProvider>
                             {showNavbar && <Navbar />}
                             <main className="flex-grow">{children}</main>
                             {showFooter && <FooterBar />}
                         </NextIntlClientProvider>
                     </Providers>
-                </SessionProvider>
+                {/* </SessionProvider> */}
             </body>
         </html>
     );

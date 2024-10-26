@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/aliatish/app/
+    - /bin/rm -rf $DEPLOYPATH/*  # Optional: clean up old files
+    - /bin/cp -r . $DEPLOYPATH
+    - cd $DEPLOYPATH
+    - pnpm install  # Install dependencies using pnpm
+    - pnpm start  # Start the application

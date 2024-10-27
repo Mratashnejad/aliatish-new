@@ -40,12 +40,12 @@ export default function Navbar() {
                     >
                         {'// services'}
                     </Link>
-                    <Link
+                    {/* <Link
                         href={`/${locale}/shop`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {' // shop'}
-                    </Link>
+                    </Link> */}
                     
                     <Link
                         href={`/${locale}/blog`}
@@ -61,7 +61,7 @@ export default function Navbar() {
                     </Link>
                     <div className="gap-2">{/* <UserMenu  /> */}</div>
                     <div className="flex items-center ml-auto gap-2">
-                        <UserMenu/>
+                        {/* <UserMenu/> */}
                         <ThemeSwitch />
                         <LocaleSwitcher />
                     </div>
@@ -82,13 +82,13 @@ export default function Navbar() {
                     >
                         {'services'}
                     </Link>
-                    <Link
+                    {/* <Link
                         href={`/${locale}/shop`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'shop'}
-                    </Link>
+                    </Link> */}
 
                     <Link
                         href={`/${locale}/blog`}
@@ -106,7 +106,7 @@ export default function Navbar() {
                         {'about'}
                     </Link>
                     <ThemeSwitch />
-                    <UserMenu/>
+                    {/* <UserMenu/> */}
                 </nav>
             </div>
         </header>

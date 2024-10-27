@@ -40,12 +40,12 @@ export default function Navbar() {
                     >
                         {'// services'}
                     </Link>
-                    {/* <Link
+                    <Link
                         href={`/${locale}/shop`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {' // shop'}
-                    </Link> */}
+                    </Link>
                     {/* 
                     <Link
                         href={`/${locale}/blog`}

@@ -81,21 +81,21 @@ export default function Navbar() {
                     >
                         {'services'}
                     </Link>
-                    {/* <Link
+                    <Link
                         href={`/${locale}/shop`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'shop'}
-                    </Link> */}
+                    </Link>
 
-                    {/* <Link
+                    <Link
                         href={`/${locale}/blog`}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu} // Handle closing the menu
                     >
                         {'blog'}
-                    </Link> */}
+                    </Link>
 
                     <Link
                         href={`/${locale}/about`}

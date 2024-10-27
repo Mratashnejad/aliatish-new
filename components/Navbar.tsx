@@ -46,13 +46,13 @@ export default function Navbar() {
                     >
                         {' // shop'}
                     </Link>
-                    {/* 
+                    
                     <Link
                         href={`/${locale}/blog`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"
                     >
                         {' // blog'}
-                    </Link> */}
+                    </Link>
                     <Link
                         href={`/${locale}/about`}
                         className="hover:text-yellow-900 dark:text-yellow-600 dark:hover:text-yellow-400"

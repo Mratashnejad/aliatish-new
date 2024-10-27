@@ -61,6 +61,7 @@ export default function Navbar() {
                     </Link>
                     <div className="gap-2">{/* <UserMenu  /> */}</div>
                     <div className="flex items-center ml-auto gap-2">
+                        <UserMenu/>
                         <ThemeSwitch />
                         <LocaleSwitcher />
                     </div>
@@ -105,6 +106,7 @@ export default function Navbar() {
                         {'about'}
                     </Link>
                     <ThemeSwitch />
+                    <UserMenu/>
                 </nav>
             </div>
         </header>

@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Head from 'next/head';
 import HeroSection from '@/components/aboutSections/heroSection';
 import Skills from '@/components/aboutSections/Skills';
 import Learning from '@/components/aboutSections/Learning';
@@ -14,6 +15,27 @@ import Honours from '@/components/aboutSections/Honours';
 export default function AboutPage() {
     return (
         <>
+            <Head>
+                <title>About | Ali Atish - Full Stack Developer</title>
+                <meta name="description" content="Learn about Ali Atish, a full stack developer specializing in Next.js, PostgreSQL, and modern web applications." />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://aliatish.com/about" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Person",
+                        "name": "Alireza Atashnejad - Ali Atish",
+                        "jobTitle": "Full Stack Developer",
+                        "alumniOf": "AUI",
+                        "knowsAbout": ["Next.js","Node.js", "React.js", "PostgreSQL", "AI/ML", "Algorithms", "Full Stack Developer"],
+                        "worksFor": {
+                            "@type": "Organization",
+                            "name": "aliatish"
+                        }
+                    })}
+                </script>
+            </Head>
+
             {/* Hero Section */}
             <HeroSection />
 
@@ -27,12 +49,11 @@ export default function AboutPage() {
                         Skills & Expertise
                     </h2>
                     <Skills />
-                    {/* Learning */}
                     <Learning />
                 </div>
             </section>
 
-            {/* AI and Machine Learning */}
+            {/* AI and Machine Learning Section */}
             <AiMl />
 
             {/* Algorithms and Additional Concepts Section */}
@@ -61,8 +82,7 @@ export default function AboutPage() {
                             References
                         </h2>
                         <p className="text-center text-gray-600 dark:text-gray-300">
-                            References are available upon request. Please
-                            contact me for more information.
+                            References are available upon request. Please contact me for more information.
                         </p>
                     </div>
                 </div>

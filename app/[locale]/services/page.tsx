@@ -4,6 +4,7 @@ import { PathButton } from '@/components/Path-button';
 import Image from 'next/image';
 // import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import Head from 'next/head'; // Import Head from next/head for SEO
 
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -26,6 +27,40 @@ export default function ServicesPage() {
     const t = useTranslations('ServicesPage');
     return (
         <>
+            {/* SEO Meta Tags */}
+            <Head>
+                <title>Services - Ali Atish | Full Stack Developer</title>
+                <meta
+                    name="description"
+                    content="Explore the services offered by Ali Atish, a Full Stack Developer, including web application design, UI/UX design, and SEO optimization."
+                />
+                <meta
+                    name="keywords"
+                    content="Web Application Design, UI/UX Design, SEO Optimization, Full Stack Developer, Ali Atish"
+                />
+                <meta
+                    name="robots"
+                    content="index, follow"
+                />
+                <meta
+                    property="og:title"
+                    content="Services Offered by Ali Atish"
+                />
+                <meta
+                    property="og:description"
+                    content="Discover professional services including web application development, UI/UX design, and SEO optimization tailored to your needs."
+                />
+               
+                <meta
+                    property="og:url"
+                    content="https://aliatish.com/services" // Replace with your services URL
+                />
+                <meta
+                    name="twitter:card"
+                    content="summary_large_image"
+                />
+            </Head>
+
             {/* Introduction to Other Services */}
 
             {/* Web Application Design Section */}
@@ -179,6 +214,7 @@ export default function ServicesPage() {
                     </div>
                 </div>
             </section>
+
             {/* < section className="max-w-full dark:bg-gradient-to-r dark:bg-black text-gray-900 dark:text-gray-200 py-16">
                 <div className="mx-auto px-12">
                     < h2
@@ -188,76 +224,17 @@ export default function ServicesPage() {
                         className="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white"
                     >
                         Other Services
-                    </ h2>
+                    </h2>
                     < p
                         initial="hidden"
                         animate="visible"
                         variants={itemVariants}
-                        className="text-lg text-gray-700 dark:text-gray-400 mb-6 text-center"
+                        className="text-gray-700 dark:text-gray-400 mb-4 text-center"
                     >
-                        we provide a range of specialized services designed to meet your unique needs:
-                    </ p>
-                    < ul
-                        initial="hidden"
-                        animate="visible"
-                        variants={containerVariants}
-                        className="text-lg text-gray-700 dark:text-gray-400 mb-6 text-center "
-                    >
-                        <div className=''>✅ Applications for the US Lottery</div>
-                        <li>✅ US NEWS Excel files of university rankings</li>
-                        <li>✅ Facilitating payments with MasterCard for educational institutions and platforms outside Iran</li>
-                        
-                    </ ul>
-                    
-                </div> */}
-            <section
-                id="ai-ml"
-                className="py-16 bg-zinc-50 text-gray-800 dark:bg-black dark:text-white"
-            >
-                <div className="max-w-6xl mx-auto px-6">
-                    <h2 className="text-4xl font-bold text-center mb-12">
-                        Other Services
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white cursor-pointer">
-                            <h3 className="text-2xl font-semibold mb-4">
-                                US NEWS EXCEL FILES
-                            </h3>
-                            <p className="text-gray-600 dark:text-white">
-                                We Provide all the USA Universities Data by US
-                                news Ranks Updated every year
-                            </p>
-                        </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white cursor-pointer ">
-                            <h3 className="text-2xl font-semibold mb-4">
-                                USA Lottory Form
-                            </h3>
-                            <p className="text-gray-600 dark:text-white">
-                                We providing the fastest and more accurate
-                                lottory form for you
-                            </p>
-                        </div>
-                        <div className="p-6 bg-white shadow-lg rounded-lg text-center dark:bg-gray-900 dark:text-white  cursor-pointer">
-                            <h3 className="text-2xl font-semibold mb-4">
-                                Payment Facilitation
-                            </h3>
-                            <p className="text-gray-600 dark:text-white">
-                                Assist in making payments with MasterCard for
-                                educational platforms.
-                            </p>
-                        </div>
-                    </div>
+                        {/* Add any additional services here with brief descriptions */}
+                    {/* </p>
                 </div>
-
-                {/* <div className="text-right mt-4">
-                    <PathButton
-                        className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
-                        path="/services/other"
-                    >
-                        Learn More ... <FaArrowRight className="ml-3" />
-                    </PathButton>
-                </div> */}
-            </section>
+            </section> */}
         </>
     );
 }

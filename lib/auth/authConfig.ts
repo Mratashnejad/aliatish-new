@@ -8,7 +8,6 @@ import { setName } from '@/lib/auth/setNameServerAction';
 import  locale  from '@/i18n';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-    
     trustHost: true,
     adapter: PostgresAdapter(pool),
     secret: process.env.AUTH_SECRET,

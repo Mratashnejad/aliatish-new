@@ -60,7 +60,7 @@ export default function BlogPage() {
                             </h3>
                             <p className="text-gray-700 dark:text-gray-300">
                                 Discover the most effective SEO techniques to
-                                improve your website's ranking and visibility in
+                                improve your website`&apos;s ranking and visibility in
                                 search engines.
                             </p>
                             <a
@@ -96,7 +96,7 @@ export default function BlogPage() {
                                 Getting Started with Next.js
                             </h3>
                             <p className="text-gray-700 dark:text-gray-300 mb-6">
-                                A beginner's guide to setting up and configuring
+                                A beginner`&apos;s guide to setting up and configuring
                                 a Next.js application from scratch.
                             </p>
                             <a
@@ -292,7 +292,7 @@ export default function BlogPage() {
                                 Natural Language Processing with Python
                             </h3>
                             <p className="text-gray-700 dark:text-gray-300 mb-6">
-                                A beginner's guide to natural language
+                                A beginner`&apos;s guide to natural language
                                 processing (NLP) techniques using Python.
                             </p>
                             <a

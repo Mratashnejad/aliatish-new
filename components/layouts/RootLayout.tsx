@@ -12,8 +12,8 @@ interface RootLayoutProps {
     params: {
         locale: string;
     };
-    showNavbar: boolean;
-    showFooter: boolean;
+    showNavbar?: boolean; // Make optional for flexibility
+    showFooter?: boolean; // Make optional for flexibility
 }
 
 export default function RootLayout({
@@ -25,18 +25,20 @@ export default function RootLayout({
     return (
         <html lang={locale} suppressHydrationWarning>
             <Head>
-                <Link
+                <link
                     href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
                     rel="stylesheet"
                 />
             </Head>
-            <body className="flex flex-col min-h-screen">
+            <body className="flex flex-col min-h-screen bg-white dark:bg-zinc-950">
                 <SessionProvider>
                     <Providers>
                         <GoogleOneTap />
                         <NextIntlClientProvider>
+                            {/* Ensure Navbar is always visible */}
                             {showNavbar && <Navbar />}
-                            <main className="flex-grow">{children}</main>
+                            <main className="flex-grow ">{children}</main>
+                            {/* Ensure Footer is below content */}
                             {showFooter && <FooterBar />}
                         </NextIntlClientProvider>
                     </Providers>

@@ -7,6 +7,11 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ['/', '/en/:path*', '/ir/:path*', '/hy/:path*'],
+  matcher: [
+    '/',
+    '/en/:path*',
+    '/ir/:path*',
+    '/hy/:path*',
+    '/sitemap.xml', 
+  ],
 };
-  

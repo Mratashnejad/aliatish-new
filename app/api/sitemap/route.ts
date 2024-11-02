@@ -26,7 +26,7 @@ export async function GET(req:any) {
     const defaultLocale = 'en';
     const locales = ['en', 'ir', 'hy'];
     
-    const sitemapStream = new SitemapStream({ hostname: `https:aliatish.com` });
+    const sitemapStream = new SitemapStream({ hostname: `https://aliatish.com` });
 
     // Generate URLs for each locale
     locales.forEach(locale => {

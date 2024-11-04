@@ -1,3 +1,4 @@
+// pages/index.js
 'use client'
 import { GrLinkNext } from "react-icons/gr";
 import { FaCode, FaLaptopCode, FaRocket } from "react-icons/fa";
@@ -19,7 +20,7 @@ export default function Home() {
                 <title>Ali Atish - Web development - Full stack - Order website</title>
                 <meta
                     name="description"
-                    content="Full Stack Developer specializing in building scalable web applications with modern technologies.Order your web application now."
+                    content="Full Stack Developer specializing in building scalable web applications with modern technologies. Order your web application now."
                 />
                 <meta
                     name="keywords"
@@ -39,12 +40,13 @@ export default function Home() {
                 />
                 <meta
                     property="og:url"
-                    content="https://aliatish.com" // Replace with your site's URL
+                    content="https://aliatish.com"
                 />
                 <meta
                     name="twitter:card"
                     content="summary_large_image"
                 />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main className="font-monocraft min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-100 via-gray-200 to-gray-300 dark:bg-gradient-to-b dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-800 text-gray-800 dark:text-gray-200">
@@ -52,17 +54,18 @@ export default function Home() {
                     
                     {/* Text Section */}
                     <div className="lg:w-2/3 lg:flex lg:flex-col lg:justify-center mt-8 lg:mt-0">
-                        <div className="lg:text-6xl sm:text-3xl md:text-4xl font-extrabold mb-4 animate-pulse text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 dark:from-yellow-500 dark:to-red-600">
-                            Hi, I am aliatish
-                        </div>
-                        <div className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">
+                        <h1 className="lg:text-6xl sm:text-3xl md:text-4xl font-extrabold mb-4 animate-pulse text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 dark:from-yellow-500 dark:to-red-600">
+                            Hi, I am Ali Atish
+                        </h1>
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6">
                             I&apos;m a Full Stack Developer
-                        </div>
+                        </h2>
                         <div className="flex justify-center lg:justify-start space-x-4 mb-8">
                             <FaCode className="text-3xl sm:text-4xl text-blue-500 dark:text-blue-300" />
                             <OrderButton className="text-3xl sm:text-4xl text-blue-500 dark:text-blue-300" />
                         </div>
                     </div>
+                    
                     {/* Fire Animation Section */}
                     <div className="w-full lg:w-1/3 flex justify-center lg:justify-end">
                         <div className="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] flex items-center">

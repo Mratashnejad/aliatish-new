@@ -55,6 +55,9 @@
             }
         }
     },
+    "linkButtons":{
+    "linbuttonText":"իմանալ ավելին"
+  },
     "OtherServices": {
         "title": "Այլ Ծառայություններ",
         "usNewsExcelFiles": {

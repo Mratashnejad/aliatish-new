@@ -26,6 +26,7 @@ const itemVariants = {
 export default function ServicesPage() {
     
     const t = useTranslations('ServicesPage');
+    const l = useTranslations('linkButtons')
     return (
         <>
             {/* SEO Meta Tags */}
@@ -114,7 +115,7 @@ export default function ServicesPage() {
                             className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
                             path="/services/webapplications"
                         >
-                            Learn More ... <FaArrowRight className="ml-3" />
+                            {l("linbuttonText")}<FaArrowRight className="ml-3" />
                         </PathButton>
                     </div>
                 </div>
@@ -166,8 +167,8 @@ export default function ServicesPage() {
                             className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
                             path="/services/design"
                         >
-                            Learn More ... <FaArrowRight className="ml-3" />
-                        </PathButton>
+                            {l("linbuttonText")}<FaArrowRight className="ml-3" />
+                            </PathButton>
                     </div>
                 </div>
             </section>
@@ -216,8 +217,8 @@ export default function ServicesPage() {
                             className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
                             path="/services/seo"
                         >
-                            Learn More ... <FaArrowRight className="ml-3" />
-                        </PathButton>
+                            {l("linbuttonText")}<FaArrowRight className="ml-3" />
+                            </PathButton>
                     </div>
                 </div>
             </section>

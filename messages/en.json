@@ -55,6 +55,9 @@
       }
     }
   },
+  "linkButtons":{
+    "linbuttonText":"Learn More"
+  },
   "OtherServices": {
     "title": "Other Services",
     "usNewsExcelFiles": {
@@ -71,3 +74,4 @@
     }
   }
 }
+

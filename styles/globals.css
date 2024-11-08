@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Monocraft';
-    src: url('/fonts/Monocraft.ttc') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: 'Monocraft';
+  src: url('/fonts/Monocraft.ttc') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
   

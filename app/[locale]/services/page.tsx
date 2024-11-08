@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { PathButton } from '@/components/Path-button';
@@ -5,7 +6,6 @@ import Image from 'next/image';
 // import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Head from 'next/head'; // Import Head from next/head for SEO
-
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -24,6 +24,7 @@ const itemVariants = {
 };
 
 export default function ServicesPage() {
+    
     const t = useTranslations('ServicesPage');
     return (
         <>
@@ -83,9 +84,15 @@ export default function ServicesPage() {
                                 {t('saasWebApplication.description')}
                             </p>
                             <p className="text-red-900 dark:text-red-800 mb-4">
-                                {t('saasWebApplication.features.feature1')}{' '}
-                                {t('saasWebApplication.features.feature2')}{' '}
-                                {t('saasWebApplication.features.feature3')}
+                                {t('saasWebApplication.features.feature1')}{', '}
+                                {t('saasWebApplication.features.feature2')}{', '}
+                                {t('saasWebApplication.features.feature3')}{', '}
+                                {t('saasWebApplication.features.feature4')}{', '}
+                                {t('saasWebApplication.features.feature5')}{', '}
+                                {t('saasWebApplication.features.feature6')}{', '}
+                                {t('saasWebApplication.features.feature7')}{', '}
+                                {t('saasWebApplication.features.feature8')}{', '}
+                                {t('saasWebApplication.features.feature9')}
                             </p>
                         </div>
                         <div className="lg:w-1/3">

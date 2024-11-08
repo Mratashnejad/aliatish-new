@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import fire from '@/public/animations/fire.json'; 

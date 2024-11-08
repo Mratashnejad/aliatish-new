@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-darkMode:'class',
+  darkMode: 'class',
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -18,11 +18,10 @@ darkMode:'class',
       spaceMono: ['Space Mono', 'monospace'],
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
+      luxury: ['Playfair Display', 'serif'],
+      monocraft: ['Monocraft', 'sans-serif'], // Custom font family added here
     },
     extend: {
-      fontFamily: {
-        monocraft: ['Monocraft', 'sans-serif'], // Custom font family
-      },
       spacing: {
         '128': '32rem',
         '144': '36rem',

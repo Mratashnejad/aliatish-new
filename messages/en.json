@@ -9,8 +9,8 @@
     "signIn": "Sign In"
   },
   "HeroSection": {
-    "title": "Launch Your Personal Website Today",
-    "description": "Unleash the power of innovation and style. From sleek, modern websites to advanced applications, let’s create an extraordinary digital experience that’s uniquely yours.",
+    "title": "Burn away your slow website",
+    "description": "Fuel your web applications with next-level performance",
     "cta": "Get Started"
   },
   "Footer": {
@@ -20,14 +20,20 @@
     "about": "About"
   },
   "ServicesPage": {
-    "title": "Our Services",
-    "saasWebApplication": {
-      "title": "SaaS Web Application",
-      "description": "Software as a Service (SaaS) is a business model whereby the user pays a subscription to access cloud-based services or an application. I create fast and reliable web apps using Next.js, with databases like PostgreSQL and MongoDB.",
-      "features": {
-        "feature1": "Next.js",
-        "feature2": "PostgreSQL",
-        "feature3": "MongoDB"
+   "title": "Website Design",
+  "saasWebApplication": {
+    "title": "Newest and Fastest",
+    "description": "Using the best and most optimized programming methods with Node.js and Next.js, I implement and develop for you using technologies like GraphQL and Redis storage methods that power the most advanced websites in the world today. Additionally, PostgreSQL and MongoDB, some of the leading databases worldwide, are used for website data storage.",
+    "features": {
+      "feature1": "Next.js",
+      "feature2": "Node.js",
+      "feature3": "Nest.js",
+      "feature4": "React.js",
+      "feature5": "PostgreSQL",
+      "feature6": "MongoDB",
+      "feature7": "GraphQL",
+      "feature8": "Redis",
+      "feature9": "API"
       }
     },
     "uiuxDesign": {

@@ -283,14 +283,14 @@ export default function ServicesPage() {
                         </div>
                     </div>
 
-                    <div className="text-right mt-4">
+                    {/* <div className="text-right mt-4">
                         <PathButton
                             className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
                             path="/services/design"
                         >
                             {l("linbuttonText")}<FaArrowRight className="ml-3" />
                             </PathButton>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

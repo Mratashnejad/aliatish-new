@@ -1,7 +1,7 @@
 'use client';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent, useTransition, useEffect, useState } from 'react';
+import { useTransition, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { FaGlobe } from 'react-icons/fa';
 
@@ -46,19 +46,19 @@ export default function LocaleSwitcher() {
                     <ul className="flex flex-col space-y-2">
                         <li 
                             onClick={() => onSelectChange('en')}
-                            className={`cursor-pointer hover:text-blue-500 ${isPending ? 'opacity-50' : ''}`}
+                            className={`cursor-pointer hover:text-black ${isPending ? 'opacity-50' : ''}`}
                         >
                             En
                         </li>
                         <li 
                             onClick={() => onSelectChange('ir')}
-                            className={`cursor-pointer hover:text-blue-500 ${isPending ? 'opacity-50' : ''}`}
+                            className={`cursor-pointer hover:text-black ${isPending ? 'opacity-50' : ''}`}
                         >
                             Ir
                         </li>
                         <li 
                             onClick={() => onSelectChange('hy')}
-                            className={`cursor-pointer hover:text-blue-500 ${isPending ? 'opacity-50' : ''}`}
+                            className={`cursor-pointer hover:text-black ${isPending ? 'opacity-50' : ''}`}
                         >
                             Hy
                         </li>

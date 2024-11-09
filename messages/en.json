@@ -1,77 +1,100 @@
 {
-  "Navigation": {
-    "home": "Home",
-    "packages": "Packages",
-    "services": "Services",
-    "projects": "Projects",
-    "blog": "Blog",
-    "submitOrder": "Submit Order",
-    "signIn": "Sign In"
-  },
-  "HeroSection": {
-    "title": "Burn away your slow website",
-    "description": "Fuel your web applications with next-level performance",
-    "cta": "Get Started"
-  },
-  "Footer": {
-    "copyright": "© 2024 Ali Atish. All Rights Reserved.",
-    "helpCenter": "Help Center",
-    "termsOfService": "Terms of Service",
-    "about": "About"
-  },
-  "ServicesPage": {
-   "title": "Website Design",
-  "saasWebApplication": {
-    "title": "Newest and Fastest",
-    "description": "Using the best and most optimized programming methods with Node.js and Next.js, I implement and develop for you using technologies like GraphQL and Redis storage methods that power the most advanced websites in the world today. Additionally, PostgreSQL and MongoDB, some of the leading databases worldwide, are used for website data storage.",
-    "features": {
-      "feature1": "Next.js",
-      "feature2": "Node.js",
-      "feature3": "Nest.js",
-      "feature4": "React.js",
-      "feature5": "PostgreSQL",
-      "feature6": "MongoDB",
-      "feature7": "GraphQL",
-      "feature8": "Redis",
-      "feature9": "API"
-      }
+    "Navigation": {
+        "home": "Home",
+        "packages": "Packages",
+        "services": "Services",
+        "projects": "Projects",
+        "blog": "Blog",
+        "submitOrder": "Submit Order",
+        "signIn": "Sign In"
     },
-    "uiuxDesign": {
-      "title": "UI/UX Design",
-      "description": "I focus on creating intuitive, user-centered designs that prioritize user experience. I use tools like Figma to prototype and iterate designs, ensuring a consistent and optimized experience.",
-      "features": {
-        "feature1": "Figma Prototyping",
-        "feature2": "User-Centered Design",
-        "feature3": "Responsive Design"
-      }
+    "HeroSection": {
+        "title": "Burn away your slow website",
+        "description": "Fuel your web applications with next-level performance",
+        "cta": "Get Started"
     },
-    "seoOptimization": {
-      "title": "SEO Optimization",
-      "description": "I implement SEO best practices to enhance visibility and drive organic traffic. This includes optimizing page load times, structured content, and SEO-friendly configurations in Next.js.",
-      "features": {
-        "feature1": "SEO Best Practices",
-        "feature2": "Next.js Optimization",
-        "feature3": "Fast Load Times"
-      }
-    }
-  },
-  "linkButtons":{
-    "linbuttonText":"Learn More"
-  },
-  "OtherServices": {
-    "title": "Other Services",
-    "usNewsExcelFiles": {
-      "title": "US NEWS Excel Files",
-      "description": "We provide all the USA university data by US News ranks, updated every year."
+    "Footer": {
+        "copyright": "© 2024 Ali Atish. All Rights Reserved.",
+        "helpCenter": "Help Center",
+        "termsOfService": "Terms of Service",
+        "about": "About"
     },
-    "usaLotteryForm": {
-      "title": "USA Lottery Form",
-      "description": "We provide the fastest and most accurate lottery form submission services."
-    },
-    "paymentFacilitation": {
-      "title": "Payment Facilitation",
-      "description": "Assist in making payments with MasterCard for educational platforms."
-    }
-  }
-}
+    "ServicesPage": {
+        "title": "Website Programming",
+        "saasWebApplication": {
+            "title": "Coding and Implementation",
+            "description": "I develop and implement your website using the most optimal programming methods, leveraging Node.js and Next.js along with technologies like GraphQL and Redis storage, which are utilized by the world's top websites. Additionally, PostgreSQL and MongoDB, some of the best databases available, are used to store website data.",
+            "features": {
+                "feature1": "Next.js",
+                "feature2": "Node.js",
+                "feature3": "Nest.js",
+                "feature4": "React.js",
+                "feature5": "PostgreSQL",
+                "feature6": "MongoDB",
+                "feature7": "GraphQL",
+                "feature8": "Redis",
+                "feature9": "API"
+            }
+        },
 
+        "uiuxDesign": {
+            "title": "Website Design",
+            "description": "We use Tailwind CSS to design your website, as it represents the latest CSS coding style and significantly enhances both the speed and aesthetics of your site. For websites requiring extensive visuals and graphics, we can also use tools like Figma and Framer, which are among the most up-to-date design platforms worldwide. Additionally, popular components are customizable to your preference and optimized for all devices, including mobile, tablet, and desktop.",
+            "features": {
+                "feature1": "Tailwind CSS",
+                "feature2": "Figma",
+                "feature3": "Framer",
+                "feature4": "ShadCn",
+                "feature5": "Next.UI",
+                "feature6": "Radix-UI",
+                "feature7": "Framer Motion",
+                "feature8": "Bootstrap",
+                "feature9": "Web Design Tools"
+            }
+        },
+        "seoOptimization": {
+            "title": "SEO Optimization for Search",
+            "description": "To attract more customers, SEO is always needed for a website. Even if your site is developed with the best code, it will be hard for customers to find your site and buy your product if it is not optimized and introduced to Google's search engines. That's why we provide SEO services of the highest quality, integrating Next.js coding for complete optimization for search engines, which ensures increased sales.",
+            "features": {
+                "feature1": "SEO",
+                "feature2": "Google Search Console",
+                "feature3": "Google Search Analytics",
+                "feature4": "Google Tag Manager",
+                "feature5": "Google Trends"
+            }
+        },
+        "multiLanguage": {
+            "title": "Creating a Multi-Language Website",
+            "description": "Having a multi-language and international website is one of the biggest advantages these days, allowing you to offer your services to customers in different languages, which can help you achieve global sales and service delivery. We can design and implement your website in any languages you need, allowing you to customize the translations on your site. This feature is developed by our team, while the responsibility for translating the site’s content is yours.",
+            "features": {
+                "feature1": "Multi-Language Websites",
+                "feature2": "International Web",
+                "feature3": "English",
+                "feature4": "Arabic",
+                "feature5": "Persian",
+                "feature6": "Armenian",
+                "feature7": "French",
+                "feature8": "Turkish",
+                "feature9": "Other Languages"
+            }
+        }
+    },
+    "linkButtons": {
+        "linbuttonText": "Learn More"
+    },
+    "OtherServices": {
+        "title": "Other Services",
+        "usNewsExcelFiles": {
+            "title": "US NEWS Excel Files",
+            "description": "We provide all the USA university data by US News ranks, updated every year."
+        },
+        "usaLotteryForm": {
+            "title": "USA Lottery Form",
+            "description": "We provide the fastest and most accurate lottery form submission services."
+        },
+        "paymentFacilitation": {
+            "title": "Payment Facilitation",
+            "description": "Assist in making payments with MasterCard for educational platforms."
+        }
+    }
+}

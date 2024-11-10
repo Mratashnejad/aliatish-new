@@ -34,6 +34,7 @@ const OrderPage: React.FC = () => {
     
         try {
             const formData = new FormData();
+            
             formData.append('name', name);
             formData.append('email', email);
             formData.append('phone_Number', phoneNumber);

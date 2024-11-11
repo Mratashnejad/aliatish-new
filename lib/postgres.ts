@@ -16,4 +16,7 @@ export const pool = new Pool({
     database: getEnvVar('AUTH_DATABASE_NAME'),
     user: getEnvVar('AUTH_DATABASE_USER'),
     password: getEnvVar('AUTH_DATABASE_PASSWORD'),
+    connectionTimeoutMillis: 5000, // 5 seconds timeout
+    idleTimeoutMillis: 10000, // 10 seconds for idle timeout
 });
+

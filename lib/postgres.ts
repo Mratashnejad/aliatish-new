@@ -9,9 +9,13 @@ const getEnvVar = (key: string): string => {
     return value;
 };
 
+const databaseHost = process.env.NODE_ENV ==='production'
+    ? process.env.AUTH_DATABASE_HOST_PROD
+    : process.env.AUTH_DATABASE_HOST_DEV;
+
 // Create a new Pool instance with the configuration
 export const pool = new Pool({
-    host: getEnvVar('AUTH_DATABASE_HOST'),
+    host: databaseHost,
     port: parseInt(getEnvVar('AUTH_DATABASE_PORT'), 10),
     database: getEnvVar('AUTH_DATABASE_NAME'),
     user: getEnvVar('AUTH_DATABASE_USER'),

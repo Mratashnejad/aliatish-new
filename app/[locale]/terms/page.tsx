@@ -9,7 +9,7 @@ const TermsOfService = () => {
         <section>
           <h2 className="text-2xl font-semibold text-blue-600">1. Acceptance of Terms</h2>
           <p className="text-gray-700">
-            By accessing or using Aliatish.com ("the website"), you agree to comply with and be bound by these Terms of Service and all applicable laws and regulations. If you do not agree to these terms, do not use the website.
+            By accessing or using Aliatish.com , you agree to comply with and be bound by these Terms of Service and all applicable laws and regulations. If you do not agree to these terms, do not use the website.
           </p>
         </section>
 
@@ -71,7 +71,7 @@ const TermsOfService = () => {
         <section>
           <h2 className="text-2xl font-semibold text-blue-600">9. Disclaimers</h2>
           <p className="text-gray-700">
-            The website is provided "as is" without any warranties of any kind, either express or implied. We do not warrant that the website will be error-free, secure, or available at all times. We disclaim all liability for any damage to your device or data caused by using the website.
+            The website is provided  without any warranties of any kind, either express or implied. We do not warrant that the website will be error-free, secure, or available at all times. We disclaim all liability for any damage to your device or data caused by using the website.
           </p>
         </section>
 
@@ -94,7 +94,7 @@ const TermsOfService = () => {
           <p className="text-gray-700">
             If you have any questions about these Terms of Service, please contact us at:
           </p>
-          <p className="text-blue-600">Email: [support'atSign'aliatish.com]</p>
+          <p className="text-blue-600">Email: [support@aliatish.com]</p>
         </section>
       </div>
     </div>

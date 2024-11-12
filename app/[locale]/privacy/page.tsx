@@ -61,7 +61,7 @@ const PrivacyPolicy = () => {
             <li>Withdraw consent at any time (where processing is based on consent).</li>
             <li>Request data portability.</li>
           </ul>
-          <p className="text-gray-700">To exercise these rights, please contact us at <span className="text-blue-600">[support'atsign'aliatish.com]</span>.</p>
+          <p className="text-gray-700">To exercise these rights, please contact us at <span className="text-blue-600">[support@aliatish.com]</span>.</p>
         </section>
 
         <section>
@@ -72,7 +72,7 @@ const PrivacyPolicy = () => {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold text-blue-600">7. Children’s Privacy</h2>
+          <h2 className="text-2xl font-semibold text-blue-600">7. Children`&apos;`s Privacy</h2>
           <p className="text-gray-700">
             Our website is not intended for individuals under the age of 13, and we do not knowingly collect personal data from children. If we become aware that we have inadvertently collected personal data from a child under 13, we will take steps to delete such information.
           </p>
@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
         <section>
           <h2 className="text-2xl font-semibold text-blue-600">8. Changes to This Privacy Policy</h2>
           <p className="text-gray-700">
-            We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Effective Date." We encourage you to review this policy periodically to stay informed about how we protect your information.
+            We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated Effective Date. We encourage you to review this policy periodically to stay informed about how we protect your information.
           </p>
         </section>
 
@@ -90,7 +90,7 @@ const PrivacyPolicy = () => {
           <p className="text-gray-700">
             If you have any questions or concerns about this Privacy Policy, please contact us at:
           </p>
-          <p className="text-blue-600">Email: [support'atsign'aliatish.com]</p>
+          <p className="text-blue-600">Email: [support@aliatish.com]</p>
         </section>
       </div>
     </div>

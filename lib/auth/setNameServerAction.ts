@@ -26,14 +26,7 @@ export const setName = async (name: string): Promise<boolean> => {
   }
   // Update the user's name in the database
   try {
-    const result = await pool.query("UPDATE users SET name = $1 WHERE id = $2", [name, uuid]);
-    
-    // Check if any rows were affected
-    if (result.rowCount === 0) {
-      console.log('No changes made to the name');
-      return false;
-    }
-    
+    await pool.query("UPDATE users SET name = $1 WHERE id = $2", [name, uuid]);
     return true;
   } catch (error) {
     console.error('Failed to update user name:', error);

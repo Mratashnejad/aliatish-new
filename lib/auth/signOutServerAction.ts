@@ -6,7 +6,6 @@ export const handleSignOut = async () => {
             redirectTo: '/',
         });
     } catch (error) {
-        console.log('Sign-out failed', error);
-        throw new Error('An error occured while signin out.');
+        throw error;
     }
 };

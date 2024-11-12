@@ -45,8 +45,9 @@ export const getAccountLinkStatus = async () => {
             return false;
         }
     } catch (error) {
-        // Log error if the database query fails
+        
         console.error('Failed to check if user has GOOGLE account linked:', error);
+        throw new Error('Unable to verify Google account status');
     }
     
     // Return true if a Google account is linked

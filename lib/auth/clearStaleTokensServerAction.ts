@@ -14,7 +14,7 @@ export const clearStaleTokens = async () => {
     // Execute SQL query to delete tokens that have expired
     await pool.query("DELETE FROM verification_token WHERE expires < NOW();");
   } catch (error) {
-    // Rethrow the error if the query fails
+    console.error("Failed to clear stale tokens:", error);
     throw error;
   }
 };

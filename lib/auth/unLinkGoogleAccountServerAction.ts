@@ -1,4 +1,4 @@
-"use server";
+'use server';
 
 // Import necessary modules
 import { auth } from '@/lib/auth/authConfig'; // Import authentication function from configuration
@@ -45,6 +45,6 @@ export const unlinkGoogleAccount = async (): Promise<boolean> => {
     } catch (error) {
         // Log error if the database query fails
         console.error("Failed to unlink Google account:", error);
-        return false; // Return false if un-linking failed
+        throw new Error("Failed to unlink Google account: " + error.message); // Re-throw with a specific error message
     }
 };

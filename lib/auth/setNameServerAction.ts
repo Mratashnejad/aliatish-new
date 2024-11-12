@@ -21,10 +21,19 @@ export const setName = async (name: string): Promise<boolean> => {
 
   // Sanitize name input
   name = name.trim();
-
+  if (name.length === 0) {
+    throw new Error("Name cannot be empty");
+  }
   // Update the user's name in the database
   try {
-    await pool.query("UPDATE users SET name = $1 WHERE id = $2", [name, uuid]);
+    const result = await pool.query("UPDATE users SET name = $1 WHERE id = $2", [name, uuid]);
+    
+    // Check if any rows were affected
+    if (result.rowCount === 0) {
+      console.log('No changes made to the name');
+      return false;
+    }
+    
     return true;
   } catch (error) {
     console.error('Failed to update user name:', error);

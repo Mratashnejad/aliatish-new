@@ -19,6 +19,8 @@ const routes = [
     '/services/seo',
     '/services/webapplications',
     '/shop',
+    '/terms',
+    '/privacy'
 ];
 
 export async function GET(req:any) {

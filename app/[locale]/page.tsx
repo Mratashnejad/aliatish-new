@@ -1,10 +1,9 @@
-
-import { FaCode} from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import React from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { OrderButton } from "@/components/order-button"; 
-import { useTranslations } from 'next-intl'; 
+import { OrderButton } from "@/components/order-button";
+import { useTranslations } from 'next-intl';
 
 const FireAnimation = dynamic(
     () => import('@/components/animations/fireAnimation'),
@@ -12,15 +11,15 @@ const FireAnimation = dynamic(
 );
 
 export default function Home() {
-    const t = useTranslations('HeroSection');  
-    const isPersian = t('locale') === 'ir';  
+    const t = useTranslations('HeroSection');
+    const isPersian = t('locale') === 'ir';
 
     return (
         <>
             {/* SEO Meta Tags */}
             <Head>
                 <html lang={isPersian ? 'ir' : 'en'} dir={isPersian ? 'rtl' : 'ltr'} />
-                <title>Ali Atish - Web development - Full stack - Order website</title>
+                <title>Ali Atish - Web development - Web Application - Full stack - How to create a websites </title>
                 <meta
                     name="description"
                     content="Full Stack Developer specializing in building scalable web applications with modern technologies. Order your web application now."
@@ -29,31 +28,50 @@ export default function Home() {
                     name="keywords"
                     content="Full Stack Developer, Web Development, Ali Atish, React, Node.js, JavaScript, HTML, CSS"
                 />
-                <meta
-                    name="robots"
-                    content="index, follow"
-                />
-                <meta
-                    property="og:title"
-                    content="Ali Atish - Full Stack Developer"
-                />
+                <meta name="robots" content="index, follow" />
+
+                {/* Open Graph Tags */}
+                <meta property="og:title" content="Ali Atish - Full Stack Developer" />
                 <meta
                     property="og:description"
                     content="Discover my work as a Full Stack Developer, exploring innovative solutions and technologies."
                 />
-                <meta
-                    property="og:url"
-                    content="https://aliatish.com"
-                />
-                <meta
-                    name="twitter:card"
-                    content="summary_large_image"
-                />
+                <meta property="og:url" content="https://aliatish.com" />
+                <meta property="og:image" content="https://aliatish.com/images/Base_Logo.png" />
+                <meta property="og:locale" content={isPersian ? 'fa_IR' : 'en_US'} />
+
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:image" content="https://aliatish.com/images/Base_Logo.png" />
+
+                {/* Canonical URL */}
+                <link rel="canonical" href="https://aliatish.com" />
+
+                {/* Favicon */}
                 <link rel="icon" href="/favicon.ico" />
+
+                {/* Structured Data (Schema Markup) */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "http://schema.org",
+                        "@type": "Person",
+                        "name": "Ali Atish",
+                        "jobTitle": "Full Stack Developer",
+                        "url": "https://aliatish.com",
+                        "sameAs": [
+                            "https://www.linkedin.com/in/aliatish",
+                            "https://twitter.com/aliatish"
+                        ],
+                        "worksFor": {
+                            "@type": "Organization",
+                            "name": "aliatish"
+                        }
+                    })}
+                </script>
             </Head>
 
             <main
-                dir={isPersian ? 'rtl' : 'ltr'} // Set the direction dynamically
+                dir={isPersian ? 'rtl' : 'ltr'}
                 className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-100 via-gray-200 to-gray-300 dark:bg-gradient-to-b dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-800 text-gray-800 dark:text-gray-200"
             >
                 <div
@@ -70,8 +88,8 @@ export default function Home() {
                             {t('description')}
                         </h2>
                         <div className="flex justify-center lg:justify-start space-x-4 mb-8">
-                            <FaCode className="text-3xl sm:text-3xl text-blue-500 dark:text-blue-300" />
-                            <OrderButton className="text-3xl sm:text-2xl text-blue-500 dark:text-blue-300">
+                            <FaCode className="text-3xl sm:text-3xl text-blue-500 dark:text-blue-300" aria-label="Coding icon" />
+                            <OrderButton className="text-3xl sm:text-2xl text-blue-500 dark:text-blue-300" aria-label="Order Now Button">
                                 {t('cta')}
                             </OrderButton>
                         </div>

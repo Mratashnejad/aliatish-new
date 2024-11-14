@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const SocialMediLinks = () => {
   return (
-    <div className="flex flex-wrap justify-center space-x-4">
+    <div className="flex flex-wrap justify-center space-x-2">
        <Link
         href="https://www.youtube.com/channel/UCKsYwB9gQu_pvewAmRqlyKA?sub_confirmation=1"
         target="_blank"

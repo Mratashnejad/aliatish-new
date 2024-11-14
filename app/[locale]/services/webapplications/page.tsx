@@ -21,6 +21,7 @@ import {
 } from 'react-icons/si';
 import { OrderButton } from '@/components/order-button';
 import Image from 'next/image';
+import Head from 'next/head'; // Import Head from next/head for SEO
 
 const containerVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -42,6 +43,84 @@ const itemVariants = {
 export default function WebApplicationsPage() {
     return (
         <>
+            {/* SEO Meta Tags */}
+            <Head>
+                <title>
+                    Web Application Development - Ali Atish | Full Stack
+                    Developer
+                </title>
+                <meta
+                    name="description"
+                    content="Explore web application development services offered by Ali Atish, a Full Stack Developer. We create robust, scalable, and high-performance web applications tailored to your business needs."
+                />
+                <meta
+                    name="keywords"
+                    content="Web Application Development, Full Stack Developer, Web Development, Scalable Solutions, Custom Applications, Ali Atish"
+                />
+                <meta name="robots" content="index, follow" />
+
+                {/* Open Graph Tags for Social Sharing */}
+                <meta
+                    property="og:title"
+                    content="Web Application Development - Ali Atish"
+                />
+                <meta
+                    property="og:description"
+                    content="Discover custom web application development services by Ali Atish, providing high-performance, scalable solutions tailored for your business."
+                />
+                <meta
+                    property="og:url"
+                    content="https://aliatish.com/services/web-application-development"
+                />
+                <meta
+                    property="og:image"
+                    content="https://aliatish.com/images/web-app-dev-preview.jpg" // Update with actual image URL for the section
+                />
+                <meta property="og:type" content="website" />
+
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="Web Application Development - Ali Atish"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Explore professional web application development services by Ali Atish to build scalable, high-performance applications."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://aliatish.com/images/web-app-dev-preview.jpg" // Update with actual image URL for the section
+                />
+
+                {/* Canonical URL to Prevent Duplicate Content */}
+                <link
+                    rel="canonical"
+                    href="https://aliatish.com/services/web-application-development"
+                />
+
+                {/* Structured Data for SEO */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        '@context': 'http://schema.org',
+                        '@type': 'Service',
+                        serviceType: 'Web Application Development',
+                        provider: {
+                            '@type': 'Person',
+                            name: 'Ali Atish',
+                            url: 'https://aliatish.com',
+                            sameAs: [
+                                'https://www.linkedin.com/in/aliatish',
+                                'https://twitter.com/aliatish',
+                            ],
+                        },
+                        description:
+                            'Custom web application development services tailored to business needs with high scalability and performance.',
+                        url: 'https://aliatish.com/services/web-application-development',
+                    })}
+                </script>
+            </Head>
+
             {/* Web Application Development Section */}
             <motion.section
                 initial={{ opacity: 0 }}
@@ -68,8 +147,8 @@ export default function WebApplicationsPage() {
                                 digital experiences, providing fast, reliable,
                                 and scalable solutions. I create robust,
                                 high-performance web applications tailored to
-                                meet your business`&apos;`s unique needs, no matter the
-                                size or industry.
+                                meet your business`&apos;`s unique needs, no
+                                matter the size or industry.
                             </motion.p>
                             {/* Packages Benefit Section */}
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-16 px-8">

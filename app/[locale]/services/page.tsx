@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import { PathButton } from '@/components/Path-button';
@@ -24,9 +23,8 @@ const itemVariants = {
 };
 
 export default function ServicesPage() {
-    
     const t = useTranslations('ServicesPage');
-    const l = useTranslations('linkButtons')
+    const l = useTranslations('linkButtons');
     return (
         <>
             {/* SEO Meta Tags */}
@@ -40,10 +38,8 @@ export default function ServicesPage() {
                     name="keywords"
                     content="Web Application Design, UI/UX Design, SEO Optimization, Full Stack Developer, Ali Atish"
                 />
-                <meta
-                    name="robots"
-                    content="index, follow"
-                />
+                <meta name="robots" content="index, follow" />
+                {/* Open Graph Tags for Social Sharing */}
                 <meta
                     property="og:title"
                     content="Services Offered by Ali Atish"
@@ -52,15 +48,53 @@ export default function ServicesPage() {
                     property="og:description"
                     content="Discover professional services including web application development, UI/UX design, and SEO optimization tailored to your needs."
                 />
-               
                 <meta
                     property="og:url"
-                    content="https://aliatish.com/services" // Replace with your services URL
+                    content="https://aliatish.com/services"
                 />
                 <meta
-                    name="twitter:card"
-                    content="summary_large_image"
+                    property="og:image"
+                    content="https://aliatish.com/images/services-preview.jpg"
+                />{' '}
+                {/* Update with actual image URL */}
+                <meta property="og:type" content="website" />
+                {/* Twitter Card Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="Services Offered by Ali Atish"
                 />
+                <meta
+                    name="twitter:description"
+                    content="Professional services including web application design, UI/UX, and SEO optimization."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://aliatish.com/images/services-preview.jpg"
+                />{' '}
+                {/* Update with actual image URL */}
+                {/* Canonical URL to Prevent Duplicate Content */}
+                <link rel="canonical" href="https://aliatish.com/services" />
+                {/* Structured Data for SEO */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        '@context': 'http://schema.org',
+                        '@type': 'Service',
+                        serviceType: 'Web Development Services',
+                        provider: {
+                            '@type': 'Person',
+                            name: 'Ali Atish',
+                            url: 'https://aliatish.com',
+                            sameAs: [
+                                'https://www.linkedin.com/in/aliatish',
+                                'https://twitter.com/aliatish',
+                            ],
+                        },
+                        description:
+                            'Explore services like web application development, UI/UX design, and SEO optimization.',
+                        url: 'https://aliatish.com/services',
+                    })}
+                </script>
             </Head>
 
             {/* Introduction to Other Services */}
@@ -85,14 +119,22 @@ export default function ServicesPage() {
                                 {t('saasWebApplication.description')}
                             </p>
                             <p className="text-red-900 dark:text-red-800 mb-4">
-                                {t('saasWebApplication.features.feature1')}{', '}
-                                {t('saasWebApplication.features.feature2')}{', '}
-                                {t('saasWebApplication.features.feature3')}{', '}
-                                {t('saasWebApplication.features.feature4')}{', '}
-                                {t('saasWebApplication.features.feature5')}{', '}
-                                {t('saasWebApplication.features.feature6')}{', '}
-                                {t('saasWebApplication.features.feature7')}{', '}
-                                {t('saasWebApplication.features.feature8')}{', '}
+                                {t('saasWebApplication.features.feature1')}
+                                {', '}
+                                {t('saasWebApplication.features.feature2')}
+                                {', '}
+                                {t('saasWebApplication.features.feature3')}
+                                {', '}
+                                {t('saasWebApplication.features.feature4')}
+                                {', '}
+                                {t('saasWebApplication.features.feature5')}
+                                {', '}
+                                {t('saasWebApplication.features.feature6')}
+                                {', '}
+                                {t('saasWebApplication.features.feature7')}
+                                {', '}
+                                {t('saasWebApplication.features.feature8')}
+                                {', '}
                                 {t('saasWebApplication.features.feature9')}
                             </p>
                         </div>
@@ -115,7 +157,8 @@ export default function ServicesPage() {
                             className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
                             path="/services/webapplications"
                         >
-                            {l("linbuttonText")}<FaArrowRight className="ml-3" />
+                            {l('linbuttonText')}
+                            <FaArrowRight className="ml-3" />
                         </PathButton>
                     </div>
                 </div>
@@ -155,16 +198,23 @@ export default function ServicesPage() {
                                 {t('uiuxDesign.description')}
                             </p>
                             <p className="text-red-900 dark:text-red-800 mb-4">
-                                {t('uiuxDesign.features.feature1')}{', '}
-                                {t('uiuxDesign.features.feature2')}{', '}
-                                {t('uiuxDesign.features.feature3')}{', '}
-                                {t('uiuxDesign.features.feature4')}{', '}
-                                {t('uiuxDesign.features.feature5')}{', '}
-                                {t('uiuxDesign.features.feature6')}{', '}
-                                {t('uiuxDesign.features.feature7')}{', '}
-                                {t('uiuxDesign.features.feature8')}{', '}
+                                {t('uiuxDesign.features.feature1')}
+                                {', '}
+                                {t('uiuxDesign.features.feature2')}
+                                {', '}
+                                {t('uiuxDesign.features.feature3')}
+                                {', '}
+                                {t('uiuxDesign.features.feature4')}
+                                {', '}
+                                {t('uiuxDesign.features.feature5')}
+                                {', '}
+                                {t('uiuxDesign.features.feature6')}
+                                {', '}
+                                {t('uiuxDesign.features.feature7')}
+                                {', '}
+                                {t('uiuxDesign.features.feature8')}
+                                {', '}
                                 {t('uiuxDesign.features.feature9')}{' '}
-                               
                             </p>
                         </div>
                     </div>
@@ -174,8 +224,9 @@ export default function ServicesPage() {
                             className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
                             path="/services/design"
                         >
-                            {l("linbuttonText")}<FaArrowRight className="ml-3" />
-                            </PathButton>
+                            {l('linbuttonText')}
+                            <FaArrowRight className="ml-3" />
+                        </PathButton>
                     </div>
                 </div>
             </section>
@@ -198,14 +249,15 @@ export default function ServicesPage() {
                                 {t('seoOptimization.description')}
                             </p>
                             <p className="text-red-900 dark:text-red-800 mb-4">
-                                {t('seoOptimization.features.feature1')}{', '}
-                                {t('seoOptimization.features.feature2')}{', '}
-                                {t('seoOptimization.features.feature3')}{', '}
-                                {t('seoOptimization.features.feature4')}{', '}
+                                {t('seoOptimization.features.feature1')}
+                                {', '}
+                                {t('seoOptimization.features.feature2')}
+                                {', '}
+                                {t('seoOptimization.features.feature3')}
+                                {', '}
+                                {t('seoOptimization.features.feature4')}
+                                {', '}
                                 {t('seoOptimization.features.feature5')}
-                               
-                               
-
                             </p>
                         </div>
                         <div className="lg:w-1/3">
@@ -229,8 +281,9 @@ export default function ServicesPage() {
                             className="inline-flex items-center bg-transparent text-blue-800 dark:text-blue-400 py-3 px-8 rounded-lg hover:text-blue-500 dark:hover:text-blue-300"
                             path="/services/seo"
                         >
-                            {l("linbuttonText")}<FaArrowRight className="ml-3" />
-                            </PathButton>
+                            {l('linbuttonText')}
+                            <FaArrowRight className="ml-3" />
+                        </PathButton>
                     </div>
                 </div>
             </section>
@@ -269,16 +322,23 @@ export default function ServicesPage() {
                                 {t('multiLanguage.description')}
                             </p>
                             <p className="text-red-900 dark:text-red-800 mb-4">
-                                {t('multiLanguage.features.feature1')}{', '}
-                                {t('multiLanguage.features.feature2')}{', '}
-                                {t('multiLanguage.features.feature3')}{', '}
-                                {t('multiLanguage.features.feature4')}{', '}
-                                {t('multiLanguage.features.feature5')}{', '}
-                                {t('multiLanguage.features.feature6')}{', '}
-                                {t('multiLanguage.features.feature7')}{', '}
-                                {t('multiLanguage.features.feature8')}{', '}
+                                {t('multiLanguage.features.feature1')}
+                                {', '}
+                                {t('multiLanguage.features.feature2')}
+                                {', '}
+                                {t('multiLanguage.features.feature3')}
+                                {', '}
+                                {t('multiLanguage.features.feature4')}
+                                {', '}
+                                {t('multiLanguage.features.feature5')}
+                                {', '}
+                                {t('multiLanguage.features.feature6')}
+                                {', '}
+                                {t('multiLanguage.features.feature7')}
+                                {', '}
+                                {t('multiLanguage.features.feature8')}
+                                {', '}
                                 {t('multiLanguage.features.feature9')}{' '}
-                               
                             </p>
                         </div>
                     </div>
@@ -293,9 +353,6 @@ export default function ServicesPage() {
                     </div> */}
                 </div>
             </section>
-
-
-            
 
             {/* < section className="max-w-full dark:bg-gradient-to-r dark:bg-black text-gray-900 dark:text-gray-200 py-16">
                 <div className="mx-auto px-12">
@@ -314,7 +371,7 @@ export default function ServicesPage() {
                         className="text-gray-700 dark:text-gray-400 mb-4 text-center"
                     >
                         {/* Add any additional services here with brief descriptions */}
-                    {/* </p>
+            {/* </p>
                 </div>
             </section> */}
         </>

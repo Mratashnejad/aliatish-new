@@ -93,9 +93,9 @@ export default function Navbar() {
                         {'about'}
                     </Link>
                     <div className="flex justify-center gap-4 mt-4">
-                        <ThemeSwitch className="hover:text-yellow-900 dark:hover:text-yellow-400" />
-                        <LocaleSwitcher className="hover:text-yellow-900 dark:hover:text-yellow-400" />
-                        <UserMenu className="hover:text-yellow-900 dark:hover:text-yellow-400" />
+                        <ThemeSwitch />
+                        <LocaleSwitcher/>
+                        <UserMenu />
                     </div>
                 </nav>
             </div>

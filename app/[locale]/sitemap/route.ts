@@ -20,7 +20,9 @@ const routes = [
     '/services/webapplications',
     '/shop',
     '/terms',
-    '/privacy'
+    '/privacy',
+    '/career',
+    
 ];
 
 export async function GET(req:any) {

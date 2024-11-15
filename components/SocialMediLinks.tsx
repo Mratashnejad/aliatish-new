@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const SocialMediLinks = () => {
   return (
-    <div className="flex flex-wrap justify-center space-x-3">
+    <div className="flex flex-wrap justify-center space-x-5">
        <Link
         href="https://www.youtube.com/channel/UCKsYwB9gQu_pvewAmRqlyKA?sub_confirmation=1"
         target="_blank"
@@ -40,14 +40,7 @@ const SocialMediLinks = () => {
       >
         <FaStackOverflow size={24} />
       </Link>
-      <Link
-        href="https://discord.com/1041300172174536734"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300"
-      >
-        <FaDiscord size={24} />
-      </Link>
+      
       <Link
         href="https://www.kaggle.com/alirezaatashnejad"
         target="_blank"

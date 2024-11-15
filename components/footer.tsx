@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { PiCopyrightLight } from 'react-icons/pi';
-import { FaGithub, FaDiscord, FaKaggle, FaYoutube, FaLink } from 'react-icons/fa';
+import { FaGithub,} from 'react-icons/fa';
 import SocialMediLinks from '@/components/SocialMediLinks';
 import { useLocale } from 'next-intl';
 
@@ -28,9 +28,9 @@ const FooterBar = () => {
             {/* <Link href={`/${locale}/`} className="hover:text-orange-600 dark:hover:text-orange-400">Home</Link> */}
             <Link href={`/${locale}/services`} className="hover:text-orange-600 dark:hover:text-orange-400">Services</Link>
             <Link href={`/${locale}/packages`} className="hover:text-orange-600 dark:hover:text-orange-400">Packages</Link>
-            <Link href={`/${locale}/webdevelopment`} className="hover:text-orange-600 dark:hover:text-orange-400">Web Development</Link>
-            <Link href={`/${locale}/design`} className="hover:text-orange-600 dark:hover:text-orange-400">Design</Link>
-            <Link href={`/${locale}/seo`} className="hover:text-orange-600 dark:hover:text-orange-400">SEO</Link> 
+            <Link href={`/${locale}/services/webapplications`} className="hover:text-orange-600 dark:hover:text-orange-400">Web Applications</Link>
+            <Link href={`/${locale}/services/design`} className="hover:text-orange-600 dark:hover:text-orange-400">Design</Link>
+            <Link href={`/${locale}/services/seo`} className="hover:text-orange-600 dark:hover:text-orange-400">SEO</Link> 
             <Link href={`/${locale}/blog`} className="hover:text-orange-600 dark:hover:text-orange-400">Blogs</Link>
 
           </div>
@@ -50,7 +50,7 @@ const FooterBar = () => {
 
         <div className="flex flex-col">
           <h3 className="text-xl font-semibold text-orange-600 mb-4 flex items-center space-x-2">
-            <FaDiscord className="text-2xl" />
+            
             <span>Contact Info</span>
           </h3>
           <div className="space-y-2 text-md text-gray-500 dark:text-gray-300">

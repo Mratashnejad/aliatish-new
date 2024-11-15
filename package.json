@@ -1,7 +1,7 @@
 {
   "name": "Personal-Web",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ali Atish Website",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -37,7 +37,6 @@
     "@types/node": "22.8.1",
     "@types/pg": "^8.11.10",
     "@types/react": "18.3.3",
-    "@types/react-scroll": "^1.8.10",
     "eslint": "^8.57.1",
     "typescript": "^5.6.3"
   },

@@ -1,8 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import { FaCcMastercard } from 'react-icons/fa';
-// import { GiCreditCard } from 'react-icons/gi';
-
 export default function PaymentTemplate() {
     const [selectedCard, setSelectedCard] = useState('');
 

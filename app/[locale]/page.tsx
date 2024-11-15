@@ -1,13 +1,6 @@
 // pages/index.js (or Home.js)
 import Head from 'next/head';
 import HeroSection from '@/components/homePageComponents/heroSection'
-import WhyAliatish from '@/components/homePageComponents/whyaliatish'
-import HomePackages from '@/components/homePageComponents/homePackages'
-import AboutSection from '@/components/homePageComponents/aboutSection';
-import PortfolioSection from '@/components/homePageComponents/porfolioSection';
-import TestimonialsSection from '@/components/homePageComponents/testimonialsSection';
-import WhyNextSection from '@/components/homePageComponents/whyNextSection';
-import WhyNodeSection from '@/components/homePageComponents/whyNodeSections';
 
 
 export default function Home() {
@@ -24,16 +17,6 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Pachages in HomePage */}
-      {/* <HomePackages/> */}
-
-      {/* Why Choose Aliatish Section */}
-      {/* <WhyAliatish /> */}
-
-      {/* <TestimonialsSection/>
-      <WhyNextSection/>
-      <WhyNodeSection/> */}
-      {/* <AboutSection/> */}
     </>
   );
 }

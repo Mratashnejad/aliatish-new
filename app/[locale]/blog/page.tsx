@@ -2,7 +2,6 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
 
 export default function BlogPage() {
     return (
@@ -58,10 +57,9 @@ export default function BlogPage() {
             </Head>
             <section className="min-h-screen bg-gray-100 dark:bg-zinc-950 flex flex-col items-center text-gray-800 dark:text-gray-200">
                 <div className="max-w-4xl w-full px-6 py-16">
-                    
-                    <motion.h3 className="text-4xl font-serif font-extrabold mb-10 text-gray-900 dark:text-yellow-400">
+                    <h3 className="text-4xl font-serif font-extrabold mb-10 text-gray-900 dark:text-yellow-400">
                         Latest Blog Posts in Web Development
-                    </motion.h3>
+                    </h3>
                     <div className="flex flex-col space-y-12">
                         {/* Blog Post 1 */}
                         <div className="flex items-start bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -79,8 +77,8 @@ export default function BlogPage() {
                                     <pre className="text-sm text-gray-800 dark:text-gray-300">
                                         <code>
                                             {`<div class="container">
-    <h1>Responsive Design</h1>
-    <p>Focus on mobile-first design principles.</p>
+<h1>Responsive Design</h1>
+<p>Focus on mobile-first design principles.</p>
 </div>`}
                                         </code>
                                     </pre>
@@ -109,7 +107,7 @@ export default function BlogPage() {
                                     <pre className="text-sm text-gray-800 dark:text-gray-300">
                                         <code>
                                             {`<meta name="description" content="SEO-friendly website">
-    <link rel="canonical" href="https://www.example.com/" />`}
+<link rel="canonical" href="https://www.aliatish.com/" />`}
                                         </code>
                                     </pre>
                                 </div>
@@ -137,9 +135,9 @@ export default function BlogPage() {
                                     <pre className="text-sm text-gray-800 dark:text-gray-300">
                                         <code>
                                             {`const userEngagement = {
-    activeUsers: 1000,
-    bounceRate: 25,
-    avgSessionTime: 5 // minutes
+activeUsers: 1000,
+bounceRate: 25,
+avgSessionTime: 5 // minutes
 };`}
                                         </code>
                                     </pre>
@@ -168,11 +166,10 @@ export default function BlogPage() {
                                     <pre className="text-sm text-gray-800 dark:text-gray-300">
                                         <code>
                                             {`// Install Next.js
-npx create-next-app@latest my-next-app
-
+npx create-next-app@latest 
 // Create a new page in pages/index.js
 export default function Home() {
-  return <h1>Welcome to Next.js!</h1>;
+return <h1>Welcome to Next.js!</h1>;
 }`}
                                         </code>
                                     </pre>
@@ -184,14 +181,6 @@ export default function Home() {
                                     Read More
                                 </a>
                             </div>
-                        </div>
-
-                        {/* Explore More Button */}
-                        <div className="mt-12 text-center">
-                            <button className="flex items-center justify-center bg-orange-600 text-white text-lg py-4 px-10 rounded-lg shadow-2xl hover:bg-orange-700 transition-colors duration-300">
-                                Explore More
-                                <FaArrowRight className="ml-3" />
-                            </button>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import { FaCog, FaDollarSign, FaGift, FaRegCreditCard } from 'react-icons/fa';
 import { SignOutButton } from '@/components/sign-out-button';
 

@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
 
 const FAQPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -42,25 +41,16 @@ const FAQPage = () => {
         <link rel="canonical" href="https://aliatish.com/faq" />
       </Head>
 
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="dark:bg-black text-gray-800 dark:text-gray-200 py-16"
-      >
+      <section className="dark:bg-black text-gray-800 dark:text-gray-200 py-16">
         <div>
-          <motion.div
-            className="dark:bg-black py-20 px-20"
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div>
-              <motion.h3 className="text-6xl font-serif font-extrabold mb-10 text-gray-900 dark:text-yellow-400">
+          <div className="dark:bg-black py-20 px-20">
+            <div>
+              <h3 className="text-6xl font-serif font-extrabold mb-10 text-gray-900 dark:text-yellow-400">
                 Frequently Asked Questions
-              </motion.h3>
-              <motion.p className="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed px-4">
+              </h3>
+              <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed px-4">
                 Here are answers to some of the most common questions we receive about working with us. If you have any other questions, feel free to reach out.
-              </motion.p>
+              </p>
 
               <div className="space-y-6">
                 {faqData.map((item, index) => (
@@ -93,10 +83,10 @@ const FAQPage = () => {
                   </div>
                 ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
-      </motion.section>
+      </section> {/* Correctly closed section tag */}
     </>
   );
 };

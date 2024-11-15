@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
@@ -16,7 +16,9 @@ const itemVariants = {
 const PackagesPage: React.FC = () => {
     // Function to generate the mailto link dynamically
     const createMailtoLink = (subject: string, body: string) => {
-        return `mailto:support@aliatish.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        return `mailto:support@aliatish.com?subject=${encodeURIComponent(
+            subject
+        )}&body=${encodeURIComponent(body)}`;
     };
 
     return (
@@ -34,26 +36,21 @@ const PackagesPage: React.FC = () => {
             <section className="py-28 bg-gray-900 dark:bg-black">
                 <div className="container mx-auto px-6">
                     {/* Section Title */}
-                    <motion.h2
-                        variants={itemVariants}
-                        className="text-4xl font-serif font-bold text-center text-white mb-12"
-                    >
+                    <h2 className="text-4xl font-serif font-bold text-center text-white mb-12">
                         Our Luxurious Services & Flexible Packages
-                    </motion.h2>
+                    </h2>
 
                     {/* Package Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-
                         {/* Website Design Package */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="bg-gradient-to-r from-yellow-600 to-orange-500 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
-                        >
+                        <div className="bg-gradient-to-r from-yellow-600 to-orange-500 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                             <h3 className="text-3xl font-serif font-semibold text-white mb-4">
                                 Website Design
                             </h3>
                             <p className="text-gray-200 mb-4">
-                                Create a beautiful, functional website with modern design principles. Tailored to your brand and audience.
+                                Create a beautiful, functional website with
+                                modern design principles. Tailored to your brand
+                                and audience.
                             </p>
                             <p className="text-xl font-bold text-white mb-6">
                                 Starting at $299
@@ -76,18 +73,16 @@ const PackagesPage: React.FC = () => {
                                     Contact Us
                                 </a>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* SEO Optimization Package */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="bg-gradient-to-r from-blue-800 to-indigo-900 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
-                        >
+                        <div className="bg-gradient-to-r from-blue-800 to-indigo-900 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                             <h3 className="text-3xl font-serif font-semibold text-white mb-4">
                                 SEO Optimization
                             </h3>
                             <p className="text-gray-200 mb-4">
-                                Improve your website’s visibility and search engine rankings to attract more traffic.
+                                Improve your website’s visibility and search
+                                engine rankings to attract more traffic.
                             </p>
                             <p className="text-xl font-bold text-white mb-6">
                                 Starting at $499
@@ -110,18 +105,16 @@ const PackagesPage: React.FC = () => {
                                     Contact Us
                                 </a>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Web Application Development */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="bg-gradient-to-r from-purple-800 to-indigo-700 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
-                        >
+                        <div className="bg-gradient-to-r from-purple-800 to-indigo-700 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                             <h3 className="text-3xl font-serif font-semibold text-white mb-4">
                                 Web Application
                             </h3>
                             <p className="text-gray-200 mb-4">
-                                Build powerful, scalable web applications with dynamic functionality for your business.
+                                Build powerful, scalable web applications with
+                                dynamic functionality for your business.
                             </p>
                             <p className="text-xl font-bold text-white mb-6">
                                 Starting at $799
@@ -144,18 +137,16 @@ const PackagesPage: React.FC = () => {
                                     Contact Us
                                 </a>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* UI/UX Design */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="bg-gradient-to-r from-pink-600 to-red-500 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
-                        >
+                        <div className="bg-gradient-to-r from-pink-600 to-red-500 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                             <h3 className="text-3xl font-serif font-semibold text-white mb-4">
                                 UI/UX Design
                             </h3>
                             <p className="text-gray-200 mb-4">
-                                Enhance user engagement with intuitive interfaces and seamless user experiences.
+                                Enhance user engagement with intuitive
+                                interfaces and seamless user experiences.
                             </p>
                             <p className="text-xl font-bold text-white mb-6">
                                 Starting at $399
@@ -178,18 +169,16 @@ const PackagesPage: React.FC = () => {
                                     Contact Us
                                 </a>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Multi-language Support */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="bg-gradient-to-r from-teal-600 to-green-500 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out"
-                        >
+                        <div className="bg-gradient-to-r from-teal-600 to-green-500 p-8 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                             <h3 className="text-3xl font-serif font-semibold text-white mb-4">
                                 Multi-language Support
                             </h3>
                             <p className="text-gray-200 mb-4">
-                                Expand your reach by offering your website in multiple languages to cater to global audiences.
+                                Expand your reach by offering your website in
+                                multiple languages to cater to global audiences.
                             </p>
                             <p className="text-xl font-bold text-white mb-6">
                                 Starting at $299
@@ -212,8 +201,7 @@ const PackagesPage: React.FC = () => {
                                     Get Started
                                 </a>
                             </div>
-                        </motion.div>
-
+                        </div>
                     </div>
                 </div>
             </section>

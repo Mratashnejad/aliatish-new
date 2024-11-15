@@ -11,7 +11,8 @@
     "HeroSection": {
         "title": "Կառուցեք ձեր կայքը այսօր",
         "description": "Դա մեկնարկեք ձեր վեբ հավելվածները նոր տեխնոլոգիաներով:",
-        "cta": "Սկսեք հիմա"
+        "cta": "Սկսեք հիմա",
+        "locale":"hy"
     },
     "Footer": {
         "copyright": "© 2024 Ali Atish. All Rights Reserved.",

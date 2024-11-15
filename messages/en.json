@@ -11,7 +11,8 @@
     "HeroSection": {
         "title": "Burn away your slow website",
         "description": "Fuel your web applications with next-level performance",
-        "cta": "Get Started"
+        "cta": "Get Started",
+        "locale":"en"
     },
     "Footer": {
         "copyright": "© 2024 Ali Atish. All Rights Reserved.",

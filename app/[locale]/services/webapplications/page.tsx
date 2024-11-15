@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import {
     FaShoppingCart,
     FaBriefcase,
@@ -16,22 +16,6 @@ import { OrderButton } from '@/components/order-button';
 import Image from 'next/image';
 import Head from 'next/head'; // Import Head from next/head for SEO
 
-const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            staggerChildren: 0.3,
-            duration: 0.5,
-        },
-    },
-};
-
-const itemVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-};
 
 export default function WebApplicationsPage() {
     return (
@@ -115,26 +99,22 @@ export default function WebApplicationsPage() {
             </Head>
 
             {/* Web Application Development Section */}
-            <motion.section
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
+            <section
+             
                 className="dark:bg-black text-gray-800 dark:text-gray-200 py-16"
             >
                 <div>
-                    <motion.div
+                    <div
                         className="dark:bg-black py-20 px-20"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
+                   
                     >
-                        <motion.div variants={itemVariants}>
-                            <motion.h3 className="text-6xl font-serif font-extrabold mb-10 text-gray-900 dark:text-yellow-400">
+                        <div >
+                            <h3 className="text-6xl font-serif font-extrabold mb-10 text-gray-900 dark:text-yellow-400">
                                 Web Application Development
-                            </motion.h3>
-                            <motion.p
+                            </h3>
+                            <p
                                 className="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed px-4"
-                                variants={itemVariants}
+                               
                             >
                                 Web applications are the backbone of modern
                                 digital experiences, providing fast, reliable,
@@ -142,12 +122,12 @@ export default function WebApplicationsPage() {
                                 high-performance web applications tailored to
                                 meet your business&apos;s unique needs, no
                                 matter the size or industry.
-                            </motion.p>
+                            </p>
                             {/* Packages Benefit Section */}
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-16 px-10">
                                 {/* Basic Package */}
-                                <motion.div
-                                    variants={itemVariants}
+                                <div
+                                   
                                     className="flex items-center bg-gray-900 p-8 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105"
                                 >
                                     <FaBriefcase
@@ -170,11 +150,11 @@ export default function WebApplicationsPage() {
                                             the heavy cost.
                                         </p>
                                     </div>
-                                </motion.div>
+                                </div>
 
                                 {/* Pro Package */}
-                                <motion.div
-                                    variants={itemVariants}
+                                <div
+                                
                                     className="flex items-center bg-gray-900 p-8 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105"
                                 >
                                     <FaRocket
@@ -196,11 +176,11 @@ export default function WebApplicationsPage() {
                                             out from the competition.
                                         </p>
                                     </div>
-                                </motion.div>
+                                </div>
 
                                 {/* Premium Package */}
-                                <motion.div
-                                    variants={itemVariants}
+                                <div
+                               
                                     className="flex items-center bg-gray-900 p-8 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105"
                                 >
                                     <FaCrown
@@ -223,11 +203,11 @@ export default function WebApplicationsPage() {
                                             scalability.
                                         </p>
                                     </div>
-                                </motion.div>
+                                </div>
 
                                 {/* Online Shop Package */}
-                                <motion.div
-                                    variants={itemVariants}
+                                <div
+                                    
                                     className="flex items-center bg-gray-900 p-8 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105"
                                 >
                                     <FaShoppingCart
@@ -251,11 +231,11 @@ export default function WebApplicationsPage() {
                                             in the online retail space.
                                         </p>
                                     </div>
-                                </motion.div>
+                                </div>
                             </div>
 
                             {/* Companies Using Our Technologies Section */}
-                            <motion.div className="py-20">
+                            <div className="py-20">
                                 <h4 className="text-4xl font-serif font-semibold mb-10 text-center text-gray-900 dark:text-white">
                                     Companies Using Our Technologies
                                 </h4>
@@ -283,11 +263,11 @@ export default function WebApplicationsPage() {
                                         className="h-16"
                                     />
                                 </div>
-                            </motion.div>
+                            </div>
 
                             {/* Technologies Used Section */}
                             <div className="gap-10 py-20 px-10">
-                                <motion.div variants={itemVariants}>
+                                <div >
                                     <h4 className="flex items-center text-4xl font-serif font-semibold mb-6 text-gray-900 dark:text-white">
                                         <FaNodeJs
                                             className="text-green-600 mr-6"
@@ -301,9 +281,9 @@ export default function WebApplicationsPage() {
                                         and efficient handling of server-side
                                         processes.
                                     </p>
-                                </motion.div>
+                                </div>
 
-                                <motion.div variants={itemVariants}>
+                                <div >
                                     <h4 className="flex items-center text-4xl font-serif font-semibold mb-6 text-gray-900 dark:text-white">
                                         <SiTypescript
                                             className="text-blue-600 mr-6"
@@ -318,29 +298,26 @@ export default function WebApplicationsPage() {
                                         improving the overall development
                                         experience.
                                     </p>
-                                </motion.div>
+                                </div>
                             </div>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
-            </motion.section>
+            </section>
 
-            <motion.section
+            <section
                 className="bg-gradient-to-r from-gray-800 to-gray-900 py-20"
-                initial="hidden"
-                whileInView="visible"
-                variants={containerVariants}
-                viewport={{ once: true }}
+          
             >
                 <div className="container mx-auto px-6 lg:px-16">
-                    <motion.h3 className="text-5xl font-extrabold text-center mb-12 text-gray-100 dark:text-white">
+                    <h3 className="text-5xl font-extrabold text-center mb-12 text-gray-100 dark:text-white">
                         Pricing Packages
-                    </motion.h3>
-                    <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {/* Personal Website Plan */}
-                        <motion.div
+                        <div
                             className="bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 shadow-2xl rounded-xl p-8 transform transition-all hover:scale-105"
-                            variants={itemVariants}
+                     
                         >
                             <h4 className="text-3xl font-semibold mb-4 text-gray-100 dark:text-white">
                                 Personal Website
@@ -362,12 +339,12 @@ export default function WebApplicationsPage() {
                             <OrderButton className="bg-blue-600 text-white py-3 px-8 rounded-lg w-full hover:bg-blue-700 transition-all">
                                 Choose Package
                             </OrderButton>
-                        </motion.div>
+                        </div>
 
                         {/* Online Shop Package */}
-                        <motion.div
+                        <div
                             className="bg-gradient-to-b from-yellow-500 to-orange-500 shadow-2xl rounded-xl p-8 transform scale-105 transition-all hover:scale-110"
-                            variants={itemVariants}
+                           
                         >
                             <h4 className="text-3xl font-semibold mb-4 text-gray-100 dark:text-white">
                                 Online Shop Package
@@ -391,12 +368,12 @@ export default function WebApplicationsPage() {
                             <OrderButton className="bg-orange-600 text-white py-3 px-8 rounded-lg w-full hover:bg-orange-700 transition-all">
                                 Choose Online Shop
                             </OrderButton>
-                        </motion.div>
+                        </div>
 
                         {/* Premium Plan */}
-                        <motion.div
+                        <div
                             className="bg-gradient-to-b from-purple-700 to-purple-900 shadow-2xl rounded-xl p-8 transform transition-all hover:scale-105"
-                            variants={itemVariants}
+                            
                         >
                             <h4 className="text-3xl font-semibold mb-4 text-gray-100 dark:text-white">
                                 Premium
@@ -422,15 +399,15 @@ export default function WebApplicationsPage() {
                             <OrderButton className="bg-purple-800 text-white py-3 px-8 rounded-lg w-full hover:bg-purple-900 transition-all">
                                 Choose Premium
                             </OrderButton>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
-            </motion.section>
+            </section>
 
             {/* Important Notes */}
-            <motion.div
+            <div
                                 className="bg-blue-100 dark:bg-gray-800 p-16 rounded-lg mt-12 border-l-8 border-yellow-500"
-                                variants={itemVariants}
+                            
                             >
                                 <h4 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
                                     Important Notes:
@@ -455,7 +432,7 @@ export default function WebApplicationsPage() {
                         an additional cost.
                     </li>
                 </ul>
-            </motion.div>
+            </div>
         </>
     );
 }

@@ -67,3 +67,13 @@ certificates/
 database/aliatish.sql.zip
 database/aliatish.sql
 grant_access.sql
+
+
+#pages
+/lib/
+/hooks/
+/app/*/dashboard/
+/app/*/shop/
+/app/*/order/
+/app/*/admin/
+/components/dashboardTabs/

@@ -23,7 +23,7 @@ export default function RootLayout({
         <html lang={locale} suppressHydrationWarning>
           
             <body className="flex flex-col  bg-white dark:bg-zinc-950">
-                <SessionProvider>
+                {/* <SessionProvider> */}
                     <Providers>
                         <NextIntlClientProvider>
                             {/* Ensure Navbar is always visible */}
@@ -33,7 +33,7 @@ export default function RootLayout({
                             {showFooter && <FooterBar />}
                         </NextIntlClientProvider>
                     </Providers>
-                </SessionProvider>
+                {/* </SessionProvider> */}
             </body>
         </html>
     );

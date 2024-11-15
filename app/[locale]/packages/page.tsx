@@ -1,17 +1,7 @@
 'use client';
 import React from 'react';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
 
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1 } },
-};
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-};
 
 const PackagesPage: React.FC = () => {
     // Function to generate the mailto link dynamically

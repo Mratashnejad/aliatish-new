@@ -117,10 +117,10 @@ export default function SEOService() {
                                 className="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed px-4"
                                 variants={itemVariants}
                             >
-                                SEO is crucial for improving your website's
+                                SEO is crucial for improving your website`&apos;`s
                                 visibility on search engines and attracting
                                 organic traffic. I offer a range of SEO services
-                                tailored to boost your website's rankings, drive
+                                tailored to boost your website`&apos;`s rankings, drive
                                 more visitors, and grow your business online.
                             </motion.p>
                             {/* SEO Packages Section */}
@@ -170,7 +170,7 @@ export default function SEOService() {
                                             for growing businesses. It includes
                                             on-page and off-page SEO, content
                                             marketing strategies, and detailed
-                                            performance reports. It's perfect
+                                            performance reports. It`&apos;`s perfect
                                             for businesses looking to expand
                                             their online presence and dominate
                                             search results.

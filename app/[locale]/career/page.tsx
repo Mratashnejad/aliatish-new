@@ -49,7 +49,7 @@ const CareerPage = () => {
                 Careers at Aliatish
               </motion.h3>
               <motion.p className="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed px-4" variants={itemVariants}>
-                We're always looking for talented, passionate individuals to join our team. All of our positions are remote. Apply today!
+                We`&apos;`re always looking for talented, passionate individuals to join our team. All of our positions are remote. Apply today!
               </motion.p>
 
               <div className="space-y-8">
@@ -59,7 +59,7 @@ const CareerPage = () => {
                     1. Job Openings
                   </h2>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    All of our positions are remote. Here are some of the roles we're hiring for:
+                    All of our positions are remote. Here are some of the roles we`&apos;`re hiring for:
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

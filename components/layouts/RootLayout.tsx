@@ -12,8 +12,8 @@ interface RootLayoutProps {
     params: {
         locale: string;
     };
-    showNavbar?: boolean; // Make optional for flexibility
-    showFooter?: boolean; // Make optional for flexibility
+    showNavbar?: boolean;
+    showFooter?: boolean; 
 }
 
 export default function RootLayout({
@@ -24,10 +24,7 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
     return (
         <html lang={locale} suppressHydrationWarning>
-            <Head>
-            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
-
-            </Head>
+          
             <body className="flex flex-col  bg-white dark:bg-zinc-950">
                 <SessionProvider>
                     <Providers>

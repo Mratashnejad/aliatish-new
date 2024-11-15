@@ -44,6 +44,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 token.name = session.name;
                 try {
                     await setName(token.name || 'default name');
+                    console.log('JWT, Succees')
                 } catch (error) {
                     console.error('Failed to set user name:', error);
                     throw new Error('Failed to set user name');
@@ -59,8 +60,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return token;
         },
         async session({ session, token }) {
-            // console.log('session callback', { session, token });
-            // console.log('session, token Succees')
+             console.log('session callback', { session, token });
+             console.log('session, token Succees')
             return {
                 ...session,
                 user: {

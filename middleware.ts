@@ -1,4 +1,3 @@
-// middleware.ts
 import createMiddleware from 'next-intl/middleware';
 
 export default createMiddleware({
@@ -12,6 +11,5 @@ export const config = {
     '/en/:path*',
     '/ir/:path*',
     '/hy/:path*',
-    '/sitemap.xml', 
   ],
 };

@@ -28,7 +28,7 @@ export default function RootLayout({
             <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet"/>
 
             </Head>
-            <body className="flex flex-col min-h-screen bg-white dark:bg-zinc-950">
+            <body className="flex flex-col  bg-white dark:bg-zinc-950">
                 <SessionProvider>
                     <Providers>
                         <GoogleOneTap />

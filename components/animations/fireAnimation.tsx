@@ -18,7 +18,7 @@ const FireAnimation: React.FC = () => {
     useEffect(() => {
         // On initial render, play from 0 to 180
         if (lottieRef.current) {
-            lottieRef.current.playSegments([0, 180], false);  // Play the full animation once
+            lottieRef.current.playSegments([1, 180], false);  // Play the full animation once
         }
     }, []);
 

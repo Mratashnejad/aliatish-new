@@ -21,10 +21,10 @@ interface OrderData {
  * @throws {Error} - Throws an error if the addition fails.
  */
 export const addOrder = async (formData: FormData): Promise<string> => {
-    // const isAuthenticated = checkIsAuthenticated();
-    // if (!isAuthenticated) {
-    //     throw new Error('User is not authenticated');
-    // }
+    const isAuthenticated = checkIsAuthenticated();
+    if (!isAuthenticated) {
+        throw new Error('User is not authenticated');
+    }
 
     const data: OrderData = {
         id: uuidv4(), // Generate UUID here in the app

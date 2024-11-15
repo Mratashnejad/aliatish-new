@@ -13,7 +13,7 @@ const FooterBar = () => {
       <div className="container mx-auto px-6 sm:px-8 lg:px-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         
         <div className="flex flex-col col-span-2 lg:col-span-2">
-          <h3 className="text-xl font-semibold text-orange-600 mb-4 flex items-center space-x-2">
+          <h3 className="text-xl font-semibold text-orange-600 mb-4 flex items-center space-x-2 ">
             <FaGithub className="text-2xl" />
             <span>About Us</span>
           </h3>
@@ -22,26 +22,29 @@ const FooterBar = () => {
           </p>
         </div>
         
-        <div className="flex flex-col space-y-2">
+        <div className="pl-20 flex flex-col space-y-2">
           <h4 className="text-xl font-semibold text-orange-600 mb-2">Pages</h4>
           <div className="flex flex-col space-y-1 text-md text-gray-500 dark:text-gray-300">
-            <Link href={`/${locale}/`} className="hover:text-orange-600 dark:hover:text-orange-400">Home</Link>
+            {/* <Link href={`/${locale}/`} className="hover:text-orange-600 dark:hover:text-orange-400">Home</Link> */}
             <Link href={`/${locale}/services`} className="hover:text-orange-600 dark:hover:text-orange-400">Services</Link>
             <Link href={`/${locale}/packages`} className="hover:text-orange-600 dark:hover:text-orange-400">Packages</Link>
-            <Link href={`/${locale}/blog`} className="hover:text-orange-600 dark:hover:text-orange-400">Blog</Link>
-            <Link href={`/${locale}/about`} className="hover:text-orange-600 dark:hover:text-orange-400">About</Link>
-            <Link href={`/${locale}/shop`} className="hover:text-orange-600 dark:hover:text-orange-400">Shop</Link>
+            <Link href={`/${locale}/webdevelopment`} className="hover:text-orange-600 dark:hover:text-orange-400">Web Development</Link>
+            <Link href={`/${locale}/design`} className="hover:text-orange-600 dark:hover:text-orange-400">Design</Link>
+            <Link href={`/${locale}/seo`} className="hover:text-orange-600 dark:hover:text-orange-400">SEO</Link> 
+            <Link href={`/${locale}/blog`} className="hover:text-orange-600 dark:hover:text-orange-400">Blogs</Link>
+
           </div>
         </div>
 
         <div className="flex flex-col space-y-2">
           <h4 className="text-xl font-semibold text-orange-600 mb-2">Work with Us</h4>
           <div className="flex flex-col space-y-1 text-md text-gray-500 dark:text-gray-300">
-            <Link href={`/${locale}/career`} className="hover:text-orange-600 dark:hover:text-orange-400">Career</Link>
+          <Link href={`/${locale}/about`} className="hover:text-yellow-900 dark:hover:text-yellow-400">About</Link>
+          <Link href={`/${locale}/career`} className="hover:text-yellow-900 dark:hover:text-yellow-400">Career</Link>
+          <Link href={`/${locale}/faq`} className="hover:text-yellow-900 dark:hover:text-yellow-400">FAQ</Link>
             <Link href={`/${locale}/terms`} className="hover:text-orange-600 dark:hover:text-orange-400">Terms of Service</Link>
             <Link href={`/${locale}/privacy`} className="hover:text-orange-600 dark:hover:text-orange-400">Privacy Policy</Link>
-            <Link href={`/${locale}/faq`} className="hover:text-orange-600 dark:hover:text-orange-400">FAQ</Link>
-            <Link href={`/${locale}/partnership`} className="hover:text-orange-600 dark:hover:text-orange-400">Partnership</Link>
+
           </div>
         </div>
 
@@ -68,7 +71,7 @@ const FooterBar = () => {
         <p className="text-md text-gray-500 dark:text-gray-300 flex items-center">
           <PiCopyrightLight className="inline text-orange-600" /> 2024 Aliatish. All Rights Reserved.
         </p>
-        <div className="text-md text-gray-500 dark:text-gray-300">
+        <div className="text-md text-gray-500 dark:text-gray-300 pr-12">
           <SocialMediLinks />
         </div>
       </div>

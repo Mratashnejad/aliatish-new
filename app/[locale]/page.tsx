@@ -25,7 +25,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Pachages in HomePage */}
-      <HomePackages/>
+      {/* <HomePackages/> */}
 
       {/* Why Choose Aliatish Section */}
       {/* <WhyAliatish /> */}

@@ -1,8 +1,10 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaRocket, FaCode, FaChartLine, FaUserCheck } from 'react-icons/fa';
+import { FaChartLine, FaTrophy, FaSearch } from 'react-icons/fa';
 import Head from 'next/head'; // Import Head from next/head for SEO
+import { OrderButton } from '@/components/order-button';
+import Image from 'next/image';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -93,101 +95,252 @@ export default function SEOService() {
                     })}
                 </script>
             </Head>
-
+            {/* SEO Services Section */}
             <motion.section
-                initial="hidden"
-                animate="visible"
-                className="dark:bg-black text-gray-800 dark:text-gray-200 py-1"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+                className="dark:bg-black text-gray-800 dark:text-gray-200 py-16"
             >
                 <div>
                     <motion.div
-                        className="dark:bg-black py-12 px-8"
+                        className="dark:bg-black py-20 px-20"
                         variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
                     >
-                        <motion.h1
-                            variants={itemVariants}
-                            className="text-5xl font-bold mb-8 text-gray-900 dark:text-yellow-700 text-center"
-                        >
-                            SEO Optimization
-                        </motion.h1>
-                        <motion.p
-                            className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-center px-4"
-                            variants={itemVariants}
-                        >
-                            I implement best SEO practices, including fast page
-                            load times, well-structured content, and optimized
-                            Next.js configurations, to enhance visibility and
-                            drive organic traffic.
-                        </motion.p>
+                        <motion.div variants={itemVariants}>
+                            <motion.h3 className="text-6xl font-serif font-extrabold mb-10 text-gray-900 dark:text-yellow-400">
+                                SEO Services
+                            </motion.h3>
+                            <motion.p
+                                className="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed px-4"
+                                variants={itemVariants}
+                            >
+                                SEO is crucial for improving your website's
+                                visibility on search engines and attracting
+                                organic traffic. I offer a range of SEO services
+                                tailored to boost your website's rankings, drive
+                                more visitors, and grow your business online.
+                            </motion.p>
+                            {/* SEO Packages Section */}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-16 px-10">
+                                {/* Basic SEO Package */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex items-center bg-gray-900 p-8 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105"
+                                >
+                                    <FaSearch
+                                        className="text-yellow-400 mr-10"
+                                        size={80}
+                                    />
+                                    <div>
+                                        <h4 className="text-4xl font-serif font-semibold mb-6 text-white">
+                                            Basic SEO: Boost Your Search
+                                            Visibility
+                                        </h4>
+                                        <p className="text-lg text-gray-300 mb-6">
+                                            The Basic SEO package is ideal for
+                                            small businesses or personal
+                                            websites. It includes keyword
+                                            optimization, basic on-page SEO, and
+                                            a basic SEO audit. Perfect for those
+                                            who want to improve their online
+                                            visibility without breaking the
+                                            bank.
+                                        </p>
+                                    </div>
+                                </motion.div>
 
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex flex-col items-center text-center"
-                            >
-                                <FaRocket
-                                    size={50}
-                                    className="text-blue-500 mb-2"
-                                />
-                                <p className="text-lg font-medium">
-                                    Fast Load Times
-                                </p>
-                            </motion.div>
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex flex-col items-center text-center"
-                            >
-                                <FaCode
-                                    size={50}
-                                    className="text-blue-500 mb-2"
-                                />
-                                <p className="text-lg font-medium">
-                                    Well-Structured Content
-                                </p>
-                            </motion.div>
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex flex-col items-center text-center"
-                            >
-                                <FaChartLine
-                                    size={50}
-                                    className="text-blue-500 mb-2"
-                                />
-                                <p className="text-lg font-medium">
-                                    Optimized Analytics
-                                </p>
-                            </motion.div>
-                            <motion.div
-                                variants={itemVariants}
-                                className="flex flex-col items-center text-center"
-                            >
-                                <FaUserCheck
-                                    size={50}
-                                    className="text-blue-500 mb-2"
-                                />
-                                <p className="text-lg font-medium">
-                                    User-Centric Strategies
-                                </p>
-                            </motion.div>
-                        </div>
+                                {/* Advanced SEO Package */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex items-center bg-gray-900 p-8 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105"
+                                >
+                                    <FaChartLine
+                                        className="text-yellow-500 mr-10"
+                                        size={80}
+                                    />
+                                    <div>
+                                        <h4 className="text-4xl font-serif font-semibold mb-6 text-white">
+                                            Advanced SEO: Maximize Your Reach
+                                        </h4>
+                                        <p className="text-lg text-gray-300 mb-6">
+                                            The Advanced SEO package is designed
+                                            for growing businesses. It includes
+                                            on-page and off-page SEO, content
+                                            marketing strategies, and detailed
+                                            performance reports. It's perfect
+                                            for businesses looking to expand
+                                            their online presence and dominate
+                                            search results.
+                                        </p>
+                                    </div>
+                                </motion.div>
 
-                        <h2 className="text-2xl font-semibold mb-2 text-center">
-                            Why SEO Matters
-                        </h2>
-                        <motion.p
-                            className="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-center px-4"
-                            variants={itemVariants}
-                        >
-                            SEO is crucial for enhancing the visibility of your
-                            website in search engines. By optimizing various
-                            aspects of your site, you not only improve your
-                            rankings but also enhance user experience, leading
-                            to higher engagement and conversion rates.
-                            Implementing effective SEO strategies ensures that
-                            your target audience can find you easily, thereby
-                            driving organic traffic and achieving your business
-                            goals.
-                        </motion.p>
+                                {/* Premium SEO Package */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex items-center bg-gray-900 p-8 rounded-lg shadow-xl transition-all duration-300 transform hover:scale-105"
+                                >
+                                    <FaTrophy
+                                        className="text-purple-600 mr-10"
+                                        size={80}
+                                    />
+                                    <div>
+                                        <h4 className="text-4xl font-serif font-semibold mb-6 text-white">
+                                            Premium SEO: Complete Optimization
+                                            for Your Website
+                                        </h4>
+                                        <p className="text-lg text-gray-300 mb-6">
+                                            The Premium SEO package includes
+                                            everything from the Advanced SEO
+                                            package plus custom content
+                                            creation, competitor analysis,
+                                            ongoing SEO optimization, and more.
+                                            This package is ideal for businesses
+                                            looking for top-tier results and
+                                            long-term growth.
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </div>
+
+                            {/* SEO Using Our Technologies Section */}
+                            <motion.div className="py-20">
+                                <h4 className="text-4xl font-serif font-semibold mb-10 text-center text-gray-900 dark:text-white">
+                                    Tools and Technologies We Use
+                                </h4>
+                                <div className="flex justify-center space-x-12">
+                                    {/* Add luxury brand logos */}
+                                    <Image
+                                        src="/images/logos/Meta-logo.svg"
+                                        width={300}
+                                        height={100}
+                                        alt="Meta"
+                                        className="h-16"
+                                    />
+                                    <Image
+                                        src="/images/logos/Discord-Logo.svg"
+                                        width={250}
+                                        height={100}
+                                        alt="Discord"
+                                        className="h-16"
+                                    />
+                                    <Image
+                                        src="/images/logos/Airbnb-Logo.svg"
+                                        width={250}
+                                        height={100}
+                                        alt="Airbnb"
+                                        className="h-16"
+                                    />
+                                </div>
+                            </motion.div>
+
+                            {/* Pricing Section */}
+                            <motion.div className="py-20">
+                                <motion.h3 className="text-5xl font-extrabold text-center mb-12 text-gray-100 dark:text-white">
+                                    SEO Pricing Packages
+                                </motion.h3>
+                                <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                                    {/* Basic SEO Plan */}
+                                    <motion.div
+                                        className="bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 shadow-2xl rounded-xl p-8 transform transition-all hover:scale-105"
+                                        variants={itemVariants}
+                                    >
+                                        <h4 className="text-3xl font-semibold mb-4 text-gray-100 dark:text-white">
+                                            Basic SEO
+                                        </h4>
+                                        <p className="text-lg text-gray-300 mb-6">
+                                            Ideal for personal websites and
+                                            small businesses looking to boost
+                                            their online presence.
+                                        </p>
+                                        <ul className="list-disc pl-6 text-lg text-gray-300 space-y-3 mb-6">
+                                            <li>Keyword Research</li>
+                                            <li>On-Page Optimization</li>
+                                            <li>SEO Audit</li>
+                                            <li>Performance Report</li>
+                                        </ul>
+                                        <div className="text-4xl font-bold mb-6 text-gray-100 dark:text-white">
+                                            $199
+                                        </div>
+                                        <OrderButton className="bg-blue-600 text-white py-3 px-8 rounded-lg w-full hover:bg-blue-700 transition-all">
+                                            Choose Basic SEO
+                                        </OrderButton>
+                                    </motion.div>
+
+                                    {/* Advanced SEO Plan */}
+                                    <motion.div
+                                        className="bg-gradient-to-b from-yellow-500 to-orange-500 shadow-2xl rounded-xl p-8 transform scale-105 transition-all hover:scale-110"
+                                        variants={itemVariants}
+                                    >
+                                        <h4 className="text-3xl font-semibold mb-4 text-gray-100 dark:text-white">
+                                            Advanced SEO
+                                        </h4>
+                                        <p className="text-lg text-gray-300 mb-6">
+                                            For businesses looking to expand
+                                            their reach with advanced SEO
+                                            techniques and strategies.
+                                        </p>
+                                        <ul className="list-disc pl-6 text-lg text-gray-300 space-y-3 mb-6">
+                                            <li>On-Page & Off-Page SEO</li>
+                                            <li>Competitor Analysis</li>
+                                            <li>Content Strategy</li>
+                                            <li>Monthly Performance Reports</li>
+                                        </ul>
+                                        <div className="text-4xl font-bold mb-6 text-gray-100 dark:text-white">
+                                            $499
+                                        </div>
+                                        <OrderButton className="bg-orange-600 text-white py-3 px-8 rounded-lg w-full hover:bg-orange-700 transition-all">
+                                            Choose Advanced SEO
+                                        </OrderButton>
+                                    </motion.div>
+
+                                    {/* Premium SEO Plan */}
+                                    <motion.div
+                                        className="bg-gradient-to-b from-purple-700 to-purple-900 shadow-2xl rounded-xl p-8 transform transition-all hover:scale-105"
+                                        variants={itemVariants}
+                                    >
+                                        <h4 className="text-3xl font-semibold mb-4 text-gray-100 dark:text-white">
+                                            Premium SEO
+                                        </h4>
+                                        <p className="text-lg text-gray-300 mb-6">
+                                            The best choice for large businesses
+                                            seeking high-impact SEO solutions.
+                                        </p>
+                                        <ul className="list-disc pl-6 text-lg text-gray-300 space-y-3 mb-6">
+                                            <li>Complete SEO Audit</li>
+                                            <li>Content Creation</li>
+                                            <li>API Integration</li>
+                                            <li>Competitor Monitoring</li>
+                                            <li>Ongoing Optimization</li>
+                                        </ul>
+                                        <div className="text-4xl font-bold mb-6 text-gray-100 dark:text-white">
+                                            $899
+                                        </div>
+                                        <OrderButton className="bg-purple-800 text-white py-3 px-8 rounded-lg w-full hover:bg-purple-900 transition-all">
+                                            Choose Premium SEO
+                                        </OrderButton>
+                                    </motion.div>
+                                </motion.div>
+                            </motion.div>
+
+                            {/* Important Notes */}
+                            <motion.div
+                                className="bg-blue-100 dark:bg-gray-800 p-16 rounded-lg mt-12 border-l-8 border-yellow-500"
+                                variants={itemVariants}
+                            >
+                                <h4 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
+                                    Important Notes:
+                                </h4>
+                                <p className="text-lg text-gray-800 dark:text-gray-300 mb-4">
+                                    Each SEO package can be customized based on
+                                    your unique business needs. Contact me for a
+                                    tailored SEO strategy!
+                                </p>
+                            </motion.div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </motion.section>

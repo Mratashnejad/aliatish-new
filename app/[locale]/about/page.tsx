@@ -24,47 +24,6 @@ export default function AboutPage() {
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://aliatish.com/about" />
 
-                {/* Structured Data for Enhanced SEO (JSON-LD) */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        '@context': 'https://schema.org',
-                        '@type': 'Person',
-                        name: 'Alireza Atashnejad (Ali Atish)',
-                        jobTitle: 'Full Stack Developer',
-                        alumniOf: 'Alzahra University, Iran (AUI)',
-                        knowsAbout: [
-                            'Full Stack Development',
-                            'Next.js',
-                            'React.js',
-                            'Node.js',
-                            'PostgreSQL',
-                            'GraphQL',
-                            'AI/ML',
-                            'Machine Learning',
-                            'Algorithms',
-                            'Web Development',
-                            'Software Engineering',
-                            'Cloud Computing',
-                            'DevOps',
-                            'Modern Web Frameworks',
-                        ],
-                        worksFor: {
-                            '@type': 'Organization',
-                            name: 'Ali Atish',
-                            url: 'https://aliatish.com',
-                        },
-                        url: 'https://aliatish.com/about',
-                        sameAs: [
-                            'https://www.linkedin.com/in/aliatish',
-                            'https://github.com/aliatish',
-                            'https://twitter.com/aliatish',
-                        ],
-                        image: 'https://aliatish.com/images/Base_Logo.jpg', // Add URL of a professional image
-                        description:
-                            'Ali Atish is a full stack developer with a focus on scalable web applications, specializing in Next.js, React.js, PostgreSQL, and cutting-edge technologies like AI and machine learning.',
-                        mainEntityOfPage: 'https://aliatish.com/about',
-                    })}
-                </script>
             </Head>
 
             {/* Hero Section */}

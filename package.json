@@ -13,30 +13,39 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@auth/core": "0.34.2",
+    "@auth/pg-adapter": "^1.7.4",
+    "@hookform/resolvers": "^3.9.1",
     "autoprefixer": "^10.4.20",
     "eslint-config-next": "14.2.3",
+    "jsonwebtoken": "^9.0.2",
     "lottie-react": "^2.4.0",
-    "next": "^14.2.16",
-    "next-intl": "^3.23.2",
+    "next": "^14.2.18",
+    "next-auth": "5.0.0-beta.20",
+    "next-intl": "^3.25.1",
     "next-themes": "^0.3.0",
-    "pg": "^8.13.0",
+    "nodemailer": "^6.9.16",
+    "pg": "^8.13.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
     "react-toastify": "^10.0.6",
     "sitemap": "^8.0.0",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.15",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@types/next-auth": "^3.15.0",
     "@types/node": "22.8.1",
+    "@types/nodemailer": "^6.4.16",
     "@types/pg": "^8.11.10",
     "@types/react": "18.3.3",
     "eslint": "^8.57.1",
+    "install": "^0.13.0",
     "typescript": "^5.6.3"
   },
   "engines": {
-    "node": ">=18.12.0 <20",
-    "pnpm": ">=8.6.0 <10.0.0"
+    "node": ">=18.0.0 <23",
+    "pnpm": ">=9.0.6 <10.0.0"
   }
 }

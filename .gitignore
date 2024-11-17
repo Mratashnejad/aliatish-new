@@ -70,10 +70,4 @@ grant_access.sql
 
 
 #pages
-/lib/
-/hooks/
-/app/*/dashboard/
-/app/*/shop/
-/app/*/order/
-/app/*/admin/
-/components/dashboardTabs/
+

@@ -1,21 +1,10 @@
 'use client';
-import React from 'react';
 import { useRouter } from 'next/navigation';
 import { FaCheckCircle } from 'react-icons/fa';
-import Head from 'next/head';
 const OrderSuccess: React.FC = () => {
     const router = useRouter();
     return (
-        <>
-            <Head>
-                <title>Request Approved | AliAtish</title>
-                <meta
-                    name="description"
-                    content="Your request has been successfully approved. Thank you for your submission. You will be redirected to the homepage shortly."
-                />
-                <meta name="robots" content="noindex, follow" />
-                <link rel="canonical" href="https://aliatish.com/approval" />
-            </Head>
+        
             <div className="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
                 <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl max-w-md mx-auto border border-gray-300 dark:border-gray-600 text-center">
                     <FaCheckCircle
@@ -37,7 +26,6 @@ const OrderSuccess: React.FC = () => {
                     </button>
                 </div>
             </div>
-        </>
     );
 };
 

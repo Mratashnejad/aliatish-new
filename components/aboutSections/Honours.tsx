@@ -1,5 +1,4 @@
 'use client'
-import React from 'react';
 import { FaMedal ,FaFlag} from 'react-icons/fa';
 import { GrFlag } from 'react-icons/gr';
 export default function Honours() {

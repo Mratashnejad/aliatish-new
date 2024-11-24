@@ -1,6 +1,5 @@
 import { Pool } from "pg";
 
-// Utility function to safely retrieve environment variables
 const getEnvVar = (key: string): string => {
     const value = process.env[key];
     if (value === undefined) {

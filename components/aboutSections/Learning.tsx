@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { FaCode ,FaDatabase, FaServer} from 'react-icons/fa';
 import {GiRabbit} from 'react-icons/gi';

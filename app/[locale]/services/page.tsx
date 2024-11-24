@@ -3,84 +3,20 @@ import { FaArrowRight } from 'react-icons/fa';
 import { PathButton } from '@/components/Path-button';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import Head from 'next/head';
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+    title: 'Web Development Services, UI/UX Design & SEO Services',
+    description:
+        "Explore Ali Atish's comprehensive web development services, including custom website programming with Next.js & Node.js, UI/UX design with Tailwind CSS, SEO optimization for search engines, and multi-language website development for global reach.",
+    keywords:
+        'web development, custom website programming, Next.js, Node.js, Nest.js, React.js, PostgreSQL, MongoDB, GraphQL, Redis, API integration, UI/UX design, Tailwind CSS, Figma, Framer, SEO optimization, multi-language websites, international websites, website design, Google Search Console, SEO services, web design services',
+};
 
 export default function ServicesPage() {
     const t = useTranslations('ServicesPage');
     const l = useTranslations('linkButtons');
     return (
         <>
-            {/* SEO Meta Tags */}
-            <Head>
-                <title>Services - Ali Atish | Full Stack Developer</title>
-                <meta
-                    name="description"
-                    content="Explore the services offered by Ali Atish, a Full Stack Developer, including web application design, UI/UX design, and SEO optimization."
-                />
-                <meta
-                    name="keywords"
-                    content="Web Application Design, UI/UX Design, SEO Optimization, Full Stack Developer, Ali Atish"
-                />
-                <meta name="robots" content="index, follow" />
-                {/* Open Graph Tags for Social Sharing */}
-                <meta
-                    property="og:title"
-                    content="Services Offered by Ali Atish"
-                />
-                <meta
-                    property="og:description"
-                    content="Discover professional services including web application development, UI/UX design, and SEO optimization tailored to your needs."
-                />
-                <meta
-                    property="og:url"
-                    content="https://aliatish.com/services"
-                />
-                <meta
-                    property="og:image"
-                    content="https://aliatish.com/images/services-preview.jpg"
-                />{' '}
-                {/* Update with actual image URL */}
-                <meta property="og:type" content="website" />
-                {/* Twitter Card Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta
-                    name="twitter:title"
-                    content="Services Offered by Ali Atish"
-                />
-                <meta
-                    name="twitter:description"
-                    content="Professional services including web application design, UI/UX, and SEO optimization."
-                />
-                <meta
-                    name="twitter:image"
-                    content="https://aliatish.com/images/services-preview.jpg"
-                />{' '}
-                {/* Update with actual image URL */}
-                {/* Canonical URL to Prevent Duplicate Content */}
-                <link rel="canonical" href="https://aliatish.com/services" />
-                {/* Structured Data for SEO */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        '@context': 'http://schema.org',
-                        '@type': 'Service',
-                        serviceType: 'Web Development Services',
-                        provider: {
-                            '@type': 'Person',
-                            name: 'Ali Atish',
-                            url: 'https://aliatish.com',
-                            sameAs: [
-                                'https://www.linkedin.com/in/aliatish',
-                                'https://twitter.com/aliatish',
-                            ],
-                        },
-                        description:
-                            'Explore services like web application development, UI/UX design, and SEO optimization.',
-                        url: 'https://aliatish.com/services',
-                    })}
-                </script>
-            </Head>
-
-            {/* Web Application Design Section */}
             <section className="max-w-full dark:bg-gradient-to-r dark:bg-black text-gray-900 dark:text-gray-200 py-16">
                 <div className="mx-auto px-12">
                     <div className="dark:bg-black p-8 flex flex-col lg:flex-row lg:items-center justify-between transition-transform transform ">

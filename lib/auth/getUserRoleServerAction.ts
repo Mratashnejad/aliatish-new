@@ -1,5 +1,4 @@
 'use server';
-
 import { auth } from '@/lib/auth/authConfig';
 import { pool } from '@/lib/postgres';
 

@@ -1,7 +1,5 @@
 'use server';
-
 import { pool } from '@/lib/postgres';
-
 export const getProductBySlug = async (slug: string) => {
     try {
         const result = await pool.query(

@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { FaBrain, FaProjectDiagram } from 'react-icons/fa';
 import { DiPython } from 'react-icons/di';

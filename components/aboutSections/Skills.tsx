@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { FaCode , FaCloud , FaDatabase , FaGitAlt, FaUserShield , } from 'react-icons/fa';
 import { GiTechnoHeart } from 'react-icons/gi';

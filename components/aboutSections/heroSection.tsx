@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+
 import { HiDownload } from 'react-icons/hi';
 
 export default function HeroSection() {

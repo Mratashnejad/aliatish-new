@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { getProductBySlug } from '@/lib/shop/getProducts'; // Adjust the import path as necessary
-import Image from 'next/image';
 
 interface Product {
   id: number;

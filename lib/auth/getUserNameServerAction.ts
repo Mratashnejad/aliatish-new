@@ -1,6 +1,4 @@
 'use server';
-
-// Import authentication function from configuration
 import { auth } from '@/lib/auth/authConfig';
 
 /**

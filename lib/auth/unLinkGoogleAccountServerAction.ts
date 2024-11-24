@@ -1,8 +1,6 @@
 'use server';
-
-// Import necessary modules
-import { auth } from '@/lib/auth/authConfig'; // Import authentication function from configuration
-import { pool } from '@/lib/postgres'; // Import PostgreSQL connection pool
+import { auth } from '@/lib/auth/authConfig';
+import { pool } from '@/lib/postgres';
 
 /**
  * Function to unlink a Google account from the user's profile.

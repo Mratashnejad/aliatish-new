@@ -1,7 +1,5 @@
 // app/api/sitemap/route.ts
-import { NextResponse } from 'next/server';
 import { SitemapStream, streamToPromise } from 'sitemap';
-
 const routes = [
     '/',
     '/about',
@@ -18,30 +16,36 @@ const routes = [
     '/services/other',
     '/services/seo',
     '/services/webapplications',
-    '/shop',
     '/terms',
     '/privacy',
     '/career',
-    
 ];
 
-export async function GET(req:any) {
+export async function GET(req: any) {
     const url = new URL(req.url);
     const defaultLocale = 'en';
     const locales = ['en', 'ir', 'hy'];
-    
-    const sitemapStream = new SitemapStream({ hostname: `https://aliatish.com` });
+
+    const sitemapStream = new SitemapStream({
+        hostname: `https://aliatish.com`,
+    });
 
     // Generate URLs for each locale
-    locales.forEach(locale => {
-        routes.forEach(route => {
-            sitemapStream.write({ url: `/${locale}${route}`, changefreq: 'daily', priority: 0.7 });
+    locales.forEach((locale) => {
+        routes.forEach((route) => {
+            sitemapStream.write({
+                url: `/${locale}${route}`,
+                changefreq: 'daily',
+                priority: 0.7,
+            });
         });
     });
 
     sitemapStream.end();
 
-    const sitemapOutput = await streamToPromise(sitemapStream).then(data => data.toString());
+    const sitemapOutput = await streamToPromise(sitemapStream).then((data) =>
+        data.toString()
+    );
 
     return new Response(sitemapOutput, {
         headers: {

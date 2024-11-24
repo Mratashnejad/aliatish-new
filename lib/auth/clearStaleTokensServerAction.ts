@@ -1,6 +1,4 @@
 "use server";
-
-// Import PostgreSQL connection pool
 import { pool } from "@/lib/postgres";
 
 /**

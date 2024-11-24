@@ -1,6 +1,3 @@
-'use client';
-import React from 'react';
-import Head from 'next/head';
 import HeroSection from '@/components/aboutSections/heroSection';
 import Skills from '@/components/aboutSections/Skills';
 import Learning from '@/components/aboutSections/Learning';
@@ -11,21 +8,19 @@ import Experience from '@/components/aboutSections/Experience';
 import Languages from '@/components/aboutSections/Languages';
 import Projects from '@/components/aboutSections/Projects';
 import Honours from '@/components/aboutSections/Honours';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'About - Full Stack Developer | AI/ML Engineer',
+    description:
+        'Discover Ali Atish, a Full Stack Developer and AI/ML Engineer specializing in Next.js, Node.js, React.js, PostgreSQL, and machine learning. Learn about his expertise in developing modern, scalable web applications and AI-driven solutions.',
+    keywords:
+        'Full Stack Developer, AI/ML Engineer, Ali Atish, Next.js, Node.js, React.js, PostgreSQL, machine learning, AI development, scalable web applications, software engineering, web development services',
+};
 
 export default function AboutPage() {
     return (
         <>
-            <Head>
-                <title>About | Ali Atish - Full Stack Developer</title>
-                <meta
-                    name="description"
-                    content="Discover the profile of Ali Atish, a passionate Full Stack Developer with expertise in Next.js, React.js, PostgreSQL, and AI/ML technologies. Learn about his journey, skills, and services in modern web development."
-                />
-                <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://aliatish.com/about" />
-
-            </Head>
-
             {/* Hero Section */}
             <HeroSection />
 

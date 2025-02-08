@@ -1,4 +1,6 @@
-import dynamic from 'next/dynamic';
+
+import FireAnimationWrapper from "@/components/FireAnimationWrapper";
+
 import { useTranslations } from 'next-intl';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
@@ -8,11 +10,6 @@ export const metadata: Metadata = {
     keywords:
         'Website Development, Web Design Services, Full Stack Developer, AI/ML Engineer, Next.js, React.js, Node.js, PostgreSQL, machine learning, custom web applications, software engineering, UI/UX design, scalable web solutions, web development services, tech solutions, modern web solutions, AI development, digital transformation',
 };
-
-const FireAnimation = dynamic(
-    () => import('@/components/animations/fireAnimation'),
-    { ssr: false }
-);
 
 export default function Home() {
     const t = useTranslations('HeroSection');
@@ -32,7 +29,7 @@ export default function Home() {
                 {/* Fire Animation */}
                 <div className="w-full lg:w-1/3 flex justify-center">
                     <div className="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] flex items-center">
-                        <FireAnimation />
+                        <FireAnimationWrapper />
                     </div>
                 </div>
             </div>

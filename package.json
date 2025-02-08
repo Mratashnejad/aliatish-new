@@ -15,9 +15,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@analytics/google-tag-manager": "^0.6.0",
     "@auth/core": "^0.37.4",
     "@auth/pg-adapter": "^1.7.4",
     "@hookform/resolvers": "^3.9.1",
+    "@magicul/next-google-tag-manager": "^2.0.0",
     "autoprefixer": "^10.4.20",
     "eslint-config-next": "14.2.3",
     "glob": "^11.0.0",

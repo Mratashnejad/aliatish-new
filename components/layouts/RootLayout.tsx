@@ -1,8 +1,8 @@
 import FooterBar from '@/components/footer';
 import { Providers } from './ThemeProvider';
 import Navbar from '@/components/Navbar';
-import { SessionProvider } from 'next-auth/react';
 import { NextIntlClientProvider } from 'next-intl';
+import GoogleTagManager from '@magicul/next-google-tag-manager';
 
 interface RootLayoutProps {
     children: React.ReactNode;
@@ -10,7 +10,7 @@ interface RootLayoutProps {
         locale: string;
     };
     showNavbar?: boolean;
-    showFooter?: boolean; 
+    showFooter?: boolean;
 }
 
 export default function RootLayout({
@@ -21,18 +21,18 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
     return (
         <html lang={locale} suppressHydrationWarning>
-          
             <body className="flex flex-col  bg-white dark:bg-zinc-950">
-                {/* <SessionProvider> */}
-                    <Providers>
-                        <NextIntlClientProvider>
-                            {/* Ensure Navbar is always visible */}
-                            {showNavbar && <Navbar />}
-                            <main className="flex-grow ">{children}</main>
-                            {/* Ensure Footer is below content */}
-                            {showFooter && <FooterBar />}
-                        </NextIntlClientProvider>
-                    </Providers>
+                <GoogleTagManager id="GTM-MP34XP5N" />
+
+                <Providers>
+                    <NextIntlClientProvider>
+                        {/* Ensure Navbar is always visible */}
+                        {showNavbar && <Navbar />}
+                        <main className="flex-grow ">{children}</main>
+                        {/* Ensure Footer is below content */}
+                        {showFooter && <FooterBar />}
+                    </NextIntlClientProvider>
+                </Providers>
                 {/* </SessionProvider> */}
             </body>
         </html>

@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/globals.css';
 import type { Metadata } from 'next';
-import Script from 'next/script'; // Import the Script component for loading external scripts
 
 export const metadata: Metadata = {
     title: {
@@ -32,24 +31,6 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
-                {/* Google Tag Manager (Gtag) */}
-                <Script
-                    async
-                    src="https://www.googletagmanager.com/gtag/js?id=G-EP7M3G5G7Z"
-                    strategy="afterInteractive"
-                />
-                <Script
-                    id="google-analytics"
-                    strategy="afterInteractive"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                            window.dataLayer = window.dataLayer || [];
-                            function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
-                            gtag('config', 'G-EP7M3G5G7Z');
-                        `,
-                    }}
-                />
             </head>
             <body>{children}</body>
         </html>

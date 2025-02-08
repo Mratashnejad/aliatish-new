@@ -2,7 +2,6 @@ import FooterBar from '@/components/footer';
 import { Providers } from './ThemeProvider';
 import Navbar from '@/components/Navbar';
 import { NextIntlClientProvider } from 'next-intl';
-import GoogleTagManager from '@magicul/next-google-tag-manager';
 
 interface RootLayoutProps {
     children: React.ReactNode;

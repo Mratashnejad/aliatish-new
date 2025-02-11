@@ -6,6 +6,7 @@ import ThemeSwitch from '@/components/ThemeSwitch';
 import { useLocale } from 'next-intl';
 import { IoFlameSharp, IoMenu, IoClose } from 'react-icons/io5';
 import { FaChevronDown } from 'react-icons/fa';
+import { UserMenu } from './userMenu';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,6 +81,7 @@ export default function Navbar() {
                 <div className="hidden lg:flex items-center gap-2 text-orange-700 dark:text-yellow-500">
                     <ThemeSwitch />
                     <LocaleSwitcher />
+                    <UserMenu/>
                 </div>
 
                 <button

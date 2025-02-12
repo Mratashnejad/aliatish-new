@@ -14,12 +14,11 @@ interface RootLayoutProps {
 
 export default function RootLayout({
     children,
-    params: { locale },
     showNavbar = true,
     showFooter = true,
 }: Readonly<RootLayoutProps>) {
     return (
-        <html lang={locale} suppressHydrationWarning>
+        <html lang='en' suppressHydrationWarning>
             <body className="flex flex-col  bg-white dark:bg-zinc-950">
                 <Providers>
                     <NextIntlClientProvider>

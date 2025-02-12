@@ -1,5 +1,4 @@
 import FireAnimationWrapper from "@/components/FireAnimationWrapper";
-import { useTranslations } from 'next-intl';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Website Development & Design Services & AI/ML | Modern Web Solutions',
@@ -10,7 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-    const t = useTranslations('HeroSection');
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-black text-gray-800 dark:text-gray-200">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:px-1 text-center lg:text-start px-6 sm:px-8 md:px-12 w-full">

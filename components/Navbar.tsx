@@ -1,9 +1,8 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import LocaleSwitcher from '@/components/localswitcher';
 import ThemeSwitch from '@/components/ThemeSwitch';
-import { useLocale } from 'next-intl';
+
 import { IoFlameSharp, IoMenu, IoClose } from 'react-icons/io5';
 import { FaChevronDown } from 'react-icons/fa';
 import { UserMenu } from './userMenu';
@@ -15,8 +14,6 @@ export default function Navbar() {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
     const closeDropdown = () => setIsDropdownOpen(false);
-
-    const locale = useLocale();
 
     return (
         <header className="w-full bg-white dark:bg-zinc-950 border-b border-stone-400 font-spaceMono z-50">
@@ -40,21 +37,21 @@ export default function Navbar() {
                         {isDropdownOpen && (
                             <div className="absolute -left-5 mt-4 py-2 w-64 bg-white dark:bg-zinc-950 border border-stone-400 z-50">
                                 <Link
-                                    href={`/${locale}/services/webapplications`}
+                                    href={'/services/webapplications'}
                                     className="block px-4 py-2 hover:bg-stone-200 dark:hover:bg-stone-700"
                                     onClick={closeDropdown}
                                 >
                                     {' /// Web Applications'}
                                 </Link>
                                 <Link
-                                    href={`/${locale}/services/design`}
+                                    href={'/services/design'}
                                     className="block px-4 py-2 hover:bg-stone-200 dark:hover:bg-stone-700"
                                     onClick={closeDropdown}
                                 >
                                     {' /// UI/UX Design'}
                                 </Link>
                                 <Link
-                                    href={`/${locale}/services/seo`}
+                                    href={'/services/seo'}
                                     className="block px-4 py-2 hover:bg-stone-200 dark:hover:bg-stone-700"
                                     onClick={closeDropdown}
                                 >
@@ -64,13 +61,13 @@ export default function Navbar() {
                         )}
                     </div>
                     <Link
-                        href={`/${locale}/blog`}
+                        href={'/blog'}
                         className="hover:text-yellow-900 dark:hover:text-yellow-400"
                     >
                         {' // blog'}
                     </Link>
                     <Link
-                        href={`/${locale}/packages`}
+                        href={'/packages'}
                         className="hover:text-yellow-900 dark:hover:text-yellow-400"
                     >
                         {' // packages'}
@@ -80,8 +77,8 @@ export default function Navbar() {
                 {/* Only show these in large screens */}
                 <div className="hidden lg:flex items-center gap-2 text-orange-700 dark:text-yellow-500">
                     <ThemeSwitch />
-                    <LocaleSwitcher />
-                    <UserMenu/>
+
+                    <UserMenu />
                 </div>
 
                 <button
@@ -111,7 +108,7 @@ export default function Navbar() {
                         {isDropdownOpen && (
                             <div className="absolute -left-14 mt-2 py-2 w-60  bg-white dark:bg-zinc-950 border border-stone-400 z-50">
                                 <Link
-                                    href={`/${locale}/services/webapplications`}
+                                    href={'/services/webapplications'}
                                     className="block px-4 py-2 text-center text-orange-700 dark:text-yellow-500 hover:bg-stone-200 dark:hover:bg-stone-700"
                                     onClick={() => {
                                         toggleMenu();
@@ -121,7 +118,7 @@ export default function Navbar() {
                                     Web Applications
                                 </Link>
                                 <Link
-                                    href={`/${locale}/services/design`}
+                                    href={'/services/design'}
                                     className="block px-4 py-2 text-center text-orange-700 dark:text-yellow-500 hover:bg-stone-200 dark:hover:bg-stone-700"
                                     onClick={() => {
                                         toggleMenu();
@@ -131,7 +128,7 @@ export default function Navbar() {
                                     UI/UX Design
                                 </Link>
                                 <Link
-                                    href={`/${locale}/services/seo`}
+                                    href={'/services/seo'}
                                     className="block px-4 py-2 text-center text-orange-700 dark:text-yellow-500 hover:bg-stone-200 dark:hover:bg-stone-700"
                                     onClick={() => {
                                         toggleMenu();
@@ -144,23 +141,22 @@ export default function Navbar() {
                         )}
                     </div>
                     <Link
-                        href={`/${locale}/blog`}
+                        href={'/blog'}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu}
                     >
                         Blogs
                     </Link>
                     <Link
-                        href={`/${locale}/packages`}
+                        href={'/packages'}
                         className="text-lg text-orange-700 dark:text-yellow-500 hover:text-yellow-900 dark:hover:text-yellow-600"
                         onClick={toggleMenu}
                     >
                         Pricing
                     </Link>
-                    {/* ThemeSwitch and LocaleSwitcher in Mobile Menu */}
+            
                     <div className="flex items-center gap-4 mt-4 text-orange-700 dark:text-yellow-500">
-                        <ThemeSwitch />
-                        <LocaleSwitcher />
+                        <UserMenu />
                     </div>
                 </nav>
             </div>

@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { getAccountLinkStatus } from '@/lib/auth/getAccountLinkStatusServerAction';
@@ -7,13 +6,12 @@ import { getUserName } from '@/lib/auth/getUserNameServerAction';
 import { getUserRole } from '@/lib/auth/getUserRoleServerAction';
 import { handleGoogleSignIn } from '@/lib/auth/googleSignInServerAction';
 import { unlinkGoogleAccount } from '@/lib/auth/unLinkGoogleAccountServerAction';
-import { useLocale } from 'next-intl';
 
 const SettingTab: React.FC = () => {
     const [isAccountLinked, setIsAccountLinked] = useState(false);
     const [username, setUsername] = useState('');
     const [role, setRole] = useState('');
-    const locale = useLocale();
+
     const { update } = useSession();
 
     useEffect(() => {
@@ -59,7 +57,11 @@ const SettingTab: React.FC = () => {
                     Update Name
                 </button>
                 <button
-                    className={`w-full py-2 rounded-lg ${isAccountLinked ? 'bg-red-600 text-white hover:bg-red-700' : 'bg-blue-600 text-white hover:bg-blue-700'} transition duration-200`}
+                    className={`w-full py-2 rounded-lg ${
+                        isAccountLinked
+                            ? 'bg-red-600 text-white hover:bg-red-700'
+                            : 'bg-blue-600 text-white hover:bg-blue-700'
+                    } transition duration-200`}
                     onClick={
                         isAccountLinked
                             ? async () => {
@@ -67,12 +69,14 @@ const SettingTab: React.FC = () => {
                                   setIsAccountLinked(false);
                               }
                             : async () => {
-                                  await handleGoogleSignIn(locale);
+                                  await handleGoogleSignIn();
                                   setIsAccountLinked(true);
                               }
                     }
                 >
-                    {isAccountLinked ? 'Disconnect Google Account' : 'Connect Google Account'}
+                    {isAccountLinked
+                        ? 'Disconnect Google Account'
+                        : 'Connect Google Account'}
                 </button>
             </div>
         </div>

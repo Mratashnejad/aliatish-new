@@ -25,7 +25,7 @@ export default function GoogleOneTap() {
             callback: async (response: GoogleResponse) => {
               await signIn('google', {
                 id_token: response.credential,
-                redirectTo: `/${locale}/dashboard`,
+                redirectTo: '/dashboard',
               });
             },
             cancel_on_tap_outside: false,

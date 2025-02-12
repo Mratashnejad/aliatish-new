@@ -1,18 +1,18 @@
-import {getRequestConfig} from 'next-intl/server';
-const locales = ['en', 'ir', 'hy'];
-export default getRequestConfig(async ({locale}) => {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) {
-    return{
-      redirect:{
-        destination:'/404',
-        permanent: false,
+// import {getRequestConfig} from 'next-intl/server';
+// const locales = ['en', 'ir', 'hy'];
+// export default getRequestConfig(async ({locale}) => {
+//   // Validate that the incoming `locale` parameter is valid
+//   if (!locales.includes(locale as any)) {
+//     return{
+//       redirect:{
+//         destination:'/404',
+//         permanent: false,
 
-      }
-    }
-  }
+//       }
+//     }
+//   }
  
-  return {
-    messages: (await import(`./messages/${locale}.json`)).default
-  };
-});
+//   return {
+//     messages: (await import(`./messages/${locale}.json`)).default
+//   };
+// });

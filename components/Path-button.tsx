@@ -17,7 +17,7 @@ export const PathButton: React.FC<PathButtonProps> = ({ children, className, pat
 
     const handleClick = () => {
         if (path) {
-            router.push(`/${locale}/${path}`); // Use router.push instead of router.replace
+            router.push(`/${path}`); // Use router.push instead of router.replace
         }
         if (onClick) {
             onClick(); // Call the onClick prop if provided

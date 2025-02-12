@@ -5,7 +5,6 @@ import { pool } from '@/lib/postgres';
 import PostgresAdapter from '@auth/pg-adapter';
 import { clearStaleTokens } from '@/lib/auth/clearStaleTokensServerAction';
 import { setName } from '@/lib/auth/setNameServerAction';
-import  locale  from '@/i18n';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     trustHost: true,
@@ -34,9 +33,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }),
     ],
     pages: {
-        signIn:`/${locale}/auth/sign-in/`,
-        verifyRequest: `/${locale}/auth/auth-success`,
-        error:`/${locale}/auth/auth-error`,
+        signIn:'auth/sign-in/',
+        verifyRequest: '/auth/auth-success',
+        error:'/auth/auth-error',
     },
     callbacks: {
         async jwt({ token, user, session, trigger }) {

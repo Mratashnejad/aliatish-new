@@ -1,42 +1,36 @@
-import React from 'react';
-import '../styles/globals.css';
-import type { Metadata } from 'next';
-import { GoogleTagManager } from '@next/third-parties/google';
+import FooterBar from '@/components/footer';
+import { Providers } from '@/components/layouts/ThemeProvider';
+import Navbar from '@/components/Navbar';
+import { NextIntlClientProvider } from 'next-intl';
 
-export const metadata: Metadata = {
-    title: {
-        default: 'Website Development & Design Services | Modern Web Solutions',
-        template: '%s | AliAtish',
-    },
-    description:
-        'Ali Atish, Web Application design, offers website development and design services specializing in scalable web applications using modern technologies like Next.js, TypeScript, Node.js, and PostgreSQL.',
-    keywords: 'Website Development, Full Stack Developer, Web Design Services, Nest.js, Next.js, TypeScript, PostgreSQL, Node.js, scalable web applications, custom web development, modern technologies, UI/UX design, AI/ML, professional web solutions',
-    twitter: {
-        card: 'summary_large_image',
-    },
-    openGraph: {
-        title: 'Website Development & Design Services | Modern Web Solutions',
-        description:
-            'Explore professional web development services by Ali Atish. We specialize in building scalable, high-performance web applications using the latest technologies like Next.js, TypeScript, PostgreSQL, and more.',
-        url: 'https://aliatish.com',
-        siteName: 'Ali Atish | Web Development & Design',
-        type: 'website',
-    },
-};
+interface RootLayoutProps {
+    children: React.ReactNode;
+    params: {
+        locale: string;
+    };
+    showNavbar?: boolean;
+    showFooter?: boolean;
+}
 
 export default function RootLayout({
     children,
-}: {
-    children: React.ReactNode;
-}) {
+    params: { locale },
+    showNavbar = true,
+    showFooter = true,
+}: Readonly<RootLayoutProps>) {
     return (
-        <html lang="en">
-            <head>
-               
-            </head>
-            <body>
-               <GoogleTagManager gtmId ='GTM-MP34XP5N'/>
-                {children}
+        <html lang={locale} suppressHydrationWarning>
+            <body className="flex flex-col  bg-white dark:bg-zinc-950">
+                <Providers>
+                    <NextIntlClientProvider>
+                        {/* Ensure Navbar is always visible */}
+                        {showNavbar && <Navbar />}
+                        <main className="flex-grow ">{children}</main>
+                        {/* Ensure Footer is below content */}
+                        {showFooter && <FooterBar />}
+                    </NextIntlClientProvider>
+                </Providers>
+                {/* </SessionProvider> */}
             </body>
         </html>
     );

@@ -3,10 +3,9 @@ import Link from 'next/link';
 import { PiCopyrightLight } from 'react-icons/pi';
 import { FaGithub } from 'react-icons/fa';
 import SocialMediLinks from '@/components/SocialMediLinks';
-import { useLocale } from 'next-intl';
 
 const FooterBar = () => {
-    const locale = useLocale();
+  
     return (
         <footer className="bg-white dark:bg-zinc-950 text-black dark:text-white py-12 font-spaceMono mt-auto">
             <div className="container mx-auto px-6 sm:px-8 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
@@ -38,37 +37,37 @@ const FooterBar = () => {
                     </h4>
                     <div className="flex flex-col space-y-1 text-md text-gray-500 dark:text-gray-300">
                         <Link
-                            href={`/${locale}/services`}
+                            href={'/services'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             Services
                         </Link>
                         <Link
-                            href={`/${locale}/packages`}
+                            href={'/packages'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             Packages
                         </Link>
                         <Link
-                            href={`/${locale}/services/webapplications`}
+                            href={'/services/webapplications'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             Web Applications
                         </Link>
                         <Link
-                            href={`/${locale}/services/design`}
+                            href={'/services/design'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             Design
                         </Link>
                         <Link
-                            href={`/${locale}/services/seo`}
+                            href={'/services/seo'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             SEO
                         </Link>
                         <Link
-                            href={`/${locale}/blog`}
+                            href={'/blog'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             Blogs
@@ -82,31 +81,31 @@ const FooterBar = () => {
                     </h4>
                     <div className="flex flex-col space-y-1 text-md text-gray-500 dark:text-gray-300">
                         <Link
-                            href={`/${locale}/about`}
+                            href={'/about'}
                             className="hover:text-yellow-900 dark:hover:text-yellow-400"
                         >
                             About
                         </Link>
                         <Link
-                            href={`/${locale}/career`}
+                            href={'/career'}
                             className="hover:text-yellow-900 dark:hover:text-yellow-400"
                         >
                             Career
                         </Link>
                         <Link
-                            href={`/${locale}/faq`}
+                            href={'/faq'}
                             className="hover:text-yellow-900 dark:hover:text-yellow-400"
                         >
                             FAQ
                         </Link>
                         <Link
-                            href={`/${locale}/terms`}
+                            href={'/terms'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             Terms of Service
                         </Link>
                         <Link
-                            href={`/${locale}/privacy`}
+                            href={'/privacy'}
                             className="hover:text-orange-600 dark:hover:text-orange-400"
                         >
                             Privacy Policy

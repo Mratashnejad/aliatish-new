@@ -1,8 +1,8 @@
 'use server';
 import { signIn } from '@/lib/auth/authConfig';
-export const handleGoogleSignIn = async (locale:string) => {
+export const handleGoogleSignIn = async () => {
     try {
-        await signIn('google', { redirectTo: `/${locale}/dashboard` }); // Use the locale here
+        await signIn('google', { redirectTo: '/dashboard' });
     } catch (error) {
         console.log(error);
         throw error;

@@ -30,17 +30,6 @@ export async function GET(req: any) {
         hostname: `https://aliatish.com`,
     });
 
-    // Generate URLs for each locale
-    locales.forEach((locale) => {
-        routes.forEach((route) => {
-            sitemapStream.write({
-                url: `/${locale}${route}`,
-                changefreq: 'daily',
-                priority: 0.7,
-            });
-        });
-    });
-
     sitemapStream.end();
 
     const sitemapOutput = await streamToPromise(sitemapStream).then((data) =>

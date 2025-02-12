@@ -12,7 +12,7 @@ export const SignInButton = (props: { children?: React.ReactNode; className?: st
         <button
             className={props.className}
             style={{ cursor: 'pointer' }}
-            onClick={() => { router.push(`/${locale}/auth/sign-in`) }}
+            onClick={() => { router.push('/auth/sign-in') }}
         >
             {props.children || 'Sign In'}
         </button>

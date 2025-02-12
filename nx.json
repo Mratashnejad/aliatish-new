@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "targetDefaults": {
+    "format": {
+      "cache": true
+    },
+    "format:check": {
+      "cache": true
+    },
+    "format:write": {
+      "cache": true
+    },
+    "tsc": {
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "build": {
+      "cache": true
+    },
+    "validate": {
+      "cache": true
+    },
+    "cloc": {
+      "cache": true
+    }
+  },
+  "defaultBase": "main"
+}

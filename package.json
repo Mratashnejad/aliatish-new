@@ -1,15 +1,17 @@
 {
-  "name": "Personal-Web",
-  "version": "1.0.0",
+  "name": "personal-Web",
+  "version": "2.0.0",
   "description": "Ali Atish Website",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "cross-env HOST=aliatish.com PORT=3001 next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "clean": "rimraf node_modules .next",
-    "format": "prettier --write ."
+    "format": "prettier  \"/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
+    "format:check": "yarn format --check",
+    "format:write": "yarn format --write",
+    "tsc": "yarn nx run-many -t tsc",
+    "lint": "yarn nx run-many -t lint",
+    "build": "yarn nx run-many -t build",
+    "validate": "yarn format:write && yarn tsc && yarn lint && yarn build",
+    "cloc": "npx cloc --exclude-dir=node_modules,dist,build,package.json,generated.tsx,.next,.nx ."
   },
   "keywords": [],
   "author": "",
@@ -30,7 +32,6 @@
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.16",
     "pg": "^8.13.1",
-    "pnpm": "^9.15.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
@@ -38,7 +39,8 @@
     "rimraf": "^6.0.1",
     "sitemap": "^8.0.0",
     "tailwindcss": "^3.4.15",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.3",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@types/next-auth": "^3.15.0",
@@ -49,9 +51,11 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
     "install": "^0.13.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "nx": "20.4.2"
   },
   "engines": {
-    "node": ">=22.11.0"
-  }
+    "node": ">=22.10.0"
+  },
+  "nx": {}
 }

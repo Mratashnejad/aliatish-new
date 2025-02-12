@@ -71,3 +71,8 @@ grant_access.sql
 
 #pages
 
+
+
+
+.nx/cache
+.nx/workspace-data

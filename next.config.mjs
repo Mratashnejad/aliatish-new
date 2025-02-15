@@ -1,11 +1,9 @@
-import createNextIntlPlugin from 'next-intl/plugin';
-const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
     workerThreads: false,
-    cpus: 2, // Matches your 2-core CPU
+    // cpus: 2, // Matches your 2-core CPU
   },
   async rewrites(){
     return [
@@ -17,4 +15,4 @@ const nextConfig = {
   }
 };
 
-export default withNextIntl(nextConfig);
+export default nextConfig;

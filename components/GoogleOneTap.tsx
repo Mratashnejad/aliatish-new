@@ -2,14 +2,14 @@
 
 import { useEffect } from 'react';
 import { signIn } from 'next-auth/react';
-import { useLocale } from 'next-intl';
+
 
 interface GoogleResponse {
   credential: string;
 }
 
 export default function GoogleOneTap() {
-  const locale = useLocale();
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -36,7 +36,7 @@ export default function GoogleOneTap() {
       };
       document.head.appendChild(script);
     }
-  }, [locale]);
+  }, []);
 
   return null;
 }

@@ -1,4 +1,4 @@
-import FireAnimationWrapper from "@/components/FireAnimationWrapper";
+import FireAnimationWrapper from '@/components/FireAnimationWrapper';
 import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Website Development & Design Services & AI/ML | Modern Web Solutions',
@@ -15,11 +15,11 @@ export default function Home() {
                 {/* Text Content */}
                 <div className="lg:w-2/3 lg:pl-36 lg:flex lg:flex-col lg:mt-2 text-center lg:text-start">
                     <h1 className="text-4xl lg:text-6xl sm:text-4xl md:text-4xl font-extrabold mb-4 animate-pulse text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-500 dark:from-yellow-500 dark:to-red-600">
-                    Build Your Web Application
+                        Build Your Web Application
                     </h1>
 
                     <h2 className="text-2xl sm:text-2xl md:text-2xl font-semibold mb-6">
-                    Fast, Scalable, and secure using Modern Web Technology
+                        Fast, Scalable, and secure using Modern Web Technology
                     </h2>
                 </div>
                 {/* Fire Animation */}

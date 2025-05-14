@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://aliatish.com/sitemap.xml

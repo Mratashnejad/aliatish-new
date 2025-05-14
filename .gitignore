@@ -1,78 +1,41 @@
-# Node modules
-node_modules/
-.pnp
-.pnp.js
-.yarn/install-state.gz
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # testing
 /coverage
 
 # next.js
-.next/
-out/
+/.next/
+/out/
 
-# Local environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# production
+/build
 
-# Log files
+# misc
+.DS_Store
+*.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
+.pnpm-debug.log*
 
-# IDE and editor folders
-.vscode/
-.idea/
-
-# Operating system files
-.DS_Store
-Thumbs.db
-
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
-
-# Coverage reports
-coverage/
-
-# Production
-/build
-
-# Misc
-*.tgz
-*.swp
-*.swo
-
-# Local env files
+# env files (can opt-in for committing if needed)
 .env*
 
-# Vercel
+# vercel
 .vercel
 
-# Firebase
-firebase
-
-# Prisma
-prisma
-
-# Certificates
-certificates/
-
-
-#export database
-database/aliatish.sql.zip
-database/aliatish.sql
-grant_access.sql
-
-
-#pages
-
-
-
-
-.nx/cache
-.nx/workspace-data
+# typescript
+*.tsbuildinfo
+next-env.d.ts

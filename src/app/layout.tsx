@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Outfit, Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
+import PaddleLoader from '@/components/PaddleLoader';
 
 // Inter with variable weight for body text
 const inter = Inter({
@@ -107,10 +108,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Preconnect to important domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
-      <body suppressHydrationWarning className="antialiased text-neutral bg-secondary min-h-screen noise-bg overflow-y-auto">
-        {children}
         
+        {/* Force reduced motion for stability */}
+        <style>{`
+          @media (prefers-reduced-motion: no-preference) {
+            :root {
+              scroll-behavior: auto;
+            }
+          }
+        `}</style>
+      </head>
+      <body suppressHydrationWarning className="antialiased mac-desktop font-chicago min-h-screen overflow-y-auto">
+        {children}
+        <PaddleLoader />
         {/* Structured data for rich results */}
         <Script
           id="structured-data"

@@ -99,7 +99,7 @@ const PortfolioSection = () => {
   return (
     <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#0d0a25] to-[#1a0e35]">
       {/* Cosmic dust and particles background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0">  
         {Array.from({ length: 150 }).map((_, i) => (
           <motion.div
             key={`particle-${i}`}
@@ -271,7 +271,7 @@ const PortfolioSection = () => {
                     <div className="absolute top-0 left-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
                   </div>
                 </div>
-              </div>
+              </div>  
               
               {/* Orbital glow */}
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

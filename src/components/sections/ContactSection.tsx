@@ -75,23 +75,23 @@ export default function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
   
   // Mouse parallax effect for background elements
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!sectionRef.current) return;
+  // useEffect(() => {
+  //   const handleMouseMove = (e: MouseEvent) => {
+  //     if (!sectionRef.current) return;
       
-      const rect = sectionRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+  //     const rect = sectionRef.current.getBoundingClientRect();
+  //     const x = e.clientX - rect.left;
+  //     const y = e.clientY - rect.top;
       
-      setMousePosition({ x, y });
-    };
+  //     setMousePosition({ x, y });
+  //   };
     
-    const section = sectionRef.current;
-    if (section) {
-      section.addEventListener('mousemove', handleMouseMove);
-      return () => section.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, []);
+  //   const section = sectionRef.current;
+  //   if (section) {
+  //     section.addEventListener('mousemove', handleMouseMove);
+  //     return () => section.removeEventListener('mousemove', handleMouseMove);
+  //   }
+  // }, []);
   
   const {
     register,

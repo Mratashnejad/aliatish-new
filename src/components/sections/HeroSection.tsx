@@ -624,21 +624,7 @@ const EnhancedHero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-        animate={{ opacity: [0.5, 1, 0.5], y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <span className="text-white/50 text-sm mb-2">Scroll to explore</span>
-        <div className="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center p-1">
-          <motion.div
-            className="w-1.5 h-1.5 bg-white rounded-full"
-            animate={{ y: [0, 20, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </div>
-      </motion.div>
+    
     </div>
   );
 };

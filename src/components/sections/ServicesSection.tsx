@@ -397,14 +397,14 @@ export default function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   
   // Track mouse position for parallax effect
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+  // useEffect(() => {
+  //   const handleMouseMove = (e: MouseEvent) => {
+  //     setMousePosition({ x: e.clientX, y: e.clientY });
+  //   };
     
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  //   window.addEventListener('mousemove', handleMouseMove);
+  //   return () => window.removeEventListener('mousemove', handleMouseMove);
+  // }, []);
   
   const [ref, inView] = useInView({
     triggerOnce: false,

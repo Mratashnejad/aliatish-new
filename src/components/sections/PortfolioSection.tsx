@@ -1,359 +1,373 @@
-"use client";
-import { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import Link from "next/link";
+import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
-type ProjectCategory = "all" | "frontend" | "fullstack" | "backend";
+// Project types and categories
+const projectCategories = ["Web Apps", "Mobile", "AI Integration", "Blockchain"];
 
-type Project = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  category: ProjectCategory[];
-  link: string;
-  color: string;
-};
-
-const projects: Project[] = [
+// Sample project data
+const projects = [
   {
-    id: "project-1",
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with cart, checkout, and payment processing.",
-    image: "/projects/ecommerce.jpg",
-    technologies: ["React", "Next.js", "Stripe", "PostgreSQL"],
-    category: ["frontend", "fullstack"],
-    link: "/portfolio/ecommerce",
-    color: "from-rose-500 to-orange-400",
+    id: 1,
+    title: "Stellar Dashboard",
+    category: "Web Apps",
+    description: "Real-time data visualization platform with cosmic-inspired UI",
+    image: "/images/portfolio/stellar-dashboard.jpg",
+    technologies: ["React", "TypeScript", "D3.js"],
+    color: "from-blue-500 to-purple-600"
   },
   {
-    id: "project-2",
-    title: "Real Estate Application",
-    description: "Property listing and search platform with advanced filtering and map integration.",
-    image: "/projects/realestate.jpg",
-    technologies: ["React", "Node.js", "MongoDB", "Google Maps API"],
-    category: ["frontend", "fullstack"],
-    link: "/portfolio/realestate",
-    color: "from-indigo-500 to-sky-400",
+    id: 2,
+    title: "Nebula Commerce",
+    category: "Web Apps",
+    description: "E-commerce platform with celestial navigation patterns",
+    image: "/images/portfolio/nebula-commerce.jpg",
+    technologies: ["Next.js", "GraphQL", "Prisma"],
+    color: "from-indigo-500 to-blue-600"
   },
-  {
-    id: "project-3",
-    title: "Enterprise Dashboard",
-    description: "Data visualization dashboard for tracking KPIs and business metrics in real time.",
-    image: "/projects/dashboard.jpg",
-    technologies: ["React", "TypeScript", "D3.js", "GraphQL"],
-    category: ["frontend", "backend"],
-    link: "/portfolio/dashboard",
-    color: "from-emerald-500 to-lime-400",
-  },
-  {
-    id: "project-4",
-    title: "Social Media App",
-    description: "Social networking platform with real-time messaging and content sharing.",
-    image: "/projects/social.jpg",
-    technologies: ["Next.js", "Tailwind CSS", "Socket.io", "Redis"],
-    category: ["frontend", "fullstack", "backend"],
-    link: "/portfolio/social",
-    color: "from-violet-600 to-purple-400",
-  },
-  {
-    id: "project-5",
-    title: "Delivery Tracking API",
-    description: "Backend system for tracking deliveries and managing logistics in real time.",
-    image: "/projects/delivery.jpg",
-    technologies: ["Node.js", "Express", "PostgreSQL", "Docker"],
-    category: ["backend"],
-    link: "/portfolio/delivery",
-    color: "from-amber-500 to-yellow-300",
-  },
-  {
-    id: "project-6",
-    title: "Mobile Shopping App",
-    description: "Cross-platform mobile shopping application with personalized recommendations.",
-    image: "/projects/mobile.jpg",
-    technologies: ["React Native", "Redux", "Firebase", "Stripe"],
-    category: ["frontend"],
-    link: "/portfolio/mobile",
-    color: "from-blue-500 to-cyan-400",
-  },
+  // More projects...
 ];
 
-// Project Card with stunning hover effects
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
+const PortfolioSection = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [activeProject, setActiveProject] = useState(null);
+  const projectRefs = useRef([]);
+  
+  // Filter projects by category
+  const filteredProjects = selectedCategory === "All" 
+    ? projects 
+    : projects.filter(p => p.category === selectedCategory);
+  
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+  
+  const projectVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15 
+      }
+    },
+    hover: {
+      y: -10,
+      scale: 1.05,
+      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)",
+      transition: { type: "spring", stiffness: 300, damping: 10 }
+    }
+  };
+  
+  // Orbital animation for projects
+  useEffect(() => {
+    if (!projectRefs.current.length) return;
+    
+    let frameId;
+    let time = 0;
+    
+    const animate = () => {
+      time += 0.002;
+      
+      projectRefs.current.forEach((ref, i) => {
+        if (!ref) return;
+        
+        // Calculate orbital wobble
+        const wobbleX = Math.sin(time * (2 + i * 0.5)) * 5;
+        const wobbleY = Math.cos(time * (2 + i * 0.5)) * 5;
+        
+        ref.style.transform = `translate(${wobbleX}px, ${wobbleY}px)`;
+      });
+      
+      frameId = requestAnimationFrame(animate);
+    };
+    
+    animate();
+    return () => cancelAnimationFrame(frameId);
+  }, [filteredProjects]);
+  
   return (
-    <motion.div
-      ref={cardRef}
-      className="relative group w-full h-[400px] rounded-xl overflow-hidden"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Project image with overlay */}
-      <div className="absolute inset-0 w-full h-full">
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-10"></div>
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover transition-all duration-700 group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#0d0a25] to-[#1a0e35]">
+      {/* Cosmic dust and particles background */}
+      <div className="absolute inset-0 z-0">
+        {Array.from({ length: 150 }).map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute rounded-full bg-white/20"
+            initial={{ 
+              top: `${Math.random() * 100}%`, 
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              opacity: Math.random() * 0.5
+            }}
+            animate={{
+              opacity: [0.1, 0.5, 0.1],
+              scale: [1, 1.5, 1]
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Glow orbs */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.div 
+          className="absolute w-64 h-64 rounded-full bg-purple-600/10 blur-3xl"
+          animate={{ 
+            x: [100, 300, 100], 
+            y: [50, 200, 50]
+          }}
+          transition={{ duration: 30, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute w-80 h-80 rounded-full bg-blue-500/10 blur-3xl"
+          animate={{ 
+            x: [500, 200, 500], 
+            y: [300, 100, 300]
+          }}
+          transition={{ duration: 40, repeat: Infinity }}
         />
       </div>
-
-      {/* Content container with great visibility */}
-      <div className="absolute inset-0 p-6 flex flex-col justify-end z-20 transition-all duration-300">
-        {/* Project title with visibility */}
-        <motion.div animate={{ y: isHovered ? -10 : 0 }} transition={{ type: "spring", stiffness: 200 }}>
-          <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
-
-          {/* Technologies badges */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.slice(0, 3).map((tech) => (
-              <span key={tech} className="px-3 py-1 rounded-full text-xs font-medium bg-white/20 text-white">
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* Description with high contrast for visibility */}
-          <p className="text-white text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {project.description}
-          </p>
-        </motion.div>
-
-        {/* CTA button with great visibility */}
-        <Link
-          href={project.link}
-          className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary/90 text-white text-sm font-medium rounded-full transform transition-all duration-300 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-        >
-          View Project
-          <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </Link>
-      </div>
-    </motion.div>
-  );
-};
-
-// Category filter tabs with high visibility
-const CategoryFilter = ({
-  activeCategory,
-  setActiveCategory,
-}: {
-  activeCategory: ProjectCategory;
-  setActiveCategory: (category: ProjectCategory) => void;
-}) => {
-  const categories = [
-    { label: "All Projects", value: "all" },
-    { label: "Frontend", value: "frontend" },
-    { label: "Full-stack", value: "fullstack" },
-    { label: "Backend", value: "backend" },
-  ];
-
-  return (
-    <div className="flex flex-wrap justify-center gap-2 mb-12">
-      {categories.map((category) => (
-        <button
-          key={category.value}
-          onClick={() => setActiveCategory(category.value as ProjectCategory)}
-          className={`px-6 py-3 rounded-lg font-medium text-sm transition-all relative ${
-            activeCategory === category.value
-              ? "text-white bg-primary shadow-lg shadow-primary/20"
-              : "text-white bg-gray-800 hover:bg-gray-700"
-          }`}
-        >
-          {category.label}
-        </button>
-      ))}
-    </div>
-  );
-};
-
-// Point of Sale promotional section with attention-grabbing design
-const PointOfSalePromo = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.3,
-  });
-
-  return (
-    <motion.div
-      ref={ref}
-      className="mt-20 mb-16 relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black"
-      initial={{ opacity: 0 }}
-      animate={inView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-          <path
-            fill="#FF0066"
-            d="M47.5,-61.5C60.2,-53.9,68.5,-37.5,73.1,-20.1C77.7,-2.7,78.5,15.7,71.8,30.8C65.1,45.9,50.8,57.7,35.2,63.9C19.6,70.1,2.7,70.6,-15.4,68.1C-33.5,65.6,-52.8,60.2,-63.2,47.8C-73.6,35.4,-75.1,15.9,-73.3,-2.8C-71.5,-21.5,-66.5,-39.5,-54.9,-47.8C-43.3,-56.1,-25.1,-54.7,-7.8,-54.9C9.6,-55,29.1,-56.8,47.5,-61.5Z"
-            transform="translate(100 100)"
-          />
-        </svg>
-      </div>
-
-      <div className="relative z-10 px-8 py-16 md:p-16 text-center md:text-left md:flex items-center">
-        <div className="md:w-3/5">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Point of Sale Solution</h2>
-          <p className="text-xl text-white/80 mb-8">
-            Transform your retail business with our powerful POS system designed for modern commerce.
-          </p>
-
-          <div className="space-y-4 mb-8">
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-white font-medium">Seamless Integration</h3>
-                <p className="text-white/70">Connects with your existing systems and payment processors</p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-4">
-                <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-white font-medium">Real-time Analytics</h3>
-                <p className="text-white/70">Track sales, inventory, and customer insights instantly</p>
-              </div>
-            </div>
-          </div>
-
-          <button className="px-8 py-4 bg-primary hover:bg-primary/90 text-white font-medium rounded-xl shadow-lg shadow-primary/30 transition-all hover:scale-105">
-            Get Started Today
-          </button>
+      
+      <div className="container relative z-10 mx-auto px-6 lg:px-8">
+        {/* Section header */}
+        <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-lg border border-white/20 mb-4 text-sm font-medium text-white"
+          >
+            <div className="w-2 h-2 rounded-full bg-cyan-400 mr-2 animate-pulse"></div>
+            Cosmic Portfolio
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
+          >
+            Exploring Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Galactic Projects</span>
+          </motion.h2>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto text-gray-300 text-lg"
+          >
+            Journey through our constellation of projects spanning multiple technologies and dimensions.
+          </motion.p>
         </div>
-
-        <div className="hidden md:block md:w-2/5">
-          <div className="relative h-[300px] w-full">
-            <motion.div
-              className="absolute top-0 right-0 h-full w-full"
-              animate={{
-                y: [0, -10, 0],
-                rotate: [0, 2, 0],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 6,
-                ease: "easeInOut",
-              }}
+        
+        {/* Category filters */}
+        <motion.div 
+          className="flex flex-wrap justify-center gap-3 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <CategoryButton 
+            active={selectedCategory === "All"}
+            onClick={() => setSelectedCategory("All")}
+          >
+            All Projects
+          </CategoryButton>
+          
+          {projectCategories.map(category => (
+            <CategoryButton 
+              key={category}
+              active={selectedCategory === category}
+              onClick={() => setSelectedCategory(category)}
             >
-              <div className="bg-gradient-to-br from-primary/80 to-purple-600/80 rounded-2xl p-2 h-full w-full backdrop-blur-lg shadow-xl">
-                <div className="bg-gray-900 rounded-xl h-full w-full p-4 overflow-hidden">
-                  <div className="flex justify-between items-center mb-4">
-                    <div className="text-white font-bold">ALIA POS</div>
-                    <div className="text-white/70 text-sm">12:30 PM</div>
+              {category}
+            </CategoryButton>
+          ))}
+        </motion.div>
+        
+        {/* Projects grid */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              ref={el => projectRefs.current[index] = el}
+              className="relative group"
+              variants={projectVariants}
+              whileHover="hover"
+              onClick={() => setActiveProject(project)}
+            >
+              <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br ${project.color} p-1`}>
+                <div className="absolute inset-0 bg-black/20 backdrop-blur-sm rounded-xl transform group-hover:backdrop-blur-none transition-all duration-300"></div>
+                
+                <div className="relative bg-[#0f0b2a]/90 group-hover:bg-[#0f0b2a]/70 rounded-lg overflow-hidden h-[300px] transform transition-all duration-300">
+                  {/* Project image */}
+                  <div className="h-[60%] relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity">
+                      <Image 
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        objectFit="cover"
+                        className="group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    
+                    {/* Cosmic overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f0b2a] to-transparent opacity-70"></div>
                   </div>
-                  <div className="space-y-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="flex justify-between items-center p-2 rounded bg-white/5">
-                        <div className="text-white text-sm">Product #{i}</div>
-                        <div className="text-white text-sm">${(19.99 * i).toFixed(2)}</div>
-                      </div>
-                    ))}
+                  
+                  {/* Project info */}
+                  <div className="p-6 relative z-10">
+                    <div className="flex items-center mb-2">
+                      <span className={`w-2 h-2 rounded-full bg-${project.color.split('-')[3]} mr-2`}></span>
+                      <span className="text-sm text-gray-300">{project.category}</span>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                    <p className="text-gray-400 text-sm mb-4 line-clamp-2">{project.description}</p>
+                    
+                    {/* Technology tags */}
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                      {project.technologies.map(tech => (
+                        <span 
+                          key={tech} 
+                          className="px-2 py-1 text-xs rounded-full bg-white/10 text-gray-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="mt-4 pt-2 border-t border-white/10 flex justify-between">
-                    <div className="text-white">Total:</div>
-                    <div className="text-white font-bold">$79.96</div>
+                  
+                  {/* Orbit lines */}
+                  <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                    <div className="absolute top-0 left-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
                   </div>
                 </div>
               </div>
+              
+              {/* Orbital glow */}
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </motion.div>
-          </div>
-        </div>
+          ))}
+        </motion.div>
+        
+        {/* View all projects button */}
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.button
+            className="px-8 py-4 rounded-lg bg-white/10 backdrop-blur-lg border border-white/20 text-white font-medium text-lg hover:bg-white/20 transition-all duration-300"
+            whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)" }}
+          >
+            Explore All Projects
+          </motion.button>
+        </motion.div>
       </div>
+      
+      {/* Project detail modal */}
+      {activeProject && (
+        <ProjectModal 
+          project={activeProject} 
+          onClose={() => setActiveProject(null)} 
+        />
+      )}
+    </section>
+  );
+};
+
+// Helper components
+const CategoryButton = ({ children, active, onClick }) => (
+  <motion.button
+    onClick={onClick}
+    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+      active 
+        ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white" 
+        : "bg-white/10 text-gray-300 hover:bg-white/20"
+    }`}
+    whileHover={{ y: -2 }}
+    whileTap={{ scale: 0.97 }}
+  >
+    {children}
+  </motion.button>
+);
+
+const ProjectModal = ({ project, onClose }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        className="bg-[#0f0b2a] rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Project details content */}
+        <div className="relative h-[300px]">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            objectFit="cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f0b2a] to-transparent"></div>
+          
+          <button 
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+            onClick={onClose}
+          >
+            ✕
+          </button>
+        </div>
+        
+        <div className="p-8">
+          <h2 className="text-3xl font-bold text-white mb-4">{project.title}</h2>
+          <p className="text-gray-300 mb-8">{project.description}</p>
+          
+          {/* Project details */}
+          {/* Additional content like full description, challenges, solutions, etc. */}
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
 
-export default function PortfolioSection() {
-  const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
-
-  const [ref, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-
-  // Filter projects when category changes
-  const handleFilterChange = (category: ProjectCategory) => {
-    setActiveFilter(category);
-    if (category === "all") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter((project) => project.category.includes(category)));
-    }
-  };
-
-  return (
-    <section className="py-24 bg-gray-900" ref={ref}>
-      <div className="container mx-auto px-4">
-        {/* Section intro with high visibility */}
-        <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Work</h2>
-          <p className="text-xl text-white/80 mb-6">Exceptional Projects That Inspire</p>
-          <p className="text-lg text-white/70">
-            Explore our portfolio of award-winning digital solutions that showcase our commitment to innovation,
-            performance, and exceptional user experience.
-          </p>
-        </motion.div>
-
-        {/* Category filter */}
-        <CategoryFilter activeCategory={activeFilter} setActiveCategory={handleFilterChange} />
-
-        {/* Projects grid with high visibility */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="wait">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Point of sale promo section */}
-        <PointOfSalePromo />
-
-        {/* CTA button */}
-        <div className="text-center mt-12">
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/15 text-white rounded-full backdrop-blur-sm transition-all"
-          >
-            View All Projects
-            <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
+export default PortfolioSection;

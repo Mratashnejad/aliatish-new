@@ -3,18 +3,10 @@ import { Resend } from 'resend';
 import crypto from 'crypto';
 import { Pool } from 'pg';
 import { v4 as uuidv4 } from 'uuid';
-import phpSerialize from 'php-serialize';
 
 // TODO: Replace with your Paddle webhook secret for signature verification
 const PADDLE_WEBHOOK_SECRET = process.env.PADDLE_WEBHOOK_SECRET || 'YOUR_PADDLE_WEBHOOK_SECRET';
 const DOWNLOAD_BASE_URL = process.env.DOWNLOAD_BASE_URL || 'https://yourdomain.com/download'; // Set your domain
-const PRODUCT_FILES: Record<string, string> = {
-  // Map productSlug to file URL
-  'crm-saas': 'https://yourdomain.com/files/crm-saas.zip',
-  'chrome-extension': 'https://yourdomain.com/files/chrome-extension.zip',
-  'ai-dashboard': 'https://yourdomain.com/files/ai-dashboard.zip',
-  // Add more products as needed
-};
 
 const LICENSE_PRODUCTS = ['crm-saas', 'chrome-extension']; // Products that need license keys
 const SAAS_PRODUCTS = ['crm-saas']; // Products that need SaaS provisioning

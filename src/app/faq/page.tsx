@@ -32,7 +32,7 @@ const faqs: FAQ[] = [
   },
   {
     question: 'How long has ALIATISH been in business?',
-    answer: 'ALIATISH has been providing digital solutions for over 8 years. During this time, we\'ve successfully delivered hundreds of projects for clients across various industries, from startups to enterprise organizations.',
+    answer: 'ALIATISH has been providing digital solutions for over 8 years. During this time, we&apos;ve successfully delivered hundreds of projects for clients across various industries, from startups to enterprise organizations.',
     category: 'General',
   },
   {
@@ -200,11 +200,11 @@ const FAQItem = ({
             <p className="mt-4">
               <Link href="/pricing" className="text-primary hover:underline">
                 View our pricing plans
-              </Link>{" "}
+              </Link>&apos;{" "}
               or{" "}
               <Link href="/contact" className="text-primary hover:underline">
                 contact us
-              </Link>{" "}
+              </Link>&apos;{" "}
               for a custom quote.
             </p>
           )}
@@ -323,7 +323,7 @@ export default function FAQPage() {
             {/* Search button */}
             <div className="mt-12 text-center">
               <p className="text-neutral/70 mb-4">
-                Can't find what you're looking for?
+                Can&apos;t find what you&apos;re looking for?
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link
@@ -352,7 +352,7 @@ export default function FAQPage() {
               Ready to Start Your Project?
             </h2>
             <p className="text-lg text-neutral/80 mb-10">
-              Let's discuss how we can help your business achieve its digital goals.
+              Let&apos;s discuss how we can help your business achieve its digital goals.
               Our team is ready to provide personalized solutions for your needs.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">

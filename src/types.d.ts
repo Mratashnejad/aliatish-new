@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    Paddle: any;
+    Paddle: unknown;
   }
 }
 export {}; 

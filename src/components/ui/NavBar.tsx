@@ -3,9 +3,26 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
+// Define type for menu particles
+interface MenuParticle {
+  x: number;
+  y: number;
+}
+
+// Define type for stars
+interface Star {
+  width: number;
+  height: number;
+  top: number;
+  left: number;
+  opacity: number;
+  duration: number;
+  delay: number;
+}
+
 // Animated cosmic menu icon
 const CosmicMenuIcon = ({ isOpen }: { isOpen: boolean }) => {
-  const [particles, setParticles] = useState<{ x: number; y: number }[]>([]);
+  const [particles, setParticles] = useState<MenuParticle[]>([]);
   useEffect(() => {
     if (isOpen) {
       setParticles(generateMenuParticles(5));
@@ -60,12 +77,13 @@ const CosmicMenuIcon = ({ isOpen }: { isOpen: boolean }) => {
 
 const NavLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/projects", label: "Projects" },
   { href: "/pricing", label: "Pricing" },
 ];
 
-function generateNavStars(count: number) {
+function generateNavStars(count: number): Star[] {
   return Array.from({ length: count }).map(() => ({
     width: Math.random() * 2,
     height: Math.random() * 2,
@@ -77,14 +95,14 @@ function generateNavStars(count: number) {
   }));
 }
 
-function generateMenuParticles(count: number) {
+function generateMenuParticles(count: number): MenuParticle[] {
   return Array.from({ length: count }).map(() => ({
     x: (Math.random() - 0.5) * 30,
     y: (Math.random() - 0.5) * 30,
   }));
 }
 
-function generateStarBgStars(count: number) {
+function generateStarBgStars(count: number): Star[] {
   return Array.from({ length: count }).map(() => ({
     width: Math.random() * 2,
     height: Math.random() * 2,
@@ -115,7 +133,7 @@ export default function NavBar() {
     }
   }, []);
 
-  const [navStars, setNavStars] = useState<any[]>([]);
+  const [navStars, setNavStars] = useState<Star[]>([]);
   useEffect(() => {
     // Only run on client side
     setNavStars(generateNavStars(50));
@@ -123,7 +141,7 @@ export default function NavBar() {
 
   // Star field background for navbar
   const StarBackground = () => {
-    const [stars, setStars] = useState<any[]>([]);
+    const [stars, setStars] = useState<Star[]>([]);
     useEffect(() => {
       // Only run on client side
       setStars(generateStarBgStars(20));
@@ -242,7 +260,7 @@ export default function NavBar() {
               {NavLinks.map((link) => (
                 <motion.div
                   key={link.href}
-                  className="relative"
+                  className="relative group"
                   whileHover={{ y: -2 }}
                   transition={{ type: "spring", stiffness: 300, damping: 10 }}
                 >
@@ -328,21 +346,21 @@ export default function NavBar() {
                   key={i}
                   className="absolute rounded-full bg-white"
                   style={{
-                    width: Math.random() * 2 + "px",
-                    height: Math.random() * 2 + "px",
-                    top: Math.random() * 100 + "%",
-                    left: Math.random() * 100 + "%",
-                    opacity: Math.random() * 0.5 + 0.2,
+                    width: `${star.width}px`,
+                    height: `${star.height}px`,
+                    top: `${star.top}%`,
+                    left: `${star.left}%`,
+                    opacity: star.opacity,
                   }}
                   animate={{
                     opacity: [0.2, 0.8, 0.2],
                     scale: [1, 1.5, 1],
                   }}
                   transition={{
-                    duration: Math.random() * 3 + 2,
+                    duration: star.duration,
                     repeat: Infinity,
                     repeatType: "reverse",
-                    delay: Math.random() * 5,
+                    delay: star.delay,
                   }}
                 />
               ))}
@@ -375,7 +393,7 @@ export default function NavBar() {
                   hidden: {},
                 }}
               >
-                {NavLinks.map((link, i) => (
+                {NavLinks.map((link) => (
                   <motion.div
                     key={link.href}
                     variants={{

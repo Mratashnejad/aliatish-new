@@ -51,7 +51,7 @@ export default function ProjectSlugPage() {
         <NavBar />
         <section className="pt-32 pb-20 text-center">
           <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-          <p className="mb-8">Sorry, we couldn't find the project you are looking for.</p>
+          <p className="mb-8">Sorry, we couldn&apos;t find the project you are looking for.</p>
           <Link href="/projects" className="text-primary hover:underline">Back to Projects</Link>
         </section>
         <Footer />

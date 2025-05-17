@@ -39,6 +39,16 @@ const projects: Project[] = [
   // More projects...
 ];
 
+// Add this at the top or near generateParticles
+interface Particle {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+  opacity: number;
+  duration: number;
+}
+
 // Utility to generate random particle data
 function generateParticles(count: number) {
   return Array.from({ length: count }).map(() => ({
@@ -55,7 +65,7 @@ const PortfolioSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [particles, setParticles] = useState<any[]>([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
   
   // Filter projects by category
   const filteredProjects = selectedCategory === "All" 

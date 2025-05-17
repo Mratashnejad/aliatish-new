@@ -591,7 +591,7 @@ export default function CareersPage() {
           
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12">
             <blockquote className="pl-6 italic text-indigo-200 border-l-2 border-indigo-500/50">
-              "Joining ALIATISH was one of the best career decisions I&apos;ve made. The collaborative culture, challenging projects, and focus on personal growth have made this a truly rewarding experience. I&apos;ve been able to work with cutting-edge technologies while having the flexibility to maintain a healthy work-life balance."
+              &quot;Joining ALIATISH was one of the best career decisions I&apos;ve made. The collaborative culture, challenging projects, and focus on personal growth have made this a truly rewarding experience. I&apos;ve been able to work with cutting-edge technologies while having the flexibility to maintain a healthy work-life balance.&quot;
             </blockquote>
             
             <div className="flex items-center justify-center">

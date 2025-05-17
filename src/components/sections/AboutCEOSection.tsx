@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { motion, useAnimation, useInView as useFramerInView } from "framer-motion";
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
 
 type Experience = {
@@ -10,6 +10,34 @@ type Experience = {
   description: string;
   color: string;
 };
+
+// Define star type
+interface Star {
+  size: number;
+  top: number;
+  left: number;
+  opacity: number;
+  duration: number;
+}
+
+// Define particle type
+interface Particle {
+  width: number;
+  height: number;
+  top: number;
+  left: number;
+  opacity: number;
+  x: number;
+  y: number;
+  duration: number;
+}
+
+// Define stream type
+interface Stream {
+  angle: number;
+  length: number;
+  duration: number;
+}
 
 // CEO tech powers visualized through cosmic elements
 const techPowers = [
@@ -52,33 +80,32 @@ const techPowers = [
 // Experience with cosmic theme colors
 const experiences: Experience[] = [
   {
-    year: "2023 - Present",
-    title: "Founder & CEO",
-    company: "ALIATISH",
-    description:
-      "Leading a web development agency focused on creating cutting-edge digital experiences for clients around the world.",
-    color: "from-violet-600 to-indigo-600",
+    year: '2023',
+    title: 'Founder & CEO',
+    company: 'ALIATISH',
+    description: 'Started a specialized enterprise web development agency focused on creating high-performance digital solutions.',
+    color: 'from-indigo-500 to-violet-500',
   },
   {
-    year: "2020 - 2023",
-    title: "Senior Full-stack Developer",
-    company: "TechCorp Inc.",
-    description: "Led development of enterprise-scale web applications using React, Node.js, and cloud technologies.",
-    color: "from-blue-600 to-cyan-600",
+    year: '2020',
+    title: 'Lead Developer',
+    company: 'Digital Nebula',
+    description: 'Led a team of developers creating enterprise-grade web applications for Fortune 500 clients.',
+    color: 'from-purple-500 to-pink-500',
   },
   {
-    year: "2017 - 2020",
-    title: "Full-stack Developer",
-    company: "WebSolutions LLC",
-    description: "Designed and built responsive websites and applications for various clients across industries.",
-    color: "from-cyan-600 to-teal-600",
+    year: '2017',
+    title: 'Senior Full-Stack Developer',
+    company: 'Cosmic Solutions',
+    description: 'Specialized in building complex web applications with React, Node.js, and cloud infrastructure.',
+    color: 'from-blue-500 to-cyan-500',
   },
   {
-    year: "2013 - 2017",
-    title: "Frontend Developer",
-    company: "DigitalAgency Co.",
-    description: "Specialized in creating interactive user interfaces and responsive designs for client websites.",
-    color: "from-teal-600 to-green-600",
+    year: '2014',
+    title: 'Web Developer',
+    company: 'StarTech',
+    description: 'Developed responsive websites and e-commerce solutions for clients in various industries.',
+    color: 'from-emerald-500 to-lime-500',
   },
 ];
 
@@ -88,30 +115,6 @@ function createSeededRandom(seed = 1) {
     seed = (seed * 16807) % 2147483647;
     return seed / 2147483647;
   };
-}
-
-// Create initial empty states
-const INITIAL_SECTION_STARS: any[] = [];
-const INITIAL_STREAMS: any[] = [];
-
-// Utility to generate random star data for section background
-function generateSectionStars(count: number, getRandom: () => number) {
-  return Array.from({ length: count }).map(() => ({
-    size: getRandom() * 2,
-    opacity: getRandom() * 0.7 + 0.1,
-    top: getRandom() * 100,
-    left: getRandom() * 100,
-    duration: getRandom() * 4 + 2,
-  }));
-}
-
-// Utility to generate random stream data for CosmicTechNexus
-function generateStreams(count: number, getRandom: () => number) {
-  return Array.from({ length: count }).map(() => ({
-    angle: getRandom() * Math.PI * 2,
-    length: getRandom() * 30 + 100,
-    duration: getRandom() * 5 + 5,
-  }));
 }
 
 // Cosmic Tech Wormhole Visualization
@@ -405,8 +408,22 @@ const CosmicTechNexus = () => {
   );
 };
 
+// Generate CTA portal particles
+function generateCtaParticles(count: number): Particle[] {
+  return Array.from({ length: count }).map(() => ({
+    width: Math.random() * 3 + 1,
+    height: Math.random() * 3 + 1,
+    top: Math.random() * 100,
+    left: Math.random() * 100,
+    opacity: Math.random() * 0.3 + 0.1,
+    y: Math.random() > 0.5 ? -20 : 20,
+    x: Math.random() > 0.5 ? -20 : 20,
+    duration: Math.random() * 5 + 5,
+  }));
+}
+
 export default function AboutCEOSection() {
-  const [ref, inView] = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
@@ -463,25 +480,16 @@ export default function AboutCEOSection() {
     },
   };
 
-  const [stars, setStars] = useState<unknown[]>([]);
+  const [stars, setStars] = useState<Star[]>([]);
   useEffect(() => {
     setStars(generateSectionStars(200, createSeededRandom()));
   }, []);
 
   // Add state for CTA portal particles
-  const [ctaParticles, setCtaParticles] = useState<unknown[]>([]);
+  const [ctaParticles, setCtaParticles] = useState<Particle[]>([]);
   useEffect(() => {
     // Generate 20 random particles for the CTA portal
-    setCtaParticles(Array.from({ length: 20 }).map(() => ({
-      width: Math.random() * 2 + 1,
-      height: Math.random() * 2 + 1,
-      top: Math.random() * 100,
-      left: Math.random() * 100,
-      opacity: Math.random() * 0.3 + 0.1,
-      y: Math.random() > 0.5 ? -20 : 20,
-      x: Math.random() > 0.5 ? -20 : 20,
-      duration: Math.random() * 5 + 5,
-    })));
+    setCtaParticles(generateCtaParticles(20));
   }, []);
 
   return (
@@ -817,4 +825,24 @@ export default function AboutCEOSection() {
       </div>
     </section>
   );
+}
+
+// Generate section stars with proper typing
+function generateSectionStars(count: number, getRandom: () => number): Star[] {
+  return Array.from({ length: count }).map(() => ({
+    size: Math.max(1, getRandom() * 2),
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    opacity: getRandom() * 0.7 + 0.1,
+    duration: getRandom() * 3 + 2,
+  }));
+}
+
+// Generate streams for CosmicTechNexus
+function generateStreams(count: number, getRandom: () => number): Stream[] {
+  return Array.from({ length: count }).map(() => ({
+    angle: getRandom() * Math.PI * 2,
+    length: getRandom() * 30 + 100,
+    duration: getRandom() * 5 + 5,
+  }));
 }

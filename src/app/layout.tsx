@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Outfit, Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
-import Script from "next/script";
 import PaddleLoader from '@/components/PaddleLoader';
 import StructuredData from '@/components/StructuredData';
 

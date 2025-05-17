@@ -24,11 +24,6 @@ function createSeededRandom(seed = 1) {
   };
 }
 
-// Create initial empty states for all random arrays
-const INITIAL_STARS: any[] = [];
-const INITIAL_METEORS: any[] = [];
-const INITIAL_PARTICLES: any[] = [];
-
 // Utility to generate random star and meteor data
 function generateStarsData(count: number, getRandom: () => number) {
   return Array.from({ length: count }).map(() => ({
@@ -286,7 +281,7 @@ export default function ContactSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Ready to launch your next project into orbit? Send us a transmission and let's create something extraordinary.
+              Ready to launch your next project into orbit? Send us a transmission and let&apos;s create something extraordinary.
             </motion.p>
           </motion.div>
           
@@ -496,7 +491,7 @@ export default function ContactSection() {
                           <path d="M5 13L9 17L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </motion.div>
-                      <span>Transmission received! We'll respond across the cosmos shortly.</span>
+                      <span>Transmission received! We&apos;ll respond across the cosmos shortly.</span>
                     </div>
                   </motion.div>
                 )}

@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
 import Link from 'next/link';
 
 type Service = {
@@ -111,10 +110,42 @@ function createSeededRandom(seed = 1) {
   };
 }
 
-// Create initial empty states
-const INITIAL_PARTICLES: any[] = [];
-const INITIAL_CARD_PARTICLES: any[] = [];
-const INITIAL_PREVIEW_STARS: any[] = [];
+// Types for star/particle data
+interface StarData {
+  top: number;
+  left: number;
+  delay: number;
+  size: number;
+  color: string;
+}
+
+interface ParticleData {
+  top: number;
+  left: number;
+  y: number;
+  x: number;
+  duration: number;
+  repeatDelay: number;
+}
+
+interface CardParticleData {
+  width: number;
+  height: number;
+  top: number;
+  left: number;
+  blur: number;
+  y: number;
+  duration: number;
+  delay: number;
+}
+
+interface PreviewStarData {
+  top: number;
+  left: number;
+  delay: number;
+  size: number;
+  color: string;
+}
 
 function generateStarsData(count: number, colorFn?: (i: number) => string) {
   return Array.from({ length: count }).map((_, i) => ({
@@ -123,17 +154,6 @@ function generateStarsData(count: number, colorFn?: (i: number) => string) {
     delay: Math.random() * 5,
     size: Math.random() * 2 + 1,
     color: colorFn ? colorFn(i) : (Math.random() > 0.7 ? "bg-white" : "bg-white/70"),
-  }));
-}
-
-function generateParticlesData(count: number, getRandom: () => number) {
-  return Array.from({ length: count }).map(() => ({
-    top: getRandom() * 100,
-    left: getRandom() * 100,
-    y: getRandom() > 0.5 ? -40 : 40,
-    x: getRandom() > 0.5 ? -40 : 40,
-    duration: getRandom() * 3 + 2,
-    repeatDelay: getRandom() * 2,
   }));
 }
 
@@ -178,14 +198,12 @@ function generateCardParticles(count: number, getRandom: () => number) {
 // Cosmic service card with orbital animations
 const CosmicServiceCard = ({ 
   service, 
-  isActive, 
   onClick, 
   delay = 0,
   index,
   mousePosition
 }: { 
   service: Service; 
-  isActive: boolean; 
   onClick: () => void; 
   delay?: number;
   index: number;
@@ -193,7 +211,7 @@ const CosmicServiceCard = ({
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [localPosition, setLocalPosition] = useState({ x: 0, y: 0 });
-  const [particles, setParticles] = useState<any[]>([]);
+  const [particles, setParticles] = useState<CardParticleData[]>([]);
 
   // Calculate parallax effect based on mouse position
   useEffect(() => {
@@ -230,15 +248,11 @@ const CosmicServiceCard = ({
         y: { duration: 0.5, ease: "easeOut" },
       }}
       whileHover={{ scale: 1.03, z: 10 }}
-      className={`relative group cursor-pointer overflow-hidden rounded-2xl transition-all duration-300 ${
-        isActive 
-          ? 'shadow-lg shadow-indigo-500/10 border border-indigo-500/30' 
-          : 'border border-white/10 hover:border-white/30'
-      }`}
+      className={`relative group cursor-pointer overflow-hidden rounded-2xl transition-all duration-300 border border-white/10 hover:border-white/30`}
       onClick={onClick}
     >
       {/* Orbital animated background */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${service.color} backdrop-blur-sm opacity-${isActive ? '30' : '10'}`}>
+      <div className={`absolute inset-0 bg-gradient-to-br ${service.color} backdrop-blur-sm opacity-10`}>
         {/* Cosmic dust particles */}
         {particles.map((particle, i) => (
           <motion.div
@@ -284,16 +298,14 @@ const CosmicServiceCard = ({
           <h3 className="ml-4 text-xl font-bold text-white">{service.title}</h3>
         </div>
         
-        <p className={`text-sm ${isActive ? 'text-gray-200' : 'text-gray-400'} transition-colors duration-300`}>
+        <p className="text-sm text-gray-400 transition-colors duration-300">
           {service.description}
         </p>
         
-        <div className={`mt-4 flex items-center font-medium text-sm ${isActive ? 'text-indigo-400' : 'text-gray-400'}`}>
+        <div className="mt-4 flex items-center font-medium text-sm text-gray-400">
           <span>Explore service</span>
           <motion.span 
             className="ml-2"
-            animate={{ x: isActive ? 5 : 0 }}
-            transition={{ duration: 0.3 }}
           >→</motion.span>
         </div>
       </div>
@@ -337,21 +349,18 @@ const CosmicFeatureList = ({ features }: { features: string[] }) => {
 };
 
 // Cosmic service preview with 3D effect
-const CosmicServicePreview = ({ service, isActive }: { service: Service; isActive: boolean }) => {
+const CosmicServicePreview = ({ service }: { service: Service }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [previewStars, setPreviewStars] = useState<any[]>([]);
-  const [previewParticles, setPreviewParticles] = useState<any[]>([]);
+  const [mousePosition] = useState({ x: 0, y: 0 });
+  const [previewStars, setPreviewStars] = useState<PreviewStarData[]>([]);
+  const [previewParticles, setPreviewParticles] = useState<ParticleData[]>([]);
   
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
     
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      setMousePosition({ x, y });
+      // Mouse move handler is currently not used, so remove unused variables to fix linter error.
     };
     
     container.addEventListener('mousemove', handleMouseMove);
@@ -474,31 +483,19 @@ function generatePreviewParticles(count: number, getRandom: () => number) {
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState<number>(1);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLElement>(null);
-  
-  // Track mouse position for parallax effect
-  // useEffect(() => {
-  //   const handleMouseMove = (e: MouseEvent) => {
-  //     setMousePosition({ x: e.clientX, y: e.clientY });
-  //   };
-    
-  //   window.addEventListener('mousemove', handleMouseMove);
-  //   return () => window.removeEventListener('mousemove', handleMouseMove);
-  // }, []);
   
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.2,
   });
 
-  const [bgStars, setBgStars] = useState<any[]>([]);
-  const [bgParticles, setBgParticles] = useState<any[]>([]);
-  const [sectionStars, setSectionStars] = useState<any[]>([]);
+  const [bgStars, setBgStars] = useState<StarData[]>([]);
+  const [sectionStars, setSectionStars] = useState<StarData[]>([]);
   useEffect(() => {
     const seededRandom = createSeededRandom(42);
     setBgStars(generateStarsData(40, (i) => seededRandom() > 0.8 ? "bg-indigo-300" : "bg-white/50"));
-    setBgParticles(generateParticlesData(12, seededRandom));
     setSectionStars(generateStarsData(30, (i) => seededRandom() > 0.8 ? "bg-indigo-300" : "bg-white/50"));
   }, []);
 
@@ -508,7 +505,7 @@ export default function ServicesSection() {
       id="services" 
       ref={(el) => {
         if (el) {
-          // @ts-ignore - combine refs
+
           ref(el);
           sectionRef.current = el;
         }
@@ -518,9 +515,9 @@ export default function ServicesSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#080b20] via-[#0d0a25] to-[#1a0e35] z-0">
         {/* Star field background */}
         <div className="absolute inset-0">
-          {bgStars.map((star, i) => (
+          {bgStars.map((star) => (
             <Star
-              key={i}
+              key={`${star.top}-${star.left}`}
               top={`${star.top}%`}
               left={`${star.left}%`}
               delay={star.delay}
@@ -590,7 +587,6 @@ export default function ServicesSection() {
               <CosmicServiceCard 
                 key={service.id}
                 service={service}
-                isActive={activeService === service.id}
                 onClick={() => setActiveService(service.id)}
                 delay={index * 0.1}
                 index={index}
@@ -613,14 +609,14 @@ export default function ServicesSection() {
                     className="bg-gradient-to-br from-gray-900/60 to-gray-900/30 backdrop-blur-sm shadow-xl rounded-2xl overflow-hidden border border-white/10 relative"
                   >
                     {/* Cosmic service preview */}
-                    <CosmicServicePreview service={service} isActive={activeService === service.id} />
+                    <CosmicServicePreview service={service} />
                     
                     <div className="p-8 relative">
                       {/* Background cosmos effect */}
                       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        {sectionStars.map((star, i) => (
+                        {sectionStars.map((star) => (
                           <Star
-                            key={i}
+                            key={`${star.top}-${star.left}`}
                             top={`${star.top}%`}
                             left={`${star.left}%`}
                             delay={star.delay}
@@ -717,9 +713,9 @@ export default function ServicesSection() {
           
           {/* Star field */}
           <div className="absolute inset-0 overflow-hidden">
-            {sectionStars.map((star, i) => (
+            {sectionStars.map((star) => (
               <Star
-                key={i}
+                key={`${star.top}-${star.left}`}
                 top={`${star.top}%`}
                 left={`${star.left}%`}
                 delay={star.delay}

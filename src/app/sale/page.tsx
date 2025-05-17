@@ -37,7 +37,6 @@ const products = [
 
 // Paddle Integration: Replace the placeholders below with your actual Paddle Vendor ID and Product IDs from your Paddle dashboard.
 // See: https://developer.paddle.com/ for more info.
-const PADDLE_VENDOR_ID = 'YOUR_PADDLE_VENDOR_ID'; // TODO: Replace with your Paddle Vendor ID
 
 export default function SalePage() {
   const handlePaddleCheckout = (productId: string, productSlug: string) => {

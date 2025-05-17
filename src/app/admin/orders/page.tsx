@@ -62,7 +62,7 @@ export default function OrdersPage() {
         : b.id.localeCompare(a.id);
     });
 
-  const handleSort = (column) => {
+  const handleSort = (column: string) => {
     if (sortBy === column) {
       setSortDir(sortDir === 'asc' ? 'desc' : 'asc');
     } else {

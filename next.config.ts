@@ -3,7 +3,14 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['randomuser.me'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   webpack: (config) => {
     config.resolve.alias["@"] = path.resolve(__dirname, "src");

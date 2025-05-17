@@ -2,16 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useInView as useFramerInView } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Image from "next/image";
-
-type Skill = {
-  name: string;
-  level: number;
-  color: string;
-  category: "frontend" | "backend" | "devops" | "database";
-  icon?: string;
-  orbitalSpeed?: number;
-};
 
 type Experience = {
   year: string;
@@ -59,52 +49,6 @@ const techPowers = [
   }
 ];
 
-// Skill data with cosmic properties
-// const skills: Skill[] = [
-//   {
-//     name: "React / Next.js",
-//     level: 95,
-//     color: "from-cyan-500 to-blue-500",
-//     category: "frontend",
-//     orbitalSpeed: 8,
-//   },
-//   {
-//     name: "TypeScript / JavaScript",
-//     level: 90,
-//     color: "from-blue-500 to-indigo-600",
-//     category: "frontend",
-//     orbitalSpeed: 12,
-//   },
-//   {
-//     name: "Node.js / Express",
-//     level: 88,
-//     color: "from-green-500 to-emerald-600",
-//     category: "backend",
-//     orbitalSpeed: 15,
-//   },
-//   {
-//     name: "GraphQL / REST APIs",
-//     level: 85,
-//     color: "from-pink-500 to-rose-600",
-//     category: "backend",
-//     orbitalSpeed: 18,
-//   },
-//   {
-//     name: "PostgreSQL / Redis",
-//     level: 82,
-//     color: "from-indigo-500 to-purple-600",
-//     category: "database",
-//     orbitalSpeed: 20,
-//   },
-//   {
-//     name: "Docker / DevOps",
-//     level: 75,
-//     color: "from-blue-600 to-sky-600",
-//     category: "devops",
-//     orbitalSpeed: 25,
-//   },
-// ];
-
 // Experience with cosmic theme colors
 const experiences: Experience[] = [
   {
@@ -138,8 +82,43 @@ const experiences: Experience[] = [
   },
 ];
 
+// Use a seeded random function to ensure consistency between server and client
+function createSeededRandom(seed = 1) {
+  return function() {
+    seed = (seed * 16807) % 2147483647;
+    return seed / 2147483647;
+  };
+}
+
+// Create initial empty states
+const INITIAL_SECTION_STARS: any[] = [];
+const INITIAL_STREAMS: any[] = [];
+
+// Utility to generate random star data for section background
+function generateSectionStars(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    size: getRandom() * 2,
+    opacity: getRandom() * 0.7 + 0.1,
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    duration: getRandom() * 4 + 2,
+  }));
+}
+
+// Utility to generate random stream data for CosmicTechNexus
+function generateStreams(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    angle: getRandom() * Math.PI * 2,
+    length: getRandom() * 30 + 100,
+    duration: getRandom() * 5 + 5,
+  }));
+}
+
 // Cosmic Tech Wormhole Visualization
 const CosmicTechNexus = () => {
+  // const [radius, setRadius] = useState(150); // Default value for SSR
+  // const [stars, setStars] = useState<unknown[]>([]);
+
   // Code fragments floating in space - tech related phrases and symbols
   // const techFragments = [
   //   '01011', 'function()', 'API', 'async', 'import', 'export',
@@ -211,32 +190,27 @@ const CosmicTechNexus = () => {
         </motion.div>
         
         {/* Tech data streams - energy beams emanating from the portal */}
-        {Array.from({ length: 8 }).map((_, i) => {
-          const angle = (i / 8) * Math.PI * 2;
-          const length = Math.random() * 30 + 100; // 100-130% length
-          
-          return (
-            <motion.div
-              key={`stream-${i}`}
-              className="absolute origin-center h-[1px] bg-gradient-to-r from-indigo-500/50 via-violet-500/50 to-transparent"
-              style={{
-                width: `${length}%`,
-                transformOrigin: 'center left',
-                transform: `rotate(${angle}rad) translateX(60px)`,
-                opacity: 0.6,
-              }}
-              animate={{
-                opacity: [0.3, 0.6, 0.3],
-                width: [`${length - 20}%`, `${length}%`, `${length - 20}%`],
-              }}
-              transition={{
-                duration: Math.random() * 5 + 5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          );
-        })}
+        {generateStreams(8, createSeededRandom()).map((stream, i) => (
+          <motion.div
+            key={`stream-${i}`}
+            className="absolute origin-center h-[1px] bg-gradient-to-r from-indigo-500/50 via-violet-500/50 to-transparent"
+            style={{
+              width: `${stream.length}%`,
+              transformOrigin: 'center left',
+              transform: `rotate(${stream.angle}rad) translateX(60px)`,
+              opacity: 0.6,
+            }}
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              width: [`${stream.length - 20}%`, `${stream.length}%`, `${stream.length - 20}%`],
+            }}
+            transition={{
+              duration: stream.duration,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
       </div>
       
       {/* Floating tech fragments */}
@@ -283,7 +257,7 @@ const CosmicTechNexus = () => {
       
       {/* Tech power indicators floating around the wormhole */}
       {techPowers.map((power, i) => {
-        const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
+        // const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25; // Moved to state
         
         return (
           <motion.div
@@ -489,37 +463,54 @@ export default function AboutCEOSection() {
     },
   };
 
+  const [stars, setStars] = useState<unknown[]>([]);
+  useEffect(() => {
+    setStars(generateSectionStars(200, createSeededRandom()));
+  }, []);
+
+  // Add state for CTA portal particles
+  const [ctaParticles, setCtaParticles] = useState<unknown[]>([]);
+  useEffect(() => {
+    // Generate 20 random particles for the CTA portal
+    setCtaParticles(Array.from({ length: 20 }).map(() => ({
+      width: Math.random() * 2 + 1,
+      height: Math.random() * 2 + 1,
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      opacity: Math.random() * 0.3 + 0.1,
+      y: Math.random() > 0.5 ? -20 : 20,
+      x: Math.random() > 0.5 ? -20 : 20,
+      duration: Math.random() * 5 + 5,
+    })));
+  }, []);
+
   return (
     <section id="about-ceo" className="py-20 relative overflow-hidden">
       {/* Deep space background */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#050816] via-[#0a0a20] to-[#130c35] z-0">
         {/* Star field background */}
         <div className="absolute inset-0">
-          {Array.from({ length: 200 }).map((_, i) => {
-            const size = Math.random() * 2;
-            const opacity = Math.random() * 0.7 + 0.1;
-            return (
-              <motion.div
-                key={i}
-                className="absolute rounded-full bg-white"
-                style={{
-                  width: size,
-                  height: size,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  opacity,
-                }}
-                animate={{
-                  opacity: [opacity, opacity * 0.3, opacity],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: Math.random() * 4 + 2,
-                  repeat: Infinity,
-                }}
-              />
-            );
-          })}
+          {stars.map((star, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: star.size,
+                height: star.size,
+                top: `${star.top}%`,
+                left: `${star.left}%`,
+                opacity: star.opacity,
+              }}
+              animate={{
+                opacity: [star.opacity, star.opacity * 0.3, star.opacity],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: star.duration,
+                repeat: Infinity,
+              }}
+            />
+          ))}
         </div>
         
         {/* Distant nebulae */}
@@ -613,12 +604,12 @@ export default function AboutCEOSection() {
                   
                   {/* Cosmic quote */}
                   <div className="mt-8 relative">
-                    <div className="absolute -left-3 -top-3 text-4xl text-indigo-500 opacity-50">"</div>
+                    <div className="absolute -left-3 -top-3 text-4xl text-indigo-500 opacity-50">&quot;</div>
                     <blockquote className="pl-6 italic text-indigo-200 border-l-2 border-indigo-500/50">
                       The digital universe is ever-expanding. Our mission is to help you navigate its 
                       infinite possibilities and create experiences that shine brighter than the rest.
                     </blockquote>
-                    <div className="absolute -right-3 -bottom-3 text-4xl text-indigo-500 opacity-50">"</div>
+                    <div className="absolute -right-3 -bottom-3 text-4xl text-indigo-500 opacity-50">&quot;</div>
                   </div>
                 </div>
                 
@@ -770,26 +761,25 @@ export default function AboutCEOSection() {
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
               />
-
               {/* Cosmic dust particles */}
-              {Array.from({ length: 20 }).map((_, i) => (
+              {ctaParticles.map((particle, i) => (
                 <motion.div
                   key={i}
                   className="absolute rounded-full bg-indigo-500"
                   style={{
-                    width: Math.random() * 2 + 1,
-                    height: Math.random() * 2 + 1,
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                    opacity: Math.random() * 0.3 + 0.1,
+                    width: particle.width,
+                    height: particle.height,
+                    top: `${particle.top}%`,
+                    left: `${particle.left}%`,
+                    opacity: particle.opacity,
                   }}
                   animate={{
-                    y: [0, Math.random() > 0.5 ? -20 : 20],
-                    x: [0, Math.random() > 0.5 ? -20 : 20],
+                    y: [0, particle.y],
+                    x: [0, particle.x],
                     opacity: [0.1, 0.3, 0.1],
                   }}
                   transition={{
-                    duration: Math.random() * 5 + 5,
+                    duration: particle.duration,
                     repeat: Infinity,
                     repeatType: "reverse",
                   }}
@@ -801,7 +791,7 @@ export default function AboutCEOSection() {
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-white mb-4">Ready to Begin Your Cosmic Journey?</h3>
               <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-                Let's collaborate to create digital experiences that are truly out of this world. My expertise is your
+                Let&apos;s collaborate to create digital experiences that are truly out of this world. My expertise is your
                 launchpad to success.
               </p>
 

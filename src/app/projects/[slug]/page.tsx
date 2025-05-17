@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import NavBar from '@/components/ui/NavBar';
 import Footer from '@/components/ui/Footer';
-
+import Image from 'next/image';
 const projects = [
   {
     slug: 'ai-dashboard',
@@ -68,7 +68,7 @@ export default function ProjectSlugPage() {
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">{project.title}</h1>
             <p className="text-lg text-neutral/80 mb-8">{project.description}</p>
             <div className="w-full h-64 rounded-xl overflow-hidden mb-8 bg-primary/10 flex items-center justify-center">
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+              <Image src={project.image} alt={project.title} width={400} height={256} className="w-full h-full object-cover" />
             </div>
             <div className="mb-8">
               <span className="font-medium text-primary">Tech Stack:</span>

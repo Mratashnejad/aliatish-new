@@ -3,6 +3,19 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+// Use a seeded random function to ensure consistency between server and client
+function createSeededRandom(seed = 1) {
+  return function() {
+    seed = (seed * 16807) % 2147483647;
+    return seed / 2147483647;
+  };
+}
+
+// Create initial empty states
+const INITIAL_STARS: any[] = [];
+const INITIAL_SHOOTING_STARS: any[] = [];
+const INITIAL_FOOTER_PARTICLES: any[] = [];
+
 // Animated cosmic star component
 const CosmicStar = ({ delay = 0, size = 2, top, left, color = "white" }: 
   { delay?: number; size?: number; top: string; left: string; color?: string }) => (
@@ -19,7 +32,7 @@ const CosmicStar = ({ delay = 0, size = 2, top, left, color = "white" }:
       scale: [1, 1.5, 1],
     }}
     transition={{
-      duration: Math.random() * 3 + 2,
+      duration: 4,
       repeat: Infinity,
       repeatType: 'reverse',
       delay,
@@ -28,16 +41,16 @@ const CosmicStar = ({ delay = 0, size = 2, top, left, color = "white" }:
 );
 
 // Cosmic trail component
-const CosmicTrail = ({ className }: { className?: string }) => (
+const CosmicTrail = ({ className, stars }: { className?: string; stars: any[] }) => (
   <div className={`absolute opacity-20 ${className}`}>
-    {[...Array(20)].map((_, i) => (
+    {stars.map((star, i) => (
       <CosmicStar
         key={i}
-        top={`${Math.random() * 100}%`}
-        left={`${Math.random() * 100}%`}
-        delay={Math.random() * 5}
-        size={Math.random() * 2 + 1}
-        color={Math.random() > 0.7 ? "purple-400" : "white"}
+        top={`${star.top}%`}
+        left={`${star.left}%`}
+        delay={star.delay}
+        size={star.width}
+        color={star.color}
       />
     ))}
   </div>
@@ -49,6 +62,7 @@ const CosmicNewsletterForm = () => {
   const [submitted, setSubmitted] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const [footerParticles, setFooterParticles] = useState<any[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,6 +131,11 @@ const CosmicNewsletterForm = () => {
     }
   };
 
+  useEffect(() => {
+    const seededRandom = createSeededRandom(84);
+    setFooterParticles(generateFooterParticles(10, seededRandom));
+  }, []);
+
   return (
     <div className="mt-8 relative">
       {submitted ? (
@@ -127,15 +146,15 @@ const CosmicNewsletterForm = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="absolute inset-0">
-            {[...Array(10)].map((_, i) => (
+            {footerParticles.map((particle, i) => (
               <motion.div
                 key={i}
                 className="absolute rounded-full bg-purple-500"
                 style={{
-                  width: `${Math.random() * 2 + 1}px`,
-                  height: `${Math.random() * 2 + 1}px`,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
+                  width: `${particle.width}px`,
+                  height: `${particle.height}px`,
+                  top: `${particle.top}%`,
+                  left: `${particle.left}%`,
                   opacity: 0.3,
                 }}
                 animate={{
@@ -143,10 +162,10 @@ const CosmicNewsletterForm = () => {
                   opacity: [0.3, 0],
                 }}
                 transition={{
-                  duration: Math.random() * 2 + 1,
+                  duration: particle.duration,
                   repeat: Infinity,
                   repeatType: 'loop',
-                  delay: Math.random() * 2,
+                  delay: particle.delay,
                 }}
               />
             ))}
@@ -231,6 +250,41 @@ const footerLinks = [
   }
 ];
 
+// Utility to generate random star data
+function generateStars(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    width: Math.max(1, getRandom() * 2),
+    height: Math.max(1, getRandom() * 2),
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    opacity: getRandom() * 0.7 + 0.1,
+    duration: getRandom() * 3 + 2,
+    delay: getRandom() * 2,
+  }));
+}
+
+function generateShootingStars(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    width: getRandom() * 40 + 40,
+    top: getRandom() * 70,
+    rotate: getRandom() * 20 + 15,
+    duration: getRandom() * 2 + 1.5,
+    repeatDelay: getRandom() * 15 + 10,
+    delay: getRandom() * 5,
+  }));
+}
+
+function generateFooterParticles(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    width: getRandom() * 2 + 1,
+    height: getRandom() * 2 + 1,
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    duration: getRandom() * 2 + 1,
+    delay: getRandom() * 2,
+  }));
+}
+
 export default function Footer() {
   // Starfield ref for interactivity
   const starfieldRef = useRef<HTMLDivElement>(null);
@@ -265,6 +319,17 @@ export default function Footer() {
     };
   }, []);
 
+  const [stars, setStars] = useState<any[]>([]);
+  const [shootingStars, setShootingStars] = useState<any[]>([]);
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    const seededRandom = createSeededRandom(42);
+    setStars(generateStars(120, seededRandom));
+    setShootingStars(generateShootingStars(5, seededRandom));
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="relative overflow-hidden">
       {/* Cosmic background with gradient */}
@@ -276,28 +341,28 @@ export default function Footer() {
         className="absolute inset-0 z-0"
       >
         {/* Main star field - static */}
-        {[...Array(120)].map((_, i) => (
+        {stars.map((star, i) => (
           <motion.div
             key={i}
             className={`absolute rounded-full ${
               i % 10 === 0 ? 'bg-indigo-300' : i % 15 === 0 ? 'bg-purple-300' : 'bg-white'
             } ${i % 8 === 0 ? 'interactive-star' : ''}`}
             style={{
-              width: `${Math.max(1, Math.random() * 2)}px`,
-              height: `${Math.max(1, Math.random() * 2)}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.7 + 0.1,
+              width: `${star.width}px`,
+              height: `${star.height}px`,
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              opacity: star.opacity,
             }}
             animate={{
               opacity: [0.3, 0.8, 0.3],
               scale: [1, 1.3, 1],
             }}
             transition={{
-              duration: Math.random() * 3 + 2,
+              duration: star.duration,
               repeat: Infinity,
               repeatType: 'reverse',
-              delay: Math.random() * 2,
+              delay: star.delay,
             }}
           />
         ))}
@@ -307,25 +372,25 @@ export default function Footer() {
         <div className="absolute -bottom-32 -left-20 w-96 h-96 rounded-full bg-indigo-800/10 blur-3xl"></div>
         
         {/* Shooting stars animation */}
-        {[...Array(5)].map((_, i) => (
+        {shootingStars.map((star, i) => (
           <motion.div
             key={`shooting-${i}`}
             className="absolute h-px bg-white"
             style={{
-              width: `${Math.random() * 40 + 40}px`,
-              top: `${Math.random() * 70}%`,
+              width: `${star.width}px`,
+              top: `${star.top}%`,
               left: '-40px',
-              rotate: `${Math.random() * 20 + 15}deg`,
+              rotate: `${star.rotate}deg`,
             }}
             animate={{
               left: ['0%', '120%'],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: Math.random() * 2 + 1.5,
+              duration: star.duration,
               repeat: Infinity,
-              repeatDelay: Math.random() * 15 + 10,
-              delay: Math.random() * 5,
+              repeatDelay: star.repeatDelay,
+              delay: star.delay,
             }}
           />
         ))}
@@ -539,7 +604,7 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <span className="opacity-80">© {new Date().getFullYear()}</span>{' '}
+            <span className="opacity-80">© {year ?? ''}</span>{' '}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-500 font-medium">
               ALIATISH
             </span>

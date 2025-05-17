@@ -329,7 +329,6 @@ const FAQItem = ({ faq, index, isOpen, toggleOpen }: {
 };
 
 export default function PricingPage() {
-  const [monthly, setMonthly] = useState(true);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   
   const toggleFAQ = (index: number) => {
@@ -451,7 +450,7 @@ export default function PricingPage() {
             
             <div className="mt-12 text-center">
               <p className="text-neutral/70 mb-4">
-                Still have questions? We're here to help.
+                Still have questions? We&apos;re always happy to help. If you can&apos;t find what you&apos;re looking for, please contact us directly.
               </p>
               <Link
                 href="/contact"

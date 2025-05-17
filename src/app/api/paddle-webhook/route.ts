@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import crypto from 'crypto';
 import { Pool } from 'pg';
 import { v4 as uuidv4 } from 'uuid';
+import phpSerialize from 'php-serialize';
 
 // TODO: Replace with your Paddle webhook secret for signature verification
 const PADDLE_WEBHOOK_SECRET = process.env.PADDLE_WEBHOOK_SECRET || 'YOUR_PADDLE_WEBHOOK_SECRET';
@@ -25,22 +26,6 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
-
-function verifyPaddleSignature(event: Record<string, any>, secret: string): boolean {
-  // Paddle sends a p_signature field which is a base64-encoded signature
-  // Remove p_signature from the event and sort the fields alphabetically
-  const { p_signature, ...fields } = event;
-  const sorted = Object.keys(fields).sort().reduce((acc, key) => {
-    acc[key] = fields[key];
-    return acc;
-  }, {} as Record<string, any>);
-  // Serialize to PHP-style string
-  const serialized = Buffer.from(require('php-serialize').serialize(sorted));
-  // Verify signature
-  const verifier = crypto.createVerify('sha1');
-  verifier.update(serialized);
-  return verifier.verify(secret, Buffer.from(p_signature, 'base64'));
-}
 
 function generateDownloadToken(orderId: string, productSlug: string): string {
   // Simple HMAC-based token (add expiry if needed)
@@ -66,13 +51,13 @@ export async function POST(req: NextRequest) {
     // Parse passthrough
     let passthrough = {};
     try {
-      passthrough = JSON.parse(event.passthrough || '{}');
+      passthrough = JSON.parse(typeof event.passthrough === 'string' ? event.passthrough : '{}');
     } catch {}
     const { productSlug, userEmail } = passthrough as { productSlug: string, userEmail: string };
-    const orderId = event.order_id || event.subscription_id || 'unknown';
+    const orderId = typeof event.order_id === 'string' ? event.order_id : (typeof event.subscription_id === 'string' ? event.subscription_id : 'unknown');
     const downloadToken = generateDownloadToken(orderId, productSlug);
     const downloadUrl = `${DOWNLOAD_BASE_URL}/${orderId}?token=${downloadToken}`;
-    const fileUrl = PRODUCT_FILES[productSlug] || 'https://yourdomain.com/files/default.zip';
+    // const fileUrl = PRODUCT_FILES[productSlug] || 'https://yourdomain.com/files/default.zip';
 
     // License key generation
     let licenseKey = null;

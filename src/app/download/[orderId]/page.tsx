@@ -9,7 +9,7 @@ const pool = new Pool({
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 });
 
-export default async function DownloadPage({ params, searchParams }: any) {
+export default async function DownloadPage({ params, searchParams }: { params: { orderId: string }, searchParams: Record<string, string> }) {
   const { orderId } = params;
   const token = searchParams?.token;
   if (!orderId || !token) return notFound();
@@ -22,7 +22,7 @@ export default async function DownloadPage({ params, searchParams }: any) {
       [orderId, token, 'paid']
     );
     order = rows[0];
-  } catch (err) {
+  } catch {
     return notFound();
   }
   if (!order) return notFound();

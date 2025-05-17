@@ -314,7 +314,7 @@ export default function FAQPage() {
                 <div className="p-12 text-center">
                   <h3 className="text-xl font-bold mb-2">No FAQs found</h3>
                   <p className="text-neutral/60">
-                    We don't have any FAQs for this category yet. Please check other categories or contact us directly.
+                    We don&apos;t have any FAQs for this category yet. Please check other categories or contact us directly.
                   </p>
                 </div>
               )}

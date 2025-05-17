@@ -5,8 +5,19 @@ import Image from "next/image";
 // Project types and categories
 const projectCategories = ["Web Apps", "Mobile", "AI Integration", "Blockchain"];
 
+// Define the Project type
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  color: string;
+}
+
 // Sample project data
-const projects = [
+const projects: Project[] = [
   {
     id: 1,
     title: "Stellar Dashboard",
@@ -28,10 +39,23 @@ const projects = [
   // More projects...
 ];
 
+// Utility to generate random particle data
+function generateParticles(count: number) {
+  return Array.from({ length: count }).map(() => ({
+    top: Math.random() * 100,
+    left: Math.random() * 100,
+    width: Math.random() * 3 + 1,
+    height: Math.random() * 3 + 1,
+    opacity: Math.random() * 0.5,
+    duration: Math.random() * 5 + 5,
+  }));
+}
+
 const PortfolioSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [activeProject, setActiveProject] = useState(null);
-  const projectRefs = useRef([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [particles, setParticles] = useState<any[]>([]);
   
   // Filter projects by category
   const filteredProjects = selectedCategory === "All" 
@@ -73,7 +97,7 @@ const PortfolioSection = () => {
   useEffect(() => {
     if (!projectRefs.current.length) return;
     
-    let frameId;
+    let frameId: number;
     let time = 0;
     
     const animate = () => {
@@ -86,7 +110,7 @@ const PortfolioSection = () => {
         const wobbleX = Math.sin(time * (2 + i * 0.5)) * 5;
         const wobbleY = Math.cos(time * (2 + i * 0.5)) * 5;
         
-        ref.style.transform = `translate(${wobbleX}px, ${wobbleY}px)`;
+        (ref as HTMLDivElement).style.transform = `translate(${wobbleX}px, ${wobbleY}px)`;
       });
       
       frameId = requestAnimationFrame(animate);
@@ -96,27 +120,31 @@ const PortfolioSection = () => {
     return () => cancelAnimationFrame(frameId);
   }, [filteredProjects]);
   
+  useEffect(() => {
+    setParticles(generateParticles(150));
+  }, []);
+  
   return (
     <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#0d0a25] to-[#1a0e35]">
       {/* Cosmic dust and particles background */}
       <div className="absolute inset-0 z-0">  
-        {Array.from({ length: 150 }).map((_, i) => (
+        {particles.map((particle, i) => (
           <motion.div
             key={`particle-${i}`}
             className="absolute rounded-full bg-white/20"
             initial={{ 
-              top: `${Math.random() * 100}%`, 
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 3 + 1}px`,
-              height: `${Math.random() * 3 + 1}px`,
-              opacity: Math.random() * 0.5
+              top: `${particle.top}%`, 
+              left: `${particle.left}%`,
+              width: `${particle.width}px`,
+              height: `${particle.height}px`,
+              opacity: particle.opacity
             }}
             animate={{
               opacity: [0.1, 0.5, 0.1],
               scale: [1, 1.5, 1]
             }}
             transition={{
-              duration: Math.random() * 5 + 5,
+              duration: particle.duration,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -216,7 +244,7 @@ const PortfolioSection = () => {
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
-              ref={el => projectRefs.current[index] = el}
+              ref={(el: HTMLDivElement | null) => { projectRefs.current[index] = el; }}
               className="relative group"
               variants={projectVariants}
               whileHover="hover"
@@ -233,7 +261,7 @@ const PortfolioSection = () => {
                         src={project.image}
                         alt={project.title}
                         fill
-                        objectFit="cover"
+                        style={{ objectFit: 'cover' }}
                         className="group-hover:scale-110 transition-transform duration-700"
                       />
                     </div>
@@ -308,7 +336,12 @@ const PortfolioSection = () => {
 };
 
 // Helper components
-const CategoryButton = ({ children, active, onClick }) => (
+interface CategoryButtonProps {
+  children: React.ReactNode;
+  active: boolean;
+  onClick: () => void;
+}
+const CategoryButton = ({ children, active, onClick }: CategoryButtonProps) => (
   <motion.button
     onClick={onClick}
     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -323,7 +356,11 @@ const CategoryButton = ({ children, active, onClick }) => (
   </motion.button>
 );
 
-const ProjectModal = ({ project, onClose }) => {
+interface ProjectModalProps {
+  project: Project;
+  onClose: () => void;
+}
+const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -346,7 +383,7 @@ const ProjectModal = ({ project, onClose }) => {
             src={project.image}
             alt={project.title}
             fill
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0b2a] to-transparent"></div>
           

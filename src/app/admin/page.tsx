@@ -50,7 +50,7 @@ export default function DashboardPage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
-        <p className="text-gray-500">Welcome to your admin dashboard. Here's an overview of your business.</p>
+        <p className="text-gray-500">Welcome to your admin dashboard. Here&apos;s an overview of your business.</p>
       </div>
       
       {/* Stats cards */}

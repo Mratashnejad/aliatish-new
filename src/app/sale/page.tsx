@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import NavBar from '@/components/ui/NavBar';
 import Footer from '@/components/ui/Footer';
+import Image from 'next/image';
 
 const products = [
   {
@@ -77,7 +78,7 @@ export default function SalePage() {
             {products.map((product, idx) => (
               <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col">
                 <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-primary/10 flex items-center justify-center">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                  <Image src={product.image} alt={product.name} className="w-full h-full object-cover" width={192} height={192} />
                 </div>
                 <h2 className="text-2xl font-bold mb-2">{product.name}</h2>
                 <p className="text-neutral/70 mb-4">{product.description}</p>

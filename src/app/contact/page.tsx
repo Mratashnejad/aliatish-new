@@ -77,7 +77,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Let's <span className="text-primary">Connect</span>
+              Let&apos;s <span className="text-primary">Connect</span>
             </motion.h1>
             
             <motion.p 
@@ -86,8 +86,8 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              Have a project in mind? We'd love to hear from you. 
-              Fill out the form below and we'll get back to you as soon as possible.
+              Have a project in mind? We&apos;d love to hear from you. 
+              Fill out the form below and we&apos;ll get back to you as soon as possible.
             </motion.p>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     </svg>
                     <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
                     <p className="text-neutral/80">
-                      Thank you for contacting us. We'll get back to you as soon as possible.
+                      Thank you for contacting us. We&apos;ll get back to you as soon as possible.
                     </p>
                   </div>
                 ) : (

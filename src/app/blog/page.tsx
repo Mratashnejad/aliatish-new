@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
 import Link from 'next/link';
 import NavBar from '@/components/ui/NavBar';
 import Footer from '@/components/ui/Footer';
@@ -362,7 +361,7 @@ export default function BlogPage() {
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-12 text-center">
               <h3 className="text-xl font-bold mb-2">No articles found</h3>
               <p className="text-neutral/60">
-                Try changing your search terms or filters to find what you're looking for.
+                Try changing your search terms or filters to find what you&apos;re looking for.
               </p>
               <button
                 onClick={() => {

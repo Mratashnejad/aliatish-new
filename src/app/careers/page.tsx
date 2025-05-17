@@ -419,7 +419,7 @@ export default function CareersPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              We're building a team of passionate individuals who are excited about creating
+              We&apos;re building a team of passionate individuals who are excited about creating
               exceptional digital experiences. Explore our open positions and find your next
               career opportunity.
             </motion.p>
@@ -451,8 +451,8 @@ export default function CareersPage() {
               Life at ALIATISH
             </h2>
             <p className="text-lg text-neutral/80">
-              We're building a culture where innovation thrives, people feel valued, and
-              meaningful work gets done. Here's what makes our team special.
+              We&apos;re building a culture where innovation thrives, people feel valued, and
+              meaningful work gets done. Here&apos;s what makes our team special.
             </p>
           </div>
           
@@ -568,7 +568,7 @@ export default function CareersPage() {
           
           <div className="mt-12 text-center">
             <p className="text-neutral/70 mb-4">
-              Don't see a position that matches your skills?
+              Don&apos;t see a position that matches your skills?
             </p>
             <Link
               href="/contact"
@@ -590,8 +590,8 @@ export default function CareersPage() {
           </div>
           
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12">
-            <blockquote className="text-lg md:text-xl italic text-center mb-8">
-              "Joining ALIATISH was one of the best career decisions I've made. The collaborative culture, challenging projects, and focus on personal growth have made this a truly rewarding experience. I've been able to work with cutting-edge technologies while having the flexibility to maintain a healthy work-life balance."
+            <blockquote className="pl-6 italic text-indigo-200 border-l-2 border-indigo-500/50">
+              "Joining ALIATISH was one of the best career decisions I&apos;ve made. The collaborative culture, challenging projects, and focus on personal growth have made this a truly rewarding experience. I&apos;ve been able to work with cutting-edge technologies while having the flexibility to maintain a healthy work-life balance."
             </blockquote>
             
             <div className="flex items-center justify-center">
@@ -616,7 +616,7 @@ export default function CareersPage() {
             </h2>
             <p className="text-lg text-neutral/80 mb-10">
               Explore our open positions and take the next step in your career journey.
-              We're excited to hear from you!
+              We&apos;re excited to hear from you!
             </p>
             <Link 
               href="#open-positions"

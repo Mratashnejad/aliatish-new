@@ -103,6 +103,40 @@ const OrbitalPath = ({ radius, opacity = 0.1, duration = 20 }: { radius: number;
   />
 );
 
+// Use a seeded random function to ensure consistency between server and client
+function createSeededRandom(seed = 1) {
+  return function() {
+    seed = (seed * 16807) % 2147483647;
+    return seed / 2147483647;
+  };
+}
+
+// Create initial empty states
+const INITIAL_PARTICLES: any[] = [];
+const INITIAL_CARD_PARTICLES: any[] = [];
+const INITIAL_PREVIEW_STARS: any[] = [];
+
+function generateStarsData(count: number, colorFn?: (i: number) => string) {
+  return Array.from({ length: count }).map((_, i) => ({
+    top: Math.random() * 100,
+    left: Math.random() * 100,
+    delay: Math.random() * 5,
+    size: Math.random() * 2 + 1,
+    color: colorFn ? colorFn(i) : (Math.random() > 0.7 ? "bg-white" : "bg-white/70"),
+  }));
+}
+
+function generateParticlesData(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    y: getRandom() > 0.5 ? -40 : 40,
+    x: getRandom() > 0.5 ? -40 : 40,
+    duration: getRandom() * 3 + 2,
+    repeatDelay: getRandom() * 2,
+  }));
+}
+
 // Animated star component for background
 const Star = ({ delay = 0, size = 1.5, top, left, color = "bg-white" }: { 
   delay?: number; size?: number; top: string; left: string; color?: string 
@@ -120,13 +154,26 @@ const Star = ({ delay = 0, size = 1.5, top, left, color = "bg-white" }: {
       scale: [1, 1.2, 1],
     }}
     transition={{
-      duration: Math.random() * 3 + 2,
+      duration: 5,
       repeat: Infinity,
       repeatType: 'reverse',
       delay,
     }}
   />
 );
+
+function generateCardParticles(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    width: getRandom() * 4 + 2,
+    height: getRandom() * 4 + 2,
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    blur: 1,
+    y: -getRandom() * 10 - 5,
+    duration: getRandom() * 2 + 3,
+    delay: getRandom() * 2,
+  }));
+}
 
 // Cosmic service card with orbital animations
 const CosmicServiceCard = ({ 
@@ -146,6 +193,7 @@ const CosmicServiceCard = ({
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [localPosition, setLocalPosition] = useState({ x: 0, y: 0 });
+  const [particles, setParticles] = useState<any[]>([]);
 
   // Calculate parallax effect based on mouse position
   useEffect(() => {
@@ -161,6 +209,11 @@ const CosmicServiceCard = ({
     setLocalPosition({ x: deltaX * (index % 2 === 0 ? 1 : -0.7), y: deltaY * (index % 2 === 0 ? 0.7 : -1) });
   }, [mousePosition, index]);
 
+  useEffect(() => {
+    const seededRandom = createSeededRandom(24);
+    setParticles(generateCardParticles(8, seededRandom));
+  }, []);
+
   return (
     <motion.div
       ref={cardRef}
@@ -169,7 +222,6 @@ const CosmicServiceCard = ({
         opacity: 1, 
         y: 0,
         x: localPosition.x,
-        y: localPosition.y,
       }}
       transition={{ 
         duration: 0.6, 
@@ -188,25 +240,25 @@ const CosmicServiceCard = ({
       {/* Orbital animated background */}
       <div className={`absolute inset-0 bg-gradient-to-br ${service.color} backdrop-blur-sm opacity-${isActive ? '30' : '10'}`}>
         {/* Cosmic dust particles */}
-        {Array.from({ length: 8 }).map((_, i) => (
+        {particles.map((particle, i) => (
           <motion.div
             key={`dust-${i}`}
             className="absolute rounded-full bg-white/20"
             style={{
-              width: Math.random() * 4 + 2,
-              height: Math.random() * 4 + 2,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              filter: 'blur(1px)',
+              width: particle.width,
+              height: particle.height,
+              top: `${particle.top}%`,
+              left: `${particle.left}%`,
+              filter: `blur(${particle.blur}px)`,
             }}
             animate={{
-              y: [0, -Math.random() * 10 - 5],
+              y: [0, particle.y],
               opacity: [0, 0.4, 0],
             }}
             transition={{
-              duration: Math.random() * 2 + 3,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: particle.delay,
             }}
           />
         ))}
@@ -288,6 +340,8 @@ const CosmicFeatureList = ({ features }: { features: string[] }) => {
 const CosmicServicePreview = ({ service, isActive }: { service: Service; isActive: boolean }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [previewStars, setPreviewStars] = useState<any[]>([]);
+  const [previewParticles, setPreviewParticles] = useState<any[]>([]);
   
   useEffect(() => {
     const container = containerRef.current;
@@ -302,6 +356,12 @@ const CosmicServicePreview = ({ service, isActive }: { service: Service; isActiv
     
     container.addEventListener('mousemove', handleMouseMove);
     return () => container.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+  
+  useEffect(() => {
+    const seededRandom = createSeededRandom(36);
+    setPreviewStars(generatePreviewStars(20, seededRandom));
+    setPreviewParticles(generatePreviewParticles(12, seededRandom));
   }, []);
   
   return (
@@ -321,14 +381,14 @@ const CosmicServicePreview = ({ service, isActive }: { service: Service; isActiv
         <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center overflow-hidden`}>
           {/* Star field background */}
           <div className="absolute inset-0">
-            {Array.from({ length: 20 }).map((_, i) => (
+            {previewStars.map((star, i) => (
               <Star
                 key={i}
-                top={`${Math.random() * 100}%`}
-                left={`${Math.random() * 100}%`}
-                delay={Math.random() * 5}
-                size={Math.random() * 2 + 1}
-                color={Math.random() > 0.7 ? "bg-white" : "bg-white/70"}
+                top={`${star.top}%`}
+                left={`${star.left}%`}
+                delay={star.delay}
+                size={star.size}
+                color={star.color}
               />
             ))}
           </div>
@@ -359,24 +419,24 @@ const CosmicServicePreview = ({ service, isActive }: { service: Service; isActiv
           ))}
           
           {/* Cosmic dust particles */}
-          {Array.from({ length: 12 }).map((_, i) => (
+          {previewParticles.map((particle, i) => (
             <motion.div
               key={`particle-${i}`}
               className="absolute w-1 h-1 rounded-full bg-white/80"
               style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
+                top: `${particle.top}%`,
+                left: `${particle.left}%`,
               }}
               animate={{
-                y: [0, Math.random() > 0.5 ? -40 : 40],
-                x: [0, Math.random() > 0.5 ? -40 : 40],
+                y: [0, particle.y],
+                x: [0, particle.x],
                 opacity: [0, 0.8, 0],
                 scale: [0, 1, 0],
               }}
               transition={{
-                duration: Math.random() * 3 + 2,
+                duration: particle.duration,
                 repeat: Infinity,
-                repeatDelay: Math.random() * 2,
+                repeatDelay: particle.repeatDelay,
               }}
             />
           ))}
@@ -390,6 +450,27 @@ const CosmicServicePreview = ({ service, isActive }: { service: Service; isActiv
     </div>
   );
 };
+
+function generatePreviewStars(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    delay: getRandom() * 5,
+    size: getRandom() * 2 + 1,
+    color: getRandom() > 0.7 ? "bg-white" : "bg-white/70",
+  }));
+}
+
+function generatePreviewParticles(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    y: getRandom() > 0.5 ? -40 : 40,
+    x: getRandom() > 0.5 ? -40 : 40,
+    duration: getRandom() * 3 + 2,
+    repeatDelay: getRandom() * 2,
+  }));
+}
 
 export default function ServicesSection() {
   const [activeService, setActiveService] = useState<number>(1);
@@ -411,6 +492,16 @@ export default function ServicesSection() {
     threshold: 0.2,
   });
 
+  const [bgStars, setBgStars] = useState<any[]>([]);
+  const [bgParticles, setBgParticles] = useState<any[]>([]);
+  const [sectionStars, setSectionStars] = useState<any[]>([]);
+  useEffect(() => {
+    const seededRandom = createSeededRandom(42);
+    setBgStars(generateStarsData(40, (i) => seededRandom() > 0.8 ? "bg-indigo-300" : "bg-white/50"));
+    setBgParticles(generateParticlesData(12, seededRandom));
+    setSectionStars(generateStarsData(30, (i) => seededRandom() > 0.8 ? "bg-indigo-300" : "bg-white/50"));
+  }, []);
+
   return (
     <section 
       className="relative overflow-hidden py-24 lg:py-32" 
@@ -427,14 +518,14 @@ export default function ServicesSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#080b20] via-[#0d0a25] to-[#1a0e35] z-0">
         {/* Star field background */}
         <div className="absolute inset-0">
-          {Array.from({ length: 150 }).map((_, i) => (
+          {bgStars.map((star, i) => (
             <Star
               key={i}
-              top={`${Math.random() * 100}%`}
-              left={`${Math.random() * 100}%`}
-              delay={Math.random() * 5}
-              size={Math.random() * 2 + 0.5}
-              color={i % 15 === 0 ? "bg-indigo-300" : i % 20 === 0 ? "bg-purple-300" : "bg-white"}
+              top={`${star.top}%`}
+              left={`${star.left}%`}
+              delay={star.delay}
+              size={star.size}
+              color={star.color}
             />
           ))}
         </div>
@@ -527,24 +618,14 @@ export default function ServicesSection() {
                     <div className="p-8 relative">
                       {/* Background cosmos effect */}
                       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                        {Array.from({ length: 8 }).map((_, i) => (
-                          <motion.div
-                            key={`star-${i}`}
-                            className="absolute rounded-full bg-white/10"
-                            style={{
-                              width: Math.random() * 2 + 1,
-                              height: Math.random() * 2 + 1,
-                              top: `${Math.random() * 100}%`,
-                              left: `${Math.random() * 100}%`,
-                            }}
-                            animate={{
-                              opacity: [0.3, 0.8, 0.3],
-                              scale: [1, 1.5, 1],
-                            }}
-                            transition={{
-                              duration: Math.random() * 2 + 3,
-                              repeat: Infinity,
-                            }}
+                        {sectionStars.map((star, i) => (
+                          <Star
+                            key={i}
+                            top={`${star.top}%`}
+                            left={`${star.left}%`}
+                            delay={star.delay}
+                            size={star.size}
+                            color={star.color}
                           />
                         ))}
                       </div>
@@ -636,14 +717,14 @@ export default function ServicesSection() {
           
           {/* Star field */}
           <div className="absolute inset-0 overflow-hidden">
-            {Array.from({ length: 30 }).map((_, i) => (
+            {sectionStars.map((star, i) => (
               <Star
                 key={i}
-                top={`${Math.random() * 100}%`}
-                left={`${Math.random() * 100}%`}
-                delay={Math.random() * 5}
-                size={Math.random() * 1.5 + 0.5}
-                color={Math.random() > 0.8 ? "bg-indigo-300" : "bg-white/50"}
+                top={`${star.top}%`}
+                left={`${star.left}%`}
+                delay={star.delay}
+                size={star.size}
+                color={star.color}
               />
             ))}
           </div>

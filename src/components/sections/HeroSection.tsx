@@ -16,20 +16,108 @@ interface TechNode {
   celestialType?: string;
 }
 
+// Types for star and nebula
+type Star = {
+  color: string;
+  size: number;
+  top: number;
+  left: number;
+  opacity: number;
+  animation: string;
+  animationDelay: string;
+};
+type Nebula = {
+  top: number;
+  left: number;
+  width: number;
+  height: number;
+};
+
+// New type for uniform cosmic elements
+type UniformElement = {
+  angle: number;
+  orbitalDistance: number;
+};
+
+// Use a seeded random function to ensure consistency between server and client
+function createSeededRandom(seed = 1) {
+  return function() {
+    seed = (seed * 16807) % 2147483647;
+    return seed / 2147483647;
+  };
+}
+
+// Create initial empty states
+const INITIAL_STARS: Star[] = [];
+const INITIAL_NEBULAE: Nebula[] = [];
+const INITIAL_ELEMENTS: UniformElement[] = [];
+
+// Utility to generate random star and nebula data
+function generateStarsData(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => {
+    const starColors = [
+      "bg-white",
+      "bg-blue-100",
+      "bg-yellow-100",
+      "bg-amber-200",
+      "bg-red-200"
+    ];
+    return {
+      color: starColors[Math.floor(getRandom() * starColors.length)],
+      size: getRandom() > 0.97 ? getRandom() * 3 + 1 : Math.max(0.8, getRandom() * 2),
+      top: getRandom() * 100,
+      left: getRandom() * 100,
+      opacity: getRandom() * 0.8 + 0.2,
+      animation: `twinkle ${getRandom() * 5 + 5}s ease-in-out infinite`,
+      animationDelay: `${getRandom() * 5}s`
+    };
+  });
+}
+
+function generateNebulaeData(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    width: getRandom() * 200 + 100,
+    height: getRandom() * 200 + 100
+  }));
+}
+
+// New function to generate uniform cosmic elements data
+function generateUniformElements(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    angle: getRandom() * 360, // Random starting angle
+    orbitalDistance: getRandom() * 100 + 400 // All outside main system
+  }));
+}
+
 // Hero component with cosmic technology ecosystem
 const EnhancedHero = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const [stars, setStars] = useState<Star[]>(INITIAL_STARS);
+  const [nebulae, setNebulae] = useState<Nebula[]>(INITIAL_NEBULAE);
+  // New state for uniform cosmic elements
+  const [uniformElements, setUniformElements] = useState<UniformElement[]>(INITIAL_ELEMENTS);
 
   // Handle scroll for parallax effects
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      // setScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    // Only generate random data on client-side
+    // Use consistent seed to ensure consistent rendering
+    const seededRandom = createSeededRandom(42);
+    setStars(generateStarsData(120, seededRandom));
+    setNebulae(generateNebulaeData(3, seededRandom));
+    // Generate our new uniform elements
+    setUniformElements(generateUniformElements(24, seededRandom));
   }, []);
 
   // Text animation variants
@@ -75,7 +163,7 @@ const EnhancedHero = () => {
         celestialType: "rocky planet"
       },
       { 
-        name: "React", 
+        name: "Next.js", 
         radius: 130, 
         angle: 45, 
         size: "w-12 h-12", 
@@ -309,46 +397,34 @@ const EnhancedHero = () => {
       
       {/* Starfield background with more realistic star colors */}
       <div className="absolute inset-0 z-0">
-        {Array.from({ length: 250 }).map((_, i) => {
-          // Realistic star colors: white, blue-white, yellow, orange, red
-          const starColors = [
-            "bg-white", 
-            "bg-blue-100", 
-            "bg-yellow-100", 
-            "bg-amber-200", 
-            "bg-red-200"
-          ];
-          const starColor = starColors[Math.floor(Math.random() * starColors.length)];
-          const starSize = Math.random() > 0.97 ? Math.random() * 3 + 1 : Math.max(0.8, Math.random() * 2);
-          return (
-            <div
-              key={i}
-              className={`absolute rounded-full ${starColor}`}
-              style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                width: `${starSize}px`,
-                height: `${starSize}px`,
-                opacity: Math.random() * 0.8 + 0.2,
-                animation: `twinkle ${Math.random() * 5 + 5}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            />
-          );
-        })}
+        {stars.map((star, i) => (
+          <div
+            key={i}
+            className={`absolute rounded-full ${star.color}`}
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              opacity: star.opacity,
+              animation: star.animation,
+              animationDelay: star.animationDelay,
+            }}
+          />
+        ))}
         
         {/* Cosmic dust and nebula effect */}
-        {Array.from({ length: 5 }).map((_, i) => (
+        {nebulae.map((nebula, i) => (
           <div
             key={`nebula-${i}`}
             className="absolute rounded-full bg-purple-900/10"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 200 + 100}px`,
-              height: `${Math.random() * 200 + 100}px`,
+              top: `${nebula.top}%`,
+              left: `${nebula.left}%`,
+              width: `${nebula.width}px`,
+              height: `${nebula.height}px`,
               filter: "blur(40px)",
-              opacity: 0.1,
+              opacity: 0.1
             }}
           />
         ))}

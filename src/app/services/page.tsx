@@ -3,7 +3,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
-import Image from 'next/image';
 import NavBar from '@/components/ui/NavBar';
 import Footer from '@/components/ui/Footer';
 import ServicesSection from '@/components/sections/ServicesSection';

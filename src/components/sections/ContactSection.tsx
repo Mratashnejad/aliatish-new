@@ -16,6 +16,49 @@ const contactFormSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
+// Use a seeded random function to ensure consistency between server and client
+function createSeededRandom(seed = 1) {
+  return function() {
+    seed = (seed * 16807) % 2147483647;
+    return seed / 2147483647;
+  };
+}
+
+// Create initial empty states for all random arrays
+const INITIAL_STARS: any[] = [];
+const INITIAL_METEORS: any[] = [];
+const INITIAL_PARTICLES: any[] = [];
+
+// Utility to generate random star and meteor data
+function generateStarsData(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    delay: getRandom() * 5,
+    size: getRandom() * 2 + 1,
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    color: getRandom() > 0.7 ? "purple-400" : "white"
+  }));
+}
+
+function generateMeteorsData(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    angle: getRandom() * 30 - 15,
+    width: getRandom() * 100 + 50,
+    top: getRandom() * 50,
+    duration: getRandom() * 1.5 + 0.5,
+    repeatDelay: getRandom() * 20,
+  }));
+}
+
+function generateParticlesData(count: number, getRandom: () => number) {
+  return Array.from({ length: count }).map(() => ({
+    top: getRandom() * 100,
+    left: getRandom() * 100,
+    duration: getRandom() * 2 + 1,
+    repeatDelay: getRandom(),
+  }));
+}
+
 // Animated cosmic star component
 const CosmicStar = ({ delay = 0, size = 2, top, left, color = "white" }: 
   { delay?: number; size?: number; top: string; left: string; color?: string }) => (
@@ -32,7 +75,7 @@ const CosmicStar = ({ delay = 0, size = 2, top, left, color = "white" }:
       scale: [1, 1.5, 1],
     }}
     transition={{
-      duration: Math.random() * 3 + 2,
+      duration: 3,
       repeat: Infinity,
       repeatType: 'reverse',
       delay,
@@ -41,32 +84,28 @@ const CosmicStar = ({ delay = 0, size = 2, top, left, color = "white" }:
 );
 
 // Animated meteor component
-const Meteor = ({ delay = 0 }: { delay?: number }) => {
-  const angle = Math.random() * 30 - 15; // -15 to 15 degrees
-  
-  return (
-    <motion.div
-      className="absolute h-px bg-gradient-to-r from-transparent via-white to-transparent z-0"
-      style={{
-        width: Math.random() * 100 + 50,
-        top: `${Math.random() * 50}%`,
-        left: '-100px',
-        rotate: `${angle}deg`,
-        transformOrigin: 'center',
-        opacity: 0,
-      }}
-      animate={{
-        left: ['0%', '120%'],
-        opacity: [0, 1, 0],
-      }}
-      transition={{
-        duration: Math.random() * 1.5 + 0.5,
-        repeat: Infinity,
-        repeatDelay: Math.random() * 20 + delay,
-      }}
-    />
-  );
-};
+const Meteor = ({ angle = 0, width = 100, top = 0, duration = 1, repeatDelay = 0 }: { angle?: number; width?: number; top?: number; duration?: number; repeatDelay?: number }) => (
+  <motion.div
+    className="absolute h-px bg-gradient-to-r from-transparent via-white to-transparent z-0"
+    style={{
+      width,
+      top: `${top}%`,
+      left: '-100px',
+      rotate: `${angle}deg`,
+      transformOrigin: 'center',
+      opacity: 0,
+    }}
+    animate={{
+      left: ['0%', '120%'],
+      opacity: [0, 1, 0],
+    }}
+    transition={{
+      duration,
+      repeat: Infinity,
+      repeatDelay,
+    }}
+  />
+);
 
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -75,23 +114,23 @@ export default function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
   
   // Mouse parallax effect for background elements
-  // useEffect(() => {
-  //   const handleMouseMove = (e: MouseEvent) => {
-  //     if (!sectionRef.current) return;
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!sectionRef.current) return;
       
-  //     const rect = sectionRef.current.getBoundingClientRect();
-  //     const x = e.clientX - rect.left;
-  //     const y = e.clientY - rect.top;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
       
-  //     setMousePosition({ x, y });
-  //   };
+      setMousePosition({ x, y });
+    };
     
-  //   const section = sectionRef.current;
-  //   if (section) {
-  //     section.addEventListener('mousemove', handleMouseMove);
-  //     return () => section.removeEventListener('mousemove', handleMouseMove);
-  //   }
-  // }, []);
+    const section = sectionRef.current;
+    if (section) {
+      section.addEventListener('mousemove', handleMouseMove);
+      return () => section.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, []);
   
   const {
     register,
@@ -109,6 +148,7 @@ export default function ContactSection() {
 
   const controls = useAnimation();
 
+  // Add this effect to start animations when section is in view
   useEffect(() => {
     if (inView) {
       controls.start('visible');
@@ -181,21 +221,16 @@ export default function ContactSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#080b20] via-[#0d0a25] to-[#1a0e35] z-0">
         {/* Starfield */}
         <div className="absolute inset-0 overflow-hidden">
-          {Array.from({ length: 100 }).map((_, i) => {
-            const size = Math.random() * 2;
-            const color = i % 10 === 0 ? "indigo-300" : i % 8 === 0 ? "purple-300" : "white";
-            
-            return (
-              <CosmicStar
-                key={i}
-                top={`${Math.random() * 100}%`}
-                left={`${Math.random() * 100}%`}
-                delay={Math.random() * 5}
-                size={size}
-                color={color}
-              />
-            );
-          })}
+          {generateStarsData(50, createSeededRandom()).map((star, i) => (
+            <CosmicStar
+              key={i}
+              top={`${star.top}%`}
+              left={`${star.left}%`}
+              delay={star.delay}
+              size={star.size}
+              color={star.color}
+            />
+          ))}
         </div>
         
         {/* Cosmic nebulae */}
@@ -217,8 +252,8 @@ export default function ContactSection() {
         />
         
         {/* Meteor shower */}
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Meteor key={i} delay={i * 2} />
+        {generateMeteorsData(8, createSeededRandom()).map((meteor, i) => (
+          <Meteor key={i} angle={meteor.angle} width={meteor.width} top={meteor.top} duration={meteor.duration} repeatDelay={meteor.repeatDelay} />
         ))}
       </div>
       
@@ -242,7 +277,7 @@ export default function ContactSection() {
             </motion.div>
             
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-5">
-              Let's Explore The <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-500">Galaxy</span> Together
+              Let&apos;s <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-500">Connect</span>
             </h2>
             
             <motion.p 
@@ -430,22 +465,22 @@ export default function ContactSection() {
                   >
                     {/* Success message with cosmic particles */}
                     <div className="absolute inset-0 overflow-hidden">
-                      {Array.from({ length: 20 }).map((_, i) => (
+                      {generateParticlesData(30, createSeededRandom()).map((particle, i) => (
                         <motion.div
                           key={i}
                           className="absolute w-1 h-1 rounded-full bg-green-400"
                           style={{
-                            top: `${Math.random() * 100}%`,
-                            left: `${Math.random() * 100}%`,
+                            top: `${particle.top}%`,
+                            left: `${particle.left}%`,
                           }}
                           animate={{
                             y: [0, -10],
                             opacity: [0.6, 0],
                           }}
                           transition={{
-                            duration: Math.random() * 2 + 1,
+                            duration: particle.duration,
                             repeat: Infinity,
-                            repeatDelay: Math.random(),
+                            repeatDelay: particle.repeatDelay,
                           }}
                         />
                       ))}
@@ -519,112 +554,55 @@ export default function ContactSection() {
                         <p className="mt-1 text-red-400 text-xs">{errors.email.message}</p>
                       )}
                     </motion.div>
-                  </div>
-                  
-                  {/* Subject field */}
-                  <motion.div className="mb-6" variants={itemVariants}>
-                    <label htmlFor="subject" className="block text-indigo-300 mb-2 text-sm">
-                      Subject
-                    </label>
-                    <motion.div className="relative group">
-                      <motion.div 
-                        className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"
-                      />
+                    
+                    {/* Subject field */}
+                    <motion.div variants={itemVariants}>
+                      <label htmlFor="subject" className="block text-indigo-300 mb-2 text-sm">
+                        Subject
+                      </label>
                       <motion.input
                         type="text"
                         id="subject"
                         className={`w-full px-4 py-3 bg-black/20 backdrop-blur-sm border ${
                           errors.subject ? 'border-red-500' : 'border-white/10 group-hover:border-indigo-500/50'
                         } rounded-lg focus:outline-none focus:border-indigo-500/50 transition-colors relative`}
-                        placeholder="What's this about?"
+                        placeholder="Subject"
                         whileFocus="focus"
                         variants={inputVariants}
                         {...register('subject')}
                       />
+                      {errors.subject && (
+                        <p className="mt-1 text-red-400 text-xs">{errors.subject.message}</p>
+                      )}
                     </motion.div>
-                    {errors.subject && (
-                      <p className="mt-1 text-red-400 text-xs">{errors.subject.message}</p>
-                    )}
-                  </motion.div>
-                  
-                  {/* Message field */}
-                  <motion.div className="mb-6" variants={itemVariants}>
-                    <label htmlFor="message" className="block text-indigo-300 mb-2 text-sm">
-                      Message
-                    </label>
-                    <motion.div className="relative group">
-                      <motion.div 
-                        className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-indigo-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity blur-sm"
-                      />
+                    
+                    {/* Message field */}
+                    <motion.div variants={itemVariants}>
+                      <label htmlFor="message" className="block text-indigo-300 mb-2 text-sm">
+                        Message
+                      </label>
                       <motion.textarea
                         id="message"
-                        rows={5}
                         className={`w-full px-4 py-3 bg-black/20 backdrop-blur-sm border ${
                           errors.message ? 'border-red-500' : 'border-white/10 group-hover:border-indigo-500/50'
-                        } rounded-lg resize-none focus:outline-none focus:border-indigo-500/50 transition-colors relative`}
-                        placeholder="Share your vision with us..."
+                        } rounded-lg focus:outline-none focus:border-indigo-500/50 transition-colors relative`}
+                        placeholder="Your message"
                         whileFocus="focus"
                         variants={inputVariants}
                         {...register('message')}
                       />
+                      {errors.message && (
+                        <p className="mt-1 text-red-400 text-xs">{errors.message.message}</p>
+                      )}
                     </motion.div>
-                    {errors.message && (
-                      <p className="mt-1 text-red-400 text-xs">{errors.message.message}</p>
-                    )}
-                  </motion.div>
-                  
-                  {/* Submit button */}
-                  <motion.div 
-                    className="text-right"
-                    variants={itemVariants}
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full mt-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-lg hover:from-indigo-600 hover:to-purple-600 transition-colors"
+                    disabled={isSubmitting}
                   >
-                    <motion.button
-                      type="submit"
-                      className="px-8 py-4 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium text-lg hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 relative overflow-hidden"
-                      disabled={isSubmitting}
-                      whileHover={{ 
-                        scale: 1.03, 
-                        boxShadow: '0 20px 25px -5px rgba(99, 102, 241, 0.4), 0 10px 10px -5px rgba(99, 102, 241, 0.2)' 
-                      }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span className="relative z-10 flex items-center justify-center">
-                        {isSubmitting ? (
-                          <>
-                            <motion.div
-                              className="w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                            />
-                            <span>Sending...</span>
-                          </>
-                        ) : (
-                          <>
-                            <span>Launch Message</span>
-                            <motion.span 
-                              className="ml-2"
-                              animate={{ x: [0, 4, 0] }}
-                              transition={{ duration: 1.5, repeat: Infinity }}
-                            >→</motion.span>
-                          </>
-                        )}
-                      </span>
-                      
-                      {/* Button cosmic background animation */}
-                      <motion.div 
-                        className="absolute top-0 left-0 w-full h-full opacity-20"
-                        animate={{ 
-                          background: [
-                            'linear-gradient(90deg, rgba(139, 92, 246, 0) 0%, rgba(139, 92, 246, 0.5) 50%, rgba(139, 92, 246, 0) 100%)',
-                            'linear-gradient(90deg, rgba(139, 92, 246, 0) 100%, rgba(139, 92, 246, 0.5) 50%, rgba(139, 92, 246, 0) 0%)'
-                          ],
-                          backgroundSize: ['200% 100%', '200% 100%'],
-                          backgroundPosition: ['0% center', '200% center']
-                        }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-                      />
-                    </motion.button>
-                  </motion.div>
+                    {isSubmitting ? 'Sending...' : 'Send Transmission'}
+                  </button>
                 </form>
               </motion.div>
             </motion.div>
@@ -633,4 +611,4 @@ export default function ContactSection() {
       </div>
     </section>
   );
-} 
+}

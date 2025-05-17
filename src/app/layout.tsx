@@ -3,6 +3,7 @@ import { Inter, Outfit, Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
 import Script from "next/script";
 import PaddleLoader from '@/components/PaddleLoader';
+import StructuredData from '@/components/StructuredData';
 
 // Inter with variable weight for body text
 const inter = Inter({
@@ -121,35 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning className="antialiased mac-desktop font-chicago min-h-screen overflow-y-auto">
         {children}
         <PaddleLoader />
-        {/* Structured data for rich results */}
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'ALIATISH',
-              url: 'https://aliatish.com',
-              logo: 'https://aliatish.com/logo.png',
-              sameAs: [
-                'https://twitter.com/aliatish',
-                'https://linkedin.com/company/aliatish',
-                'https://github.com/aliatish',
-              ],
-              description: 'Enterprise web development agency specializing in digital experiences',
-              address: {
-                '@type': 'PostalAddress',
-                addressCountry: 'US'
-              },
-              contactPoint: {
-                '@type': 'ContactPoint',
-                contactType: 'customer service',
-                email: 'contact@aliatish.com'
-              }
-            })
-          }}
-        />
+        <StructuredData />
       </body>
     </html>
   );

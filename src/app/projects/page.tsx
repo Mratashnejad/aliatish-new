@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import NavBar from '@/components/ui/NavBar';
 import Footer from '@/components/ui/Footer';
-
+import Image from 'next/image';
 const projects = [
   {
     slug: 'ai-dashboard',
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
             {projects.map((project, idx) => (
               <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 flex flex-col">
                 <div className="w-full h-48 rounded-xl overflow-hidden mb-4 bg-primary/10 flex items-center justify-center">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  <Image src={project.image} alt={project.title} width={400} height={256} className="w-full h-full object-cover" />
                 </div>
                 <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
                 <p className="text-neutral/70 mb-4">{project.description}</p>

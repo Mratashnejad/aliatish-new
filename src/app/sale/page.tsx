@@ -43,14 +43,16 @@ export default function SalePage() {
     if (typeof window !== 'undefined' && window.Paddle) {
       // TODO: If using Paddle Classic, use 'product'. If using Paddle Billing, use 'items' and 'priceId'.
       // Paddle Classic example:
-      window.Paddle.Checkout.open({
-        product: productId,
-        passthrough: JSON.stringify({ productSlug }),
-        successCallback: () => {
-          window.location.href = '/order-success';
-        },
-        closeCallback: () => {},
-      });
+      if (window.Paddle.Checkout) {
+        window.Paddle.Checkout.open({
+          product: productId,
+          passthrough: JSON.stringify({ productSlug }),
+          successCallback: () => {
+            window.location.href = '/order-success';
+          },
+          closeCallback: () => {},
+        });
+      }
       // Paddle Billing example (uncomment if using Billing):
       // window.Paddle.Checkout.open({
       //   items: [{ priceId: productId, quantity: 1 }],

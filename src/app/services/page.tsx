@@ -150,8 +150,8 @@ interface Star {
   top: number;
   left: number;
   size: number;
-  opacity: number;
-  duration: number;
+  delay: number;
+  color: string;
 }
 
 export default function ServicesPage() {
@@ -165,12 +165,17 @@ export default function ServicesPage() {
   
   useEffect(() => {
     // Generate stars for cosmic background
+    const colors = [
+      'rgba(255,255,255,0.8)',
+      'rgba(180,180,255,0.7)',
+      'rgba(200,200,255,0.6)'
+    ];
     setStars(Array.from({ length: 50 }).map(() => ({
       size: Math.random() * 2 + 1,
       top: Math.random() * 100,
       left: Math.random() * 100,
-      opacity: Math.random() * 0.5 + 0.1,
-      animationDuration: Math.random() * 4 + 2
+      delay: Math.random() * 5,
+      color: colors[Math.floor(Math.random() * colors.length)]
     })));
   }, []);
   
@@ -199,16 +204,25 @@ export default function ServicesPage() {
         {/* Cosmic background elements */}
         <div className="absolute inset-0 z-0">
           {stars.map((star, i) => (
-            <div
+            <motion.div
               key={i}
-              className="absolute rounded-full bg-white"
+              className="absolute rounded-full"
               style={{
                 width: `${star.size}px`,
                 height: `${star.size}px`,
                 top: `${star.top}%`,
                 left: `${star.left}%`,
-                opacity: star.opacity,
-                animation: `twinkle ${star.animationDuration}s ease-in-out infinite`
+                background: star.color,
+              }}
+              animate={{
+                opacity: [0.7, 1, 0.7],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 3,
+                delay: star.delay,
+                repeat: Infinity,
+                repeatType: "reverse",
               }}
             />
           ))}
@@ -576,7 +590,8 @@ export default function ServicesPage() {
                 scale: [0, 1, 0]
               }}
               transition={{
-                duration: star.animationDuration,
+                duration: 3,
+                delay: star.delay,
                 repeat: Infinity,
                 repeatDelay: Math.random() * 2
               }}

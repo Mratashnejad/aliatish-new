@@ -17,24 +17,17 @@ interface Star {
 const teamMembers = [
   {
     name: "Ali Atish",
-    role: "Founder & CEO",
+    role: "Founder & CEO/CTO",
     image: "/images/team/ali.jpg",
     bio: "Visionary leader with 10+ years in enterprise web solutions.",
     color: "from-violet-600 to-indigo-600"
   },
   {
     name: "Sogand Akhavan",
-    role: "Co-Founder & Creative Director",
+    role: "Co-Founder & COO/HR Director",
     image: "/images/team/sara.jpg",
-    bio: "Expert in UI/UX and digital branding.",
+    bio: "Expert in HR, operations, and people management.",
     color: "from-pink-500 to-rose-500"
-  },
-  {
-    name: "Marcus Chen",
-    role: "CTO",
-    image: "/images/team/marcus.jpg", 
-    bio: "Technology innovator with expertise in scalable architectures.",
-    color: "from-blue-600 to-cyan-500"
   },
 ];
 
@@ -64,6 +57,61 @@ const values = [
     color: "from-amber-500 to-orange-600"
   }
 ];
+
+// Add TeamMemberCard component before AboutPage
+function getInitials(name: string) {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase();
+}
+
+function svgPlaceholder(name: string) {
+  const initials = getInitials(name);
+  return `data:image/svg+xml;utf8,<svg width='120' height='120' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' fill='%23404' /><text x='50%' y='50%' font-size='48' fill='white' text-anchor='middle' dominant-baseline='central' font-family='Arial, sans-serif'>${initials}</text></svg>`;
+}
+
+function TeamMemberCard({ member }: { member: typeof teamMembers[0] }) {
+  const [imgError, setImgError] = React.useState(false);
+
+  return (
+    <div className="rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-6 relative overflow-hidden">
+      {/* Background gradient hover effect */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+      <div className="flex flex-col items-center text-center">
+        <div className="w-32 h-32 rounded-full mb-6 relative overflow-hidden">
+          <div className={`absolute inset-0 bg-gradient-to-br ${member.color}`}></div>
+          <div className="absolute inset-1 bg-gray-900 rounded-full flex items-center justify-center overflow-hidden">
+            <Image
+              src={
+                imgError
+                  ? svgPlaceholder(member.name)
+                  : member.image
+              }
+              alt={member.name}
+              width={120}
+              height={120}
+              className="object-cover w-full h-full"
+              onError={() => setImgError(true)}
+            />
+          </div>
+          {/* Orbital ring animation */}
+          <motion.div
+            className="absolute w-full h-full rounded-full border border-white/20"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
+        <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
+        <p className={`text-sm bg-clip-text text-transparent bg-gradient-to-r ${member.color} mb-4`}>
+          {member.role}
+        </p>
+        <p className="text-gray-400 text-sm">{member.bio}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function AboutPage() {
   const [stars, setStars] = useState<Star[]>([]);
@@ -317,69 +365,30 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-purple-900/5 -z-10"></div>
         </section>
         
-        {/* Team section */}
+        {/* Founders section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto max-w-6xl">
+          <div className="container mx-auto max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">Meet Our Team</h2>
+              <h2 className="text-3xl font-bold text-white mb-4">Founders</h2>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                The talented individuals behind our innovative solutions and client success stories.
+                Meet the founders behind our vision and leadership.
               </p>
             </motion.div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member.name}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-                  className="relative group"
+                  className="relative group w-full md:w-1/2 max-w-xs"
                 >
-                  <div className="rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-6 relative overflow-hidden">
-                    {/* Background gradient hover effect */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-                    
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-32 h-32 rounded-full mb-6 relative overflow-hidden">
-                        <div className={`absolute inset-0 bg-gradient-to-br ${member.color}`}></div>
-                        <div className="absolute inset-1 bg-gray-900 rounded-full flex items-center justify-center overflow-hidden">
-                          {member.image ? (
-                            <Image 
-                              src={member.image} 
-                              alt={member.name} 
-                              width={120} 
-                              height={120} 
-                              className="object-cover w-full h-full"
-                              onError={(e) => {
-                                e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=404&color=fff&size=128`
-                              }}
-                            />
-                          ) : (
-                            <div className="text-4xl text-white">{member.name.charAt(0)}</div>
-                          )}
-                        </div>
-                        
-                        {/* Orbital ring animation */}
-                        <motion.div
-                          className="absolute w-full h-full rounded-full border border-white/20"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                        />
-                      </div>
-                      
-                      <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                      <p className={`text-sm bg-clip-text text-transparent bg-gradient-to-r ${member.color} mb-4`}>
-                        {member.role}
-                      </p>
-                      <p className="text-gray-400 text-sm">{member.bio}</p>
-                    </div>
-                  </div>
+                  <TeamMemberCard member={member} />
                 </motion.div>
               ))}
             </div>

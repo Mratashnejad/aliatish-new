@@ -70,8 +70,8 @@ const teamMembers = [
 interface Star {
   top: number;
   left: number;
-  delay: number;
   size: number;
+  delay: number;
   color: string;
 }
 
@@ -82,12 +82,17 @@ export default function Company() {
   useEffect(() => {
     // Generate random stars
     const generateStars = (count: number) => {
+      const colors = [
+        'rgba(255,255,255,0.8)',
+        'rgba(180,180,255,0.7)',
+        'rgba(200,200,255,0.6)'
+      ];
       return Array.from({ length: count }).map(() => ({
         top: Math.random() * 100,
         left: Math.random() * 100,
         size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.7 + 0.3,
-        duration: Math.random() * 3 + 2,
+        delay: Math.random() * 5,
+        color: colors[Math.floor(Math.random() * colors.length)]
       }));
     };
 
@@ -105,20 +110,21 @@ export default function Company() {
           {stars.map((star, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-white"
+              className="absolute rounded-full"
               style={{
                 width: `${star.size}px`,
                 height: `${star.size}px`,
                 top: `${star.top}%`,
                 left: `${star.left}%`,
-                opacity: star.opacity,
+                background: star.color,
               }}
               animate={{
-                opacity: [star.opacity, star.opacity * 1.5, star.opacity],
+                opacity: [0.7, 1, 0.7],
                 scale: [1, 1.2, 1],
               }}
               transition={{
-                duration: star.duration,
+                duration: 3,
+                delay: star.delay,
                 repeat: Infinity,
                 repeatType: "reverse",
               }}

@@ -46,12 +46,27 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://aliatish.com"),
   title: {
-    template: '%s | ALIATISH - Enterprise Web Solutions',
-    default: 'ALIATISH - Advanced Digital Experiences & Enterprise Solutions',
+    template: '%s | ALIATISH - Custom Web Development & Enterprise Solutions',
+    default: 'ALIATISH - High-Performance Web Apps & Enterprise Digital Solutions',
   },
   description:
-    "Transform your digital presence with ALIATISH, a premier web development agency specializing in enterprise solutions, e-commerce platforms, and custom digital experiences.",
-  keywords: ["web development", "enterprise solutions", "digital experiences", "custom software", "e-commerce", "web design", "UI/UX", "business intelligence", "API development", "React", "Next.js"],
+    "ALIATISH delivers high-performance web applications, e-commerce solutions, and data visualization dashboards with cosmic-inspired designs. Transform your business with our enterprise-grade development services.",
+  keywords: [
+    "custom web development", 
+    "enterprise solutions", 
+    "digital experiences", 
+    "microservices architecture", 
+    "data visualization", 
+    "e-commerce platforms", 
+    "real-time dashboards", 
+    "API development", 
+    "React", 
+    "Next.js", 
+    "business intelligence", 
+    "cloud infrastructure",
+    "scalable applications",
+    "UI/UX design"
+  ],
   authors: [{ name: "ALIATISH Development Team" }],
   creator: "ALIATISH",
   publisher: "ALIATISH Technologies",
@@ -65,8 +80,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://aliatish.com',
     siteName: 'ALIATISH',
-    title: 'ALIATISH - Advanced Digital Experiences & Enterprise Solutions',
-    description: 'Transform your digital presence with ALIATISH, a premier web development agency specializing in enterprise solutions, e-commerce platforms, and custom digital experiences.',
+    title: 'ALIATISH - High-Performance Web Apps & Enterprise Digital Solutions',
+    description: 'ALIATISH delivers high-performance web applications, e-commerce solutions, and data visualization dashboards with cosmic-inspired designs. Transform your business with our enterprise-grade development services.',
     images: [
       {
         url: '/og-image.jpg',
@@ -78,8 +93,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ALIATISH - Advanced Digital Experiences',
-    description: 'Transform your digital presence with ALIATISH, a premier web development agency',
+    title: 'ALIATISH - High-Performance Web Apps & Enterprise Solutions',
+    description: 'Custom web development with microservices architecture, data visualization dashboards, and e-commerce solutions for modern businesses',
     images: ['/twitter-image.jpg'],
     creator: '@aliatish',
   },
@@ -92,6 +107,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  alternates: {
+    canonical: 'https://aliatish.com',
+    languages: {
+      'en-US': 'https://aliatish.com',
+    },
+  },
+  verification: {
+    google: 'google-site-verification-code', // Replace with actual code when available
   },
   category: 'technology',
 };

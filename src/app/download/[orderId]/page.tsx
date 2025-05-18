@@ -1,32 +1,18 @@
+"use client";
 import React from 'react';
 import NavBar from '@/components/ui/NavBar';
 import Footer from '@/components/ui/Footer';
-import { Metadata, ResolvingMetadata } from 'next';
+import { useParams } from 'next/navigation';
 
-interface Order {
+type Order = {
   product_slug: string;
   license_key?: string;
   saas_status?: 'pending' | 'provisioned' | 'failed';
 }
 
-type Props = {
-  params: { orderId: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
-
-export async function generateMetadata(
-  { params, searchParams: _searchParams }: Props,
-  _parent: ResolvingMetadata
-): Promise<Metadata> {
-  const { orderId } = params;
-  return {
-    title: `Download - Order #${orderId}`,
-  }
-}
-
-export default function DownloadPage({ params, searchParams: _searchParams }: Props) {
-  const { orderId } = params;
-  const _token = _searchParams.token;
+export default function DownloadPage() {
+  const params = useParams();
+  const orderId = params.orderId as string;
 
   // This would normally fetch from the server, but for now we'll mock the order
   // In production, you would make a fetch request to your API

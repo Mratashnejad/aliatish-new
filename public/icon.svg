@@ -1,0 +1,61 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cosmic background gradient -->
+  <rect width="512" height="512" rx="128" fill="url(#paint0_radial)" />
+  
+  <!-- Central orbital circle -->
+  <circle cx="256" cy="256" r="120" stroke="url(#paint1_linear)" stroke-width="6" stroke-opacity="0.8" />
+  
+  <!-- Smaller orbital circle -->
+  <circle cx="256" cy="256" r="80" stroke="url(#paint2_linear)" stroke-width="4" stroke-opacity="0.6" />
+  
+  <!-- Inner glow -->
+  <circle cx="256" cy="256" r="40" fill="url(#paint3_radial)" />
+  
+  <!-- Orbital objects -->
+  <circle cx="350" cy="256" r="15" fill="url(#paint4_linear)" />
+  <circle cx="162" cy="256" r="10" fill="url(#paint5_linear)" />
+  <circle cx="256" cy="365" r="12" fill="url(#paint6_linear)" />
+  
+  <!-- Letter A in the center -->
+  <path d="M244 210L228 290H248L264 210H244ZM264 210L280 290H300L284 210H264Z" fill="white" />
+  <path d="M233 250H295" stroke="white" stroke-width="6" />
+  
+  <!-- Definitions for gradients -->
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 256) rotate(90) scale(300)">
+      <stop offset="0" stop-color="#6366F1" />
+      <stop offset="0.5" stop-color="#4F46E5" />
+      <stop offset="1" stop-color="#7C3AED" />
+    </radialGradient>
+    
+    <linearGradient id="paint1_linear" x1="136" y1="136" x2="376" y2="376" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A5B4FC" />
+      <stop offset="1" stop-color="#8B5CF6" />
+    </linearGradient>
+    
+    <linearGradient id="paint2_linear" x1="176" y1="176" x2="336" y2="336" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4B5FD" />
+      <stop offset="1" stop-color="#8B5CF6" />
+    </linearGradient>
+    
+    <radialGradient id="paint3_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 256) rotate(90) scale(40)">
+      <stop offset="0" stop-color="white" stop-opacity="0.8" />
+      <stop offset="1" stop-color="#C4B5FD" stop-opacity="0.2" />
+    </radialGradient>
+    
+    <linearGradient id="paint4_linear" x1="335" y1="241" x2="365" y2="271" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBBF24" />
+      <stop offset="1" stop-color="#F59E0B" />
+    </linearGradient>
+    
+    <linearGradient id="paint5_linear" x1="152" y1="246" x2="172" y2="266" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34D399" />
+      <stop offset="1" stop-color="#10B981" />
+    </linearGradient>
+    
+    <linearGradient id="paint6_linear" x1="244" y1="353" x2="268" y2="377" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F472B6" />
+      <stop offset="1" stop-color="#EC4899" />
+    </linearGradient>
+  </defs>
+</svg> 

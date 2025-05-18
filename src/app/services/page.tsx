@@ -6,8 +6,8 @@ import Link from 'next/link';
 import NavBar from '@/components/ui/NavBar';
 import Footer from '@/components/ui/Footer';
 import ServicesSection from '@/components/sections/ServicesSection';
-import Head from 'next/head';
 import Image from 'next/image';
+import ServicesStructuredData from '@/components/ServicesStructuredData';
 
 // Additional detailed service information
 const detailedServices = [
@@ -178,25 +178,10 @@ export default function ServicesPage() {
       color: colors[Math.floor(Math.random() * colors.length)]
     })));
   }, []);
-  
-  // SEO metadata
-  const pageTitle = "Enterprise Web Solutions & Digital Services | ALIATISH";
-  const pageDescription = "Transform your business with our custom enterprise web applications, e-commerce solutions, business intelligence dashboards and API integration services.";
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#080b20] via-[#0d0a25] to-[#1a0e35]">
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <meta name="keywords" content="enterprise web applications, e-commerce solutions, business intelligence dashboards, API development, digital transformation" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-      </Head>
-      
+      <ServicesStructuredData />
       <NavBar />
       
       {/* Hero section with cosmic theme */}

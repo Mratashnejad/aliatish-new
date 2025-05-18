@@ -11,7 +11,7 @@ const DOWNLOAD_BASE_URL = process.env.DOWNLOAD_BASE_URL || 'https://yourdomain.c
 const LICENSE_PRODUCTS = ['crm-saas', 'chrome-extension']; // Products that need license keys
 const SAAS_PRODUCTS = ['crm-saas']; // Products that need SaaS provisioning
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 'PLACEHOLDER_API_KEY_FOR_BUILD');
 
 // PostgreSQL connection pool
 const pool = new Pool({

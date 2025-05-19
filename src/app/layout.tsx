@@ -3,6 +3,7 @@ import { Inter, Outfit, Space_Grotesk } from "next/font/google";
 import "@/styles/globals.css";
 import PaddleLoader from '@/components/PaddleLoader';
 import StructuredData from '@/components/StructuredData';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 // Inter with variable weight for body text
 const inter = Inter({
@@ -115,7 +116,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code', // Replace with actual code when available
+    google: 'ObjVf8WcpC4AuSTGu-yQB1HBmCmKEYeROGD-aALI4u8',
   },
   category: 'technology',
 };
@@ -143,6 +144,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</style>
       </head>
       <body suppressHydrationWarning className="antialiased mac-desktop font-chicago min-h-screen overflow-y-auto">
+        <GoogleTagManager gtmId="GTM-MP34XP5N" />
         {children}
         <PaddleLoader />
         <StructuredData />

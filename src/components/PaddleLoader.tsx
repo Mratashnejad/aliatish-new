@@ -12,8 +12,7 @@ export default function PaddleLoader() {
     // This code only runs on the client
     if (window.Paddle) {
       window.Paddle.Setup({ 
-        vendor: PADDLE_VENDOR_ID,
-        environment: USE_SANDBOX ? 'sandbox' : 'production'
+        vendor: PADDLE_VENDOR_ID
       });
     }
   }, []); // Empty dependency array means this runs once after component mounts

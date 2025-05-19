@@ -1,0 +1,15 @@
+---
+deployment:
+  tasks:
+    # Copy all files to the public_html directory
+    # Replace 'username' below with your actual cPanel username before deployment
+    - export DEPLOYPATH=/home/username/public_html/
+    - /bin/cp -R public/* $DEPLOYPATH
+    - /bin/cp -R .next/* $DEPLOYPATH/.next
+    - /bin/cp package.json $DEPLOYPATH
+    - /bin/cp server.js $DEPLOYPATH
+    
+    # Set permissions
+    - /bin/chmod 755 $DEPLOYPATH/.next
+    - /bin/chmod 644 $DEPLOYPATH/server.js
+    - /bin/chmod 644 $DEPLOYPATH/package.json 

@@ -54,8 +54,7 @@ export default function SalePage() {
         // Paddle Classic implementation
         window.Paddle.Checkout.open({
           product: productId,
-          email: customerEmail, // Pre-fill email if available
-          passthrough: JSON.stringify({ productSlug }),
+          passthrough: JSON.stringify({ productSlug, email: customerEmail }),
           successCallback: () => {
             window.location.href = '/order-success';
           },
@@ -65,8 +64,7 @@ export default function SalePage() {
         // Paddle Billing implementation
         window.Paddle.Checkout.open({
           items: [{ priceId: productId, quantity: 1 }],
-          customer: { email: customerEmail },
-          passthrough: JSON.stringify({ productSlug }),
+          passthrough: JSON.stringify({ productSlug, email: customerEmail }),
           successCallback: () => {
             window.location.href = '/order-success';
           },
